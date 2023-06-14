@@ -1,95 +1,55 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import {
+  Box,
+  Card,
+  CardBody,
+  Center,
+  Grid,
+  GridItem,
+  Skeleton,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Center height="100vh" paddingX="24">
+      <Grid width="full" templateColumns="repeat(12,minmax(0,1fr))" gap={4}>
+        <GridItem position="relative" colStart={3} colSpan={8}>
+          <Text
+            fontSize="7xl"
+            fontWeight="bold"
+            textAlign="center"
+            lineHeight="tall"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            Plan. Debug.
+            <br />
+            Reason.
+          </Text>
+          <Box position="absolute" inset={0} display="flex" alignItems="center">
+            <Card
+              height={20}
+              width="100%"
+              borderRadius="2xl"
+              opacity={0.9}
+              backgroundColor={["transparent"]}
+              backdropFilter="auto"
+              backdropBlur="6px"
+              variant="outline"
+            >
+              <CardBody>
+                <Stack direction="row" h="full">
+                  <Skeleton width={1} />
+                  <Text fontSize="2xl" marginLeft={2}>
+                    Placeholder
+                  </Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          </Box>
+        </GridItem>
+      </Grid>
+    </Center>
+  );
 }
