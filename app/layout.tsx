@@ -1,12 +1,12 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
 import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: "CodeStory",
-  description: "CodeStory",
+  description: "Plan. Debug. Reason.",
 };
 
 export default function RootLayout({
