@@ -6,7 +6,6 @@ import {
   Card,
   CardBody,
   Center,
-  Code,
   Fade,
   Flex,
   Grid,
@@ -21,52 +20,9 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { CodeBlock } from "@/components/codeblock";
-
 import { Typewriter } from "@/components/typewriter";
 
-const sampleQueries = [
-  {
-    query: "🧑‍💻 I want to add generatedAt as a filter on reports page",
-    response: (
-      <Box fontSize={["md", "lg", "xl"]}>
-        🧙 The report page filter is currently implemented at{" "}
-        <Code colorScheme="green" textDecoration="underline">
-          /components/reports/filter.tsx
-        </Code>
-        . In order to introduce the new filter, first add{" "}
-        <Code colorScheme="green">generatedAt</Code> to the type definition for{" "}
-        <Code colorScheme="green">ReportFilterInput</Code>:<br />
-        <CodeBlock
-          code={`type ReportFilterInput = {
-  id: string;
-  testDate: Date;
-  generatedAt: Date; // <-- add this line
-}`}
-          language="typescript"
-        />
-        <br />
-        Then, update the <Code colorScheme="green">ReportFilter</Code> method to
-        have a new state variable <Code colorScheme="green">generatedAt</Code>{" "}
-        and update the <Code colorScheme="green">callback</Code> method to add
-        the <Code colorScheme="green">generatedAt</Code> filter as so:
-        <br />
-        <CodeBlock
-          code={`generatedAt: generatedAt?.toDate(),`}
-          language="typescript"
-        />
-      </Box>
-    ),
-  },
-  {
-    query: "🧑‍💻 CPU usage is spiking on prod on every file upload",
-    response: <Text>🧙 Response 2</Text>,
-  },
-  {
-    query: "🧑‍💻 Walk me through the payment processing consumer",
-    response: <Text>🧙 Response 3</Text>,
-  },
-];
+import { sampleQueries } from "./data";
 
 export default function Home() {
   const [activeQuery, setActiveQuery] = useState<number>(0);
@@ -122,7 +78,7 @@ export default function Home() {
           </Tooltip>
         </Show>
       </Flex>
-      <Center flex="1" marginTop="6">
+      <Center flex="1">
         <Grid width="full" templateColumns="repeat(12,minmax(0,1fr))" gap={4}>
           <GridItem
             position="relative"
@@ -176,7 +132,7 @@ export default function Home() {
               key={sampleQueries[activeQuery].query}
             >
               <Card
-                height="md"
+                height="40vh"
                 bgColor="131c1c"
                 color="white"
                 overflow="hidden"
