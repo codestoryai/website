@@ -6,32 +6,65 @@ import {
   Card,
   CardBody,
   Center,
+  Code,
   Fade,
   Flex,
   Grid,
   GridItem,
+  Show,
   SlideFade,
   Spacer,
   Stack,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { TypeWriterText } from "./page.styled";
+import { CodeBlock } from "@/components/codeblock";
+
+import { Typewriter } from "@/components/typewriter";
 
 const sampleQueries = [
   {
-    query: "I want to add a generated_at filter to the reports page",
-    response: <Text>Response 1</Text>,
+    query: "🧑‍💻 I want to add generatedAt as a filter on reports page",
+    response: (
+      <Box fontSize={["md", "lg", "xl"]}>
+        🧙 The report page filter is currently implemented at{" "}
+        <Code colorScheme="green" textDecoration="underline">
+          /components/reports/filter.tsx
+        </Code>
+        . In order to introduce the new filter, first add{" "}
+        <Code colorScheme="green">generatedAt</Code> to the type definition for{" "}
+        <Code colorScheme="green">ReportFilterInput</Code>:<br />
+        <CodeBlock
+          code={`type ReportFilterInput = {
+  id: string;
+  testDate: Date;
+  generatedAt: Date; // <-- add this line
+}`}
+          language="typescript"
+        />
+        <br />
+        Then, update the <Code colorScheme="green">ReportFilter</Code> method to
+        have a new state variable <Code colorScheme="green">generatedAt</Code>{" "}
+        and update the <Code colorScheme="green">callback</Code> method to add
+        the <Code colorScheme="green">generatedAt</Code> filter as so:
+        <br />
+        <CodeBlock
+          code={`generatedAt: generatedAt?.toDate(),`}
+          language="typescript"
+        />
+      </Box>
+    ),
   },
   {
-    query: "CPU usage is spiking on production on every file upload",
-    response: <Text>Response 2</Text>,
+    query: "🧑‍💻 CPU usage is spiking on prod on every file upload",
+    response: <Text>🧙 Response 2</Text>,
   },
   {
-    query: "Open payment consumer for Credit Card transactions",
-    response: <Text>Response 3</Text>,
+    query: "🧑‍💻 Walk me through the payment processing consumer",
+    response: <Text>🧙 Response 3</Text>,
   },
 ];
 
@@ -49,65 +82,93 @@ export default function Home() {
     <Box
       display="flex"
       flexDirection="column"
-      height="100vh"
-      paddingX="24"
-      paddingY="8"
+      width="100vw"
+      minHeight="100vh"
+      overflow="hidden"
+      paddingX={[4, 8, 8, 8, 24]}
+      paddingY={[4, 6, 6, 6, 8]}
       color="white"
       backgroundColor="#121919"
-      backgroundImage="url(/confetti.svg)"
+      backgroundImage={`url("/bg.svg")`}
+      backgroundSize={"cover"}
     >
       <Flex>
         <Box>
-          <Text fontSize="3xl" fontWeight="bold">
+          <Text fontSize={["xl", "2xl", "2xl", "2xl", "3xl"]} fontWeight="bold">
             CodeStory.AI
           </Text>
           <Badge backgroundColor="#eebc59">Coming soon!</Badge>
         </Box>
         <Spacer />
-        <Card variant="outline" backgroundColor="transparent" padding="4">
-          <Stack direction="row" alignItems="center" justify="center">
-            <Text color="white">Download for</Text>
-            <Image src="/vscode.svg" width={40} height={40} alt="VSCode logo" />
-          </Stack>
-        </Card>
+        <Show above="sm">
+          <Tooltip label="COMING SOON!" aria-label="COMING SOON!">
+            <Card
+              variant="outline"
+              backgroundColor="transparent"
+              paddingY="4"
+              paddingX="8"
+              cursor="not-allowed"
+            >
+              <Stack direction="row" alignItems="center" justify="center">
+                <Text color="white">Download for</Text>
+                <Image
+                  src="/vscode.svg"
+                  width={40}
+                  height={40}
+                  alt="VSCode logo"
+                />
+              </Stack>
+            </Card>
+          </Tooltip>
+        </Show>
       </Flex>
-      <Center flex="1">
+      <Center flex="1" marginTop="6">
         <Grid width="full" templateColumns="repeat(12,minmax(0,1fr))" gap={4}>
-          <GridItem position="relative" colStart={3} colSpan={8}>
-            <Text fontSize="6xl" fontWeight="bold" textAlign="center">
+          <GridItem
+            position="relative"
+            colStart={[1, 2, 2, 2, 3]}
+            colSpan={[12, 10, 10, 10, 8]}
+          >
+            <Text
+              fontSize={["xl", "3xl", "3xl", "3xl", "5xl"]}
+              fontWeight="bold"
+              textAlign="center"
+            >
               Plan. Debug. Reason.
             </Text>
             <Card
-              height={20}
+              height={["75px", "75px", "90px", "90px", "75px"]}
               width="100%"
-              borderRadius="2xl"
+              borderRadius={["lg", "xl", "xl", "xl", "2xl"]}
               opacity={0.9}
               backgroundColor={["transparent"]}
               backdropFilter="auto"
               backdropBlur="6px"
               variant="outline"
-              marginY={"-2"}
+              marginY="2"
             >
-              <CardBody>
-                <Stack direction="row" h="full">
-                  <Fade in={true} key={sampleQueries[activeQuery].query}>
-                    <TypeWriterText
-                      fontSize="2xl"
-                      marginLeft={2}
-                      fontWeight="bold"
-                      color="#eebc59"
-                    >
-                      {sampleQueries[activeQuery].query}
-                    </TypeWriterText>
-                  </Fade>
-                </Stack>
+              <CardBody padding={["2", "3", "3", "3", "4"]}>
+                <Fade in={true} key={sampleQueries[activeQuery].query}>
+                  <Typewriter
+                    key={sampleQueries[activeQuery].query}
+                    text={sampleQueries[activeQuery].query}
+                  />
+                </Fade>
               </CardBody>
             </Card>
-            <Text fontSize="6xl" fontWeight="bold" textAlign="center">
+            <Text
+              fontSize={["xl", "3xl", "3xl", "3xl", "5xl"]}
+              fontWeight="bold"
+              textAlign="center"
+            >
               Within your IDE.
             </Text>
           </GridItem>
-          <GridItem colStart={4} colSpan={6}>
+          <GridItem
+            colStart={[1, 2, 2, 2, 4]}
+            colSpan={[12, 10, 10, 10, 6]}
+            marginY="4"
+          >
             <SlideFade
               in={true}
               offsetY="200px"
@@ -116,24 +177,47 @@ export default function Home() {
             >
               <Card
                 height="md"
-                bgGradient="linear(to-b, #131c1c, #1a1c1c)"
+                bgColor="131c1c"
                 color="white"
+                overflow="hidden"
+                variant="outline"
+                backgroundColor="#121919"
+                borderColor="rgb(238, 188, 89)"
+                boxShadow="0 0 16px rgba(238, 188, 89, 0.6);"
               >
                 <CardBody>{sampleQueries[activeQuery].response}</CardBody>
+                <Box
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  right="0"
+                  height="25%"
+                  backgroundImage="linear-gradient(to bottom, rgba(19, 28, 28, 0), rgba(26, 28, 28, 1));"
+                />
               </Card>
             </SlideFade>
           </GridItem>
-          <GridItem colStart={4} colSpan={6}>
+          <GridItem colStart={[1, 2, 2, 2, 4]} colSpan={[12, 10, 10, 10, 6]}>
             <Center>
-              <Text fontSize={"2xl"} marginRight={3}>
+              <Text fontSize={["lg", "xl", "xl", "xl", "2xl"]} marginRight={3}>
                 Backed by
               </Text>
-              <Image
-                src="/yc_logo.svg"
-                width={200}
-                height={200}
-                alt="Y Combinator Logo"
-              />
+              <Show above="sm">
+                <Image
+                  src="/yc_logo.svg"
+                  width={200}
+                  height={200}
+                  alt="Y Combinator Logo"
+                />
+              </Show>
+              <Show below="sm">
+                <Image
+                  src="/yc_logo.svg"
+                  width={150}
+                  height={150}
+                  alt="Y Combinator Logo"
+                />
+              </Show>
             </Center>
           </GridItem>
         </Grid>

@@ -1,8 +1,8 @@
-import { Montserrat } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 
 import { Providers } from "./providers";
 
-const inter = Montserrat({ subsets: ["latin"] });
+const font = Space_Mono({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "CodeStory",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
