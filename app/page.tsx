@@ -76,7 +76,9 @@ export default function Home() {
               paddingX="8"
             >
               <Stack direction="row" alignItems="center" justify="center">
-                <Text color="white">Download for</Text>
+                <Text fontSize="lg" color="white" marginRight="4">
+                  Download for
+                </Text>
                 <Image
                   src="/vscode.svg"
                   width={40}

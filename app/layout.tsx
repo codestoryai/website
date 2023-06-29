@@ -1,8 +1,5 @@
-import { Space_Mono } from "next/font/google";
-
+import { parse } from "@/styles/fonts";
 import { Providers } from "./providers";
-
-const font = Space_Mono({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "CodeStory: A 10x engineer, right inside your editor.",
@@ -21,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={parse.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
