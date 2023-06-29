@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 const font = Space_Mono({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
-  title: "CodeStory: Plan. Debug. Reason. Within your IDE.",
+  title: "CodeStory: A 10x engineer, right inside your editor.",
   description:
     "CodeStory is an AI coding assistant that learns the context of your code and helps you plan, debug and reason with code on a day-to-day basis.",
   applicationName: "CodeStory",

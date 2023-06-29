@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Badge,
   Box,
   Card,
   CardBody,
@@ -10,14 +9,15 @@ import {
   Flex,
   Grid,
   GridItem,
+  Link,
   Show,
   SlideFade,
   Spacer,
   Stack,
   Text,
-  Tooltip,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import NextLink from "next/link";
 import { useEffect, useState } from "react";
 
 import { Typewriter } from "@/components/typewriter";
@@ -49,21 +49,31 @@ export default function Home() {
       backgroundSize={"cover"}
     >
       <Flex>
-        <Box>
+        <Flex flexDirection="row" alignItems="center">
+          <Image
+            src="/cs-logomark.svg"
+            width={45}
+            height={45}
+            alt="CodeStory Logo"
+          />
           <Text fontSize={["xl", "2xl", "2xl", "2xl", "3xl"]} fontWeight="bold">
             CodeStory.AI
           </Text>
-          <Badge backgroundColor="#eebc59">Coming soon!</Badge>
-        </Box>
+        </Flex>
         <Spacer />
         <Show above="sm">
-          <Tooltip label="COMING SOON!" aria-label="COMING SOON!">
+          <Link
+            as={NextLink}
+            href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
+            transition={"transform 0.2s ease-in-out"}
+            _hover={{ top: "-2px", transform: "scale(1.10)" }}
+            isExternal
+          >
             <Card
               variant="outline"
               backgroundColor="transparent"
               paddingY="4"
               paddingX="8"
-              cursor="not-allowed"
             >
               <Stack direction="row" alignItems="center" justify="center">
                 <Text color="white">Download for</Text>
@@ -75,7 +85,7 @@ export default function Home() {
                 />
               </Stack>
             </Card>
-          </Tooltip>
+          </Link>
         </Show>
       </Flex>
       <Center flex="1">
@@ -90,7 +100,7 @@ export default function Home() {
               fontWeight="bold"
               textAlign="center"
             >
-              Plan. Debug. Reason.
+              A 10x engineer
             </Text>
             <Card
               height={["75px", "75px", "90px", "90px", "75px"]}
@@ -117,7 +127,7 @@ export default function Home() {
               fontWeight="bold"
               textAlign="center"
             >
-              Within your IDE.
+              Right inside your editor
             </Text>
           </GridItem>
           <GridItem
@@ -155,25 +165,36 @@ export default function Home() {
           </GridItem>
           <GridItem colStart={[1, 2, 2, 2, 4]} colSpan={[12, 10, 10, 10, 6]}>
             <Center>
-              <Text fontSize={["lg", "xl", "xl", "xl", "2xl"]} marginRight={3}>
-                Backed by
-              </Text>
-              <Show above="sm">
-                <Image
-                  src="/yc_logo.svg"
-                  width={200}
-                  height={200}
-                  alt="Y Combinator Logo"
-                />
-              </Show>
-              <Show below="sm">
-                <Image
-                  src="/yc_logo.svg"
-                  width={150}
-                  height={150}
-                  alt="Y Combinator Logo"
-                />
-              </Show>
+              <Link
+                as={NextLink}
+                href="https://www.ycombinator.com/companies/codestory"
+                isExternal
+              >
+                <Flex flexDirection="row">
+                  <Text
+                    fontSize={["lg", "xl", "xl", "xl", "2xl"]}
+                    marginRight={3}
+                  >
+                    Backed by
+                  </Text>
+                  <Show above="sm">
+                    <Image
+                      src="/yc_logo.svg"
+                      width={200}
+                      height={200}
+                      alt="Y Combinator Logo"
+                    />
+                  </Show>
+                  <Show below="sm">
+                    <Image
+                      src="/yc_logo.svg"
+                      width={150}
+                      height={150}
+                      alt="Y Combinator Logo"
+                    />
+                  </Show>
+                </Flex>
+              </Link>
             </Center>
           </GridItem>
         </Grid>
