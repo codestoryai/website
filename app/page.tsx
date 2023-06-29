@@ -172,7 +172,7 @@ export default function Home() {
                 href="https://www.ycombinator.com/companies/codestory"
                 isExternal
               >
-                <Flex flexDirection="row">
+                <Flex flexDirection="row" alignItems="center">
                   <Text
                     fontSize={["lg", "xl", "xl", "xl", "2xl"]}
                     marginRight={3}
