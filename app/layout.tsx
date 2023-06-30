@@ -1,5 +1,7 @@
-import { parse } from "@/styles/fonts";
+import { Inter } from "next/font/google";
 import { Providers } from "./providers";
+
+const inter = Inter({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "CodeStory: A 10x engineer, right inside your editor.",
@@ -18,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={parse.className}>
+      <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

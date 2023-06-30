@@ -1,6 +1,6 @@
-import { Box, Code, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 
-import { CodeBlock } from "@/components/codeblock";
+import { Code, CodeBlock } from "@/components/code";
 
 export const sampleQueries = [
   {

@@ -1,5 +1,14 @@
-import { Box } from "@chakra-ui/react";
+import { parse } from "@/styles/fonts";
+import { Box, Code as ChakraCode, CodeProps } from "@chakra-ui/react";
 import { Highlight } from "prism-react-renderer";
+
+export const Code = ({ children, ...props }: CodeProps) => {
+  return (
+    <ChakraCode className={parse.className} {...props}>
+      {children}
+    </ChakraCode>
+  );
+};
 
 export const CodeBlock = (props: { code: string; language: string }) => {
   return (
@@ -11,7 +20,10 @@ export const CodeBlock = (props: { code: string; language: string }) => {
     >
       <Highlight {...props}>
         {({ style, tokens, getLineProps, getTokenProps }) => (
-          <pre style={{ ...style, padding: "10px", overflow: "auto" }}>
+          <pre
+            className={parse.className}
+            style={{ ...style, padding: "10px", overflow: "auto" }}
+          >
             {tokens.map((line, i) => (
               <Box key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => (
