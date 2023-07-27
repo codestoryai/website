@@ -1,1 +1,0 @@
-CodeStory is an AI coding assistant that learns the context of your code and helps you plan, debug and reason with code on a day-to-day basis.
