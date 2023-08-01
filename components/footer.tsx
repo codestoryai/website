@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AiFillSlackCircle } from "react-icons/ai";
+import { BiLogoSlack } from "react-icons/bi";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
 
@@ -40,7 +40,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <AiFillSlackCircle size={32} color="#2d64bc" />
+                <BiLogoSlack size={32} />
               </a>
             </div>
           </div>
