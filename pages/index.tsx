@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { useEffect } from "react";
 
 import Container from "@/components/container";
@@ -21,6 +22,16 @@ export default function Index() {
           <title>CodeStory</title>
         </Head>
         <div>
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-EM5Q6BK5E6" />
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-EM5Q6BK5E6');
+            `}
+          </Script>
           <canvas
             id="gradient-canvas"
             data-transition-in
