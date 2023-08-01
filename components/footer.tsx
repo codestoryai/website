@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AiFillSlackCircle } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
 
@@ -33,6 +34,13 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <AiFillLinkedin size={32} color="#2d64bc" />
+              </a>
+              <a
+                href="https://join.slack.com/t/codestoryai/shared_invite/zt-1x4zy3mk1-9fL5k~7XGSNNku7~iYr51w"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiFillSlackCircle size={32} color="#2d64bc" />
               </a>
             </div>
           </div>
