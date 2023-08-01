@@ -11,7 +11,7 @@ ogImage:
 ---
 
 
-# LLMs walking the code graph with `ts-morph`
+# LLMs walking the code graph with `ts-morph` 👣
 
 With CodeStory we want to build a senior engineer right in your IDE!
 
@@ -110,7 +110,7 @@ This allows us to get all the **edges or dependencies** of this function to othe
 
 Today we are limited by the context length of the LLM (100k is the max we can go, and even then inference speed drops quite a bit). 
 
-By giving the LLM a **LSP** it can talk to we are able to get the LLM to ask for more information about the symbols which it is missing or has not seen yet.
+By giving the LLM a **Code Graph** it can walk on, we are able to get the LLM to ask for more information about the symbols which it is missing or has not seen yet.
 
 This allows the LLM to ask for:
 
