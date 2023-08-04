@@ -1,3 +1,3 @@
-# Project Fable
-### v0.1.3
-#### Website for project-fable.com
+# CodeStory main website
+### v0.2.0
+#### Website for https://codestory.ai/
