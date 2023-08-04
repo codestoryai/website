@@ -29,7 +29,7 @@ export const CrucibleDarkTheme = {
         headings  : {
             font       : "Replica",
             weight     : 600,
-            lineHeight : 1.6,
+            lineHeight : 1.4,
             color      : "#1B2022",
             multiplier : 1.24
         },

@@ -57,7 +57,7 @@ const Home = () => {
 
             <Element as="section" id="home-content">
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  INTRO  */}
+                {/*  HEADER  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="header" className="content-card" shape="rounded" padding="micro">
                     <Element as="div" className="cs-logo">
@@ -70,6 +70,9 @@ const Home = () => {
                     </Element>
                 </Card>
 
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                {/*  OPENER  */}
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="intro" className="content-card" shape="rounded" padding="huge">
                     <Heading
                         as="h2" className="line-height-one"
@@ -78,8 +81,11 @@ const Home = () => {
                     </Heading>
                 </Card>
 
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                {/*  PROBLEM STATEMENT  */}
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="description" className="content-card" shape="rounded" padding="huge">
-                    <Heading as="h5" weight="400">
+                    <Heading as="h5" weight="400" marginBottom="micro">
                         Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like
                         a chore these days. We want to reduce and eventually remove the time spent on mundane tasks
                         so that you can focus instead on building and shipping.
@@ -93,23 +99,77 @@ const Home = () => {
                 </Card>
 
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  AIDE  */}
+                {/*  AIDE INTRO  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="aide" className="content-card" shape="rounded" padding="huge">
                     <Heading
                         as="h2" align="centre"
                         marginTop="micro" marginBottom="nano"
                         className="line-height-one"
-                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                        title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                     >
-                        To that end, meet Aide, an AI-first IDE
+                        So, we built Aide, an AI-first IDE
                     </Heading>
 
-                    <Heading as="h5" align="centre" weight="400" marginBottom="micro">
+                    <Heading as="h3" align="centre" weight="400" marginBottom="micro">
                         Just tell it what to do, and it shall be done.
                     </Heading>
 
                     <Element as="img" src={AideSS.src} />
+                </Card>
+
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                {/*  AIDE USP 1  */}
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                <Card id="usp-1" className="content-card" shape="rounded" padding="huge">
+                    <Heading
+                        as="h4"
+                        marginBottom="nano"
+                        className="line-height-one"
+                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                    >
+                        Create via chat
+                    </Heading>
+
+                    <Heading as="h5" weight="400" marginBottom="micro">
+                        Instruct Aide to do things, and watch the magic happen.
+                    </Heading>
+
+                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
+                        <Text>&rarr; Create a NextJS repo with Tailwind</Text>
+                    </Card>
+
+                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
+                        <Text>&rarr; Fix the dependency mismatch errors in this NodeJS project</Text>
+                    </Card>
+
+                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
+                        <Text>&rarr; Identify the async functions and check if they are being awaited properly to prevent race conditions.</Text>
+                    </Card>
+
+                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
+                        <Text>&rarr; Solve world hunger</Text>
+                    </Card>
+
+                    <Text marginTop="micro">Ok, maybe not the last one.</Text>
+                </Card>
+
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                {/*  AIDE USP 2  */}
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                <Card id="usp-2" className="content-card" shape="rounded" padding="huge">
+                    <Heading
+                        as="h4"
+                        marginBottom="nano"
+                        className="line-height-one"
+                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                    >
+                        Decision making, also made easy
+                    </Heading>
+
+                    <Heading as="h5" weight="400" marginBottom="micro">
+                        Aide pre-evaluates and picks the best option for you, out of the box.
+                    </Heading>
                 </Card>
             </Element>
         </HomeStyled>
