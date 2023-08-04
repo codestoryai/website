@@ -39,15 +39,15 @@ const Home = () => {
             </Head>
 
             <NextSeo
-                title="Aide by CodeStory — An epic historical fantasy based on Indian mythology"
-                description="Actions have consequences. But what if it did not? A man rescued from the depths of the nether worlds discovers his soul does not accrue karma. An emissary of Death plots revenge on the Gods. Empires are overthrown. Human virtue ebbs to its lowest. Strange alliances are made. The age of malice and war has dawned."
+                title="Aide by CodeStory — Bringing the joy of creation back into development"
+                description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url         : "https://project-fable.com/",
-                    title       : "Aide by CodeStory — An epic historical fantasy based on Indian mythology",
-                    description : "Actions have consequences. But what if it did not? A man rescued from the depths of the nether worlds discovers his soul does not accrue karma. An emissary of Death plots revenge on the Gods. Empires are overthrown. Human virtue ebbs to its lowest. Strange alliances are made. The age of malice and war has dawned.",
+                    url         : "https://codestory.ai/",
+                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
                     images      : [
                         {
-                            url : "https://project-fable.s3.ap-south-1.amazonaws.com/for-website/site-seo.jpg"
+                            url : "https://codestory.ai/"
                         }
                     ],
                     site_name   : "Aide by CodeStory"
