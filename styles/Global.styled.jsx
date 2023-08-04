@@ -33,8 +33,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .line-height-one { line-height : 1; }
 
-    #fable-logo svg {
-        width : 48px;
-        fill  : ${defaultColours.black};
-    }
+    .font-replica { font-family: "Replica", sans-serif; }
+    .font-akkurat { font-family: "Akkurat", sans-serif; }
 `;

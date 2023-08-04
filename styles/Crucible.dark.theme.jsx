@@ -20,7 +20,7 @@ export const CrucibleDarkTheme = {
             serif : "Replica"
         },
         paras     : {
-            font       : "Replica",
+            font       : "Akkurat",
             color      : "#1B2022",
             lineHeight : 1.44,
             size       : 1,
@@ -34,7 +34,7 @@ export const CrucibleDarkTheme = {
             multiplier : 1.24
         },
         links     : {
-            font    : "Replica",
+            font    : "Akkurat",
             default : {
                 color : defaultColours.red90
             },

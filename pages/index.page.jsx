@@ -60,9 +60,11 @@ const Home = () => {
                 {/*  HEADER  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="header" className="content-card" shape="rounded" padding="micro">
-                    <Element as="div" className="cs-logo">
-                        <CSLogo />
-                    </Element>
+                    <Link href="/">
+                        <Element as="div" className="cs-logo">
+                            <CSLogo />
+                        </Element>
+                    </Link>
 
                     <Element as="div" className="yc-logo" verticallyCentreItems>
                         <Text marginRight="nano">Backed by</Text>
@@ -85,14 +87,14 @@ const Home = () => {
                 {/*  PROBLEM STATEMENT  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="description" className="content-card" shape="rounded" padding="huge">
-                    <Heading as="h5" weight="400" marginBottom="micro">
+                    <Heading as="h5" weight="400" className="font-akkurat" marginBottom="micro">
                         Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like
                         a chore these days. We want to reduce and eventually remove the time spent on mundane tasks
                         so that you can focus instead on building and shipping.
                     </Heading>
 
                     <Link href="/manifesto">
-                        <Heading as="h5" weight="400">
+                        <Heading as="h5" weight="400" className="font-akkurat">
                             Read our manifesto &rarr;
                         </Heading>
                     </Link>
@@ -111,7 +113,7 @@ const Home = () => {
                         So, we built Aide, an AI-first IDE
                     </Heading>
 
-                    <Heading as="h3" align="centre" weight="400" marginBottom="micro">
+                    <Heading as="h4" align="centre" weight="400" marginBottom="micro" className="font-akkurat">
                         Just tell it what to do, and it shall be done.
                     </Heading>
 
@@ -131,7 +133,7 @@ const Home = () => {
                         Create via chat
                     </Heading>
 
-                    <Heading as="h5" weight="400" marginBottom="micro">
+                    <Heading as="h5" weight="400" marginBottom="micro" className="font-akkurat">
                         Instruct Aide to do things, and watch the magic happen.
                     </Heading>
 
@@ -167,7 +169,7 @@ const Home = () => {
                         Decision making, also made easy
                     </Heading>
 
-                    <Heading as="h5" weight="400" marginBottom="micro">
+                    <Heading as="h5" weight="400" marginBottom="micro" className="font-akkurat">
                         Aide pre-evaluates and picks the best option for you, out of the box.
                     </Heading>
                 </Card>

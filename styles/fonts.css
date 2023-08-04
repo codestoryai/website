@@ -15,3 +15,18 @@ https://github.com/styled-components/styled-components/issues/2227 */
     font-weight : 400;
     font-style  : italic;
 }
+
+/* Akkurat Trial =================================================================================================== */
+@font-face {
+    font-family : "Akkurat";
+    src         : url("../assets/fonts/akkurat/AkkuratLLTrialWeb-Regular.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "Akkurat";
+    src         : url("../assets/fonts/akkurat/AkkuratLLTrialWeb-Bold.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : italic;
+}
