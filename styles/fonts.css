@@ -1,0 +1,17 @@
+/* Temporary workaroud to prevent font flickering + re-fetch on every render
+https://github.com/styled-components/styled-components/issues/2227 */
+
+/* LIVRET ========================================================================================================== */
+@font-face {
+    font-family : "Replica";
+    src         : url("../assets/fonts/replica/ReplicaLLTrialWeb-Regular.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "Replica";
+    src         : url("../assets/fonts/replica/ReplicaLLTrialWeb-Bold.woff2") format("woff2");
+    font-weight : 400;
+    font-style  : italic;
+}
