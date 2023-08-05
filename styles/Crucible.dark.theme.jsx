@@ -27,7 +27,7 @@ export const CrucibleDarkTheme = {
             subtext    : defaultColours.white
         },
         headings  : {
-            font       : "Replica",
+            font       : "N27",
             weight     : 600,
             lineHeight : 1.4,
             color      : "#1B2022",

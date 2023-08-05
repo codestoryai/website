@@ -94,7 +94,7 @@ const Home = () => {
                     </Heading>
 
                     <Link href="/manifesto">
-                        <Heading as="h5" weight="400" className="font-akkurat">
+                        <Heading as="h5" weight="600" className="font-n27">
                             Read our manifesto &rarr;
                         </Heading>
                     </Link>

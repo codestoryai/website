@@ -35,4 +35,5 @@ export const GlobalStyle = createGlobalStyle`
 
     .font-replica { font-family: "Replica", sans-serif; }
     .font-akkurat { font-family: "Akkurat", sans-serif; }
+    .font-n27 { font-family: "N27", sans-serif; }
 `;

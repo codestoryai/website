@@ -53,11 +53,11 @@ const Manifesto = () => {
                     <Portion desktopSpan="one-fourth" />
 
                     <Portion desktopSpan="one-third">
-                        <Heading as="h4" weight="400" marginTop="nano" marginBottom="micro">
+                        <Heading as="h4" weight="600" marginTop="nano" marginBottom="micro">
                             Writing code today is more grunt work than actually executing on your idea.
                         </Heading>
 
-                        <Heading as="h4" weight="400" marginBottom="tiny">And we want to change that.</Heading>
+                        <Heading as="h4" weight="600" marginBottom="tiny">And we want to change that.</Heading>
 
                         <Heading as="h6" weight="400" marginBottom="micro" className="font-akkurat">
                             We’ve all been there—you get a great idea, and fire up your dev environment, all excited—and
@@ -79,19 +79,17 @@ const Manifesto = () => {
 
                         <Heading as="h6" weight="400" marginBottom="micro" className="font-akkurat">
                             When you want to create the next killer app, when you want to solve problems at scale,
-                            nothing ought to get in the way of execution.
+                            nothing ought to get in the way of execution. We want to build tools that remove hindrances
+                            in your workflow.
                         </Heading>
 
                         <Heading as="h6" weight="400" marginBottom="micro" className="font-akkurat">
-                            We want to build tools that remove hindrances in your workflow.
+                            We want to build tools that allow people to get from idea to execution as quickly
+                            as possible.
                         </Heading>
 
                         <Heading as="h6" weight="400" marginBottom="micro" className="font-akkurat">
-                            We want to build tools that allow people to reach their maximum potential.
-                        </Heading>
-
-                        <Heading as="h6" weight="400" marginBottom="micro" className="font-akkurat">
-                            We want to build tools that allow people to solve for humanity.
+                            We want to help you solve for humanity with the least resistance possible.
                         </Heading>
                     </Portion>
                 </Row>
