@@ -3,8 +3,6 @@ import { getAllPosts } from "@/lib/api";
 import Header from "@/components/header/Header";
 import { BlogStyled } from "@/pages/blog/blog.styled";
 
-import HeroPost from "@/components/blog/hero-post";
-import MoreStories from "@/components/blog/more-stories";
 import Post from "@/interfaces/post";
 import PostPreview from "@/components/blog/PostPreview/post-preview";
 import { Portion, Row } from "fictoan-react";

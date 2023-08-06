@@ -15,31 +15,31 @@ export const CrucibleDarkTheme = {
     //  TEXT  /////////////////////////////////////////////////////////////////
     text : {
         font      : {
-            sans  : "Arbeit",
+            sans  : "Wissenhof Grotesk",
             mono  : "GT America Mono",
             serif : "Replica"
         },
         paras     : {
-            font       : "Akkurat",
-            color      : "#1B2022",
+            font       : "Wissenhof Grotesk",
+            color      : "#1b2022",
             lineHeight : 1.44,
             size       : 1,
             subtext    : defaultColours.white
         },
         headings  : {
-            font       : "N27",
-            weight     : 600,
+            font       : "Wissenhof Grotesk",
+            weight     : 800,
             lineHeight : 1.4,
-            color      : "#1B2022",
+            color      : "#1b2022",
             multiplier : 1.24
         },
         links     : {
-            font    : "Akkurat",
+            font    : "Wissenhof Grotesk",
             default : {
-                color : defaultColours.red90
+                color : "#1b2022"
             },
             onHover : {
-                color : defaultColours.grey70
+                color : `${transparentize(0.64, defaultColours.black)}`
             }
         },
         selection : {
@@ -60,7 +60,7 @@ export const CrucibleDarkTheme = {
 
     // BUTTON /////////////////////////////////////////////////////////////////
     button : {
-        font      : "Replica",
+        font      : "Wissenhof Grotesk",
         isLoading : {
             spinnerBorder : defaultColours.red90
         },

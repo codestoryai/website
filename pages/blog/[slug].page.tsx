@@ -2,21 +2,23 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import ErrorPage from "next/error";
 
-import PostBody from "@/components/blog/post-body";
-import PostHeader from "@/components/blog/post-header";
-import PostTitle from "@/components/blog/post-title";
-import markdownToHtml from "@/lib/markdownToHtml";
-import type PostType from "@/interfaces/post";
-import { getPostBySlug, getAllPosts } from "@/lib/api";
+import { Heading, Portion, Row, Text } from "fictoan-react";
+
 import Header from "@/components/header/Header";
+import DateFormatter from "../../utils/date-formatter";
+
+import markdownToHtml from "@/lib/markdownToHtml";
+import { getPostBySlug, getAllPosts } from "@/lib/api";
+import type PostType from "@/interfaces/post";
 
 type Props = {
     post: PostType;
     morePosts: PostType[];
     preview?: boolean;
+    content: string;
 };
 
-export default function Post({post, morePosts, preview}: Props) {
+export default function Post({post}: Props) {
     const router = useRouter();
     const title  = `${post.title} | CodeStory`;
     if (!router.isFallback && !post?.slug) {
@@ -25,7 +27,7 @@ export default function Post({post, morePosts, preview}: Props) {
     return (
         <>
             {router.isFallback ? (
-                <PostTitle>Loading…</PostTitle>
+                <Text>Loading…</Text>
             ) : (
                 <>
                     <article className="my-32">
@@ -36,14 +38,29 @@ export default function Post({post, morePosts, preview}: Props) {
                             <meta property="og:image" content={post.ogImage.url} />
                         </Head>
 
-                        <PostHeader
-                            title={post.title}
-                            coverImage={post.coverImage}
-                            date={post.date}
-                            author={post.author}
-                        />
+                        <Row sidePadding="medium" marginTop="small">
+                            <Portion>
+                                <Heading as="h1">{post.title}</Heading>
+                            </Portion>
+                        </Row>
 
-                        <PostBody content={post.content} />
+                        <Row sidePadding="medium" marginTop="small">
+                            <Portion desktopSpan="one-fourth">
+                                <Heading as="h6">
+                                    {post.author.name}
+                                </Heading>
+
+                                <Text>
+                                    <DateFormatter dateString={post.date} />
+                                </Text>
+
+                                <Heading as="h4">{post.excerpt}</Heading>
+                            </Portion>
+
+                            <Portion desktopSpan="three-fourth">
+                                <div dangerouslySetInnerHTML={{__html : post.content}} />
+                            </Portion>
+                        </Row>
                     </article>
                 </>
             )}

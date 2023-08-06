@@ -1,6 +1,5 @@
 //  External deps
 import { createGlobalStyle } from "styled-components";
-import { defaultColours } from "fictoan-react";
 
 //  Internal deps
 
@@ -31,11 +30,9 @@ export const GlobalStyle = createGlobalStyle`
     a:focus,
     button:focus { box-shadow : 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
 
+    h1, h2, h3, h4, h5, h6 {
+        letter-spacing : -0.4px;
+    }
+
     .line-height-one { line-height : 1; }
-
-    .font-replica { font-family : "Replica", sans-serif; }
-
-    .font-akkurat { font-family : "Akkurat", sans-serif; }
-
-    .font-n27 { font-family : "N27", sans-serif; }
 `;

@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import {
     Element,
     Heading,
-    Card, Text
+    Card, Text, InputField, Button
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
@@ -84,7 +84,7 @@ const Home = () => {
                     </Heading>
 
                     <Link href="/manifesto">
-                        <Heading as="h5" weight="600" className="font-n27">
+                        <Heading as="h5" weight="700" className="font-n27">
                             Read our manifesto &rarr;
                         </Heading>
                     </Link>
@@ -127,16 +127,17 @@ const Home = () => {
                         Instruct Aide to do things, and watch the magic happen.
                     </Heading>
 
+
                     <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Create a NextJS repo with Tailwind</Text>
+                        <Text>&rarr; Implement the notification handler interface</Text>
                     </Card>
 
                     <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Fix the dependency mismatch errors in this NodeJS project</Text>
+                        <Text>&rarr; Refactor the file uploader package to use dependency injection for the logger</Text>
                     </Card>
 
                     <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Identify the async functions and check if they are being awaited properly to prevent race conditions.</Text>
+                        <Text>&rarr; Fix the race condition in the event consumer causing files to be overwritten</Text>
                     </Card>
 
                     <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
