@@ -1,51 +1,62 @@
-import HeroPost from "@/components/hero-post";
-import MoreStories from "@/components/more-stories";
 import { getAllPosts } from "@/lib/api";
-import Post from "@/interfaces/post";
-import Container from "@/components/container";
-import Intro from "@/components/intro";
-import Footer from "@/components/footer";
 
-type BlogHomeProps = {
-  allPosts: Post[];
+import Header from "@/components/header/Header";
+import { BlogStyled } from "@/pages/blog/blog.styled";
+
+import HeroPost from "@/components/blog/hero-post";
+import MoreStories from "@/components/blog/more-stories";
+import Post from "@/interfaces/post";
+import PostPreview from "@/components/blog/PostPreview/post-preview";
+import { Portion, Row } from "fictoan-react";
+import Footer from "@/components/footer/Footer";
+
+type Props = {
+    posts: Post[];
 };
 
-export default function BlogHome({ allPosts }: BlogHomeProps) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+type BlogHomeProps = {
+    allPosts: Post[];
+};
 
-  return (
-    <Container>
-      <Intro isBlog />
-      <div className="mt-16">
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </div>
-      <Footer />
-    </Container>
-  );
+export default function BlogHome({allPosts}: BlogHomeProps) {
+    const heroPost  = allPosts[0];
+    const morePosts = allPosts.slice(1);
+
+    return (
+        <BlogStyled>
+            <Header />
+
+            <Row sidePadding="large" marginTop="small">
+                {allPosts.map((post) => (
+                    <Portion desktopSpan="one-fourth" key={post.slug}>
+                        <PostPreview
+                            title={post.title}
+                            coverImage={post.coverImage}
+                            date={post.date}
+                            author={post.author}
+                            slug={post.slug}
+                            excerpt={post.excerpt}
+                        />
+                    </Portion>
+                ))}
+            </Row>
+
+            <Footer />
+        </BlogStyled>
+    );
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+    const allPosts = getAllPosts([
+        "title",
+        "date",
+        "slug",
+        "author",
+        "coverImage",
+        "excerpt",
+    ]);
 
-  return {
-    props: { allPosts },
-  };
+    return {
+        props : {allPosts},
+    };
 };

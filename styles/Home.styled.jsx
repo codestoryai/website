@@ -9,12 +9,13 @@ export const HomeStyled = styled(motion.article)`
         gap                   : 8px;
         padding               : 8px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : 72px 40vh auto 64vh;
+        grid-template-rows    : 72px 40vh auto 64vh auto;
         grid-template-areas   : 
                 "header header header      header"
                 "intro  intro  description description"
                 "aide   aide    aide       aide"
-                "usp-1  usp-1   usp-2      usp-2";
+                "usp-1  usp-1   usp-2      usp-2"
+                "footer footer  footer     footer";
 
         @media screen and (max-width : 900px) {
             display        : flex;
@@ -28,16 +29,11 @@ export const HomeStyled = styled(motion.article)`
         justify-content : center;
     }
 
-    #header {
-        grid-area       : header;
-        flex-direction  : row;
-        justify-content : space-between;
-        background      : linear-gradient(0.36turn, #0ba360, #3cba92);
-    }
+    #header { grid-area : header; }
 
     #intro {
-        grid-area       : intro;
-        background      : linear-gradient(0.33turn, #0ba360, #3cba92);
+        grid-area  : intro;
+        background : linear-gradient(0.33turn, #0ba360, #3cba92);
     }
 
     #description {
@@ -59,7 +55,6 @@ export const HomeStyled = styled(motion.article)`
         grid-area  : usp-2;
         background : linear-gradient(0.82turn, #0ba360, #3cba92);
     }
-
-    .cs-logo svg { width : 140px; }
-    .yc-logo svg { width : 120px; }
+    
+    #footer { grid-area: footer; }
 `;

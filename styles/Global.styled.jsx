@@ -21,11 +21,11 @@ export const GlobalStyle = createGlobalStyle`
         display        : flex;
         min-height     : 100vh;
         flex-direction : column;
-        //z-index        : 500;x
+        padding        : 8px;
     }
-    
+
     #footer {
-        align-self: flex-end;
+        align-self : flex-end;
     }
 
     a:focus,
@@ -33,7 +33,9 @@ export const GlobalStyle = createGlobalStyle`
 
     .line-height-one { line-height : 1; }
 
-    .font-replica { font-family: "Replica", sans-serif; }
-    .font-akkurat { font-family: "Akkurat", sans-serif; }
-    .font-n27 { font-family: "N27", sans-serif; }
+    .font-replica { font-family : "Replica", sans-serif; }
+
+    .font-akkurat { font-family : "Akkurat", sans-serif; }
+
+    .font-n27 { font-family : "N27", sans-serif; }
 `;

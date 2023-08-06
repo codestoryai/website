@@ -11,9 +11,10 @@ import {
 
 import { HomeStyled } from "../styles/Home.styled";
 
-import CSLogo from "../public/images/cs-logo.svg";
-import YCLogo from "../public/images/yc-logo.svg";
+import Header from "../components/header/Header";
+
 import AideSS from "../public/images/home/aide.png";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -59,26 +60,15 @@ const Home = () => {
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 {/*  HEADER  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="header" className="content-card" shape="rounded" padding="micro">
-                    <Link href="/">
-                        <Element as="div" className="cs-logo">
-                            <CSLogo />
-                        </Element>
-                    </Link>
-
-                    <Element as="div" className="yc-logo" verticallyCentreItems>
-                        <Text marginRight="nano">Backed by</Text>
-                        <YCLogo />
-                    </Element>
-                </Card>
+                <Element as="div" id="header" className="content-card">
+                    <Header />
+                </Element>
 
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 {/*  OPENER  */}
                 {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 <Card id="intro" className="content-card" shape="rounded" padding="huge">
-                    <Heading
-                        as="h2" className="line-height-one"
-                    >
+                    <Heading as="h2" className="line-height-one">
                         We want to bring the joy of creation back into development
                     </Heading>
                 </Card>
@@ -173,6 +163,13 @@ const Home = () => {
                         Aide pre-evaluates and picks the best option for you, out of the box.
                     </Heading>
                 </Card>
+
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                {/*  AIDE USP 2  */}
+                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                <Element as="div" id="footer" className="content-card">
+                    <Footer />
+                </Element>
             </Element>
         </HomeStyled>
     )
