@@ -12,6 +12,7 @@ import {
 import { ManifestoStyled } from "./manifesto.styled";
 import CSLogo from "../../public/images/cs-logo.svg";
 import YCLogo from "../../public/images/yc-logo.svg";
+import Header from "../../components/header/Header";
 
 const Manifesto = () => {
 
@@ -26,24 +27,9 @@ const Manifesto = () => {
             {/*  INTRO  */}
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             <Element as="section" marginTop="nano" marginBottom="micro">
-                <Row sidePadding="nano">
-                    <Portion desktopSpan="whole">
-                        <Card id="header" className="content-card" shape="rounded" padding="micro">
-                            <Link href="/">
-                                <Element as="div" className="cs-logo">
-                                    <CSLogo />
-                                </Element>
-                            </Link>
+                <Header />
 
-                            <Element as="div" className="yc-logo" verticallyCentreItems>
-                                <Text marginRight="nano">Backed by</Text>
-                                <YCLogo />
-                            </Element>
-                        </Card>
-                    </Portion>
-                </Row>
-
-                <Row sidePadding="nano">
+                <Row sidePadding="nano" marginTop="small">
                     <Portion desktopSpan="one-fourth">
                         <Heading as="h2" align="right">
                             Manifesto
