@@ -48,14 +48,14 @@ https://github.com/styled-components/styled-components/issues/2227 */
 
 /* SF Pro ========================================================================================================== */
 @font-face {
-    font-family : "Wissenhof Grotesk";
+    font-family : "Weissenhof Grotesk";
     src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Regular.otf") format("opentype");
     font-weight : 400;
     font-style  : normal;
 }
 
 @font-face {
-    font-family : "Wissenhof Grotesk";
+    font-family : "Weissenhof Grotesk";
     src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Bold.otf") format("opentype");
     font-weight : 600;
     font-style  : italic;

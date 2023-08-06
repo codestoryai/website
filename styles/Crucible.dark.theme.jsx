@@ -15,26 +15,26 @@ export const CrucibleDarkTheme = {
     //  TEXT  /////////////////////////////////////////////////////////////////
     text : {
         font      : {
-            sans  : "Wissenhof Grotesk",
+            sans  : "Weissenhof Grotesk",
             mono  : "GT America Mono",
             serif : "Replica"
         },
         paras     : {
-            font       : "Wissenhof Grotesk",
+            font       : "Weissenhof Grotesk",
             color      : "#1b2022",
             lineHeight : 1.44,
             size       : 1,
             subtext    : defaultColours.white
         },
         headings  : {
-            font       : "Wissenhof Grotesk",
+            font       : "Weissenhof Grotesk",
             weight     : 800,
             lineHeight : 1.4,
             color      : "#1b2022",
             multiplier : 1.24
         },
         links     : {
-            font    : "Wissenhof Grotesk",
+            font    : "Weissenhof Grotesk",
             default : {
                 color : "#1b2022"
             },
@@ -60,7 +60,7 @@ export const CrucibleDarkTheme = {
 
     // BUTTON /////////////////////////////////////////////////////////////////
     button : {
-        font      : "Wissenhof Grotesk",
+        font      : "Weissenhof Grotesk",
         isLoading : {
             spinnerBorder : defaultColours.red90
         },
