@@ -35,7 +35,7 @@ const Footer = () => {
 
                 <Portion desktopSpan="one-fourth">
                     <Link href="/blog">
-                        <Text>Blog</Text>
+                        Blog
                     </Link>
                 </Portion>
 
@@ -46,6 +46,14 @@ const Footer = () => {
                         rel="noopener noreferrer"
                     >
                         <Text>YC profile</Text>
+                    </a>
+
+                    <a
+                        href="https://discord.gg/4JXfX5YR"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Text>Join our Discord</Text>
                     </a>
 
                     <a
@@ -62,14 +70,6 @@ const Footer = () => {
                         rel="noopener noreferrer"
                     >
                         <Text>LinkedIn</Text>
-                    </a>
-
-                    <a
-                        href="https://join.slack.com/t/codestoryai/shared_invite/zt-1x4zy3mk1-9fL5k~7XGSNNku7~iYr51w"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Text>Join our Slack</Text>
                     </a>
                 </Portion>
             </Row>

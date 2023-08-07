@@ -14,12 +14,12 @@ export const HomeStyled = styled(motion.article)`
         margin                : 0 auto;
         gap                   : 16px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : auto 64vh 40vh auto;
+        grid-template-rows    : auto 64vh 40vh 720px;
         grid-template-areas   : 
-                "aide            aide            aide   aide"
-                "prompt-examples prompt-examples ide-replacement  ide-replacement"
-                "code-explanation           code-explanation           code-explanation  description"
-                "nlp-search           git-diff           git-diff  commit-messages";
+                "aide             aide             aide             aide"
+                "prompt-examples  prompt-examples  ide-replacement  ide-replacement"
+                "code-explanation code-explanation code-explanation commit-messages"
+                "nlp-search       nlp-search       git-diff         git-diff ";
 
         @media screen and (max-width : 1200px) {
             display        : flex;
@@ -43,20 +43,32 @@ export const HomeStyled = styled(motion.article)`
     #code-explanation {
         grid-area  : code-explanation;
         background : linear-gradient(0.33turn, #0ba360, #3cba92);
-        
+
         img {
-            margin-bottom: -20%;
+            margin-bottom : -20%;
         }
     }
 
     #nlp-search {
         grid-area  : nlp-search;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
+
+        img {
+            height        : 600px;
+            margin-bottom : -80px;
+            border-radius : 12px;
+        }
     }
 
     #git-diff {
         grid-area  : git-diff;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
+
+        img {
+            height        : 600px;
+            margin-bottom : -80px;
+            border-radius : 12px;
+        }
     }
 
     #commit-messages {
@@ -72,10 +84,10 @@ export const HomeStyled = styled(motion.article)`
     #ide-replacement {
         grid-area  : ide-replacement;
         background : linear-gradient(0.82turn, #0ba360, #3cba92);
-        
+
         img {
-            margin: 0 -24% -24% -24%;
-            width: 148%;
+            margin : 0 -24% -24% -24%;
+            width  : 148%;
         }
     }
 

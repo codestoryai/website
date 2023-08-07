@@ -16,6 +16,8 @@ import Footer from "../components/footer/Footer";
 
 import AideSS from "../public/images/home/aide.png";
 import IDEReplacement from "../public/images/home/ide-replacement.png";
+import GitDiff from "../public/images/home/git-diff.png";
+import NLPSearch from "../public/images/home/nlp-search.png";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -270,8 +272,10 @@ const Home = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Type like you’d think—Aide understands all.
+                                Type intuitively without worrying about syntax—Aide understands all.
                             </Heading>
+
+                            <Element as="img" src={NLPSearch.src} />
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
@@ -290,6 +294,8 @@ const Home = () => {
                             <Heading as="h5" weight="400" marginBottom="micro">
                                 Interactively manage merging and refactoring, without descending into chaos.
                             </Heading>
+
+                            <Element as="img" src={GitDiff.src} />
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
