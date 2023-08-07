@@ -102,7 +102,7 @@ const Home = () => {
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                             >
-                                So, we built Aide, an AI-first IDE
+                                So, we built Aide ✨, an AI-first IDE
                             </Heading>
 
                             <Heading as="h4" align="centre" weight="400" marginBottom="micro">
