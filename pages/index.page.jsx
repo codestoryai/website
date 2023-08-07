@@ -249,14 +249,14 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  EXTENSIONS  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="description" className="content-card" shape="rounded" padding="huge">
-                            <Heading
-                                as="h5"
-                            >
-                                All your VSCode extensions are still available within Aide, but we’re betting you won’t
-                                need most of them.
-                            </Heading>
-                        </Card>
+                        {/*<Card id="description" className="content-card" shape="rounded" padding="huge">*/}
+                        {/*    <Heading*/}
+                        {/*        as="h5"*/}
+                        {/*    >*/}
+                        {/*        All your VSCode extensions are still available within Aide, but we’re betting you won’t*/}
+                        {/*        need most of them.*/}
+                        {/*    </Heading>*/}
+                        {/*</Card>*/}
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  IDE REPLACEMENT  */}
