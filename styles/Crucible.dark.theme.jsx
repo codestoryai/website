@@ -65,18 +65,18 @@ export const CrucibleDarkTheme = {
         },
         primary   : {
             default    : {
-                bg           : defaultColours.pistachio,
+                bg           : defaultColours.spring,
                 border       : defaultColours.green,
                 text         : defaultColours.black,
                 borderRadius : "999px"
             },
             onHover    : {
-                bg     : defaultColours.pistachio70,
+                bg     : defaultColours.spring70,
                 border : defaultColours.green,
                 text   : defaultColours.black
             },
             isActive   : {
-                bg     : defaultColours.pistachio,
+                bg     : defaultColours.spring,
                 border : defaultColours.green,
                 text   : defaultColours.black
             },

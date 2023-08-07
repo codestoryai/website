@@ -7,5 +7,5 @@ export const FooterStyled = styled(motion.footer)`
     }
 
     .cs-logo svg { width : 140px; }
-    .yc-logo svg { width : 120px; }
+    .yc-logo svg { width : 96px; }
 `;

@@ -60,6 +60,9 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Header />
 
+            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
+            {/*  INTRO  */}
+            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginTop="small">
                 <Portion desktopSpan="half">
                     <Heading as="h2" id="opener-headline" textColour="white" className="line-height-one">
@@ -82,7 +85,7 @@ const Home = () => {
                 </Portion>
             </Row>
 
-            <Row sidePadding="medium" marginTop="small">
+            <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion>
                     <Element as="section" id="product-grid">
                         {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -141,7 +144,8 @@ const Home = () => {
                                     className="prompt-wrapper"
                                     padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Implement the notification handler interface</Text>
+                                    <Text margin="nano" weight="600">&rarr; Implement the notification handler
+                                        interface</Text>
                                 </Card>
                             </Card>
 
@@ -155,7 +159,8 @@ const Home = () => {
                                     className="prompt-wrapper"
                                     padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use dependency injection for the logger</Text>
+                                    <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use
+                                        dependency injection for the logger</Text>
                                 </Card>
                             </Card>
 
@@ -169,7 +174,8 @@ const Home = () => {
                                     className="prompt-wrapper"
                                     padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Fix the race condition in the event consumer causing files to be overwritten</Text>
+                                    <Text margin="nano" weight="600">&rarr; Fix the race condition in the event consumer
+                                        causing files to be overwritten</Text>
                                 </Card>
                             </Card>
 
@@ -200,11 +206,12 @@ const Home = () => {
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                             >
-                                Decision making, also made easy
+                                Drop-in replacement for your IDE
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Aide pre-evaluates and picks the best option for you, out of the box.
+                                Aide is build on VSCodium—so you can switch back to the familiar editor layout
+                                seamlessly
                             </Heading>
                         </Card>
 
@@ -219,17 +226,25 @@ const Home = () => {
                         {/*  PROBLEM STATEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card id="description" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h5"
+                                marginBottom="nano"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                All your VSCode extensions are still available within Aide, but we’re betting you won’t
+                                need most of them.
+                            </Heading>
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  AIDE USP 2  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Element as="div" id="footer" className="content-card">
-                            <Footer />
-                        </Element>
                     </Element>
+
                 </Portion>
             </Row>
+
+            <Footer />
 
         </HomeStyled>
     )

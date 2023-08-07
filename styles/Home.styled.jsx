@@ -14,12 +14,11 @@ export const HomeStyled = styled(motion.article)`
         margin                : 0 auto;
         gap                   : 16px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : auto 64vh 64vh auto;
+        grid-template-rows    : auto 64vh 40vh auto;
         grid-template-areas   : 
-                "aide   aide    aide       aide"
-                "prompt-examples  prompt-examples   usp-2      usp-2"
-                "intro  intro  description description"
-                "footer footer  footer     footer";
+                "aide            aide            aide   aide"
+                "prompt-examples prompt-examples usp-2  usp-2"
+                "intro           intro           intro  description";
 
         @media screen and (max-width : 900px) {
             display        : flex;
@@ -58,8 +57,6 @@ export const HomeStyled = styled(motion.article)`
         grid-area  : usp-2;
         background : linear-gradient(0.82turn, #0ba360, #3cba92);
     }
-
-    #footer { grid-area : footer; }
 
     .prompt-examples {
         padding       : 4px;
