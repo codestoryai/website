@@ -33,10 +33,10 @@ const Home = () => {
 
     return (
         <HomeStyled
-            initial={{opacity : 0}}
-            animate={{opacity : 1}}
-            exit={{opacity : 0}}
-            transition={{ease : "easeInOut", duration : 0.24}}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -47,15 +47,15 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url         : "https://codestory.ai/",
-                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images      : [
+                    url: "https://codestory.ai/",
+                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description: "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images: [
                         {
-                            url : "https://codestory.ai/"
+                            url: "https://codestory.ai/"
                         }
                     ],
-                    site_name   : "Aide by CodeStory"
+                    site_name: "Aide by CodeStory"
                 }}
             />
 
@@ -117,6 +117,11 @@ const Home = () => {
                             </Heading>
 
                             <Element as="img" src={AideSS.src} />
+
+                            <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp">
+                                <Button kind="primary" shadow="hard">Join the waitlist!</Button>
+                            </Link>
+                            <script src="//embed.typeform.com/next/embed.js"></script>
                         </Card>
 
 
