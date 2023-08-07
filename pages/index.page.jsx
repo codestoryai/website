@@ -127,6 +127,10 @@ const Home = () => {
                             </Row>
 
                             <Element as="img" src={AideSS.src} />
+
+                            <Text marginTop="micro" align="center" size="large">
+                                Some of our core functionality is also available as a <a href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai" target="_blank" rel="noopener noreferrer"><b>VSCode extension</b></a> currently, for those interested — It's part of our development build, so beware of breaking changes!
+                            </Text>
                         </Card>
 
 
