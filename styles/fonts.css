@@ -1,0 +1,84 @@
+/* Temporary workaroud to prevent font flickering + re-fetch on every render
+https://github.com/styled-components/styled-components/issues/2227 */
+
+/*!* Replica Trial =================================================================================================== *!*/
+/*@font-face {*/
+/*    font-family : "Replica";*/
+/*    src         : url("../assets/fonts/replica/ReplicaLLTrialWeb-Regular.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : normal;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family : "Replica";*/
+/*    src         : url("../assets/fonts/replica/ReplicaLLTrialWeb-Bold.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : italic;*/
+/*}*/
+
+/*!* Akkurat Trial =================================================================================================== *!*/
+/*@font-face {*/
+/*    font-family : "Akkurat";*/
+/*    src         : url("../assets/fonts/akkurat/AkkuratLLTrialWeb-Regular.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : normal;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family : "Akkurat";*/
+/*    src         : url("../assets/fonts/akkurat/AkkuratLLTrialWeb-Bold.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : italic;*/
+/*}*/
+
+/*!* N27 ============================================================================================================= *!*/
+/*@font-face {*/
+/*    font-family : "N27";*/
+/*    src         : url("../assets/fonts/n27/n27-regular-webfont.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : normal;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family : "N27";*/
+/*    src         : url("../assets/fonts/n27/n27-bold-webfont.woff2") format("woff2");*/
+/*    font-weight : 400;*/
+/*    font-style  : italic;*/
+/*}*/
+
+/* SF Pro ========================================================================================================== */
+@font-face {
+    font-family : "Weissenhof Grotesk";
+    src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Regular.otf") format("opentype");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "Weissenhof Grotesk";
+    src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Bold.otf") format("opentype");
+    font-weight : 600;
+    font-style  : italic;
+}
+
+/* SF Pro ========================================================================================================== */
+@font-face {
+    font-family : "SF Pro Display";
+    src         : url("../assets/fonts/sf-pro/SF-Pro-Display-Regular.otf") format("opentype");
+    font-weight : 400;
+    font-style  : normal;
+}
+
+@font-face {
+    font-family : "SF Pro Display";
+    src         : url("../assets/fonts/sf-pro/SF-Pro-Display-Bold.otf") format("opentype");
+    font-weight : 700;
+    font-style  : italic;
+}
+
+@font-face {
+    font-family : "SF Pro Display";
+    src         : url("../assets/fonts/sf-pro/SF-Pro-Display-Heavy.otf") format("opentype");
+    font-weight : 800;
+    font-style  : italic;
+}
