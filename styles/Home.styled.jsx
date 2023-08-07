@@ -2,19 +2,23 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const HomeStyled = styled(motion.article)`
-    #home-content {
+    #opener-headline {
+        //background-image        : linear-gradient(146deg, #51af1f, #289b17);
+        //background-clip         : text;
+        //-webkit-background-clip : text;
+        //-webkit-text-fill-color : transparent;
+    }
+
+    #product-grid {
         display               : grid;
-        max-width             : 2400px;
         margin                : 0 auto;
-        gap                   : 8px;
-        padding               : 8px;
+        gap                   : 16px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : 72px 40vh auto 64vh auto;
+        grid-template-rows    : auto 64vh 64vh auto;
         grid-template-areas   : 
-                "header header header      header"
-                "intro  intro  description description"
                 "aide   aide    aide       aide"
-                "usp-1  usp-1   usp-2      usp-2"
+                "prompt-examples  prompt-examples   usp-2      usp-2"
+                "intro  intro  description description"
                 "footer footer  footer     footer";
 
         @media screen and (max-width : 900px) {
@@ -27,9 +31,13 @@ export const HomeStyled = styled(motion.article)`
         display         : flex;
         flex-direction  : column;
         justify-content : center;
+        box-shadow      : inset 0 1px 1px rgba(255, 255, 255, .24)
     }
 
-    #header { grid-area : header; }
+    #aide {
+        grid-area  : aide;
+        background : radial-gradient(circle at top center, #a3f923 0%, #3cba92 100%);
+    }
 
     #intro {
         grid-area  : intro;
@@ -41,20 +49,27 @@ export const HomeStyled = styled(motion.article)`
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
     }
 
-    #aide {
-        grid-area  : aide;
-        background : linear-gradient(0.93turn, #0ba360, #3cba92);
-    }
-
-    #usp-1 {
-        grid-area  : usp-1;
-        background : linear-gradient(0.16turn, #0ba360, #3cba92);
+    #prompt-examples {
+        grid-area  : prompt-examples;
+        background : radial-gradient(circle at top center, #3cba92 0%, #2a886b 70%);
     }
 
     #usp-2 {
         grid-area  : usp-2;
         background : linear-gradient(0.82turn, #0ba360, #3cba92);
     }
-    
-    #footer { grid-area: footer; }
+
+    #footer { grid-area : footer; }
+
+    .prompt-examples {
+        padding       : 4px;
+        border-radius : 8px;
+        background    : linear-gradient(0.2turn, #bffa4a, #66bd43);
+        border        : none;
+    }
+
+    .prompt-wrapper {
+        background : linear-gradient(0.2turn, #82de5d, #bffa4a);
+        border     : none;
+    }
 `;

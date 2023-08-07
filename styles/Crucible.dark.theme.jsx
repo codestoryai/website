@@ -4,12 +4,12 @@ import { defaultColours } from "fictoan-react";
 // GLOBALS  ///////////////////////////////////////////////////////////////////
 export const globalVariables = {
     borderWidth  : "1px",
-    borderRadius : "8px"
+    borderRadius : "16px"
 }
 
 export const CrucibleDarkTheme = {
     body : {
-        bg : "#289472"
+        bg : "#0f7e5b"
     },
 
     //  TEXT  /////////////////////////////////////////////////////////////////
@@ -45,17 +45,16 @@ export const CrucibleDarkTheme = {
         selection : {
             bg   : defaultColours.red20,
             text : defaultColours.black
-        },
+        }
     },
 
 
     // CARD ///////////////////////////////////////////////////////////////////
     card : {
-        bg           : "#49CA74",
-        border       : "#49CA74",
-        borderRadius : "16px",
+        bg           : "#49ca74",
+        border       : "#49ca74",
+        borderRadius : "4px"
     },
-
 
 
     // BUTTON /////////////////////////////////////////////////////////////////
@@ -66,20 +65,20 @@ export const CrucibleDarkTheme = {
         },
         primary   : {
             default    : {
-                bg           : defaultColours.red90,
-                border       : defaultColours.red90,
-                text         : defaultColours.white,
-                borderRadius : globalVariables.borderRadius
+                bg           : defaultColours.pistachio,
+                border       : defaultColours.green,
+                text         : defaultColours.black,
+                borderRadius : "999px"
             },
             onHover    : {
-                bg     : defaultColours.red70,
-                border : defaultColours.red70,
-                text   : defaultColours.white
+                bg     : defaultColours.pistachio70,
+                border : defaultColours.green,
+                text   : defaultColours.black
             },
             isActive   : {
-                bg     : defaultColours.red,
-                border : defaultColours.red,
-                text   : defaultColours.white
+                bg     : defaultColours.pistachio,
+                border : defaultColours.green,
+                text   : defaultColours.black
             },
             isDisabled : {
                 bg     : defaultColours.red90,
@@ -90,7 +89,7 @@ export const CrucibleDarkTheme = {
                 spinnerBorder : String(defaultColours.white)
             }
         },
-        secondary   : {
+        secondary : {
             default    : {
                 bg           : `${transparentize(0.4, defaultColours.black)}`,
                 border       : defaultColours.red90,
@@ -115,7 +114,7 @@ export const CrucibleDarkTheme = {
             isLoading  : {
                 spinnerBorder : String(defaultColours.white)
             }
-        },
+        }
     },
 
     //  RULE  /////////////////////////////////////////////////////////////////

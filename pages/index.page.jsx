@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import {
     Element,
     Heading,
-    Card, Text, InputField, Button
+    Card, Text, InputField, Button, Row, Portion
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
@@ -55,123 +55,182 @@ const Home = () => {
                 }}
             />
 
+            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
+            {/*  HEADER  */}
+            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
+            <Header />
 
-            <Element as="section" id="home-content">
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  HEADER  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Element as="div" id="header" className="content-card">
-                    <Header />
-                </Element>
-
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  OPENER  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="intro" className="content-card" shape="rounded" padding="huge">
-                    <Heading as="h2" className="line-height-one">
+            <Row sidePadding="medium" marginTop="small">
+                <Portion desktopSpan="half">
+                    <Heading as="h2" id="opener-headline" textColour="white" className="line-height-one">
                         We want to bring the joy of creation back into development
                     </Heading>
-                </Card>
+                </Portion>
 
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  PROBLEM STATEMENT  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="description" className="content-card" shape="rounded" padding="huge">
-                    <Heading as="h5" weight="400" className="font-akkurat" marginBottom="micro">
+                <Portion desktopSpan="half">
+                    <Heading as="h5" marginBottom="micro">
                         Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like
                         a chore these days. We want to reduce and eventually remove the time spent on mundane tasks
                         so that you can focus instead on building and shipping.
                     </Heading>
 
                     <Link href="/manifesto">
-                        <Heading as="h5" weight="700" className="font-n27">
+                        <Button kind="primary" shadow="hard">
                             Read our manifesto &rarr;
-                        </Heading>
+                        </Button>
                     </Link>
-                </Card>
+                </Portion>
+            </Row>
 
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  AIDE INTRO  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="aide" className="content-card" shape="rounded" padding="huge">
-                    <Heading
-                        as="h2" align="centre"
-                        marginTop="micro" marginBottom="nano"
-                        className="line-height-one"
-                        title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
-                    >
-                        So, we built Aide, an AI-first IDE
-                    </Heading>
+            <Row sidePadding="medium" marginTop="small">
+                <Portion>
+                    <Element as="section" id="product-grid">
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  AIDE INTRO  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card
+                            id="aide" className="content-card"
+                            shape="rounded" padding="huge"
+                            borderColour="green"
+                        >
+                            <Heading
+                                as="h2" align="centre"
+                                marginTop="micro" marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
+                            >
+                                So, we built Aide, an AI-first IDE
+                            </Heading>
 
-                    <Heading as="h4" align="centre" weight="400" marginBottom="micro" className="font-akkurat">
-                        Just tell it what to do, and it shall be done.
-                    </Heading>
+                            <Heading as="h4" align="centre" weight="400" marginBottom="micro">
+                                Just tell it what to do, and it shall be done.
+                            </Heading>
 
-                    <Element as="img" src={AideSS.src} />
-                </Card>
-
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  AIDE USP 1  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="usp-1" className="content-card" shape="rounded" padding="huge">
-                    <Heading
-                        as="h4"
-                        marginBottom="nano"
-                        className="line-height-one"
-                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
-                    >
-                        Create via chat
-                    </Heading>
-
-                    <Heading as="h5" weight="400" marginBottom="micro" className="font-akkurat">
-                        Instruct Aide to do things, and watch the magic happen.
-                    </Heading>
+                            <Element as="img" src={AideSS.src} />
+                        </Card>
 
 
-                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Implement the notification handler interface</Text>
-                    </Card>
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  AIDE USP 1  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card
+                            id="prompt-examples" className="content-card"
+                            shape="rounded" shadow="hard" padding="huge"
+                            borderColour="green"
+                        >
+                            <Heading
+                                as="h4"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                                marginBottom="nano"
+                            >
+                                Prompt anything and everything
+                            </Heading>
 
-                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Refactor the file uploader package to use dependency injection for the logger</Text>
-                    </Card>
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Instruct Aide to do things, and watch the magic happen.
+                            </Heading>
 
-                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Fix the race condition in the event consumer causing files to be overwritten</Text>
-                    </Card>
+                            {/* PROMPT 1 ================================== */}
+                            <Card
+                                className="prompt-examples"
+                                shape="rounded" marginBottom="nano"
+                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                            >
+                                <Card
+                                    className="prompt-wrapper"
+                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                >
+                                    <Text margin="nano" weight="600">&rarr; Implement the notification handler interface</Text>
+                                </Card>
+                            </Card>
 
-                    <Card shape="rounded" padding="micro" marginBottom="nano" bgColour="green-60" borderColour="green">
-                        <Text>&rarr; Solve world hunger</Text>
-                    </Card>
+                            {/* PROMPT 2 ================================== */}
+                            <Card
+                                id="prompt-example-2" className="prompt-examples"
+                                shape="rounded" marginBottom="nano"
+                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                            >
+                                <Card
+                                    className="prompt-wrapper"
+                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                >
+                                    <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use dependency injection for the logger</Text>
+                                </Card>
+                            </Card>
 
-                    <Text marginTop="micro">Ok, maybe not the last one.</Text>
-                </Card>
+                            {/* PROMPT 3 ================================== */}
+                            <Card
+                                id="prompt-example-3" className="prompt-examples"
+                                shape="rounded" marginBottom="nano"
+                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                            >
+                                <Card
+                                    className="prompt-wrapper"
+                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                >
+                                    <Text margin="nano" weight="600">&rarr; Fix the race condition in the event consumer causing files to be overwritten</Text>
+                                </Card>
+                            </Card>
 
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  AIDE USP 2  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Card id="usp-2" className="content-card" shape="rounded" padding="huge">
-                    <Heading
-                        as="h4"
-                        marginBottom="nano"
-                        className="line-height-one"
-                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
-                    >
-                        Decision making, also made easy
-                    </Heading>
+                            {/* PROMPT 4 ================================== */}
+                            <Card
+                                id="prompt-example-4" className="prompt-examples"
+                                shape="rounded" marginBottom="nano"
+                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                            >
+                                <Card
+                                    className="prompt-wrapper"
+                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                >
+                                    <Text margin="nano" weight="600">&rarr; Solve world hunger</Text>
+                                </Card>
+                            </Card>
 
-                    <Heading as="h5" weight="400" marginBottom="micro" className="font-akkurat">
-                        Aide pre-evaluates and picks the best option for you, out of the box.
-                    </Heading>
-                </Card>
+                            <Text marginTop="micro">Ok, maybe not the last one.</Text>
+                        </Card>
 
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/*  AIDE USP 2  */}
-                {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                <Element as="div" id="footer" className="content-card">
-                    <Footer />
-                </Element>
-            </Element>
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  AIDE USP 2  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="usp-2" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h4"
+                                marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                Decision making, also made easy
+                            </Heading>
+
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Aide pre-evaluates and picks the best option for you, out of the box.
+                            </Heading>
+                        </Card>
+
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  OPENER  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="intro" className="content-card" shape="rounded" padding="huge">
+                        </Card>
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  PROBLEM STATEMENT  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="description" className="content-card" shape="rounded" padding="huge">
+                        </Card>
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  AIDE USP 2  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Element as="div" id="footer" className="content-card">
+                            <Footer />
+                        </Element>
+                    </Element>
+                </Portion>
+            </Row>
+
         </HomeStyled>
     )
         ;

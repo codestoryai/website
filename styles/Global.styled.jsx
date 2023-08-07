@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
         display        : flex;
         min-height     : 100vh;
         flex-direction : column;
-        padding        : 8px;
     }
 
     #footer {

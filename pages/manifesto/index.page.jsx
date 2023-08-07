@@ -47,10 +47,11 @@ const Manifesto = () => {
                             <Heading as="h4" weight="600" marginBottom="tiny">And we want to change that.</Heading>
 
                             <Heading as="h6" weight="400" marginBottom="micro">
-                                We’ve all been there—you get a great idea, and fire up your dev environment, all excited—and
-                                spend the next half an hour setting up your project, managing dependencies, updating apps,
-                                and looking up StackOverflow for an overly specific bug that no one seems to have the answer for. And
-                                before you know it, your enthusiasm for your idea has all but fizzled out.
+                                We’ve all been there—you get a great idea, and fire up your dev environment, all
+                                excited—and spend the next half an hour setting up your project, managing dependencies,
+                                updating apps, and looking up StackOverflow for an overly specific bug that no one seems
+                                to have the answer for. And before you know it, your enthusiasm for your idea has all
+                                but fizzled out.
                             </Heading>
 
                             <Heading as="h6" weight="400" marginBottom="micro">
@@ -66,7 +67,8 @@ const Manifesto = () => {
 
                             <Heading as="h6" weight="400" marginBottom="micro">
                                 When you want to create the next killer app, when you want to solve problems at scale,
-                                nothing ought to get in the way of execution. We want to build tools that remove hindrances
+                                nothing ought to get in the way of execution. We want to build tools that remove
+                                hindrances
                                 in your workflow.
                             </Heading>
 
