@@ -1,17 +1,15 @@
 ---
-title: "LLMs walking the code graph"
-excerpt: "To start with, we wanted the LLM to see a code repository as we humans do, as a graph of entities interconnected and linked together."
-coverImage: "/assets/blog/code-reviews/cover.png"
-date: "2023-07-31T13:09:00.000Z"
-author:
-  name: Sandeep Kumar Pani
-  picture: "/assets/blog/authors/sandeep.jpg"
-ogImage:
-  url: "/assets/blog/code-reviews/cover.png"
+title      : "LLMs walking the code graph with `ts-morph` 👣"
+excerpt    : "To start with, we wanted the LLM to see a code repository as we humans do, as a graph of entities interconnected and linked together."
+coverImage : "/assets/blog/code-reviews/cover.png"
+date       : "2023-07-31T13:09:00.000Z"
+author     :
+    name    : Sandeep Kumar Pani
+    picture : "/assets/blog/authors/sandeep.jpg"
+ogImage    :
+    url : "/assets/blog/code-reviews/cover.png"
 ---
 
-
-# LLMs walking the code graph with `ts-morph` 👣
 
 With CodeStory we want to build a senior engineer right in your IDE!
 
