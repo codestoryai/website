@@ -62,8 +62,7 @@ const Manifesto = () => {
 
                         <Heading as="h6" weight="400" marginBottom="micro">
                             Coding is truly fun. We want to bring the focus back to the joyful process of
-                            building and creating—testing ideas, iterating, trying and even failing, instead of mindlessly doing
-                            chore after chore.
+                            building and creating—testing ideas, iterating, trying and even failing.
                         </Heading>
 
                         <HRule marginTop="tiny" marginBottom="tiny" bgColour="green" />
