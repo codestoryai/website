@@ -6,15 +6,16 @@ import { NextSeo } from "next-seo";
 import {
     Element,
     Heading,
-    Card, Text, InputField, Button, Row, Portion
+    Card, Text, InputField, Button, Row, Portion, Badge
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
 import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 import AideSS from "../public/images/home/aide.png";
-import Footer from "../components/footer/Footer";
+import IDEReplacement from "../public/images/home/ide-replacement.png";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -63,7 +64,7 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             {/*  INTRO  */}
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Row sidePadding="medium" marginTop="small">
+            <Row sidePadding="medium" marginTop="medium" marginBottom="small">
                 <Portion desktopSpan="half">
                     <Heading as="h2" id="opener-headline" textColour="white" className="line-height-one">
                         We want to bring the joy of creation back into development
@@ -72,9 +73,12 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" marginBottom="micro">
-                        Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like
-                        a chore these days. We want to reduce and eventually remove the time spent on mundane tasks
-                        so that you can focus instead on building and shipping.
+                        We want to ensure that developers spend their time on meaningful ideation and execution, instead
+                        of being bogged down by tasks and chores.
+                    </Heading>
+
+                    <Heading as="h5" marginBottom="micro">
+                        What if AI could do the all the heavy-lifting, while you focused on creation?
                     </Heading>
 
                     <Link href="/manifesto">
@@ -199,7 +203,7 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="usp-2" className="content-card" shape="rounded" padding="huge">
+                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge">
                             <Heading
                                 as="h4"
                                 marginBottom="nano"
@@ -213,6 +217,8 @@ const Home = () => {
                                 Aide is build on VSCodium—so you can switch back to the familiar editor layout
                                 in a beat
                             </Heading>
+
+                            <Element as="img" src={IDEReplacement.src} />
                         </Card>
 
 
@@ -282,7 +288,7 @@ const Home = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Interactively manage merging and refactoring, without descending into chaos
+                                Interactively manage merging and refactoring, without descending into chaos.
                             </Heading>
                         </Card>
 
@@ -300,11 +306,22 @@ const Home = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Summaries and changelogs created with full context
+                                Summaries and changelogs created with full context.
                             </Heading>
                         </Card>
                     </Element>
+                </Portion>
 
+                <Portion>
+                    <Badge
+                        size="medium"
+                        bgColour="pistachio-40" textColour="green"
+                        shape="curved"
+                        marginTop="micro"
+                        horizontallyCentreThis
+                    >
+                        A LOT MORE FEATURES COMING SOON!
+                    </Badge>
                 </Portion>
             </Row>
 

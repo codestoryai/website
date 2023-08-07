@@ -11,7 +11,7 @@ const Header = () => {
         <HeaderStyled>
             <Row sidePadding="medium">
                 <Portion>
-                    <Element as="div" marginTop="micro" verticallyCentreItems pushItemsToEnds>
+                    <Element as="div" verticallyCentreItems pushItemsToEnds>
                         <Element as="div" verticallyCentreItems>
                             <Link href="/">
                                 <Element as="div" className="cs-logo">
@@ -19,18 +19,18 @@ const Header = () => {
                                 </Element>
                             </Link>
 
-                            <Text size="small" marginLeft="nano" marginRight="nano">&mdash;</Text>
-
-                            <Element as="div" className="yc-logo" verticallyCentreItems>
-                                <Text size="small" marginRight="nano">A</Text>
+                            <Element as="div" className="yc-logo" verticallyCentreItems hideOnMobile>
+                                <Text size="small" marginLeft="nano" marginRight="nano">&mdash;</Text>
+                                <Text size="small" marginRight="nano">backed by</Text>
                                 <YCLogo />
-                                <Text size="small" marginLeft="nano"> startup</Text>
                             </Element>
                         </Element>
 
                         <Element as="nav" verticallyCentreItems>
-                            <Link href="/blog">Blog</Link>
-                            <Link href="/team">Team</Link>
+                            <Link href="/blog">
+                                <Text weight="600">BLOG</Text>
+                            </Link>
+                            {/*<Link href="/team">Team</Link>*/}
                         </Element>
                     </Element>
                 </Portion>

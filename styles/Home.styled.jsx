@@ -17,7 +17,7 @@ export const HomeStyled = styled(motion.article)`
         grid-template-rows    : auto 64vh 40vh auto;
         grid-template-areas   : 
                 "aide            aide            aide   aide"
-                "prompt-examples prompt-examples usp-2  usp-2"
+                "prompt-examples prompt-examples ide-replacement  ide-replacement"
                 "code-explanation           code-explanation           code-explanation  description"
                 "nlp-search           git-diff           git-diff  commit-messages";
 
@@ -69,9 +69,14 @@ export const HomeStyled = styled(motion.article)`
         background : radial-gradient(circle at top center, #3cba92 0%, #2a886b 70%);
     }
 
-    #usp-2 {
-        grid-area  : usp-2;
+    #ide-replacement {
+        grid-area  : ide-replacement;
         background : linear-gradient(0.82turn, #0ba360, #3cba92);
+        
+        img {
+            margin: 0 -24% -24% -24%;
+            width: 148%;
+        }
     }
 
     .prompt-examples {

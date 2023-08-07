@@ -9,6 +9,7 @@ import { FaTwitter } from "react-icons/fa";
 import CSLogo from "../../public/images/cs-logo.svg";
 import Link from "next/link";
 import React from "react";
+import YCLogo from "../../public/images/yc-logo.svg";
 
 
 const Footer = () => {
@@ -25,24 +26,17 @@ const Footer = () => {
                             <CSLogo />
                         </Element>
                     </Link>
+
+                    <Element as="div" className="yc-logo" marginTop="nano" verticallyCentreItems>
+                        <Text size="small" marginRight="nano">Backed by</Text>
+                        <YCLogo />
+                    </Element>
                 </Portion>
 
                 <Portion desktopSpan="one-fourth">
-                    <a
-                        href="https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Link href="/blog">
                         <Text>Blog</Text>
-                    </a>
-
-                    <a
-                        href="https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Text>Team</Text>
-                    </a>
+                    </Link>
                 </Portion>
 
                 <Portion desktopSpan="one-fourth">
