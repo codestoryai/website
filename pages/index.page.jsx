@@ -18,6 +18,7 @@ import AideSS from "../public/images/home/aide.png";
 import IDEReplacement from "../public/images/home/ide-replacement.png";
 import GitDiff from "../public/images/home/git-diff.png";
 import NLPSearch from "../public/images/home/nlp-search.png";
+import Explanations from "../public/images/home/explanations.jpg";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -75,12 +76,12 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" marginBottom="micro">
-                        We want to ensure that developers spend their time on meaningful ideation and execution, instead
-                        of being bogged down by tasks and chores.
+                        We want to ensure that developers spend their time on meaningful ideation and execution,
+                        rather than the intricacies of modern software development.
                     </Heading>
 
                     <Heading as="h5" marginBottom="micro">
-                        What if AI could do the all the heavy-lifting, while you focused on creation?
+                        What if AI could do the all the heavy-lifting, while you focused on what's most important to you?
                     </Heading>
 
                     <Link href="/manifesto">
@@ -241,7 +242,7 @@ const Home = () => {
                                 </Portion>
 
                                 <Portion desktopSpan="two-third">
-                                    <Element as="img" src={AideSS.src} />
+                                    <Element as="img" src={Explanations.src} />
                                 </Portion>
                             </Row>
                         </Card>
@@ -259,7 +260,7 @@ const Home = () => {
                         {/*</Card>*/}
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  IDE REPLACEMENT  */}
+                        {/*  NATURAL LANGUAGE SEARCH  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card id="nlp-search" className="content-card" shape="rounded" padding="huge">
                             <Heading
