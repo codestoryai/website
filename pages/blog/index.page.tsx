@@ -5,8 +5,9 @@ import { BlogStyled } from "@/pages/blog/blog.styled";
 
 import Post from "@/interfaces/post";
 import PostPreview from "@/components/blog/PostPreview/post-preview";
-import { Portion, Row } from "fictoan-react";
+import { Heading, Portion, Row } from "fictoan-react";
 import Footer from "@/components/footer/Footer";
+import React from "react";
 
 type Props = {
     posts: Post[];
@@ -24,19 +25,29 @@ export default function BlogHome({allPosts}: BlogHomeProps) {
         <BlogStyled>
             <Header />
 
-            <Row sidePadding="large" marginTop="small">
-                {allPosts.map((post) => (
-                    <Portion desktopSpan="one-fourth" key={post.slug}>
-                        <PostPreview
-                            title={post.title}
-                            coverImage={post.coverImage}
-                            date={post.date}
-                            author={post.author}
-                            slug={post.slug}
-                            excerpt={post.excerpt}
-                        />
-                    </Portion>
-                ))}
+            <Row sidePadding="medium" marginTop="small" marginBottom="small">
+                <Portion desktopSpan="half">
+                    <Heading as="h2">
+                        Blog
+                    </Heading>
+                </Portion>
+
+                <Portion desktopSpan="half">
+                    <Row>
+                        {allPosts.map((post) => (
+                            <Portion desktopSpan="half" key={post.slug}>
+                                <PostPreview
+                                    title={post.title}
+                                    coverImage={post.coverImage}
+                                    date={post.date}
+                                    author={post.author}
+                                    slug={post.slug}
+                                    excerpt={post.excerpt}
+                                />
+                            </Portion>
+                        ))}
+                    </Row>
+                </Portion>
             </Row>
 
             <Footer />

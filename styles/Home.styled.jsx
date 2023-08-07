@@ -18,9 +18,10 @@ export const HomeStyled = styled(motion.article)`
         grid-template-areas   : 
                 "aide            aide            aide   aide"
                 "prompt-examples prompt-examples usp-2  usp-2"
-                "intro           intro           intro  description";
+                "code-explanation           code-explanation           code-explanation  description"
+                "nlp-search           git-diff           git-diff  commit-messages";
 
-        @media screen and (max-width : 900px) {
+        @media screen and (max-width : 1200px) {
             display        : flex;
             flex-direction : column;
         }
@@ -30,7 +31,8 @@ export const HomeStyled = styled(motion.article)`
         display         : flex;
         flex-direction  : column;
         justify-content : center;
-        box-shadow      : inset 0 1px 1px rgba(255, 255, 255, .24)
+        box-shadow      : inset 0 1px 1px rgba(255, 255, 255, .24);
+        overflow        : hidden;
     }
 
     #aide {
@@ -38,13 +40,27 @@ export const HomeStyled = styled(motion.article)`
         background : radial-gradient(circle at top center, #a3f923 0%, #3cba92 100%);
     }
 
-    #intro {
-        grid-area  : intro;
+    #code-explanation {
+        grid-area  : code-explanation;
         background : linear-gradient(0.33turn, #0ba360, #3cba92);
+        
+        img {
+            margin-bottom: -20%;
+        }
     }
 
-    #description {
-        grid-area  : description;
+    #nlp-search {
+        grid-area  : nlp-search;
+        background : linear-gradient(0.73turn, #0ba360, #3cba92);
+    }
+
+    #git-diff {
+        grid-area  : git-diff;
+        background : linear-gradient(0.73turn, #0ba360, #3cba92);
+    }
+
+    #commit-messages {
+        grid-area  : commit-messages;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
     }
 

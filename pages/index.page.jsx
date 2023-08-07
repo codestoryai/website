@@ -197,7 +197,7 @@ const Home = () => {
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  AIDE USP 2  */}
+                        {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card id="usp-2" className="content-card" shape="rounded" padding="huge">
                             <Heading
@@ -211,25 +211,39 @@ const Home = () => {
 
                             <Heading as="h5" weight="400" marginBottom="micro">
                                 Aide is build on VSCodium—so you can switch back to the familiar editor layout
-                                seamlessly
+                                in a beat
                             </Heading>
                         </Card>
 
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  OPENER  */}
+                        {/*  CODE EXPLANATIONS  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="intro" className="content-card" shape="rounded" padding="huge">
+                        <Card id="code-explanation" className="content-card" shape="rounded" padding="huge">
+                            <Row>
+                                <Portion desktopSpan="one-third">
+                                    <Heading
+                                        as="h5"
+                                        marginTop="micro"
+                                        marginBottom="nano"
+                                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                                    >
+                                        Code explanations with surrounding context
+                                    </Heading>
+                                </Portion>
+
+                                <Portion desktopSpan="two-third">
+                                    <Element as="img" src={AideSS.src} />
+                                </Portion>
+                            </Row>
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  PROBLEM STATEMENT  */}
+                        {/*  EXTENSIONS  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card id="description" className="content-card" shape="rounded" padding="huge">
                             <Heading
                                 as="h5"
-                                marginBottom="nano"
-                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                             >
                                 All your VSCode extensions are still available within Aide, but we’re betting you won’t
                                 need most of them.
@@ -237,8 +251,58 @@ const Home = () => {
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  AIDE USP 2  */}
+                        {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="nlp-search" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h4"
+                                marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                Natural language search
+                            </Heading>
+
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Type like you’d think—Aide understands all.
+                            </Heading>
+                        </Card>
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  IDE REPLACEMENT  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="git-diff" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h4"
+                                marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                Group git diffs into related chunks
+                            </Heading>
+
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Interactively manage merging and refactoring, without descending into chaos
+                            </Heading>
+                        </Card>
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  IDE REPLACEMENT  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="commit-messages" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h4"
+                                marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                Auto generated commit messages
+                            </Heading>
+
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Summaries and changelogs created with full context
+                            </Heading>
+                        </Card>
                     </Element>
 
                 </Portion>

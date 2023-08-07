@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-import { Card, Heading, Text } from "fictoan-react";
+import { Card, Element, Heading, Text } from "fictoan-react";
 
 import { PostPreviewStyled } from "@/components/blog/PostPreview/PostPreview.styled";
 import DateFormatter from "@/utils/date-formatter";
 import type Author from "@/interfaces/author";
+import author from "@/interfaces/author";
 // import Avatar from "../avatar";
 // import CoverImage from "../cover-image";
 
@@ -22,6 +23,7 @@ const PostPreview = ({
                          date,
                          excerpt,
                          slug,
+                         author,
                      }: Props) => {
     return (
         <PostPreviewStyled>
@@ -29,16 +31,18 @@ const PostPreview = ({
                 as={`/blog/${slug}`}
                 href="/blog/[slug]"
             >
-                <Card padding="micro" shape="rounded">
-                    <Heading as="h5">{title}</Heading>
+                <Card className="post-card" padding="micro" shape="rounded">
+                    <Element as="header">
+                        <Heading as="h5" marginBottom="micro">{title}</Heading>
+                    </Element>
 
-                    {/*<Text className="post-excerpt">{excerpt}</Text>*/}
+                    <Element as="footer">
+                        <Text>{author.name}</Text>
 
-                    {/*<Avatar name={author.name} picture={author.picture} />*/}
-
-                    <Text size="small">
-                        <DateFormatter dateString={date} />
-                    </Text>
+                        <Text size="small">
+                            <DateFormatter dateString={date} />
+                        </Text>
+                    </Element>
                 </Card>
             </Link>
         </PostPreviewStyled>
