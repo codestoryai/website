@@ -116,12 +116,17 @@ const Home = () => {
                                 Just tell it what to do, and it shall be done.
                             </Heading>
 
-                            <Element as="img" src={AideSS.src} />
+                            <Row>
+                                <Portion>
+                                    <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp" passHref>
+                                        <a target="_blank" rel="noopener noreferrer">
+                                            <Button horizontallyCenterThis kind="primary" shadow="hard">Join the waitlist!</Button>
+                                        </a>
+                                    </Link>
+                                </Portion>
+                            </Row>
 
-                            <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp">
-                                <Button kind="primary" shadow="hard">Join the waitlist!</Button>
-                            </Link>
-                            <script src="//embed.typeform.com/next/embed.js"></script>
+                            <Element as="img" src={AideSS.src} />
                         </Card>
 
 
