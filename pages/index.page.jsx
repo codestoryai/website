@@ -119,10 +119,10 @@ const Home = () => {
 
                             <Row>
                                 <Portion>
-                                    <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp" passHref>
+                                    <Link href="https://github.com/codestoryai/binaries/releases/download/v1.0%2C0/Aideapp.zip" passHref>
                                         <a target="_blank" rel="noopener noreferrer">
                                             <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                                Join the waitlist!
+                                                Download for MacOS!
                                             </Button>
                                         </a>
                                     </Link>
