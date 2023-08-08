@@ -58,6 +58,7 @@ export const HomeStyled = styled(motion.article)`
             margin-bottom : -80px;
             border-radius : 12px;
             width         : max-content;
+            max-width     : 500px;
             margin-left   : auto;
             margin-right  : auto;
         }
@@ -72,6 +73,7 @@ export const HomeStyled = styled(motion.article)`
             margin-bottom : -80px;
             border-radius : 12px;
             width         : max-content;
+            max-width     : 500px;
             margin-left   : auto;
             margin-right  : auto;
         }
