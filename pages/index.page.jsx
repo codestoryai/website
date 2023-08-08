@@ -119,7 +119,7 @@ const Home = () => {
 
                             <Row>
                                 <Portion>
-                                    <Link href="https://github.com/codestoryai/binaries/releases/download/v1.0.2/AideappExtra.zip" passHref>
+                                    <Link href="https://github.com/codestoryai/binaries/releases/download/v1.0.3/AideappExtra.zip" passHref>
                                         <a target="_blank" rel="noopener noreferrer">
                                             <Button horizontallyCenterThis kind="primary" shadow="hard">
                                                 Download for MacOS!
