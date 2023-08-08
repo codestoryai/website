@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import {
     Element,
     Heading,
-    Card, Text, InputField, Button, Row, Portion, Badge
+    Card, Text, InputField, Button, Row, Portion, Badge,
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
@@ -33,10 +33,10 @@ const Home = () => {
 
     return (
         <HomeStyled
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.24 }}
+            initial={{ opacity : 0 }}
+            animate={{ opacity : 1 }}
+            exit={{ opacity : 0 }}
+            transition={{ ease : "easeInOut", duration : 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -47,15 +47,15 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url: "https://codestory.ai/",
-                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description: "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images: [
+                    url         : "https://codestory.ai/",
+                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images      : [
                         {
-                            url: "https://codestory.ai/"
-                        }
+                            url : "https://codestory.ai/",
+                        },
                     ],
-                    site_name: "Aide by CodeStory"
+                    site_name   : "Aide by CodeStory",
                 }}
             />
 
@@ -81,7 +81,8 @@ const Home = () => {
                     </Heading>
 
                     <Heading as="h5" marginBottom="micro">
-                        What if AI could do the all the heavy-lifting, while you focused on what's most important to you?
+                        What if AI could do the all the heavy-lifting, while you focused on what's most important to
+                        you?
                     </Heading>
 
                     <Link href="/manifesto">
@@ -120,7 +121,9 @@ const Home = () => {
                                 <Portion>
                                     <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp" passHref>
                                         <a target="_blank" rel="noopener noreferrer">
-                                            <Button horizontallyCenterThis kind="primary" shadow="hard">Join the waitlist!</Button>
+                                            <Button horizontallyCenterThis kind="primary" shadow="hard">
+                                                Join the waitlist!
+                                            </Button>
                                         </a>
                                     </Link>
                                 </Portion>
@@ -129,7 +132,10 @@ const Home = () => {
                             <Element as="img" src={AideSS.src} />
 
                             <Text marginTop="micro" align="center" size="large">
-                                Some of our core functionality is also available as a <a href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai" target="_blank" rel="noopener noreferrer"><b>VSCode extension</b></a> currently, for those interested — It's part of our development build, so beware of breaking changes!
+                                Some of our core functionality is also available as a <a
+                                href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
+                                target="_blank" rel="noopener noreferrer"><b>VSCode extension</b></a> currently, for
+                                those interested — It's part of our development build, so beware of breaking changes!
                             </Text>
                         </Card>
 
@@ -351,6 +357,6 @@ const Home = () => {
         </HomeStyled>
     )
         ;
-}
+};
 
 export default Home;
