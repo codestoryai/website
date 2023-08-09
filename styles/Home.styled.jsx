@@ -10,7 +10,7 @@ export const HomeStyled = styled(motion.article)`
         -webkit-text-fill-color : transparent;
         line-height             : 1.1;
     }
-    
+
     // PRIMARY CARD GRID ==============================================================================================
     #product-grid {
         display               : grid;
@@ -38,12 +38,13 @@ export const HomeStyled = styled(motion.article)`
         box-shadow      : inset 0 1px 1px rgba(255, 255, 255, .24);
         overflow        : hidden;
         backdrop-filter : blur(6px);
+        background      : radial-gradient(circle at top center, rgba(60, 186, 146, 0.4) 0%, rgba(42, 136, 107, 0.4) 70%);
     }
 
     // AIDE INTRO CARD
     #aide {
         grid-area  : aide;
-        background : radial-gradient(circle at top center, rgba(163, 249, 35, 0.6) 0%, rgba(60, 186, 146, 0.6) 100%);
+        background : radial-gradient(circle at top center, rgba(163, 249, 35, 0.4) 0%, rgba(60, 186, 146, 0.4) 100%);
     }
 
     // PARENT CARD TO HOLD THE COLOURED BORDER
@@ -77,8 +78,7 @@ export const HomeStyled = styled(motion.article)`
 
     // FOUR EXAMPLE PROMPTS ===================================================
     #prompt-examples {
-        grid-area  : prompt-examples;
-        background : radial-gradient(circle at top center, #3cba92 0%, #2a886b 70%);
+        grid-area : prompt-examples;
     }
 
     .prompt-examples {
@@ -95,8 +95,7 @@ export const HomeStyled = styled(motion.article)`
 
     // CODE EXPLANATIONS ======================================================
     #code-explanation {
-        grid-area  : code-explanation;
-        background : linear-gradient(0.33turn, #0ba360, #3cba92);
+        grid-area : code-explanation;
 
         img {
             margin-bottom : -20%;
@@ -105,8 +104,7 @@ export const HomeStyled = styled(motion.article)`
 
     // DROP-IN REPLACEMENT ====================================================
     #ide-replacement {
-        grid-area  : ide-replacement;
-        background : linear-gradient(0.82turn, #0ba360, #3cba92);
+        grid-area : ide-replacement;
 
         img {
             margin : 0 -24% -24% -24%;
@@ -116,8 +114,7 @@ export const HomeStyled = styled(motion.article)`
 
     // NLP SEARCH =============================================================
     #nlp-search {
-        grid-area  : nlp-search;
-        background : linear-gradient(0.73turn, #0ba360, #3cba92);
+        grid-area : nlp-search;
 
         img {
             height        : 600px;
@@ -132,8 +129,7 @@ export const HomeStyled = styled(motion.article)`
 
     // GROUP GIT DIFF =========================================================
     #git-diff {
-        grid-area  : git-diff;
-        background : linear-gradient(0.73turn, #0ba360, #3cba92);
+        grid-area : git-diff;
 
         img {
             height        : 600px;
@@ -148,7 +144,6 @@ export const HomeStyled = styled(motion.article)`
 
     // AUTOGEN COMMIT MSGS ====================================================
     #commit-messages {
-        grid-area  : commit-messages;
-        background : linear-gradient(0.73turn, #0ba360, #3cba92);
+        grid-area : commit-messages;
     }
 `;
