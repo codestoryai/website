@@ -57,8 +57,8 @@ https://github.com/styled-components/styled-components/issues/2227 */
 @font-face {
     font-family : "Weissenhof Grotesk";
     src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Bold.otf") format("opentype");
-    font-weight : 600;
-    font-style  : italic;
+    font-weight : 1000;
+    font-style  : normal;
 }
 
 /* SF Pro ========================================================================================================== */
@@ -73,12 +73,12 @@ https://github.com/styled-components/styled-components/issues/2227 */
     font-family : "SF Pro Display";
     src         : url("../assets/fonts/sf-pro/SF-Pro-Display-Bold.otf") format("opentype");
     font-weight : 700;
-    font-style  : italic;
+    font-style  : normal;
 }
 
 @font-face {
     font-family : "SF Pro Display";
     src         : url("../assets/fonts/sf-pro/SF-Pro-Display-Heavy.otf") format("opentype");
     font-weight : 800;
-    font-style  : italic;
+    font-style  : normal;
 }

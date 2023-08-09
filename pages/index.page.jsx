@@ -65,23 +65,25 @@ const Home = () => {
             <Header />
 
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            {/*  INTRO  */}
+            {/*  PROBLEM STATEMENT  */}
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginTop="medium" marginBottom="small">
-                <Portion desktopSpan="half">
-                    <Heading as="h2" id="opener-headline" textColour="white" className="line-height-one">
+                <Portion desktopSpan="11">
+                    <Heading as="h2" id="opener-headline" textColour="white">
                         We want to bring the joy of creation back into development
                     </Heading>
                 </Portion>
 
+                <Portion desktopSpan="1" />
+
                 <Portion desktopSpan="half">
-                    <Heading as="h5" marginBottom="micro">
+                    <Heading as="h5" weight="400" marginBottom="micro">
                         We want to ensure that developers spend their time on meaningful ideation and execution,
                         rather than the intricacies of modern software development.
                     </Heading>
 
-                    <Heading as="h5" marginBottom="micro">
-                        What if AI could do the all the heavy-lifting, while you focused on what's most important to
+                    <Heading as="h5" weight="400" marginBottom="micro">
+                        What if AI could do the all the heavy-lifting, while you focused on what’s most important to
                         you?
                     </Heading>
 
@@ -96,9 +98,9 @@ const Home = () => {
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion>
                     <Element as="section" id="product-grid">
-                        {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  AIDE INTRO  */}
-                        {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card
                             id="aide" className="content-card"
                             shape="rounded" padding="huge"
@@ -122,14 +124,20 @@ const Home = () => {
                                     <Link href="https://9u8b7urmqbp.typeform.com/to/jmz3ATZp" passHref>
                                         <a target="_blank" rel="noopener noreferrer">
                                             <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                                Join the waitlist!
+                                                Join the wait list!
                                             </Button>
                                         </a>
                                     </Link>
                                 </Portion>
                             </Row>
 
-                            <Element as="img" src={AideSS.src} />
+                            <Element as="div" id="image-wrapper">
+                                <Element
+                                    as="img" src={AideSS.src}
+                                    id="aide-screenshot"
+                                />
+                            </Element>
+
 
                             <Text marginTop="micro" align="center" size="large">
                                 Some of our core functionality is also available as a <a
@@ -237,7 +245,7 @@ const Home = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Aide is build on VSCodium—so you can switch back to the familiar editor layout
+                                Aide is build on VSCode—so you can switch back to the familiar editor layout
                                 in a beat
                             </Heading>
 
