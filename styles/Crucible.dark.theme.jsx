@@ -28,10 +28,10 @@ export const CrucibleDarkTheme = {
         },
         headings  : {
             font       : "Weissenhof Grotesk",
-            weight     : 800,
+            weight     : 1000,
             lineHeight : 1.4,
             color      : "#1b2022",
-            multiplier : 1.24
+            multiplier : 1.26
         },
         links     : {
             font    : "Weissenhof Grotesk",
@@ -53,7 +53,7 @@ export const CrucibleDarkTheme = {
     card : {
         bg           : "#49ca74",
         border       : "#49ca74",
-        borderRadius : "4px"
+        borderRadius : "12px"
     },
 
 
