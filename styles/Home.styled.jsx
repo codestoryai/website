@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const HomeStyled = styled(motion.article)`
+    // MAIN TAGLINE ===================================================================================================
     #opener-headline {
         background-image        : radial-gradient(circle at center left, rgba(255, 255, 255, 0.88) 0%, rgba(60, 186, 146, 0.96) 100%);
         background-clip         : text;
@@ -9,7 +10,8 @@ export const HomeStyled = styled(motion.article)`
         -webkit-text-fill-color : transparent;
         line-height             : 1.1;
     }
-
+    
+    // PRIMARY CARD GRID ==============================================================================================
     #product-grid {
         display               : grid;
         margin                : 0 auto;
@@ -28,6 +30,7 @@ export const HomeStyled = styled(motion.article)`
         }
     }
 
+    // COMMON CLASS FOR ALL PRODUCT EXPLANATION CARDS
     .content-card {
         display         : flex;
         flex-direction  : column;
@@ -43,23 +46,36 @@ export const HomeStyled = styled(motion.article)`
         background : radial-gradient(circle at top center, rgba(163, 249, 35, 0.6) 0%, rgba(60, 186, 146, 0.6) 100%);
     }
 
+    // PARENT CARD TO HOLD THE COLOURED BORDER
     #image-wrapper {
+        position      : relative;
+        padding       : 8px;
         border-radius : 16px;
-        background    : linear-gradient(217deg, rgb(238, 84, 28), rgba(255, 0, 0, 0) 70.71%),
-        linear-gradient(127deg, rgba(167, 232, 95, 0.8), rgba(0, 255, 0, 0) 70.71%),
-        linear-gradient(336deg, rgba(46, 161, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
-        border        : 8px solid;
-        border-image  : conic-gradient(from var(--angle), #ee4545, #ffce51, #4a92ff, #e9a8ff, red) 1;
-        animation     : 10s rotate linear infinite;
-        padding       : 0;
+        overflow      : hidden;
+
+        img { z-index : 500; }
     }
 
-    @keyframes rotate {
-        to {
-            --angle : 360deg;
-        }
+    // CHILD WITH THE ACTUAL ROTATING COLOUR BOX
+    #gradient-wrapper {
+        position        : absolute;
+        z-index         : -1;
+        width           : 200%;
+        height          : 200%;
+        top             : -50%;
+        left            : -50%;
+        background      : linear-gradient(0deg, #63caff, #f96c6c, #fdce3b, #b97dff);
+        background-size : 100% 100%;
+        animation       : loading 3s linear 0s infinite;
     }
 
+    // ANIMATION FOR THE ABOVE
+    @keyframes loading {
+        0% { transform : rotate(0deg); }
+        100% { transform : rotate(360deg); }
+    }
+
+    // FOUR EXAMPLE PROMPTS ===================================================
     #prompt-examples {
         grid-area  : prompt-examples;
         background : radial-gradient(circle at top center, #3cba92 0%, #2a886b 70%);
@@ -77,6 +93,7 @@ export const HomeStyled = styled(motion.article)`
         border     : none;
     }
 
+    // CODE EXPLANATIONS ======================================================
     #code-explanation {
         grid-area  : code-explanation;
         background : linear-gradient(0.33turn, #0ba360, #3cba92);
@@ -86,6 +103,18 @@ export const HomeStyled = styled(motion.article)`
         }
     }
 
+    // DROP-IN REPLACEMENT ====================================================
+    #ide-replacement {
+        grid-area  : ide-replacement;
+        background : linear-gradient(0.82turn, #0ba360, #3cba92);
+
+        img {
+            margin : 0 -24% -24% -24%;
+            width  : 148%;
+        }
+    }
+
+    // NLP SEARCH =============================================================
     #nlp-search {
         grid-area  : nlp-search;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
@@ -101,6 +130,7 @@ export const HomeStyled = styled(motion.article)`
         }
     }
 
+    // GROUP GIT DIFF =========================================================
     #git-diff {
         grid-area  : git-diff;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
@@ -116,19 +146,9 @@ export const HomeStyled = styled(motion.article)`
         }
     }
 
+    // AUTOGEN COMMIT MSGS ====================================================
     #commit-messages {
         grid-area  : commit-messages;
         background : linear-gradient(0.73turn, #0ba360, #3cba92);
     }
-
-    #ide-replacement {
-        grid-area  : ide-replacement;
-        background : linear-gradient(0.82turn, #0ba360, #3cba92);
-
-        img {
-            margin : 0 -24% -24% -24%;
-            width  : 148%;
-        }
-    }
-
 `;
