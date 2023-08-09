@@ -131,11 +131,13 @@ const Home = () => {
                                 </Portion>
                             </Row>
 
-                            <Element as="div" id="image-wrapper">
+                            <Element as="div" id="image-wrapper" shadow="soft">
                                 <Element
                                     as="img" src={AideSS.src}
                                     id="aide-screenshot"
                                 />
+
+                                <Element as="div" id="gradient-wrapper" />
                             </Element>
 
 
@@ -260,10 +262,9 @@ const Home = () => {
                             <Row>
                                 <Portion desktopSpan="one-third">
                                     <Heading
-                                        as="h5"
+                                        as="h4"
                                         marginTop="micro"
                                         marginBottom="nano"
-                                        title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                                     >
                                         Code explanations with surrounding context
                                     </Heading>
