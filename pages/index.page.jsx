@@ -71,7 +71,7 @@ const Home = () => {
             <Row sidePadding="medium" marginTop="medium" marginBottom="small">
                 <Portion desktopSpan="11">
                     <Heading as="h2" id="opener-headline" textColour="white">
-                        We want to bring the joy of creation back into development
+                    CodeStory is an AI-powered mod of VSCode.
                     </Heading>
                 </Portion>
 
