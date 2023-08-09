@@ -79,13 +79,11 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        We want to ensure that developers spend their time on meaningful ideation and execution,
-                        rather than the intricacies of modern software development.
+                    Today’s editors are built for humans to write code but not specialized for AI.
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        What if AI could do the all the heavy-lifting, while you focused on what’s most important to
-                        you?
+                        So, we’re building an editor that gives AI the same level of access as a human.
                     </Heading>
 
                     <Link href="/manifesto">
@@ -113,11 +111,11 @@ const Home = () => {
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                             >
-                                So, we built Aide ✨, an AI-first IDE
+                                Aide ✨ an AI-first IDE
                             </Heading>
 
-                            <Heading as="h4" align="centre" weight="400" marginBottom="micro">
-                                Just tell it what to do, and it shall be done.
+                            <Heading as="h6" align="centre" weight="400" marginBottom="micro">
+                                Imagine a developer tasked with solving a bug, Aide ✨ can scan the codebase, identify the root cause, make the fix and auto-generate tests to evaluate whether the bug was resolved.
                             </Heading>
 
                             <Row>
