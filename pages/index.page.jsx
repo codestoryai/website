@@ -19,6 +19,7 @@ import IDEReplacement from "../public/images/home/ide-replacement.png";
 import GitDiff from "../public/images/home/git-diff.png";
 import NLPSearch from "../public/images/home/nlp-search.png";
 import Explanations from "../public/images/home/explanations.jpg";
+import AnimatedBackground from "../components/animated-background/AnimatedBackground";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -77,12 +78,12 @@ const Home = () => {
                 <Portion desktopSpan="1" />
 
                 <Portion desktopSpan="half">
-                    <Heading as="h5" weight="400" marginBottom="micro">
+                    <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
                         We want to ensure that developers spend their time on meaningful ideation and execution,
                         rather than the intricacies of modern software development.
                     </Heading>
 
-                    <Heading as="h5" weight="400" marginBottom="micro">
+                    <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
                         What if AI could do the all the heavy-lifting, while you focused on what’s most important to
                         you?
                     </Heading>
@@ -121,7 +122,9 @@ const Home = () => {
 
                             <Row>
                                 <Portion>
-                                    <Link href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip" passHref>
+                                    <Link
+                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
+                                        passHref>
                                         <a target="_blank" rel="noopener noreferrer">
                                             <Button horizontallyCenterThis kind="primary" shadow="hard">
                                                 Download for MacOS!
@@ -144,7 +147,8 @@ const Home = () => {
                             <Text marginTop="micro" align="center" size="large">
                                 Some of our core functionality is also available as a <a
                                 href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
-                                target="_blank" rel="noopener noreferrer"><strong>VSCode extension</strong></a> currently, for
+                                target="_blank" rel="noopener noreferrer"><strong>VSCode
+                                extension</strong></a> currently, for
                                 those interested—It’s part of our development build, so beware of breaking changes!
                             </Text>
                         </Card>
@@ -236,7 +240,7 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge">
+                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge" borderColour="green">
                             <Heading
                                 as="h4"
                                 marginBottom="nano"
@@ -363,9 +367,12 @@ const Home = () => {
 
             <Footer />
 
+            {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+            {/*  ANIMATED BG  */}
+            {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
+            <AnimatedBackground />
         </HomeStyled>
-    )
-        ;
+    );
 };
 
 export default Home;
