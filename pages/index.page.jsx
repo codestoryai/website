@@ -121,7 +121,7 @@ const Home = () => {
                             <Row>
                                 <Portion>
                                     <Link
-                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
+                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
                                         passHref
                                         target="_blank" rel="noopener noreferrer"
                                     >
