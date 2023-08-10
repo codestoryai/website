@@ -34,10 +34,10 @@ const Home = () => {
 
     return (
         <HomeStyled
-            initial={{ opacity : 0 }}
-            animate={{ opacity : 1 }}
-            exit={{ opacity : 0 }}
-            transition={{ ease : "easeInOut", duration : 0.24 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -48,15 +48,15 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url         : "https://codestory.ai/",
-                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images      : [
+                    url: "https://codestory.ai/",
+                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description: "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images: [
                         {
-                            url : "https://codestory.ai/",
+                            url: "https://codestory.ai/",
                         },
                     ],
-                    site_name   : "Aide by CodeStory",
+                    site_name: "Aide by CodeStory",
                 }}
             />
 
@@ -71,7 +71,7 @@ const Home = () => {
             <Row sidePadding="medium" marginTop="medium" marginBottom="small">
                 <Portion desktopSpan="11">
                     <Heading as="h2" id="opener-headline" textColour="white">
-                    CodeStory is an AI-powered mod of VSCode.
+                        We want to bring the joy of creation back into development
                     </Heading>
                 </Portion>
 
@@ -79,11 +79,11 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                    Today’s editors are built for humans to write code but not specialized for AI.
+                        What if AI could do the all the heavy-lifting, while you focused on meaningful ideation and iteration?
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        So, we’re building an editor that gives AI the same level of access as a human.
+                        Today’s editors are built for humans to write code but not specialized for AI. So, we’re building an editor that gives AI the same level of access as a human.
                     </Heading>
 
                     <Link href="/manifesto">
@@ -111,23 +111,23 @@ const Home = () => {
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                             >
-                                Aide ✨ an AI-first IDE
+                                Introducing CodeStory ✨, an AI-powered mod of VSCode.
                             </Heading>
 
                             <Heading as="h6" align="centre" weight="400" marginBottom="micro">
-                                Imagine a developer tasked with solving a bug, Aide ✨ can scan the codebase, identify the root cause, make the fix and auto-generate tests to evaluate whether the bug was resolved.
+                                Just tell it what to do, and it shall be done.
                             </Heading>
 
                             <Row>
                                 <Portion>
                                     <Link
                                         href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
-                                        passHref>
-                                        <a target="_blank" rel="noopener noreferrer">
-                                            <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                                Download for MacOS!
-                                            </Button>
-                                        </a>
+                                        passHref
+                                        target="_blank" rel="noopener noreferrer"
+                                    >
+                                        <Button horizontallyCenterThis kind="primary" shadow="hard">
+                                            Download for MacOS (Apple Silicon)
+                                        </Button>
                                     </Link>
                                 </Portion>
                             </Row>
@@ -144,9 +144,9 @@ const Home = () => {
 
                             <Text marginTop="micro" align="center" size="large">
                                 Some of our core functionality is also available as a <a
-                                href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
-                                target="_blank" rel="noopener noreferrer"><strong>VSCode
-                                extension</strong></a> currently, for
+                                    href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
+                                    target="_blank" rel="noopener noreferrer"><strong>VSCode
+                                        extension</strong></a> currently, for
                                 those interested—It’s part of our development build, so beware of breaking changes!
                             </Text>
                         </Card>
