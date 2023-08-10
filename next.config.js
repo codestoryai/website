@@ -1,4 +1,6 @@
-module.exports = {
+const withVideos = require('next-videos');
+
+module.exports = withVideos({
     pageExtensions  : ["page.tsx", "page.ts", "page.jsx", "page.js"],
     webpack(config, options) {
         config.module.rules.push({
@@ -20,4 +22,4 @@ module.exports = {
 
         return config;
     }
-};
+});
