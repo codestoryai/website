@@ -6,20 +6,22 @@ import { NextSeo } from "next-seo";
 import {
     Element,
     Heading,
-    Card, Text, InputField, Button, Row, Portion, Badge,
+    Card, Text, Button, Row, Portion, Badge,
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import AnimatedBackground from "../components/animated-background/AnimatedBackground";
 
 import AideSS from "../public/images/home/aide.png";
 import IDEReplacement from "../public/images/home/ide-replacement.png";
 import GitDiff from "../public/images/home/git-diff.png";
 import NLPSearch from "../public/images/home/nlp-search.png";
 import Explanations from "../public/images/home/explanations.jpg";
-import AnimatedBackground from "../components/animated-background/AnimatedBackground";
+import LogoTS from "../public/images/logo-ts.svg";
+import LogoJS from "../public/images/logo-js.svg";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -34,10 +36,10 @@ const Home = () => {
 
     return (
         <HomeStyled
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.24 }}
+            initial={{ opacity : 0 }}
+            animate={{ opacity : 1 }}
+            exit={{ opacity : 0 }}
+            transition={{ ease : "easeInOut", duration : 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -48,15 +50,15 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url: "https://codestory.ai/",
-                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description: "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images: [
+                    url         : "https://codestory.ai/",
+                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images      : [
                         {
-                            url: "https://codestory.ai/",
+                            url : "https://codestory.ai/",
                         },
                     ],
-                    site_name: "Aide by CodeStory",
+                    site_name   : "Aide by CodeStory",
                 }}
             />
 
@@ -68,7 +70,7 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             {/*  PROBLEM STATEMENT  */}
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Row sidePadding="medium" marginTop="medium" marginBottom="small">
+            <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="11">
                     <Heading as="h2" id="opener-headline" textColour="white">
                         We want to bring the joy of creation back into development
@@ -79,22 +81,26 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        What if AI could do the all the heavy-lifting, while you focused on meaningful ideation and iteration?
+                        What if AI could do the all the heavy-lifting, while you focused on meaningful ideation and
+                        iteration?
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        Today’s editors are built for humans to write code but not specialized for AI. So, we’re building an editor that gives AI the same level of access as a human.
+                        So, we’ve built an editor that not only generates code—but can also execute terminal
+                        commands, refactor, fix bugs, review PRs, and handle git, too.
+                    </Heading>
+
+                    <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
+                        It’s nothing short of magic.
                     </Heading>
 
                     <Link href="/manifesto">
-                        <Button kind="primary" shadow="hard">
-                            Read our manifesto &rarr;
-                        </Button>
+                        Read our manifesto &rarr;
                     </Link>
                 </Portion>
             </Row>
 
-            <Row sidePadding="medium" marginTop="small" marginBottom="small">
+            <Row sidePadding="medium" marginBottom="small">
                 <Portion>
                     <Element as="section" id="product-grid">
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
@@ -107,30 +113,29 @@ const Home = () => {
                         >
                             <Heading
                                 as="h2" align="centre"
-                                marginTop="micro" marginBottom="nano"
+                                marginBottom="micro"
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                             >
                                 Introducing CodeStory ✨, an AI-powered mod of VSCode.
                             </Heading>
 
-                            <Heading as="h6" align="centre" weight="400" marginBottom="micro">
-                                Just tell it what to do, and it shall be done.
+                            <Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">
+                                Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve
+                                problems across your dev environment.
                             </Heading>
 
-                            <Row>
-                                <Portion>
-                                    <Link
-                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
-                                        passHref
-                                        target="_blank" rel="noopener noreferrer"
-                                    >
-                                        <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                            Download for MacOS (Apple Silicon)
-                                        </Button>
-                                    </Link>
-                                </Portion>
-                            </Row>
+                            <Element as="div" marginBottom="micro">
+                                <Link
+                                    href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
+                                    passHref
+                                    target="_blank" rel="noopener noreferrer"
+                                >
+                                    <Button horizontallyCenterThis kind="primary" shadow="hard">
+                                        Download for MacOS (Apple Silicon)
+                                    </Button>
+                                </Link>
+                            </Element>
 
                             <Element as="div" id="image-wrapper" shadow="soft">
                                 <Element
@@ -144,9 +149,9 @@ const Home = () => {
 
                             <Text marginTop="micro" align="center" size="large">
                                 Some of our core functionality is also available as a <a
-                                    href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
-                                    target="_blank" rel="noopener noreferrer"><strong>VSCode
-                                        extension</strong></a> currently, for
+                                href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
+                                target="_blank" rel="noopener noreferrer"><strong>VSCode
+                                extension</strong></a> currently, for
                                 those interested—It’s part of our development build, so beware of breaking changes!
                             </Text>
                         </Card>
@@ -238,7 +243,8 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge" borderColour="green">
+                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge"
+                              borderColour="green">
                             <Heading
                                 as="h4"
                                 marginBottom="nano"
@@ -279,16 +285,22 @@ const Home = () => {
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  EXTENSIONS  */}
+                        {/*  AUTO GEN COMMIT MSGS  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*<Card id="description" className="content-card" shape="rounded" padding="huge">*/}
-                        {/*    <Heading*/}
-                        {/*        as="h5"*/}
-                        {/*    >*/}
-                        {/*        All your VSCode extensions are still available within Aide, but we’re betting you won’t*/}
-                        {/*        need most of them.*/}
-                        {/*    </Heading>*/}
-                        {/*</Card>*/}
+                        <Card id="commit-messages" className="content-card" shape="rounded" padding="huge">
+                            <Heading
+                                as="h4"
+                                marginBottom="nano"
+                                className="line-height-one"
+                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
+                            >
+                                Auto generated PR summaries
+                            </Heading>
+
+                            <Heading as="h5" weight="400" marginBottom="micro">
+                                Summaries and changelogs created with full context.
+                            </Heading>
+                        </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  NATURAL LANGUAGE SEARCH  */}
@@ -311,7 +323,7 @@ const Home = () => {
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  IDE REPLACEMENT  */}
+                        {/*  GIT DIFF  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card id="git-diff" className="content-card" shape="rounded" padding="huge">
                             <Heading
@@ -331,35 +343,45 @@ const Home = () => {
                         </Card>
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        {/*  IDE REPLACEMENT  */}
+                        {/*  LANGUAGE SUPPORT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="commit-messages" className="content-card" shape="rounded" padding="huge">
-                            <Heading
-                                as="h4"
-                                marginBottom="nano"
-                                className="line-height-one"
-                                title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
-                            >
-                                Auto generated commit messages
+                        <Card id="language-support" className="content-card" shape="rounded" padding="medium">
+                            <Heading as="h5" marginBottom="micro">
+                                Supported languages
                             </Heading>
 
-                            <Heading as="h5" weight="400" marginBottom="micro">
-                                Summaries and changelogs created with full context.
+                            <Element as="div" id="language-grid" marginBottom="micro">
+                                <Element as="div" className="language-logo" marginRight="nano">
+                                    <LogoTS />
+                                </Element>
+
+                                <Element as="div" className="language-logo">
+                                    <LogoJS />
+                                </Element>
+                            </Element>
+
+                            <Text>More languages on the way&mdash;next up is Python.</Text>
+                        </Card>
+
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        {/*  MORE FEATURES  */}
+                        {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
+                        <Card id="more-features" className="content-card" shape="rounded" padding="medium">
+                            <Heading as="h6" weight="400" align="centre" marginBottom="micro">
+                                A lot more features coming soon—take our early build for a spin in the meanwhile!
                             </Heading>
+
+                            <Link
+                                href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
+                                passHref
+                                target="_blank" rel="noopener noreferrer"
+                            >
+                                <Button horizontallyCenterThis kind="primary" shadow="hard">
+                                    Download for MacOS (Apple Silicon)
+                                </Button>
+                            </Link>
                         </Card>
                     </Element>
-                </Portion>
-
-                <Portion>
-                    <Badge
-                        size="medium"
-                        bgColour="pistachio-40" textColour="green"
-                        shape="curved"
-                        marginTop="micro"
-                        horizontallyCentreThis
-                    >
-                        A LOT MORE FEATURES COMING SOON!
-                    </Badge>
                 </Portion>
             </Row>
 

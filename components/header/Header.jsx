@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Card, Element, Portion, Row, Text } from "fictoan-react";
 
 import { HeaderStyled } from "./Header.styled";
-import CSLogo from "../../public/images/cs-logo.svg";
-import YCLogo from "../../public/images/yc-logo.svg";
+import CSLogo from "../../public/images/logo-cs.svg";
+import YCLogo from "../../public/images/logo-yc.svg";
 
 const Header = () => {
     return (
@@ -28,7 +28,7 @@ const Header = () => {
 
                         <Element as="nav" verticallyCentreItems>
                             <Link href="/blog">
-                                <Text weight="600">BLOG</Text>
+                                BLOG
                             </Link>
                             {/*<Link href="/team">Team</Link>*/}
                         </Element>
