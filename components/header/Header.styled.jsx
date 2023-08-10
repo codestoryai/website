@@ -19,4 +19,6 @@ export const HeaderStyled = styled(motion.div)`
         display : flex;
         gap     : 16px;
     }
+
+    a { color : #15c28c; }
 `;
