@@ -15,13 +15,13 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import AnimatedBackground from "../components/animated-background/AnimatedBackground";
 
-import AideSS from "../public/images/home/aide.png";
 import IDEReplacement from "../public/images/home/ide-replacement.png";
 import GitDiff from "../public/images/home/git-diff.png";
 import NLPSearch from "../public/images/home/nlp-search.png";
 import Explanations from "../public/images/home/explanations.jpg";
 import LogoTS from "../public/images/logo-ts.svg";
 import LogoJS from "../public/images/logo-js.svg";
+import Debugging from "../public/images/home/debugging.mp4";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
@@ -140,10 +140,9 @@ const Home = () => {
                             </Row>
 
                             <Element as="div" id="image-wrapper" shadow="soft">
-                                <Element
-                                    as="img" src={AideSS.src}
-                                    id="aide-screenshot"
-                                />
+                                <video muted loop autoPlay playsInline width="100%">
+                                    <source src={Debugging} type="video/mp4" />
+                                </video>
 
                                 <Element as="div" id="gradient-wrapper" />
                             </Element>
