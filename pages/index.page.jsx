@@ -125,17 +125,19 @@ const Home = () => {
                                 problems across your dev environment.
                             </Heading>
 
-                            <Element as="div" marginBottom="micro">
-                                <Link
-                                    href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
-                                    passHref
-                                    target="_blank" rel="noopener noreferrer"
-                                >
-                                    <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                        Download for MacOS (Apple Silicon)
-                                    </Button>
-                                </Link>
-                            </Element>
+                            <Row>
+                                <Portion>
+                                    <Link
+                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
+                                        passHref
+                                        target="_blank" rel="noopener noreferrer"
+                                    >
+                                        <Button horizontallyCenterThis kind="primary" shadow="hard">
+                                            Download for MacOS (Apple Silicon)
+                                        </Button>
+                                    </Link>
+                                </Portion>
+                            </Row>
 
                             <Element as="div" id="image-wrapper" shadow="soft">
                                 <Element
@@ -372,7 +374,7 @@ const Home = () => {
                             </Heading>
 
                             <Link
-                                href="https://github.com/codestoryai/binaries/releases/download/v1.0.4/AideappExtra.zip"
+                                href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
                                 passHref
                                 target="_blank" rel="noopener noreferrer"
                             >
