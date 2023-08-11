@@ -16,7 +16,7 @@ export const CrucibleDarkTheme = {
     text : {
         font      : {
             sans  : "Weissenhof Grotesk",
-            mono  : "GT America Mono",
+            mono  : "Parse Grotesk Mono",
             serif : "Replica",
         },
         paras     : {
@@ -43,8 +43,16 @@ export const CrucibleDarkTheme = {
             },
         },
         selection : {
-            bg   : defaultColours.red20,
+            bg   : defaultColours.spring,
             text : defaultColours.black,
+        },
+
+        code : {
+            inline : {
+                bg    : defaultColours.green60,
+                text  : defaultColours.black,
+                scale : 80
+            },
         },
     },
 

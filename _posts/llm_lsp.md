@@ -1,15 +1,14 @@
 ---
-title      : "LLMs walking the code graph with `ts-morph` 👣"
-excerpt    : "To start with, we wanted the LLM to see a code repository as we humans do, as a graph of entities interconnected and linked together."
-coverImage : "/assets/blog/code-reviews/cover.png"
-date       : "2023-07-31T13:09:00.000Z"
-author     :
-    name    : Sandeep Kumar Pani
-    picture : "/assets/blog/authors/sandeep.jpg"
-ogImage    :
-    url : "/assets/blog/code-reviews/cover.png"
+title: "LLMs walking the code graph with `ts-morph` 👣"
+excerpt: "To start with, we wanted the LLM to see a code repository as we humans do, as a graph of entities interconnected and linked together."
+coverImage: "/assets/blog/code-reviews/cover.png"
+date: "2023-07-31T13:09:00.000Z"
+author:
+    name: Sandeep Kumar Pani
+    picture: "/assets/blog/authors/sandeep.jpg"
+ogImage:
+    url: "/assets/blog/code-reviews/cover.png"
 ---
-
 
 With CodeStory we want to build a senior engineer right in your IDE!
 
@@ -19,35 +18,37 @@ Using a CST parser ([tree-sitter](https://tree-sitter.github.io/tree-sitter/) fo
 
 We would also use a LSP here to power the same features, but most LSPs are don’t provide accessible APIs and we wanted to pre-create the graph to power our “Explain code” feature, so how do we do that?
 
-### Enter [ts-morph](https://github.com/dsherret/ts-morph) ‼️
+##### Enter [ts-morph](https://github.com/dsherret/ts-morph) ‼️
 
 We first asked GPT4 on how to do this, and LSP was the obvious answer, but running a full blown LSP without good APIs ruins the dev experience, after looking around we settled on ts-morph and Jedi for powering the code graph.
 
 We are also exposing how we use `ts-morph` to power our code graph creation on the repo [here](https://github.com/codestoryai/typescript_parsing) (we will expose the full blown code graph linking soon, as its embedded in our private repo at the moment)
 
-## So how does `ts-morph` help? 👋
+---
+
+### So how does `ts-morph` help? 👋
 
 Parsing typescript code is a bit of hit and miss unless you are very careful and take care of most complex cases as in typescript you have a lot of variations on how to do the same thing. For example you can declare a [function](https://github.com/codestoryai/typescript_parsing/blob/main/parseRepo.ts#L134) like:
 
-```jsx
+```js
 export function something() {
-		console.log("interesting");
+    console.log("interesting");
 }
 ```
 
 or you can [declare](https://github.com/codestoryai/typescript_parsing/blob/main/parseRepo.ts#L195) it as:
 
-```jsx
+```js
 export const something = () => {
-	console.log("interesting");
-}
+    console.log("interesting");
+};
 ```
 
 and there are [cases](https://github.com/codestoryai/typescript_parsing/blob/main/parseRepo.ts#L488) like this too
 
-```jsx
+```js
 export const revisit = doSomething("interesting", {
-   maxAge: 24 * 60 * 60, // one week
+    maxAge: 24 * 60 * 60, // one week
 });
 ```
 
@@ -55,32 +56,33 @@ There are also [classes](https://github.com/codestoryai/typescript_parsing/blob/
 
 The core part of a code graph is getting a unique name for each symbol in the codebase. We do this via the type defined below:
 
-```jsx
+```js
 export interface CodeSymbolInformation {
-    symbolName: string,
-    symbolKind: CodeSymbolKind,
-    symbolStartLine: number,
-    symbolEndLine: number,
-    codeSnippet:
-    { languageId: string; code: string },
-    extraSymbolHint: string | null,
-    dependencies: CodeSymbolDependencies[],
-    fsFilePath: string,
-    originalFilePath: string,
-    workingDirectory: string,
-    displayName: string,
-    originalName: string,
-    originalSymbolName: string,
-} 
+    symbolName: string;
+    symbolKind: CodeSymbolKind;
+    symbolStartLine: number;
+    symbolEndLine: number;
+    codeSnippet: { languageId: string, code: string };
+    extraSymbolHint: string | null;
+    dependencies: CodeSymbolDependencies[];
+    fsFilePath: string;
+    originalFilePath: string;
+    workingDirectory: string;
+    displayName: string;
+    originalName: string;
+    originalSymbolName: string;
+}
 ```
 
-As mentioned above you can see that the `symbolName` is unique to each node and we also capture the scope of the function, if its inside a class then the `symbolName` rightfully contains: `{module_name}.{class_name}.{function_name}` and if its global we simply use `{module_name}.{function_name}` 
+As mentioned above you can see that the `symbolName` is unique to each node and we also capture the scope of the function, if its inside a class then the `symbolName` rightfully contains: `{module_name}.{class_name}.{function_name}` and if its global we simply use `{module_name}.{function_name}`
+
+---
 
 ### Getting the dependencies of a code symbol
 
 With nodes getting created, our next step was to create the edges between them. Using `ts-morph` we can very easily get the dependencies by asking `ts-morph` to look for certain type of symbols in a block of code and giving us the type for it.
 
-```jsx
+```js
 block.getDescendantsOfKind(SyntaxKind.CallExpression).forEach((callExpression) => {
         callExpression.getDescendantsOfKind(SyntaxKind.Identifier).forEach((identifier) => {
             const symbol = identifier.getSymbol();
@@ -104,16 +106,19 @@ In short we are looking for all kinds of function calls happening inside the fun
 
 This allows us to get all the **edges or dependencies** of this function to other parts of the codebase.
 
+---
+
 ### How does an LLM use this? 👨‍💻
 
-Today we are limited by the context length of the LLM (100k is the max we can go, and even then inference speed drops quite a bit). 
+Today we are limited by the context length of the LLM (100k is the max we can go, and even then inference speed drops quite a bit).
 
 By giving the LLM a **Code Graph** it can walk on, we are able to get the LLM to ask for more information about the symbols which it is missing or has not seen yet.
 
 This allows the LLM to ask for:
-
 - more information about the symbol if it has not seen
 - provide better code completion and reasoning as it now has a LSP to interact with
+
+---
 
 ### Where do we go from here?
 
@@ -123,6 +128,6 @@ While on our quest to create a senior engineer we are also building these toolin
 
 We are finishing up work on giving:
 
-- **terminal** access to the LLM so it can run commands
-- **linters** so the the code generated is closer to what a human would write
-- **debuggers** so it can debug its own code
+-   **terminal** access to the LLM so it can run commands
+-   **linters** so the the code generated is closer to what a human would write
+-   **debuggers** so it can debug its own code
