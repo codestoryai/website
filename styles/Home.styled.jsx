@@ -55,7 +55,11 @@ export const HomeStyled = styled(motion.article)`
         border-radius : 16px;
         overflow      : hidden;
 
-        img { z-index : 500; }
+        img, video {
+            z-index       : 500;
+            border-radius : 12px;
+            margin-bottom : -3px;
+        }
     }
 
     // CHILD WITH THE ACTUAL ROTATING COLOUR BOX

@@ -5,8 +5,12 @@ import { NextSeo } from "next-seo";
 
 import {
     Element,
+    Row,
+    Portion,
     Heading,
-    Card, Text, Button, Row, Portion, Badge,
+    Card,
+    Text,
+    Button
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";

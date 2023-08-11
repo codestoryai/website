@@ -13,6 +13,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
 
 import "highlight.js/styles/pojoaque.css";
+import { BlogStyled } from "@/pages/blog/blog.styled";
 
 type Props = {
     post: PostType;
@@ -38,7 +39,7 @@ export default function Post({ post }: Props) {
                 <Text>Loading…</Text>
             ) : (
                 <>
-                    <article className="my-32">
+                    <article>
                         <Header />
 
                         <Head>
@@ -46,27 +47,29 @@ export default function Post({ post }: Props) {
                             <meta property="og:image" content={post.ogImage.url} />
                         </Head>
 
-                        <Row sidePadding="medium" marginTop="small">
-                            <Portion>
-                                <Heading as="h1">{post.title}</Heading>
-                            </Portion>
-                        </Row>
+                        <BlogStyled>
+                            <Row sidePadding="medium" marginTop="small">
+                                <Portion>
+                                    <Heading as="h1">{post.title}</Heading>
+                                </Portion>
+                            </Row>
 
-                        <Row sidePadding="medium" marginTop="small">
-                            <Portion desktopSpan="one-fourth">
-                                <Heading as="h6">{post.author.name}</Heading>
+                            <Row sidePadding="medium" marginTop="small">
+                                <Portion desktopSpan="one-fourth">
+                                    <Heading as="h6">{post.author.name}</Heading>
 
-                                <Text>
-                                    <DateFormatter dateString={post.date} />
-                                </Text>
+                                    <Text>
+                                        <DateFormatter dateString={post.date} />
+                                    </Text>
 
-                                <Heading as="h4">{post.excerpt}</Heading>
-                            </Portion>
+                                    <Heading as="h4">{post.excerpt}</Heading>
+                                </Portion>
 
-                            <Portion desktopSpan="three-fourth" className="blog-content">
-                                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                            </Portion>
-                        </Row>
+                                <Portion desktopSpan="three-fourth" className="blog-content">
+                                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                                </Portion>
+                            </Row>
+                        </BlogStyled>
                     </article>
                 </>
             )}
