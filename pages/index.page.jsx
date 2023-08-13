@@ -3,15 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 
-import {
-    Element,
-    Row,
-    Portion,
-    Heading,
-    Card,
-    Text,
-    Button
-} from "fictoan-react";
+import { Element, Row, Portion, Heading, Card, Text, Button } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
@@ -29,6 +21,15 @@ import Debugging from "../public/images/home/debugging.mp4";
 
 const Home = () => {
     const [isCopyEmailClicked, setIsCopyEmailClicked] = useState(false);
+    const [release, setRelease] = useState([]);
+
+    useEffect(() => {
+        fetch("https://api.github.com/repos/codestoryai/binaries/releases")
+            .then((res) => res.json())
+            .then((releases) => {
+                setRelease(releases[0]);
+            });
+    }, []);
 
     useEffect(() => {
         if (isCopyEmailClicked) {
@@ -40,10 +41,10 @@ const Home = () => {
 
     return (
         <HomeStyled
-            initial={{ opacity : 0 }}
-            animate={{ opacity : 1 }}
-            exit={{ opacity : 0 }}
-            transition={{ ease : "easeInOut", duration : 0.24 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -54,15 +55,16 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url         : "https://codestory.ai/",
-                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images      : [
+                    url: "https://codestory.ai/",
+                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description:
+                        "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images: [
                         {
-                            url : "https://codestory.ai/",
+                            url: "https://codestory.ai/",
                         },
                     ],
-                    site_name   : "Aide by CodeStory",
+                    site_name: "Aide by CodeStory",
                 }}
             />
 
@@ -90,17 +92,15 @@ const Home = () => {
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        So, we’ve built an editor that not only generates code—but can also execute terminal
-                        commands, refactor, fix bugs, review PRs, and handle git, too.
+                        So, we’ve built an editor that not only generates code—but can also execute terminal commands,
+                        refactor, fix bugs, review PRs, and handle git, too.
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
                         It’s nothing short of magic.
                     </Heading>
 
-                    <Link href="/manifesto">
-                        Read our manifesto &rarr;
-                    </Link>
+                    <Link href="/manifesto">Read our manifesto &rarr;</Link>
                 </Portion>
             </Row>
 
@@ -110,13 +110,10 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  AIDE INTRO  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card
-                            id="aide" className="content-card"
-                            shape="rounded" padding="huge"
-                            borderColour="green"
-                        >
+                        <Card id="aide" className="content-card" shape="rounded" padding="huge" borderColour="green">
                             <Heading
-                                as="h2" align="centre"
+                                as="h2"
+                                align="centre"
                                 marginBottom="micro"
                                 className="line-height-one"
                                 title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
@@ -124,17 +121,25 @@ const Home = () => {
                                 Introducing CodeStory ✨, an AI-powered mod of VSCode.
                             </Heading>
 
-                            <Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">
-                                Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve
-                                problems across your dev environment.
+                            <Heading
+                                as="h5"
+                                align="centre"
+                                weight="400"
+                                marginBottom="micro"
+                                paddingLeft="small"
+                                paddingRight="small"
+                            >
+                                Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and
+                                solve problems across your dev environment.
                             </Heading>
 
                             <Row>
                                 <Portion>
                                     <Link
-                                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
+                                        href={release?.assets?.[0]?.browser_download_url ?? ""}
                                         passHref
-                                        target="_blank" rel="noopener noreferrer"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <Button horizontallyCenterThis kind="primary" shadow="hard">
                                             Download for MacOS (Apple Silicon)
@@ -151,23 +156,29 @@ const Home = () => {
                                 <Element as="div" id="gradient-wrapper" />
                             </Element>
 
-
                             <Text marginTop="micro" align="center" size="large">
-                                Some of our core functionality is also available as a <a
-                                href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
-                                target="_blank" rel="noopener noreferrer"><strong>VSCode
-                                extension</strong></a> currently, for
-                                those interested—It’s part of our development build, so beware of breaking changes!
+                                Some of our core functionality is also available as a{" "}
+                                <a
+                                    href="https://marketplace.visualstudio.com/items?itemName=codestory-ghost.codestoryai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <strong>VSCode extension</strong>
+                                </a>{" "}
+                                currently, for those interested—It’s part of our development build, so beware of
+                                breaking changes!
                             </Text>
                         </Card>
-
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  AIDE USP 1  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         <Card
-                            id="prompt-examples" className="content-card"
-                            shape="rounded" shadow="hard" padding="huge"
+                            id="prompt-examples"
+                            className="content-card"
+                            shape="rounded"
+                            shadow="hard"
+                            padding="huge"
                             borderColour="green"
                         >
                             <Heading
@@ -186,59 +197,93 @@ const Home = () => {
                             {/* PROMPT 1 ================================== */}
                             <Card
                                 className="prompt-examples"
-                                shape="rounded" marginBottom="nano"
-                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                                shape="rounded"
+                                marginBottom="nano"
+                                bgColour="green-60"
+                                borderColour="transparent"
+                                shadow="hard"
                             >
                                 <Card
                                     className="prompt-wrapper"
-                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                    padding="nano"
+                                    shape="rounded"
+                                    bgColour="white"
+                                    borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Implement the notification handler
-                                        interface</Text>
+                                    <Text margin="nano" weight="600">
+                                        &rarr; Implement the notification handler interface
+                                    </Text>
                                 </Card>
                             </Card>
 
                             {/* PROMPT 2 ================================== */}
                             <Card
-                                id="prompt-example-2" className="prompt-examples"
-                                shape="rounded" marginBottom="nano"
-                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                                id="prompt-example-2"
+                                className="prompt-examples"
+                                shape="rounded"
+                                marginBottom="nano"
+                                bgColour="green-60"
+                                borderColour="transparent"
+                                shadow="hard"
                             >
                                 <Card
                                     className="prompt-wrapper"
-                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                    padding="nano"
+                                    shape="rounded"
+                                    bgColour="white"
+                                    borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use
-                                        dependency injection for the logger</Text>
+                                    <Text margin="nano" weight="600">
+                                        &rarr; Refactor the file uploader package to use dependency injection for the
+                                        logger
+                                    </Text>
                                 </Card>
                             </Card>
 
                             {/* PROMPT 3 ================================== */}
                             <Card
-                                id="prompt-example-3" className="prompt-examples"
-                                shape="rounded" marginBottom="nano"
-                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                                id="prompt-example-3"
+                                className="prompt-examples"
+                                shape="rounded"
+                                marginBottom="nano"
+                                bgColour="green-60"
+                                borderColour="transparent"
+                                shadow="hard"
                             >
                                 <Card
                                     className="prompt-wrapper"
-                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                    padding="nano"
+                                    shape="rounded"
+                                    bgColour="white"
+                                    borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Fix the race condition in the event consumer
-                                        causing files to be overwritten</Text>
+                                    <Text margin="nano" weight="600">
+                                        &rarr; Fix the race condition in the event consumer causing files to be
+                                        overwritten
+                                    </Text>
                                 </Card>
                             </Card>
 
                             {/* PROMPT 4 ================================== */}
                             <Card
-                                id="prompt-example-4" className="prompt-examples"
-                                shape="rounded" marginBottom="nano"
-                                bgColour="green-60" borderColour="transparent" shadow="hard"
+                                id="prompt-example-4"
+                                className="prompt-examples"
+                                shape="rounded"
+                                marginBottom="nano"
+                                bgColour="green-60"
+                                borderColour="transparent"
+                                shadow="hard"
                             >
                                 <Card
                                     className="prompt-wrapper"
-                                    padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                    padding="nano"
+                                    shape="rounded"
+                                    bgColour="white"
+                                    borderColour="transparent"
                                 >
-                                    <Text margin="nano" weight="600">&rarr; Solve world hunger</Text>
+                                    <Text margin="nano" weight="600">
+                                        &rarr; Solve world hunger
+                                    </Text>
                                 </Card>
                             </Card>
 
@@ -248,8 +293,13 @@ const Home = () => {
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  IDE REPLACEMENT  */}
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
-                        <Card id="ide-replacement" className="content-card" shape="rounded" padding="huge"
-                              borderColour="green">
+                        <Card
+                            id="ide-replacement"
+                            className="content-card"
+                            shape="rounded"
+                            padding="huge"
+                            borderColour="green"
+                        >
                             <Heading
                                 as="h4"
                                 marginBottom="nano"
@@ -260,13 +310,11 @@ const Home = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400" marginBottom="micro">
-                                Aide is build on VSCode—so you can switch back to the familiar editor layout
-                                in a beat
+                                Aide is build on VSCode—so you can switch back to the familiar editor layout in a beat
                             </Heading>
 
                             <Element as="img" src={IDEReplacement.src} />
                         </Card>
-
 
                         {/*  /////////////////////////////////////////////////////////////////////////////////////  */}
                         {/*  CODE EXPLANATIONS  */}
@@ -274,11 +322,7 @@ const Home = () => {
                         <Card id="code-explanation" className="content-card" shape="rounded" padding="huge">
                             <Row>
                                 <Portion desktopSpan="one-third">
-                                    <Heading
-                                        as="h4"
-                                        marginTop="micro"
-                                        marginBottom="nano"
-                                    >
+                                    <Heading as="h4" marginTop="micro" marginBottom="nano">
                                         Code explanations with surrounding context
                                     </Heading>
                                 </Portion>
@@ -379,7 +423,8 @@ const Home = () => {
                             <Link
                                 href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
                                 passHref
-                                target="_blank" rel="noopener noreferrer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <Button horizontallyCenterThis kind="primary" shadow="hard">
                                     Download for MacOS (Apple Silicon)
