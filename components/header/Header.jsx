@@ -20,23 +20,29 @@ const Header = () => {
                             </Link>
 
                             <Element as="div" className="yc-logo" verticallyCentreItems hideOnMobile>
-                                <Text size="small" marginLeft="nano" marginRight="nano">&mdash;</Text>
-                                <Text size="small" marginRight="nano">backed by</Text>
+                                <Text size="small" marginLeft="nano" marginRight="nano">
+                                    &mdash;
+                                </Text>
+                                <Text size="small" marginRight="nano">
+                                    backed by
+                                </Text>
                                 <YCLogo />
                             </Element>
                         </Element>
 
                         <Element as="nav" verticallyCentreItems>
-                            <Link href="/blog">
-                                BLOG
+                            <Link href="https://docs.codestory.ai" passHref>
+                                <a target="_blank" rel="noopener noreferrer">
+                                    DOCS
+                                </a>
                             </Link>
-                            {/*<Link href="/team">Team</Link>*/}
+                            <Link href="/blog">BLOG</Link>
                         </Element>
                     </Element>
                 </Portion>
             </Row>
         </HeaderStyled>
     );
-}
+};
 
 export default Header;
