@@ -421,7 +421,7 @@ const Home = () => {
                             </Heading>
 
                             <Link
-                                href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
+                                href={release?.assets?.[0]?.browser_download_url ?? ""}
                                 passHref
                                 target="_blank"
                                 rel="noopener noreferrer"
