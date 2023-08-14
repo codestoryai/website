@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Button, Card, Element, Heading, Text, Portion, Row } from "fictoan-react";
@@ -13,6 +13,16 @@ import LogoJS from "../../public/images/logo-js.svg";
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 
 const FeaturesGrid = () => {
+    const [release, setRelease] = useState([]);
+
+    useEffect(() => {
+        fetch("https://api.github.com/repos/codestoryai/binaries/releases")
+            .then((res) => res.json())
+            .then((releases) => {
+                setRelease(releases[0]);
+            });
+    }, []);
+
     const featuresRef = useRef(null);
 
     useEffect(() => {
@@ -63,9 +73,10 @@ const FeaturesGrid = () => {
                     <Row>
                         <Portion>
                             <Link
-                                href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
+                                href={release?.assets?.[0]?.browser_download_url ?? ""}
                                 passHref
-                                target="_blank" rel="noopener noreferrer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <Button horizontallyCenterThis kind="primary" shadow="hard">
                                     Download for MacOS (Apple Silicon)
@@ -335,9 +346,10 @@ const FeaturesGrid = () => {
                     </Heading>
 
                     <Link
-                        href="https://github.com/codestoryai/binaries/releases/download/v1.0.8/Aide.1.81.0.dmg"
+                        href={release?.assets?.[0]?.browser_download_url ?? ""}
                         passHref
-                        target="_blank" rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <Button horizontallyCenterThis kind="primary" shadow="hard">
                             Download for MacOS (Apple Silicon)

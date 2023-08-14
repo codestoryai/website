@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
@@ -19,10 +19,10 @@ import AnimatedBackground from "../components/animated-background/AnimatedBackgr
 const Home = () => {
     return (
         <HomeStyled
-            initial={{ opacity : 0 }}
-            animate={{ opacity : 1 }}
-            exit={{ opacity : 0 }}
-            transition={{ ease : "easeInOut", duration : 0.24 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
         >
             <Head>
                 <title>Aide by CodeStory — Bringing the joy of creation back to development</title>
@@ -33,15 +33,16 @@ const Home = () => {
                 title="Aide by CodeStory — Bringing the joy of creation back into development"
                 description="Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping."
                 openGraph={{
-                    url         : "https://codestory.ai/",
-                    title       : "Aide by CodeStory — Bringing the joy of creation back into development",
-                    description : "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
-                    images      : [
+                    url: "https://codestory.ai/",
+                    title: "Aide by CodeStory — Bringing the joy of creation back into development",
+                    description:
+                        "Roundabout setups, complex tool-chains, dependency hells. Coding has started to feel like a chore these days. We want to reduce and eventually remove the time spent on mundane tasks so that you can focus instead on building and shipping.",
+                    images: [
                         {
-                            url : "https://codestory.ai/",
+                            url: "https://codestory.ai/",
                         },
                     ],
-                    site_name   : "Aide by CodeStory",
+                    site_name: "Aide by CodeStory",
                 }}
             />
 
@@ -69,17 +70,15 @@ const Home = () => {
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        So, we’ve built an editor that not only generates code—but can also execute terminal
-                        commands, refactor, fix bugs, review PRs, and handle git, too.
+                        So, we’ve built an editor that not only generates code—but can also execute terminal commands,
+                        refactor, fix bugs, review PRs, and handle git, too.
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
                         It’s nothing short of magic.
                     </Heading>
 
-                    <Link href="/manifesto">
-                        Read our manifesto &rarr;
-                    </Link>
+                    <Link href="/manifesto">Read our manifesto &rarr;</Link>
                 </Portion>
             </Row>
 
