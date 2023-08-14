@@ -17,13 +17,14 @@ export const HomeStyled = styled(motion.article)`
         margin                : 0 auto;
         gap                   : 16px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : auto 64vh 40vh 720px auto;
+        grid-template-rows    : auto 640px 520px 720px auto;
         grid-template-areas   : 
                 "aide             aide             aide             aide"
                 "prompt-examples  prompt-examples  ide-replacement  ide-replacement"
                 "code-explanation code-explanation code-explanation commit-messages"
                 "nlp-search       nlp-search       git-diff         git-diff"
                 "language-support more-features    more-features    more-features";
+        max-width             : 1440px;
 
         @media screen and (max-width : 1200px) {
             display        : flex;
@@ -39,7 +40,8 @@ export const HomeStyled = styled(motion.article)`
         box-shadow      : inset 0 1px 1px rgba(255, 255, 255, .24);
         overflow        : hidden;
         backdrop-filter : blur(6px);
-        background      : radial-gradient(circle at top center, rgba(60, 186, 146, 0.4) 0%, rgba(42, 136, 107, 0.4) 70%);
+        background      : radial-gradient(circle at top center,
+        rgba(60, 186, 146, 0.4) 0%, rgba(42, 136, 107, 0.4) 70%);
     }
 
     // AIDE INTRO CARD

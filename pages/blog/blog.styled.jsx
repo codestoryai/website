@@ -3,7 +3,6 @@ import { defaultColours } from "fictoan-react";
 import { transparentize } from "polished";
 
 export const BlogStyled = styled.article`
-
     .blog-content h1,
     .blog-content h2,
     .blog-content h3,
@@ -14,7 +13,8 @@ export const BlogStyled = styled.article`
         margin-bottom : 16px;
     }
 
-    p, li {
+    .blog-content p,
+    .blog-content li {
         font-family   : "Weissenhof Grotesk", sans-serif;
         font-size     : 120%;
         color         : ${transparentize(0.4, defaultColours.white)};
@@ -32,6 +32,7 @@ export const BlogStyled = styled.article`
         margin-bottom    : 24px;
     }
 
+    // MAKESHIFT HLJS THEME
     .hljs {
         background    : #063324;
         border-radius : 8px;
