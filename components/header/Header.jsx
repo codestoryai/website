@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Card, Element, Portion, Row, Text } from "fictoan-react";
 
 import { HeaderStyled } from "./Header.styled";
-import CSLogo from "../../public/images/cs-logo.svg";
-import YCLogo from "../../public/images/yc-logo.svg";
+import CSLogo from "../../public/images/logo-cs.svg";
+import YCLogo from "../../public/images/logo-yc.svg";
 
 const Header = () => {
     return (
@@ -20,23 +20,30 @@ const Header = () => {
                             </Link>
 
                             <Element as="div" className="yc-logo" verticallyCentreItems hideOnMobile>
-                                <Text size="small" marginLeft="nano" marginRight="nano">&mdash;</Text>
-                                <Text size="small" marginRight="nano">backed by</Text>
+                                <Text size="small" marginLeft="nano" marginRight="nano">
+                                    &mdash;
+                                </Text>
+                                <Text size="small" marginRight="nano">
+                                    backed by
+                                </Text>
                                 <YCLogo />
                             </Element>
                         </Element>
 
                         <Element as="nav" verticallyCentreItems>
-                            <Link href="/blog">
-                                <Text weight="600">BLOG</Text>
+                            <Link href="https://docs.codestory.ai" passHref>
+                                <a target="_blank" rel="noopener noreferrer">
+                                    DOCS
+                                </a>
                             </Link>
-                            {/*<Link href="/team">Team</Link>*/}
+
+                            <Link href="/blog">BLOG</Link>
                         </Element>
                     </Element>
                 </Portion>
             </Row>
         </HeaderStyled>
     );
-}
+};
 
 export default Header;

@@ -1,15 +1,6 @@
-import Image from "next/image";
+import React from "react";
 
 import { AnimatedBackgroundStyled } from "./AnimatedBackground.styled";
-import { Card, Element, HRule, Portion, Row, Text } from "fictoan-react";
-
-import { AiFillSlackCircle } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
-import { FaTwitter } from "react-icons/fa";
-import CSLogo from "../../public/images/cs-logo.svg";
-import Link from "next/link";
-import React from "react";
-import YCLogo from "../../public/images/yc-logo.svg";
 
 
 const AnimatedBackground = () => {
