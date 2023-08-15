@@ -49,7 +49,7 @@ const Footer = () => {
                     </a>
 
                     <a
-                        href="https://discord.gg/4JXfX5YR"
+                        href="https://discord.gg/DNnh6tC9VA"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
