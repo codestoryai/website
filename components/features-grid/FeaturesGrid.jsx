@@ -5,6 +5,7 @@ import { Button, Card, Element, Heading, Text, Portion, Row } from "fictoan-reac
 
 import Debugging from "../../public/images/home/debugging.mp4";
 import IDEReplacement from "../../public/images/home/ide-replacement.png";
+import ImportSettings from "../../public/images/home/import.png";
 import NLPSearch from "../../public/images/home/nlp-search.png";
 import Explanations from "../../public/images/home/explanations.jpg";
 import GitDiff from "../../public/images/home/git-diff.png";
@@ -48,7 +49,7 @@ const FeaturesGrid = () => {
 
     return (
         <FeaturesGridStyled>
-            <Element as="div" id="product-grid" className="features" ref={featuresRef}>
+            <Element as="div" id="features-grid" className="features" ref={featuresRef}>
                 {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
                 {/*  AIDE INTRO  */}
                 {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -201,15 +202,14 @@ const FeaturesGrid = () => {
                         className="line-height-one"
                         title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                     >
-                        Drop-in replacement for your IDE
+                        Migrate in a snap
                     </Heading>
 
                     <Heading as="h5" weight="400" marginBottom="micro">
-                        Aide is build on VSCode—so you can switch back to the familiar editor layout
-                        in a beat
+                        All your VSCode extensions, shortcuts and customizations—Aide supports it all
                     </Heading>
 
-                    <Element as="img" src={IDEReplacement.src} />
+                    <Element as="img" src={ImportSettings.src} />
                 </Card>
 
 
@@ -228,7 +228,7 @@ const FeaturesGrid = () => {
                                 marginTop="micro"
                                 marginBottom="nano"
                             >
-                                Code explanations with surrounding context
+                                Get code explanations with surrounding context
                             </Heading>
                         </Portion>
 
@@ -274,7 +274,7 @@ const FeaturesGrid = () => {
                         className="line-height-one"
                         title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                     >
-                        Natural language search
+                        Search as you think
                     </Heading>
 
                     <Heading as="h5" weight="400" marginBottom="micro">
