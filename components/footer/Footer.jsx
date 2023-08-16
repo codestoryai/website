@@ -46,13 +46,13 @@ const Footer = () => {
                             YC profile
                         </a>
 
-                    <a
-                        href="https://discord.gg/DNnh6tC9VA"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Text>Join our Discord</Text>
-                    </a>
+                        <a
+                            href="https://discord.gg/DNnh6tC9VA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Join our Discord
+                        </a>
 
                         <a
                             href="https://twitter.com/codestoryai"
