@@ -7,10 +7,12 @@ import {
     Row,
     Portion,
     Heading,
+    Card
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
+import { ListOfFeatures } from "../components/features-grid/ListOfFeatures";
 import Header from "../components/header/Header";
 import FeaturesGrid from "../components/features-grid/FeaturesGrid";
 import Footer from "../components/footer/Footer";
@@ -84,7 +86,7 @@ const Home = () => {
 
 
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            {/*  LIST OF FEATURES  */}
+            {/*  FEATURE GRID  */}
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginBottom="small">
                 <Portion>

@@ -14,7 +14,7 @@ export const FeaturesGridStyled = styled.section`
                 "code-explanation code-explanation code-explanation commit-messages"
                 "nlp-search       nlp-search       git-diff         git-diff"
                 "language-support more-features    more-features    more-features";
-        max-width             : 1440px;
+        // max-width             : 1440px;
 
         @media screen and (max-width : 1200px) {
             display        : flex;
@@ -200,4 +200,10 @@ export const FeaturesGridStyled = styled.section`
     }
 
     .feature:hover:after { opacity : 0.24; }
+
+    #other-features { margin-top : 16px; }
+
+    .array-card {
+
+    }
 `;
