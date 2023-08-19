@@ -4,13 +4,13 @@ import {
     Element,
     Row,
     Portion,
-    Text, Heading, HRule, Card
+    Heading
 } from "fictoan-react";
 
 import { getChangeLogFile } from "../../lib/changelog";
-import markdownToHtml from "../../lib/markdownToHtml"
 import { ChangelogStyled } from "./changelog.styled";
 import Header from "../../components/header/Header";
+import { Markdown } from "../../components/markdown/Markdown";
 
 type Props = {
     content: string;
@@ -40,7 +40,7 @@ export default function Changelog({ content }: Props) {
             <Row sidePadding="medium">
                 <Portion desktopSpan="two-third">
                     <Element as="main" className="post-body">
-                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                        <Markdown content={content} />
                     </Element>
                 </Portion>
             </Row>
@@ -50,11 +50,10 @@ export default function Changelog({ content }: Props) {
 
 export async function getStaticProps() {
     const changelog = getChangeLogFile();
-    const content = await markdownToHtml(changelog || "");
 
     return {
         props: {
-            content,
+            content: changelog,
         },
     };
 }
