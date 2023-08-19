@@ -37,7 +37,9 @@ const Header = () => {
                                 </a>
                             </Link>
 
-                            <Link href="/changelog">CHANGELOG</Link>
+                            <Element as="div" hideOnMobile >
+                                <Link href="/changelog">CHANGELOG</Link>
+                            </Element>
 
                             <Link href="/blog">BLOG</Link>
                         </Element>
