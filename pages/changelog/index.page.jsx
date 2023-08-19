@@ -25,10 +25,16 @@ const Changelog = () => {
             {/*  INTRO  */}
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
-                <Portion desktopSpan="one-third">
+                <Portion desktopSpan="whole">
                     <Heading as="h2">
                         Changelog
                     </Heading>
+                </Portion>
+            </Row>
+
+            <Row sidePadding="medium">
+                <Portion desktopSpan="two-third">
+                    <Heading as="h5">{/* Date goes here */}</Heading>
                 </Portion>
 
                 <Portion desktopSpan="two-third">
