@@ -46,7 +46,6 @@ export const CrucibleDarkTheme = {
             bg   : defaultColours.spring,
             text : defaultColours.black,
         },
-
         code : {
             inline : {
                 bg    : defaultColours.green60,

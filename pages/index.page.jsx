@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
@@ -7,12 +7,10 @@ import {
     Row,
     Portion,
     Heading,
-    Card
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
-import { ListOfFeatures } from "../components/features-grid/ListOfFeatures";
 import Header from "../components/header/Header";
 import FeaturesGrid from "../components/features-grid/FeaturesGrid";
 import Footer from "../components/footer/Footer";

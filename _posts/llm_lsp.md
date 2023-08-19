@@ -95,7 +95,6 @@ block.getDescendantsOfKind(SyntaxKind.CallExpression).forEach((callExpression) =
                 }).filter(
                     (codeSymbolInformation) => codeSymbolInformation.codeSymbolName !== undefined
                 ).map(
-                    // Stupid typescript type checker
                     (codeSymbolInformation) => codeSymbolInformation as CodeSymbolDependencyWithFileInformation
                 );
 ```
@@ -115,8 +114,9 @@ Today we are limited by the context length of the LLM (100k is the max we can go
 By giving the LLM a **Code Graph** it can walk on, we are able to get the LLM to ask for more information about the symbols which it is missing or has not seen yet.
 
 This allows the LLM to ask for:
-- more information about the symbol if it has not seen
-- provide better code completion and reasoning as it now has a LSP to interact with
+
+-   more information about the symbol if it has not seen
+-   provide better code completion and reasoning as it now has a LSP to interact with
 
 ---
 

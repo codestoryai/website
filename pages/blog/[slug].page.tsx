@@ -7,12 +7,10 @@ import { Heading, Portion, Row, Text } from "fictoan-react";
 import Header from "@/components/header/Header";
 import DateFormatter from "../../utils/date-formatter";
 import { PostStyled } from "../../styles/Post.styled";
-
-import markdownToHtml from "@/lib/markdownToHtml";
+import { Markdown } from "@/components/markdown/Markdown"
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
 
-import "highlight.js/styles/pojoaque.css";
 import { BlogStyled } from "@/pages/blog/blog.styled";
 
 type Props = {
@@ -66,7 +64,7 @@ export default function Post({ post }: Props) {
                                 </Portion>
 
                                 <Portion desktopSpan="three-fourth" className="blog-content">
-                                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                                    <Markdown content={post.content} />
                                 </Portion>
                             </Row>
                         </BlogStyled>
@@ -85,13 +83,12 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
     const post = getPostBySlug(params.slug, ["title", "date", "slug", "author", "content", "ogImage", "coverImage"]);
-    const content = await markdownToHtml(post.content || "");
 
     return {
         props: {
             post: {
                 ...post,
-                content,
+                content: post.content,
             },
         },
     };

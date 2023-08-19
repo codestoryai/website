@@ -31,32 +31,4 @@ export const BlogStyled = styled.article`
         margin-top       : 24px;
         margin-bottom    : 24px;
     }
-
-    // MAKESHIFT HLJS THEME
-    .hljs {
-        background    : #063324;
-        border-radius : 8px;
-    }
-
-    .hljs-addition,
-    .hljs-keyword,
-    .hljs-literal,
-    .hljs-selector-tag {
-        color : ${defaultColours.red90};
-    }
-
-    .hljs-built_in,
-    .hljs-name,
-    .hljs-section,
-    .hljs-title {
-        color : #38a3a5;
-    }
-
-    .hljs-attr { color : #77bfa3; }
-
-    .hljs-params { color : #ffbe0b; }
-
-    .hljs-function { color : #3a86ff; }
-
-    .hljs.language-js { color : #9370ff; }
 `;
