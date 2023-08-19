@@ -37,6 +37,8 @@ const Header = () => {
                                 </a>
                             </Link>
 
+                            <Link href="/changelog">CHANGELOG</Link>
+
                             <Link href="/blog">BLOG</Link>
                         </Element>
                     </Element>

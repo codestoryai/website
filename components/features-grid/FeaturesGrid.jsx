@@ -276,7 +276,6 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Search as you’d think
                         </Heading>
@@ -300,7 +299,6 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Group git diffs into related chunks
                         </Heading>

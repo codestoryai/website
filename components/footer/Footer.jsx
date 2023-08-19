@@ -31,9 +31,15 @@ const Footer = () => {
                 </Portion>
 
                 <Portion desktopSpan="one-fourth">
-                    <Link href="/blog">
-                        Blog
-                    </Link>
+                    <Element as="div" id="nav-links">
+                        <Link href="/blog">
+                            Blog
+                        </Link>
+
+                        <Link href="/changelog">
+                            Changelog
+                        </Link>
+                    </Element>
                 </Portion>
 
                 <Portion desktopSpan="one-fourth">
