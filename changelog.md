@@ -1,3 +1,11 @@
+#### 19th August, 2023
+
+###### Aide — v1.0.11
+
+- Long file edits are more stable, we use huristics and fuzzy matching instead of AI.
+- Initial golang support with dependencies powered by LSP and Tree-sitter.
+
+
 #### 18th August, 2023
 
 ###### Aide — v1.0.11
