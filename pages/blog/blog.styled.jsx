@@ -9,6 +9,7 @@ export const BlogStyled = styled.article`
     .blog-content h4,
     .blog-content h5,
     .blog-content h6 {
+        color: ${defaultColours.white};
         margin-top    : 32px;
         margin-bottom : 16px;
     }
@@ -16,8 +17,8 @@ export const BlogStyled = styled.article`
     .blog-content p,
     .blog-content li {
         font-family   : "Weissenhof Grotesk", sans-serif;
-        font-size     : 120%;
-        color         : ${transparentize(0.4, defaultColours.white)};
+        font-size     : 140%;
+        color         : ${transparentize(0.2, defaultColours.white)};
         margin-bottom : 24px;
     }
 

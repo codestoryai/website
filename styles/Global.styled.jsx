@@ -34,4 +34,17 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .line-height-one { line-height : 1; }
+
+    .headline {
+        background-image        : radial-gradient(circle at center left, rgba(255, 255, 255, 0.88) 0%, rgba(60, 186, 146, 0.96) 100%);
+        background-clip         : text;
+        -webkit-background-clip : text;
+        -webkit-text-fill-color : transparent;
+        line-height             : 1.1;
+    }
+
+	.author-image {
+		border-radius: 50%;
+		overflow: hidden;
+	}
 `;

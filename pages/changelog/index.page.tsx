@@ -7,6 +7,7 @@ import {
     Heading
 } from "fictoan-react";
 
+import Footer from "@/components/footer/Footer";
 import { getChangeLogFile } from "../../lib/changelog";
 import { ChangelogStyled } from "./changelog.styled";
 import Header from "../../components/header/Header";
@@ -31,7 +32,7 @@ export default function Changelog({ content }: Props) {
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="whole">
-                    <Heading as="h2">
+                    <Heading as="h2" className="headline">
                         Changelog
                     </Heading>
                 </Portion>
@@ -44,6 +45,8 @@ export default function Changelog({ content }: Props) {
                     </Element>
                 </Portion>
             </Row>
+
+            <Footer />
         </ChangelogStyled>
     );
 }

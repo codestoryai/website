@@ -138,10 +138,12 @@ Cloud backed explanations and semantic search.
 
 ###### VSCode Extension
 
-🔍 Look up code using the context you remember in natural language
+Launching the CodeStory VSCode extension! 🎉
+
+-   Look up code using the context you remember in natural language 🔍
 
 ![search](/changelog/0407.gif)
 
-📅 Recover from context switches and recollect work easily with an automatic timeline of changes
+-   Recover from context switches and recollect work easily with an automatic timeline of changes 📅
 
-🚍 Self-serve onboarding for new hires and on-call with explanations for any class or function like your co-worker would
+-   Self-serve onboarding for new hires and on-call with explanations for any class or function like your co-worker would 🚍

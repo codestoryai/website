@@ -56,7 +56,7 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="11">
-                    <Heading as="h2" id="opener-headline" textColour="white">
+                    <Heading as="h2" className="headline" textColour="white">
                         We want to bring the joy of creation back into development
                     </Heading>
                 </Portion>

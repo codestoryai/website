@@ -1,13 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-
-import { Card, Element, Heading, Text } from "fictoan-react";
+import { Card, Element, Heading, Portion, Row, Text } from "fictoan-react";
 
 import { PostPreviewStyled } from "@/components/blog/PostPreview/PostPreview.styled";
 import DateFormatter from "@/utils/date-formatter";
 import type Author from "@/interfaces/author";
-import author from "@/interfaces/author";
-// import Avatar from "../avatar";
-// import CoverImage from "../cover-image";
 
 type Props = {
     title: string;
@@ -19,12 +16,12 @@ type Props = {
 };
 
 const PostPreview = ({
-                         title,
-                         date,
-                         excerpt,
-                         slug,
-                         author,
-                     }: Props) => {
+    title,
+    date,
+    excerpt,
+    slug,
+    author,
+}: Props) => {
     return (
         <PostPreviewStyled>
             <Link
@@ -37,11 +34,19 @@ const PostPreview = ({
                     </Element>
 
                     <Element as="footer">
-                        <Text>{author.name}</Text>
+                        <Row marginBottom="nano">
+                            <Portion verticallyCenterItems>
+                                <Image src={author.picture} width={48} height={48} className="author-image" />
 
-                        <Text size="small">
-                            <DateFormatter dateString={date} />
-                        </Text>
+                                <Element as="div" marginLeft="nano">
+                                    <Text>{author.name}</Text>
+
+                                    <Text size="small">
+                                        <DateFormatter dateString={date} />
+                                    </Text>
+                                </Element>
+                            </Portion>
+                        </Row>
                     </Element>
                 </Card>
             </Link>
