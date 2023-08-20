@@ -9,6 +9,7 @@ export const BlogStyled = styled.article`
     .blog-content h4,
     .blog-content h5,
     .blog-content h6 {
+        color: ${defaultColours.white};
         margin-top    : 32px;
         margin-bottom : 16px;
     }
@@ -16,8 +17,8 @@ export const BlogStyled = styled.article`
     .blog-content p,
     .blog-content li {
         font-family   : "Weissenhof Grotesk", sans-serif;
-        font-size     : 120%;
-        color         : ${transparentize(0.4, defaultColours.white)};
+        font-size     : 140%;
+        color         : ${transparentize(0.2, defaultColours.white)};
         margin-bottom : 24px;
     }
 
@@ -31,32 +32,4 @@ export const BlogStyled = styled.article`
         margin-top       : 24px;
         margin-bottom    : 24px;
     }
-
-    // MAKESHIFT HLJS THEME
-    .hljs {
-        background    : #063324;
-        border-radius : 8px;
-    }
-
-    .hljs-addition,
-    .hljs-keyword,
-    .hljs-literal,
-    .hljs-selector-tag {
-        color : ${defaultColours.red90};
-    }
-
-    .hljs-built_in,
-    .hljs-name,
-    .hljs-section,
-    .hljs-title {
-        color : #38a3a5;
-    }
-
-    .hljs-attr { color : #77bfa3; }
-
-    .hljs-params { color : #ffbe0b; }
-
-    .hljs-function { color : #3a86ff; }
-
-    .hljs.language-js { color : #9370ff; }
 `;

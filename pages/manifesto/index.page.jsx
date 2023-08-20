@@ -28,7 +28,7 @@ const Manifesto = () => {
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="half">
-                    <Heading as="h2">
+                    <Heading as="h2" className="headline">
                         Manifesto
                     </Heading>
                 </Portion>

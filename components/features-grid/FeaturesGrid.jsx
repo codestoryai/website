@@ -67,7 +67,7 @@ const FeaturesGrid = () => {
                             className="line-height-one"
                             title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
                         >
-                            Introducing CodeStory ✨, an AI-powered mod of VSCode.
+                            Introducing CodeStory ✨<br />An AI-powered mod of VSCode
                         </Heading>
 
                         <Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">
@@ -276,7 +276,6 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Search as you’d think
                         </Heading>
@@ -300,7 +299,6 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Group git diffs into related chunks
                         </Heading>

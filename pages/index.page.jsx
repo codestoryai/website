@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
@@ -7,12 +7,10 @@ import {
     Row,
     Portion,
     Heading,
-    Card
 } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
-import { ListOfFeatures } from "../components/features-grid/ListOfFeatures";
 import Header from "../components/header/Header";
 import FeaturesGrid from "../components/features-grid/FeaturesGrid";
 import Footer from "../components/footer/Footer";
@@ -58,7 +56,7 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="11">
-                    <Heading as="h2" id="opener-headline" textColour="white">
+                    <Heading as="h2" className="headline" textColour="white">
                         We want to bring the joy of creation back into development
                     </Heading>
                 </Portion>

@@ -1,18 +1,17 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import ErrorPage from "next/error";
+import Image from "next/image";
 
-import { Heading, Portion, Row, Text } from "fictoan-react";
+import { Element, Heading, Portion, Row, Text } from "fictoan-react";
 
 import Header from "@/components/header/Header";
 import DateFormatter from "../../utils/date-formatter";
 import { PostStyled } from "../../styles/Post.styled";
-
-import markdownToHtml from "@/lib/markdownToHtml";
+import { Markdown } from "@/components/markdown/Markdown"
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
-
-import "highlight.js/styles/pojoaque.css";
+import Footer from "@/components/footer/Footer";
 import { BlogStyled } from "@/pages/blog/blog.styled";
 
 type Props = {
@@ -50,29 +49,38 @@ export default function Post({ post }: Props) {
                         <BlogStyled>
                             <Row sidePadding="medium" marginTop="small">
                                 <Portion>
-                                    <Heading as="h1">{post.title}</Heading>
+                                    <Heading as="h1" className="headline">{post.title}</Heading>
                                 </Portion>
                             </Row>
 
                             <Row sidePadding="medium" marginTop="small">
                                 <Portion desktopSpan="one-fourth">
-                                    <Heading as="h6">{post.author.name}</Heading>
+                                    <Row className="author-intro">
+                                        <Portion verticallyCenterItems>
+                                            <Image src={post.author.picture} width={48} height={48} className="author-image" />
 
-                                    <Text>
-                                        <DateFormatter dateString={post.date} />
-                                    </Text>
+                                            <Element as="div" marginLeft="nano">
+                                                <Heading as="h6">{post.author.name}</Heading>
+                                                <Text>
+                                                    <DateFormatter dateString={post.date} />
+                                                </Text>
+                                            </Element>
+                                        </Portion>
+                                    </Row>
 
                                     <Heading as="h4">{post.excerpt}</Heading>
                                 </Portion>
 
                                 <Portion desktopSpan="three-fourth" className="blog-content">
-                                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                                    <Markdown content={post.content} />
                                 </Portion>
                             </Row>
                         </BlogStyled>
                     </article>
                 </>
             )}
+
+            <Footer />
         </PostStyled>
     );
 }
@@ -85,13 +93,12 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
     const post = getPostBySlug(params.slug, ["title", "date", "slug", "author", "content", "ogImage", "coverImage"]);
-    const content = await markdownToHtml(post.content || "");
 
     return {
         props: {
             post: {
                 ...post,
-                content,
+                content: post.content,
             },
         },
     };

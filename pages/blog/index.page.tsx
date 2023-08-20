@@ -9,17 +9,12 @@ import Footer from "@/components/footer/Footer";
 import PostPreview from "@/components/blog/PostPreview/post-preview";
 import Post from "@/interfaces/post";
 
-
-type Props = {
-    posts: Post[];
-};
-
 type BlogHomeProps = {
     allPosts: Post[];
 };
 
-export default function BlogHome({allPosts}: BlogHomeProps) {
-    const heroPost  = allPosts[0];
+export default function BlogHome({ allPosts }: BlogHomeProps) {
+    const heroPost = allPosts[0];
     const morePosts = allPosts.slice(1);
 
     return (
@@ -28,7 +23,7 @@ export default function BlogHome({allPosts}: BlogHomeProps) {
 
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="half">
-                    <Heading as="h2">
+                    <Heading as="h2" className="headline">
                         Blog
                     </Heading>
                 </Portion>
@@ -67,6 +62,6 @@ export const getStaticProps = async () => {
     ]);
 
     return {
-        props : {allPosts},
+        props: { allPosts },
     };
 };

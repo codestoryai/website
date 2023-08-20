@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 export const PostPreviewStyled = styled(motion.div)`
     .post-card {
-        height          : 400px;
         display         : flex;
         flex-direction  : column;
         justify-content : space-between;
