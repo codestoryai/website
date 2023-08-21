@@ -1,8 +1,8 @@
-import Image from "next/image"
-import ReactMarkdown from "react-markdown"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { materialOceanic as theme } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import rehypeRaw from "rehype-raw"
+import rehypeRaw from "rehype-raw";
+import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialOceanic as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const markdownComponents: object = {
 	p(paragraph: { children?: boolean; node?: any }) {
@@ -62,10 +62,12 @@ type MarkdownProps = {
 
 export const Markdown = ({ content }: MarkdownProps) => {
 	return (
-		<ReactMarkdown
-			children={content}
-			components={markdownComponents}
-			rehypePlugins={[rehypeRaw]}
-		/>
+		<>
+			<ReactMarkdown
+				children={content}
+				components={markdownComponents}
+				rehypePlugins={[rehypeRaw]}
+			/>
+		</>
 	)
 }
