@@ -1,8 +1,23 @@
+#### 26th August, 2023
+
+###### Aide — v1.0.12
+
+- Stablise semantic search further by improving search results and their ordering, and fix the bug where lexical search modifiers and keybindings were broken.
+- Golang support is extended to all features of Aide!
+
+#### 24th August, 2023
+
+###### Aide — v1.0.12
+
+- Semantic search is now built natively into the editor, so you can search for code by simply describing what you're looking for! Find the wand icon in the top bar or ⌘ + ⌥ + S to toggle between semantic and lexical search.
+
+![Semantic search](/assets/blog/better-code-search/semantic_search.gif)
+
 #### 19th August, 2023
 
 ###### Aide — v1.0.11
 
-- Long file edits are more stable, we use huristics and fuzzy matching instead of AI.
+- Long file edits are now more stable with huristics and fuzzy matching instead of being fully controlled by AI.
 - Initial golang support with dependencies powered by LSP and Tree-sitter.
 
 
