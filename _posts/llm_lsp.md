@@ -6,6 +6,9 @@ date: "2023-07-31T13:09:00.000Z"
 author:
     name: Sandeep Kumar Pani
     picture: "/assets/blog/authors/sandeep.jpg"
+    twitter: "https://twitter.com/skcd42"
+    linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani"
+    github: "https://github.com/theskcd"
 ogImage:
     url: "/assets/blog/code-reviews/cover.png"
 ---

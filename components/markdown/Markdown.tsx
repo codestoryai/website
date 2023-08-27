@@ -1,5 +1,6 @@
+import Image from "next/future/image";
 import rehypeRaw from "rehype-raw";
-import Image from "next/image";
+import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialOceanic as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -13,10 +14,6 @@ const markdownComponents: object = {
 			const blurSupported = image.properties.src.split(".").pop() in ["jpg", "png", "webp", "avif"]
 			const metastring = image.properties.alt
 			const alt = metastring?.replace(/ *\{[^)]*\} */g, "")
-			const metaWidth = metastring.match(/{([^}]+)x/)
-			const metaHeight = metastring.match(/x([^}]+)}/)
-			const width = metaWidth ? metaWidth[1] : "768"
-			const height = metaHeight ? metaHeight[1] : "432"
 			const isPriority = metastring?.toLowerCase().match('{priority}')
 			const hasCaption = metastring?.toLowerCase().includes('{caption:')
 			const caption = metastring?.match(/{caption: (.*?)}/)?.pop()
@@ -25,8 +22,10 @@ const markdownComponents: object = {
 				<div className="postImgWrapper">
 					<Image
 						src={image.properties.src}
-						width={width}
-						height={height}
+						width={0}
+						height={0}
+						sizes="100vw"
+						style={{ width: '100%', height: 'auto', paddingBottom: "24px" }}
 						className="postImg"
 						alt={alt}
 						priority={isPriority}
@@ -66,7 +65,7 @@ export const Markdown = ({ content }: MarkdownProps) => {
 			<ReactMarkdown
 				children={content}
 				components={markdownComponents}
-				rehypePlugins={[rehypeRaw]}
+				rehypePlugins={[rehypeRaw, remarkGfm]}
 			/>
 		</>
 	)

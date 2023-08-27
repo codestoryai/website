@@ -2,7 +2,9 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import ErrorPage from "next/error";
 import Image from "next/image";
-
+import Link from "next/link";
+import { FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { TbBrandGithubFilled } from "react-icons/tb"
 import { Element, Heading, Portion, Row, Text } from "fictoan-react";
 
 import Header from "@/components/header/Header";
@@ -57,13 +59,34 @@ export default function Post({ post }: Props) {
                                 <Portion desktopSpan="one-fourth">
                                     <Row className="author-intro">
                                         <Portion verticallyCenterItems>
-                                            <Image src={post.author.picture} width={48} height={48} className="author-image" />
+                                            <Image src={post.author.picture} width={56} height={56} className="author-image" />
 
                                             <Element as="div" marginLeft="nano">
-                                                <Heading as="h6">{post.author.name}</Heading>
+                                                <Heading as="h6" marginRight="nano">{post.author.name}</Heading>
                                                 <Text>
                                                     <DateFormatter dateString={post.date} />
                                                 </Text>
+                                                {(post.author.twitter || post.author.github || post.author.linkedin) && (
+                                                    <Element as="div" style={{ marginTop: 4 }} verticallyCenterItems>
+                                                        {post.author.twitter && (
+                                                            <Link href={post.author.twitter} passHref>
+                                                                <a target="_blank" rel="noopener noreferrer">
+                                                                    <FaTwitter style={{ marginRight: 8 }} />
+                                                                </a>
+                                                            </Link>)}
+                                                        {post.author.github && (
+                                                            <Link href={post.author.github} passHref>
+                                                                <a target="_blank" rel="noopener noreferrer">
+                                                                    <TbBrandGithubFilled style={{ marginRight: 8 }} />
+                                                                </a>
+                                                            </Link>)}
+                                                        {post.author.linkedin && (
+                                                            <Link href={post.author.linkedin} passHref>
+                                                                <a target="_blank" rel="noopener noreferrer">
+                                                                    <FaLinkedinIn />
+                                                                </a>
+                                                            </Link>)}
+                                                    </Element>)}
                                             </Element>
                                         </Portion>
                                     </Row>

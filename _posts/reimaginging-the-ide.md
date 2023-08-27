@@ -8,6 +8,7 @@ author:
     picture: "/assets/blog/authors/naresh.jpg"
     twitter: "https://twitter.com/ghostwriternr"
     linkedin: "https://www.linkedin.com/in/naresh-ramesh"
+    github: "https://github.com/ghostwriternr"
 ogImage:
     url: "/assets/blog/code-reviews/cover.png"
 ---
