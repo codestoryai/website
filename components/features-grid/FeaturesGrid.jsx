@@ -59,36 +59,36 @@ const FeaturesGrid = () => {
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
                     <Card
                         id="aide" className="feature content-card"
-                        shape="rounded" padding="huge" borderColour="green"
+                        shape="rounded" padding="nano" borderColour="green"
                     >
-                        <Heading
-                            as="h2" align="centre"
-                            marginBottom="micro"
-                            className="line-height-one"
-                            title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
-                        >
-                            Introducing CodeStory ✨<br />An AI-powered mod of VSCode
-                        </Heading>
+                        {/*<Heading*/}
+                        {/*    as="h2" align="centre"*/}
+                        {/*    marginBottom="micro"*/}
+                        {/*    className="line-height-one"*/}
+                        {/*    title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"*/}
+                        {/*>*/}
+                        {/*    Introducing CodeStory ✨<br />An AI-powered mod of VSCode*/}
+                        {/*</Heading>*/}
 
-                        <Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">
-                            Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve
-                            problems across your dev environment.
-                        </Heading>
+                        {/*<Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">*/}
+                        {/*    Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve*/}
+                        {/*    problems across your dev environment.*/}
+                        {/*</Heading>*/}
 
-                        <Row>
-                            <Portion>
-                                <Link
-                                    href={release?.assets?.[0]?.browser_download_url ?? ""}
-                                    passHref
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Button horizontallyCenterThis kind="primary" shadow="hard">
-                                        Download for MacOS (Apple Silicon)
-                                    </Button>
-                                </Link>
-                            </Portion>
-                        </Row>
+                        {/*<Row>*/}
+                        {/*    <Portion>*/}
+                        {/*        <Link*/}
+                        {/*            href={release?.assets?.[0]?.browser_download_url ?? ""}*/}
+                        {/*            passHref*/}
+                        {/*            target="_blank"*/}
+                        {/*            rel="noopener noreferrer"*/}
+                        {/*        >*/}
+                        {/*            <Button horizontallyCenterThis kind="primary" shadow="hard">*/}
+                        {/*                Download for MacOS (Apple Silicon)*/}
+                        {/*            </Button>*/}
+                        {/*        </Link>*/}
+                        {/*    </Portion>*/}
+                        {/*</Row>*/}
 
                         <Element as="div" id="image-wrapper" shadow="soft">
                             <video muted loop autoPlay playsInline width="100%">
