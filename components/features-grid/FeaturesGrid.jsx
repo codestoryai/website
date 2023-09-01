@@ -23,7 +23,8 @@ const FeaturesGrid = () => {
         fetch("https://api.github.com/repos/codestoryai/binaries/releases")
             .then((res) => res.json())
             .then((releases) => {
-                setRelease(releases[0]);
+                const release = releases.find((release) => release.name.startsWith("mac_m_chip"));
+                setRelease(release);
             });
     }, []);
 
