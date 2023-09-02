@@ -21,7 +21,7 @@ export default function Changelog({ content }: Props) {
     return (
         <ChangelogStyled>
             <Head>
-                <title>Changelog — Aide by CodeStory</title>
+                <title>Changelog — CodeStory</title>
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
 

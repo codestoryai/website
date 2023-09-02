@@ -96,6 +96,7 @@ export const FeaturesGridStyled = styled.section`
 
         img {
             margin-bottom : -20%;
+            border-radius : 12px;
         }
     }
 
@@ -104,8 +105,12 @@ export const FeaturesGridStyled = styled.section`
         grid-area : ide-replacement;
 
         img {
-            margin : 0 -64px -64px -64px;
-            width  : calc(100% + 128px);
+            height        : 275px;
+            border-radius : 12px;
+            width         : max-content;
+            max-width     : 500px;
+            margin-left   : auto;
+            margin-right  : auto;
         }
     }
 
@@ -162,6 +167,12 @@ export const FeaturesGridStyled = styled.section`
     }
 
     .language-logo {
+        margin-right : 8px;
+
+        &.python {
+            margin-right : 0;
+        }
+
         svg {
             width  : 48px;
             height : 48px;

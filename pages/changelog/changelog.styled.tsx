@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { defaultColours } from "fictoan-react";
-import { transparentize } from "polished";
 
 import { CodeStoryColours } from "../../styles/CodeStory.colours"
 

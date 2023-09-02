@@ -17,7 +17,7 @@ const Manifesto = () => {
     return (
         <ManifestoStyled>
             <Head>
-                <title>Manifesto — Aide by CodeStory</title>
+                <title>Manifesto — CodeStory</title>
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
 
