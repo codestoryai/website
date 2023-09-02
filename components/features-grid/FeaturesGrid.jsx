@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { Button, Card, Element, Heading, Text, Portion, Row, HRule } from "fictoan-react";
 
+import { useDownload } from "../../hooks/useDownload"
+
 import Debugging from "../../public/images/home/debugging.mp4";
 import ImportSettings from "../../public/images/home/import.png";
 import NLPSearch from "../../public/images/home/nlp-search.png";
@@ -10,6 +12,8 @@ import Explanations from "../../public/images/home/explanations.jpg";
 import GitDiff from "../../public/images/home/git-diff.png";
 import LogoTS from "../../public/images/logo-ts.svg";
 import LogoJS from "../../public/images/logo-js.svg";
+import LogoPython from "../../public/images/logo-python.svg";
+import LogoGo from "../../public/images/logo-go.svg";
 
 import { ListOfAdditionalFeatures } from "./ListOfFeatures";
 
@@ -17,17 +21,7 @@ import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 
 
 const FeaturesGrid = () => {
-    const [release, setRelease] = useState([]);
-
-    useEffect(() => {
-        fetch("https://api.github.com/repos/codestoryai/binaries/releases")
-            .then((res) => res.json())
-            .then((releases) => {
-                const release = releases.find((release) => release.name.startsWith("mac_m_chip"));
-                setRelease(release);
-            });
-    }, []);
-
+    const release = useDownload();
     const featuresRef = useRef(null);
 
     useEffect(() => {
@@ -60,7 +54,8 @@ const FeaturesGrid = () => {
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
                     <Card
                         id="aide" className="feature content-card"
-                        shape="rounded" padding="nano" borderColour="green"
+                        shape="rounded" borderColour="green"
+                        style={{ padding: "8px" }}
                     >
                         {/*<Heading*/}
                         {/*    as="h2" align="centre"*/}
@@ -91,13 +86,13 @@ const FeaturesGrid = () => {
                         {/*    </Portion>*/}
                         {/*</Row>*/}
 
-                        <Element as="div" id="image-wrapper" shadow="soft">
-                            <video muted loop autoPlay playsInline width="100%">
-                                <source src={Debugging} type="video/mp4" />
-                            </video>
+                        {/* <Element as="div" id="image-wrapper" shadow="soft"> */}
+                        <video style={{ borderRadius: "4px" }} muted loop autoPlay playsInline width="100%">
+                            <source src={Debugging} type="video/mp4" />
+                        </video>
 
-                            <Element as="div" id="gradient-wrapper" />
-                        </Element>
+                        <Element as="div" id="gradient-wrapper" />
+                        {/* </Element> */}
 
                     </Card>
 
@@ -113,14 +108,13 @@ const FeaturesGrid = () => {
                         <Heading
                             as="h4"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                             marginBottom="nano"
                         >
                             Prompt anything and everything
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Instruct Aide to do things, and watch the magic happen.
+                            Instruct the agent to do things, and watch the magic happen.
                         </Heading>
 
                         {/* PROMPT 1 ================================== */}
@@ -149,7 +143,7 @@ const FeaturesGrid = () => {
                                 padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
                             >
                                 <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use
-                                    dependency injection for the logger</Text>
+                                    dependency injection</Text>
                             </Card>
                         </Card>
 
@@ -178,7 +172,7 @@ const FeaturesGrid = () => {
                                 className="prompt-wrapper"
                                 padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">&rarr; Solve world hunger</Text>
+                                <Text margin="nano" weight="600">&rarr; Eliminate all my tech debt from the last 5 years.</Text>
                             </Card>
                         </Card>
 
@@ -197,13 +191,12 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Migrate in a snap
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            All your VSCode extensions, shortcuts and customizations—Aide supports it all
+                            All your VSCode extensions, shortcuts and customizations
                         </Heading>
 
                         <Element as="img" src={ImportSettings.src} />
@@ -247,7 +240,6 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             Auto generated PR summaries
                         </Heading>
@@ -274,7 +266,7 @@ const FeaturesGrid = () => {
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Type intuitively without worrying about syntax—Aide understands all.
+                            Type intuitively without worrying about syntax
                         </Heading>
 
                         <Element as="img" src={NLPSearch.src} />
@@ -323,9 +315,17 @@ const FeaturesGrid = () => {
                             <Element as="div" className="language-logo">
                                 <LogoJS />
                             </Element>
+
+                            <Element as="div" className="language-logo python" >
+                                <LogoPython />
+                            </Element>
+
+                            <Element as="div" className="language-logo">
+                                <LogoGo />
+                            </Element>
                         </Element>
 
-                        <Text>More languages on the way&mdash;next up is Python.</Text>
+                        <Text>With more languages on the way!</Text>
                     </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -340,13 +340,12 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
-                            title="AI + IDE = Aide = help/assist/assitant. Clever, huh?"
                         >
                             On par with VSCode. And then some.
                         </Heading>
 
                         <Heading as="h5" weight="400">
-                            We’ll always keep Aide up to date with VSCode releases, so you never have to compromise between editors.
+                            We’ll always keep CodeStory up to date with VSCode releases, so you never have to compromise between editors.
                         </Heading>
                     </Card>
                 </Element>

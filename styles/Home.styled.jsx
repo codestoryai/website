@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { CodeStoryColours } from "./CodeStory.colours";
+
 export const HomeStyled = styled(motion.article)`
     span {
-        -webkit-text-fill-color : revert;
-        text-decoration         : line-through red;
+        font-weight : 600;
+        font-size   : 125%;
+        color       : ${CodeStoryColours.pear};
     }
 `;
