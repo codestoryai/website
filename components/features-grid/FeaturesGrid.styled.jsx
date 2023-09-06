@@ -206,9 +206,10 @@ export const FeaturesGridStyled = styled.section`
 
     // AUTOGEN COMMIT MSGS ====================================================
     #language-grid {
-        display   : flex;
-        gap       : 8px;
-        flex-wrap : wrap;
+        display               : grid;
+        margin                : 0 auto 16px auto;
+        gap                   : 16px;
+        grid-template-columns : repeat(2, 1fr);
     }
 
     .language-logo {
@@ -219,8 +220,8 @@ export const FeaturesGridStyled = styled.section`
         }
 
         svg {
-            width  : 48px;
-            height : 48px;
+            width  : 64px;
+            height : 64px;
         }
     }
 
