@@ -175,6 +175,7 @@ export const FeaturesGridStyled = styled.section`
         justify-content: end;
 
         .kbd {
+            background-color: ${CodeStoryColours.shrub};
             color: ${CodeStoryColours.ash};
             border: 1px solid ${CodeStoryColours.undergrowth};
             border-radius: 12px;
