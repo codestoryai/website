@@ -6,7 +6,6 @@ import { Button, Card, Element, Heading, Text, Portion, Row, HRule } from "ficto
 import { useDownload } from "../../hooks/useDownload"
 
 import Debugging from "../../public/images/home/debugging.mp4";
-import ImportSettings from "../../public/images/home/import.png";
 import NLPSearch from "../../public/images/home/nlp-search.png";
 import Agent from "../../public/images/home/agent.png";
 import Omnibar from "../../public/images/home/omnibar.png"
@@ -15,6 +14,8 @@ import SlashCommands from "../../public/images/home/slash-commands.png";
 import DebugPrompt from "../../public/images/home/debug.png";
 import ExplainPrompt from "../../public/images/home/explain-prompt.png";
 import Migration from "../../public/images/home/migrate.png";
+import VSCode from "../../public/assets/logos/vscode.svg"
+import Aide from "../../public/images/aide-white.svg";
 import LogoTS from "../../public/images/logo-ts.svg";
 import LogoJS from "../../public/images/logo-js.svg";
 import LogoPython from "../../public/images/logo-python.svg";
@@ -303,7 +304,7 @@ const FeaturesGrid = () => {
                     <Card
                         id="more-features"
                         className="feature content-card"
-                        shape="rounded" padding="huge"
+                        shape="rounded" padding="large"
                     >
                         <Heading
                             as="h4"
@@ -313,11 +314,22 @@ const FeaturesGrid = () => {
                             Migrate from VSCode in 1-click. And stay updated.
                         </Heading>
 
-                        <Heading as="h5" weight="400" marginBottom="nano">
+                        <Element as="div" padding="micro" horizontallyCenterThis>
+                            <Element as="div" verticallyCenterItems>
+                                <VSCode />
+                                <Text as="div" size="huge" marginLeft="micro" marginRight="micro">
+                                    &rarr;
+                                </Text>
+                                <Aide />
+                            </Element>
+                        </Element>
+
+                        <Element as="img" marginBottom="micro" src={Migration.src} />
+
+                        <Heading as="h5" weight="400">
                             We’ll keep Aide up to date with VSCode releases, so you never have to compromise between editors.
                         </Heading>
 
-                        <Element as="img" src={Migration.src} />
                     </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
