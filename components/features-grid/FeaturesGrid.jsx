@@ -115,12 +115,12 @@ const FeaturesGrid = () => {
                             marginTop="micro"
                             marginBottom="nano"
                         >
-                            Access AI that understands new & existing codebases.
+                            AI that understands new & existing codebases.
                         </Heading>
                         <Row>
                             <Portion desktopSpan="one-fourth">
                                 <Heading as="h5" weight="400" marginTop="nano">
-                                    The AI agent can scan your codebase, navigate it,
+                                    The agent can scan your codebase, navigate it,
                                     find the right places to edit, make changes and verify it's work
                                     before reporting back to you.
                                 </Heading>
@@ -156,7 +156,7 @@ const FeaturesGrid = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400">
-                                You're always a keyboard shortcut away from accessing the agent.
+                                You're always a keyboard shortcut away from accessing the AI agent.
                             </Heading>
                         </Element>
 
