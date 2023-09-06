@@ -15,13 +15,16 @@ import Header from "../../components/header/Header";
 const Manifesto = () => {
 
     return (
-        <ManifestoStyled>
+        <ManifestoStyled
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
+        >
             <Head>
                 <title>Manifesto — CodeStory</title>
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
-
-            <Header />
 
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             {/*  INTRO  */}

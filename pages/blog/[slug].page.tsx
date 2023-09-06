@@ -41,8 +41,6 @@ export default function Post({ post }: Props) {
             ) : (
                 <>
                     <article>
-                        <Header />
-
                         <Head>
                             <title>{title}</title>
                             <meta property="og:image" content={post.ogImage.url} />

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { CodeStoryColours } from "../../styles/CodeStory.colours";
+
 export const FeaturesGridStyled = styled.section`
     // PRIMARY CARD GRID ==============================================================================================
     #features-grid {
@@ -7,14 +9,13 @@ export const FeaturesGridStyled = styled.section`
         margin                : 0 auto;
         gap                   : 16px;
         grid-template-columns : repeat(4, 1fr);
-        grid-template-rows    : auto 640px 520px 720px auto;
+        grid-template-rows    : auto 440px 540px 540px auto;
         grid-template-areas   : 
                 "aide             aide             aide             aide"
-                "prompt-examples  prompt-examples  ide-replacement  ide-replacement"
                 "code-explanation code-explanation code-explanation commit-messages"
-                "nlp-search       nlp-search       git-diff         git-diff"
+                "nlp-search       nlp-search       prompt-examples  prompt-examples"
+                "git-diff         git-diff         prompt-examples  prompt-examples"
                 "language-support more-features    more-features    more-features";
-        // max-width             : 1440px;
 
         @media screen and (max-width : 1200px) {
             display        : flex;
@@ -78,11 +79,19 @@ export const FeaturesGridStyled = styled.section`
         grid-area : prompt-examples;
     }
 
+    .prompt-wrapper {
+        padding: 1px;
+    }
+
     .prompt-examples {
         padding       : 4px;
         border-radius : 16px;
         background    : linear-gradient(0.2turn, #bffa4a, #66bd43);
         border        : none;
+    }
+
+    #prompt-examples img {
+        border-radius: 16px;
     }
 
     .prompt-wrapper {
@@ -93,6 +102,16 @@ export const FeaturesGridStyled = styled.section`
     // CODE EXPLANATIONS ======================================================
     #code-explanation {
         grid-area : code-explanation;
+
+        img {
+            margin-bottom : -20%;
+            border-radius : 12px;
+        }
+    }
+
+    // COMMANDS ======================================================
+    #commands {
+        grid-area : commands;
 
         img {
             margin-bottom : -20%;
@@ -119,13 +138,15 @@ export const FeaturesGridStyled = styled.section`
         grid-area : nlp-search;
 
         img {
-            height        : 600px;
-            margin-bottom : -80px;
+            height        : auto;
+            margin-bottom : -280px;
             border-radius : 12px;
             width         : max-content;
             max-width     : 500px;
             margin-left   : auto;
             margin-right  : auto;
+            background-color: #00212b;
+            padding       : 12px 4px;
         }
     }
 
@@ -134,19 +155,37 @@ export const FeaturesGridStyled = styled.section`
         grid-area : git-diff;
 
         img {
-            height        : 600px;
-            margin-bottom : -80px;
+            height        : auto;
+            margin-bottom : -280px;
             border-radius : 12px;
             width         : max-content;
             max-width     : 500px;
             margin-left   : auto;
             margin-right  : auto;
+            background-color: #00212b;
+            padding       : 12px 4px;
         }
     }
 
     // AUTOGEN COMMIT MSGS ====================================================
     #commit-messages {
         grid-area : commit-messages;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        .kbd {
+            color: ${CodeStoryColours.ash};
+            border: 1px solid ${CodeStoryColours.undergrowth};
+            border-radius: 12px;
+            border-width: 1px 1px 3px 1px;
+            padding: 8px !important;
+        }
+
+        img {
+            background-color: #002b36;
+            padding       : 8px 4px;
+        }
     }
 
     // LANGUAGE SUPPORT =======================================================
@@ -157,6 +196,12 @@ export const FeaturesGridStyled = styled.section`
     // AUTOGEN COMMIT MSGS ====================================================
     #more-features {
         grid-area : more-features;
+
+        img {
+            background-color: #00212b;
+            padding         : 8px 4px;
+            border-radius   : 8px;
+        }
     }
 
     // AUTOGEN COMMIT MSGS ====================================================

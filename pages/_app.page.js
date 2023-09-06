@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Script from "next/script";
 import { ThemeProvider } from "fictoan-react";
+
+import 'video-react/dist/video-react.css';
 import { CrucibleLightTheme } from "../styles/Crucible.light.theme";
 import { CrucibleDarkTheme } from "../styles/Crucible.dark.theme";
 import { GlobalStyle } from "../styles/Global.styled";
 
 //  Local assets  =============================================================
 import "../styles/fonts.css";
+import Header from "../components/header/Header";
 
 function MyApp({Component, pageProps}) {
     let [currentTheme, setCurrentTheme] = useState("dark");
@@ -45,6 +48,7 @@ function MyApp({Component, pageProps}) {
             <ThemeProvider theme={currentTheme === "light" ? CrucibleLightTheme : CrucibleDarkTheme}>
                 <GlobalStyle />
 
+                <Header/>
                 <Component {...modifiedPageProps} />
             </ThemeProvider>
         </>

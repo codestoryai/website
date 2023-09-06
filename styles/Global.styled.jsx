@@ -40,11 +40,33 @@ export const GlobalStyle = createGlobalStyle`
         background-clip         : text;
         -webkit-background-clip : text;
         -webkit-text-fill-color : transparent;
-        line-height             : 1.1;
+        line-height             : 1.1; 
+    }
+
+    .headline svg {
+        fill : currentColor;
+        height: 1.2em;
+        width: 1.2em;
+        display: inline-block;
+        vertical-align: middle;
+        padding-bottom: 0.2em;
     }
 
 	.author-image {
 		border-radius: 50%;
 		overflow: hidden;
 	}
+
+    .video-react {
+        border-radius: 8px;
+        font: unset !important;
+    }
+
+    .video-react .video-react-video {
+        border-radius: 8px;
+    }
+
+    .video-react .video-react-control-bar {
+        border-radius: 8px;
+    }
 `;

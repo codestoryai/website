@@ -12,8 +12,8 @@ export const HeaderStyled = styled(motion.header)`
     backdrop-filter : blur(6px);
     border-bottom   : 1px solid rgba(60, 186, 146, 0.56);
 
-    .cs-logo svg { width : 140px; }
-    .yc-logo svg { width : 96px; }
+    .cs-logo svg { width : 160px; }
+    .yc-logo svg { width : 108px; }
 
     nav {
         display : flex;

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { NextSeo } from "next-seo";
 
 import {
+    Element,
     Row,
     Portion,
     Heading, Button,
@@ -50,17 +51,18 @@ const Home = () => {
             />
 
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            {/*  HEADER  */}
-            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
-            <Header />
-
-            {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             {/*  PROBLEM STATEMENT  */}
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
-                <Portion desktopSpan="11" marginBottom="micro">
+                <Portion desktopSpan="11" marginBottom="nano">
+                    <Heading
+                        as="h2" className="headline" textColour="white"
+                        title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
+                    >
+                        Introducing Aide.
+                    </Heading>
                     <Heading as="h2" className="headline" textColour="white">
-                        Welcome to a whole new paradigm for creating software.
+                        The AI-powered mod of VSCode.
                     </Heading>
                 </Portion>
 
@@ -68,16 +70,12 @@ const Home = () => {
 
                 <Portion desktopSpan="half">
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        <span>CodeStory is an AI-powered mod of VSCode</span>
+                        <span>Instruct AI agents to build your software.</span>
                     </Heading>
 
                     <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        Writing code by hand is dead. Interact with your code instead by simply describing what you want—and let the AI agent do the rest.
-                    </Heading>
-
-                    <Heading as="h5" weight="400" textColour="white" opacity="80" marginBottom="micro">
-                        Editing across files, searching, refactoring, debugging—our agent can do it all. And since it’s built on
-                        VSCode, you can migrate seamlessly and use all your favourite extensions.
+                        Editing across files, searching, debugging, refactoring—our agent can do everything you do within the IDE.
+                        And Aide is built on VSCode, so you can migrate seamlessly and continue using your favourite extensions.
                     </Heading>
 
                     <Link
