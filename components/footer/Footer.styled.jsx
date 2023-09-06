@@ -10,6 +10,6 @@ export const FooterStyled = styled(motion.footer)`
 
     a { color : #15c28c; }
 
-    .cs-logo svg { width : 140px; }
-    .yc-logo svg { width : 96px; }
+    .cs-logo svg { width : 160px; }
+    .yc-logo svg { width : 108px; }
 `;

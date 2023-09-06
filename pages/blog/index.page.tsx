@@ -18,9 +18,12 @@ export default function BlogHome({ allPosts }: BlogHomeProps) {
     const morePosts = allPosts.slice(1);
 
     return (
-        <BlogStyled>
-            <Header />
-
+        <BlogStyled
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
+        >
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
                 <Portion desktopSpan="half">
                     <Heading as="h2" className="headline">

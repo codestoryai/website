@@ -8,8 +8,13 @@ import { useDownload } from "../../hooks/useDownload"
 import Debugging from "../../public/images/home/debugging.mp4";
 import ImportSettings from "../../public/images/home/import.png";
 import NLPSearch from "../../public/images/home/nlp-search.png";
-import Explanations from "../../public/images/home/explanations.jpg";
+import Agent from "../../public/images/home/agent.png";
+import Omnibar from "../../public/images/home/omnibar.png"
 import GitDiff from "../../public/images/home/git-diff.png";
+import SlashCommands from "../../public/images/home/slash-commands.png";
+import DebugPrompt from "../../public/images/home/debug.png";
+import ExplainPrompt from "../../public/images/home/explain-prompt.png";
+import Migration from "../../public/images/home/migrate.png";
 import LogoTS from "../../public/images/logo-ts.svg";
 import LogoJS from "../../public/images/logo-js.svg";
 import LogoPython from "../../public/images/logo-python.svg";
@@ -18,6 +23,7 @@ import LogoGo from "../../public/images/logo-go.svg";
 import { ListOfAdditionalFeatures } from "./ListOfFeatures";
 
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
+import { Player } from "video-react";
 
 
 const FeaturesGrid = () => {
@@ -55,13 +61,13 @@ const FeaturesGrid = () => {
                     <Card
                         id="aide" className="feature content-card"
                         shape="rounded" borderColour="green"
-                        style={{ padding: "8px" }}
+                        style={{ padding: "4px" }}
                     >
                         {/*<Heading*/}
                         {/*    as="h2" align="centre"*/}
                         {/*    marginBottom="micro"*/}
                         {/*    className="line-height-one"*/}
-                        {/*    title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"*/}
+                        {/*    */}
                         {/*>*/}
                         {/*    Introducing CodeStory ✨<br />An AI-powered mod of VSCode*/}
                         {/*</Heading>*/}
@@ -87,15 +93,75 @@ const FeaturesGrid = () => {
                         {/*</Row>*/}
 
                         {/* <Element as="div" id="image-wrapper" shadow="soft"> */}
-                        <video style={{ borderRadius: "4px" }} muted loop autoPlay playsInline width="100%">
+                        <Player muted loop autoPlay playsInline width="100%">
                             <source src={Debugging} type="video/mp4" />
-                        </video>
+                        </Player>
 
                         <Element as="div" id="gradient-wrapper" />
                         {/* </Element> */}
 
                     </Card>
 
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    {/*  CODE EXPLANATIONS  */}
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    <Card
+                        id="code-explanation"
+                        className="feature content-card"
+                        shape="rounded" padding="large"
+                    >
+                        <Heading
+                            as="h4"
+                            marginTop="micro"
+                            marginBottom="nano"
+                        >
+                            Access AI that understands new & existing codebases.
+                        </Heading>
+                        <Row>
+                            <Portion desktopSpan="one-fourth">
+                                <Heading as="h5" weight="400" marginTop="nano">
+                                    The AI agent can scan your codebase, navigate it,
+                                    find the right places to edit, make changes and verify it's work
+                                    before reporting back to you.
+                                </Heading>
+                            </Portion>
+
+                            <Portion desktopSpan="three-fourth" padding="nano">
+                                <Element as="img" src={Agent.src} />
+                            </Portion>
+                        </Row>
+                    </Card>
+
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    {/*  AUTO GEN COMMIT MESSAGES  */}
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    <Card
+                        id="commit-messages"
+                        className="feature content-card"
+                        shape="rounded"
+                    >
+                        <Element as="div" padding="micro" marginTop="nano">
+                            <Heading
+                                as="h4"
+                                marginBottom="micro"
+                            >
+                                At your command.
+                            </Heading>
+                            <Heading
+                                as="h6"
+                                marginBottom="micro"
+                                className="line-height-one"
+                            >
+                                <Element as="span" className="kbd">shift</Element> + <Element as="span" className="kbd">shift</Element>
+                            </Heading>
+
+                            <Heading as="h5" weight="400">
+                                You're always a keyboard shortcut away from accessing the agent.
+                            </Heading>
+                        </Element>
+
+                        <Element as="img" src={Omnibar.src} />
+                    </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
                     {/*  AIDE USP 1  */}
@@ -108,13 +174,14 @@ const FeaturesGrid = () => {
                         <Heading
                             as="h4"
                             className="line-height-one"
-                            marginBottom="nano"
+                            marginBottom="micro"
                         >
-                            Prompt anything and everything
+                            Prompt anytime, anywhere.
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Instruct the agent to do things, and watch the magic happen.
+                            Ask general questions, or use slash commands and `@` context providers
+                            for powerful workflows.
                         </Heading>
 
                         {/* PROMPT 1 ================================== */}
@@ -125,12 +192,13 @@ const FeaturesGrid = () => {
                         >
                             <Card
                                 className="prompt-wrapper"
-                                padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">&rarr; Implement the notification handler
-                                    interface</Text>
+                                <Text margin="nano" weight="600">Make changes to your codebase</Text>
                             </Card>
                         </Card>
+
+                        <Element as="img" src={SlashCommands.src} marginBottom="micro" />
 
                         {/* PROMPT 2 ================================== */}
                         <Card
@@ -140,12 +208,13 @@ const FeaturesGrid = () => {
                         >
                             <Card
                                 className="prompt-wrapper"
-                                padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">&rarr; Refactor the file uploader package to use
-                                    dependency injection</Text>
+                                <Text margin="nano" weight="600">Debug issues in the code</Text>
                             </Card>
                         </Card>
+
+                        <Element as="img" src={DebugPrompt.src} marginBottom="micro" />
 
                         {/* PROMPT 3 ================================== */}
                         <Card
@@ -155,12 +224,13 @@ const FeaturesGrid = () => {
                         >
                             <Card
                                 className="prompt-wrapper"
-                                padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">&rarr; Fix the race condition in the event consumer
-                                    causing files to be overwritten</Text>
+                                <Text margin="nano" weight="600">Understand unfamiliar code</Text>
                             </Card>
                         </Card>
+
+                        <Element as="img" src={ExplainPrompt.src} marginBottom="micro" />
 
                         {/* PROMPT 4 ================================== */}
                         <Card
@@ -170,83 +240,13 @@ const FeaturesGrid = () => {
                         >
                             <Card
                                 className="prompt-wrapper"
-                                padding="nano" shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">&rarr; Eliminate all my tech debt from the last 5 years.</Text>
+                                <Text margin="nano" weight="600">Eliminate all your tech debt</Text>
                             </Card>
                         </Card>
 
-                        <Text marginTop="micro">Ok, maybe not the last one.</Text>
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  IDE REPLACEMENT  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="ide-replacement"
-                        className="feature content-card"
-                        shape="rounded" padding="huge" borderColour="green"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one"
-                        >
-                            Migrate in a snap
-                        </Heading>
-
-                        <Heading as="h5" weight="400" marginBottom="micro">
-                            All your VSCode extensions, shortcuts and customizations
-                        </Heading>
-
-                        <Element as="img" src={ImportSettings.src} />
-                    </Card>
-
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  CODE EXPLANATIONS  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="code-explanation"
-                        className="feature content-card"
-                        shape="rounded" padding="huge"
-                    >
-                        <Row>
-                            <Portion desktopSpan="one-third">
-                                <Heading
-                                    as="h4"
-                                    marginTop="micro"
-                                    marginBottom="nano"
-                                >
-                                    Get code explanations with surrounding context
-                                </Heading>
-                            </Portion>
-
-                            <Portion desktopSpan="two-third">
-                                <Element as="img" src={Explanations.src} />
-                            </Portion>
-                        </Row>
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  AUTO GEN COMMIT MESSAGES  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="commit-messages"
-                        className="feature content-card"
-                        shape="rounded" padding="huge"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one"
-                        >
-                            Auto generated PR summaries
-                        </Heading>
-
-                        <Heading as="h5" weight="400" marginBottom="micro">
-                            Summaries and changelogs created with full context.
-                        </Heading>
+                        <Text marginTop="nano" weight="600">Ok, we don't support this one yet.</Text>
                     </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -261,12 +261,13 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
+                            paddingTop="micro"
                         >
                             Search as you’d think
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Type intuitively without worrying about syntax
+                            Type intuitively even when you can't remember what you're looking for.
                         </Heading>
 
                         <Element as="img" src={NLPSearch.src} />
@@ -284,15 +285,39 @@ const FeaturesGrid = () => {
                             as="h4"
                             marginBottom="nano"
                             className="line-height-one"
+                            paddingTop="micro"
                         >
-                            Group git diffs into related chunks
+                            Stay on top of your work
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Interactively manage merging and refactoring, without descending into chaos.
+                            Keep track of your changes through grouped summaries provided by AI.
                         </Heading>
 
                         <Element as="img" src={GitDiff.src} />
+                    </Card>
+
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    {/*  MORE FEATURES  */}
+                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+                    <Card
+                        id="more-features"
+                        className="feature content-card"
+                        shape="rounded" padding="huge"
+                    >
+                        <Heading
+                            as="h4"
+                            marginBottom="nano"
+                            className="line-height-one"
+                        >
+                            Migrate from VSCode in 1-click. And stay updated.
+                        </Heading>
+
+                        <Heading as="h5" weight="400" marginBottom="nano">
+                            We’ll keep Aide up to date with VSCode releases, so you never have to compromise between editors.
+                        </Heading>
+
+                        <Element as="img" src={Migration.src} />
                     </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -326,27 +351,6 @@ const FeaturesGrid = () => {
                         </Element>
 
                         <Text>With more languages on the way!</Text>
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  MORE FEATURES  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="more-features"
-                        className="feature content-card"
-                        shape="rounded" padding="huge"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one"
-                        >
-                            On par with VSCode. And then some.
-                        </Heading>
-
-                        <Heading as="h5" weight="400">
-                            We’ll always keep CodeStory up to date with VSCode releases, so you never have to compromise between editors.
-                        </Heading>
                     </Card>
                 </Element>
 

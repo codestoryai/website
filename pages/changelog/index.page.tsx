@@ -19,13 +19,16 @@ type Props = {
 
 export default function Changelog({ content }: Props) {
     return (
-        <ChangelogStyled>
+        <ChangelogStyled
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.24 }}
+        >
             <Head>
                 <title>Changelog — CodeStory</title>
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
-
-            <Header />
 
             {/*  /////////////////////////////////////////////////////////////////////////////////////////////////  */}
             {/*  INTRO  */}
