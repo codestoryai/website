@@ -122,7 +122,7 @@ const FeaturesGrid = () => {
                             <Portion desktopSpan="one-fourth">
                                 <Heading as="h5" weight="400" marginTop="nano">
                                     The agent can scan your codebase, navigate it,
-                                    find the right places to edit, make changes and verify it's work
+                                    find the right places to edit, make changes and verify its work
                                     before reporting back to you.
                                 </Heading>
                             </Portion>
@@ -157,7 +157,7 @@ const FeaturesGrid = () => {
                             </Heading>
 
                             <Heading as="h5" weight="400">
-                                You're always a keyboard shortcut away from accessing the AI agent.
+                                You’re always a keyboard shortcut away from accessing the AI agent.
                             </Heading>
                         </Element>
 
@@ -247,7 +247,7 @@ const FeaturesGrid = () => {
                             </Card>
                         </Card>
 
-                        <Text marginTop="nano" weight="600">Ok, we don't support this one yet.</Text>
+                        <Text marginTop="nano" weight="600">Ok, we don’t support this one yet.</Text>
                     </Card>
 
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
@@ -268,7 +268,7 @@ const FeaturesGrid = () => {
                         </Heading>
 
                         <Heading as="h5" weight="400" marginBottom="micro">
-                            Type intuitively even when you can't remember what you're looking for.
+                            Type intuitively even when you can’t remember what you’re looking for.
                         </Heading>
 
                         <Element as="img" src={NLPSearch.src} />
