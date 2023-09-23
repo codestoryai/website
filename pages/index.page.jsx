@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 
 import {
-    Element,
     Row,
     Portion,
     Heading, Button,
@@ -13,7 +12,6 @@ import {
 import { HomeStyled } from "../styles/Home.styled";
 
 import { useDownload } from "../hooks/useDownload";
-import Header from "../components/header/Header";
 import FeaturesGrid from "../components/features-grid/FeaturesGrid";
 import Footer from "../components/footer/Footer";
 import AnimatedBackground from "../components/animated-background/AnimatedBackground";
@@ -88,8 +86,6 @@ const Home = () => {
                             Download for MacOS (Apple Silicon)
                         </Button>
                     </Link>
-
-                    {/*<Link href="/manifesto">Read our manifesto &rarr;</Link>*/}
                 </Portion>
             </Row>
 

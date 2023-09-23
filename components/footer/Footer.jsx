@@ -17,7 +17,7 @@ const Footer = () => {
                     <HRule marginTop="micro" marginBottom="micro" bgColour="green" />
                 </Portion>
 
-                <Portion desktopSpan="half">
+                <Portion desktopSpan="half" marginBottom="micro">
                     <Link href="/">
                         <Element as="div" className="cs-logo">
                             <CSLogo />
@@ -30,52 +30,66 @@ const Footer = () => {
                     </Element>
                 </Portion>
 
-                <Portion desktopSpan="one-fourth">
-                    <Element as="div" id="nav-links">
-                        <Link href="/blog">
-                            Blog
-                        </Link>
+                <Portion mobileSpan="whole" desktopSpan="half">
+                    <Row>
+                        <Portion mobileSpan="half" desktopSpan="half">
+                            <Element as="div" id="nav-links">
+                                <Link href="https://docs.codestory.ai" passHref>
+                                    <a target="_blank" rel="noopener noreferrer">
+                                        Docs
+                                    </a>
+                                </Link>
 
-                        <Link href="/changelog">
-                            Changelog
-                        </Link>
-                    </Element>
-                </Portion>
+                                <Link href="/blog">
+                                    Blog
+                                </Link>
 
-                <Portion desktopSpan="one-fourth">
-                    <Element as="div" id="social-links">
-                        <a
-                            href="https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            YC profile
-                        </a>
+                                <Link href="/changelog">
+                                    Changelog
+                                </Link>
 
-                        <a
-                            href="https://discord.gg/DNnh6tC9VA"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Join our Discord
-                        </a>
+                                <Link href="/about">
+                                    About
+                                </Link>
+                            </Element>
+                        </Portion>
 
-                        <a
-                            href="https://twitter.com/codestoryai"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Twitter
-                        </a>
+                        <Portion mobileSpan="half" desktopSpan="half">
+                            <Element as="div" id="social-links">
+                                <a
+                                    href="https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    YC
+                                </a>
 
-                        <a
-                            href="https://www.linkedin.com/company/codestory-ai"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            LinkedIn
-                        </a>
-                    </Element>
+                                <a
+                                    href="https://discord.gg/DNnh6tC9VA"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Discord
+                                </a>
+
+                                <a
+                                    href="https://twitter.com/codestoryai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Twitter
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/company/codestory-ai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    LinkedIn
+                                </a>
+                            </Element>
+                        </Portion>
+                    </Row>
                 </Portion>
             </Row>
         </FooterStyled>

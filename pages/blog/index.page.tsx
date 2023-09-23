@@ -25,7 +25,7 @@ export default function BlogHome({ allPosts }: BlogHomeProps) {
             transition={{ ease: "easeInOut", duration: 0.24 }}
         >
             <Row sidePadding="medium" marginTop="small" marginBottom="small">
-                <Portion desktopSpan="half">
+                <Portion desktopSpan="half" marginBottom="micro">
                     <Heading as="h2" className="headline">
                         Blog
                     </Heading>

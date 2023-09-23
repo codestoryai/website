@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 
 import {
     Element,
@@ -9,13 +8,12 @@ import {
     Text, Heading, HRule, Card
 } from "fictoan-react";
 
-import { ManifestoStyled } from "./manifesto.styled";
-import Header from "../../components/header/Header";
+import { AboutStyled } from "./about.styled";
 
-const Manifesto = () => {
+const About = () => {
 
     return (
-        <ManifestoStyled
+        <AboutStyled
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -106,8 +104,8 @@ const Manifesto = () => {
                     </Text>
                 </Portion>
             </Row>
-        </ManifestoStyled>
+        </AboutStyled>
     );
 }
 
-export default Manifesto;
+export default About;
