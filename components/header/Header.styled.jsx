@@ -23,7 +23,7 @@ export const HeaderStyled = styled(motion.header)`
         gap     : 16px;
     }
 
-    a { color : ${lighten(0.4, CodeStoryColours.undergrowth)} }
+    a { color : ${lighten(0.64, CodeStoryColours.undergrowth)} }
 
     #menu-toggle {
         margin-top : -5px;
