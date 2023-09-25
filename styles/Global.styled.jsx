@@ -1,5 +1,5 @@
 //  External deps
-import { lighten, darken, saturate } from "polished";
+import { desaturate } from "polished";
 import { createGlobalStyle } from "styled-components";
 
 //  Internal deps
@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .title {
-        color: ${darken(0.2, CodeStoryColours.shrub)};
+        color: ${desaturate(0.2, CodeStoryColours.pear)};
     }
 
     .card-text {
