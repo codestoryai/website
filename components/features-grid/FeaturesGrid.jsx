@@ -193,7 +193,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                                 className="prompt-wrapper"
                                 shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">Make changes to your codebase</Text>
+                                <Text margin="nano" weight="600" className="card-text">Make changes to your codebase</Text>
                             </Card>
                         </Card>
 
@@ -209,7 +209,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                                 className="prompt-wrapper"
                                 shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">Debug issues in the code</Text>
+                                <Text margin="nano" weight="600" className="card-text">Debug issues in the code</Text>
                             </Card>
                         </Card>
 
@@ -225,7 +225,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                                 className="prompt-wrapper"
                                 shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">Understand unfamiliar code</Text>
+                                <Text margin="nano" weight="600" className="card-text">Understand unfamiliar code</Text>
                             </Card>
                         </Card>
 
@@ -241,7 +241,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                                 className="prompt-wrapper"
                                 shape="rounded" bgColour="white" borderColour="transparent"
                             >
-                                <Text margin="nano" weight="600">Eliminate all your tech debt</Text>
+                                <Text margin="nano" weight="600" className="card-text">Eliminate all your tech debt</Text>
                             </Card>
                         </Card>
 
