@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     article {
         position       : relative;
         display        : flex;
-        min-height     : 100vh;
+        min-height     : 100vh - 56px;
         flex-direction : column;
     }
 

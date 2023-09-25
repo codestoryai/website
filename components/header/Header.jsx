@@ -1,17 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Button, Heading, Element, Portion, Row, Text, HRule } from "fictoan-react";
+import { Heading, Element, Portion, Row, Text, HRule } from "fictoan-react";
 
 import { HeaderStyled } from "./Header.styled";
 import CSLogo from "../../public/images/logo-cs.svg";
 import CSLogoMark from "../../public/assets/logos/cs-logomark.svg";
 import YCLogo from "../../public/images/logo-yc.svg";
-import { useDownload } from "../../hooks/useDownload";
 
 const Header = () => {
     const node = useRef();
     const [showMobileHeader, setShowMobileHeader] = useState(false);
-    const release = useDownload();
 
     const handleRedirect = () => {
         setShowMobileHeader(false);
@@ -147,21 +145,6 @@ const Header = () => {
                             </Link>
                         </Heading>
                         <HRule />
-                    </Portion>
-                </Row>
-
-                <Row>
-                    <Portion>
-                        <Link
-                            href={release?.assets?.[0]?.browser_download_url ?? ""}
-                            passHref
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Button kind="primary" shadow="hard">
-                                Download for MacOS (Apple Silicon)
-                            </Button>
-                        </Link>
                     </Portion>
                 </Row>
             </Element>

@@ -1,9 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useRef, useEffect } from "react";
 
-import { Button, Card, Element, Heading, Text, Portion, Row, HRule } from "fictoan-react";
-
-import { useDownload } from "../../hooks/useDownload"
+import { Card, Element, Heading, Text, Portion, Row, HRule } from "fictoan-react";
 
 import Debugging from "../../public/images/home/debugging.mp4";
 import NLPSearch from "../../public/images/home/nlp-search.png";
@@ -21,14 +18,13 @@ import LogoJS from "../../public/images/logo-js.svg";
 import LogoPython from "../../public/images/logo-python.svg";
 import LogoGo from "../../public/images/logo-go.svg";
 
-import { ListOfAdditionalFeatures } from "./ListOfFeatures";
 
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 import { Player } from "video-react";
+import { DownloadButtons } from "../download/download";
 
 
-const FeaturesGrid = () => {
-    const release = useDownload();
+const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
     const featuresRef = useRef(null);
 
     useEffect(() => {
@@ -404,16 +400,13 @@ const FeaturesGrid = () => {
                     A lot more features coming soon—take our early build for a spin in the meanwhile!
                 </Heading>
 
-                <Link
-                    href={release?.assets?.[0]?.browser_download_url ?? ""}
-                    passHref
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Button horizontallyCenterThis kind="primary" shadow="hard">
-                        Download for MacOS (Apple Silicon)
-                    </Button>
-                </Link>
+                <Element as="div" horizontallyCenterThis>
+                    <DownloadButtons
+                        matchingRelease={matchingRelease}
+                        latestRelease={latestRelease}
+                        os={os}
+                    />
+                </Element>
             </Card>
         </FeaturesGridStyled>
     );
