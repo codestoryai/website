@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { CodeStoryColours } from "../../styles/CodeStory.colours";
+import { transparentize } from "polished";
 
 export const FeaturesGridStyled = styled.section`
     // PRIMARY CARD GRID ==============================================================================================
@@ -32,7 +33,7 @@ export const FeaturesGridStyled = styled.section`
         overflow        : hidden;
         backdrop-filter : blur(6px);
         background      : radial-gradient(circle at top center,
-        rgba(60, 186, 146, 0.4) 0%, rgba(42, 136, 107, 0.4) 70%);
+        ${transparentize(0.6, CodeStoryColours.canopy)} 0%, ${transparentize(0.6, CodeStoryColours.shrub)} 70%);
     }
 
     // AIDE INTRO CARD

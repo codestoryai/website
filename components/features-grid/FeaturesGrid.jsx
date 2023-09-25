@@ -111,6 +111,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                             as="h4"
                             marginTop="micro"
                             marginBottom="nano"
+                            className="title"
                         >
                             AI that understands new & existing codebases.
                         </Heading>
@@ -141,6 +142,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                             <Heading
                                 as="h4"
                                 marginBottom="micro"
+                                className="title"
                             >
                                 At your command.
                             </Heading>
@@ -170,7 +172,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                     >
                         <Heading
                             as="h4"
-                            className="line-height-one"
+                            className="line-height-one title"
                             marginBottom="micro"
                         >
                             Prompt anytime, anywhere.
@@ -257,7 +259,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Heading
                             as="h4"
                             marginBottom="nano"
-                            className="line-height-one"
+                            className="line-height-one title"
                             paddingTop="micro"
                         >
                             Search as you’d think
@@ -281,7 +283,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Heading
                             as="h4"
                             marginBottom="nano"
-                            className="line-height-one"
+                            className="line-height-one title"
                             paddingTop="micro"
                         >
                             Stay on top of your work
@@ -305,7 +307,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Heading
                             as="h4"
                             marginBottom="nano"
-                            className="line-height-one"
+                            className="line-height-one title"
                         >
                             Migrate from VSCode in 1-click. And stay updated.
                         </Heading>
@@ -336,7 +338,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         className="feature content-card"
                         shape="rounded" padding="medium"
                     >
-                        <Heading as="h5" marginBottom="micro">
+                        <Heading as="h5" marginBottom="micro" className="title">
                             Supported languages
                         </Heading>
 

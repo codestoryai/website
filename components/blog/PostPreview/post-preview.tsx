@@ -30,7 +30,7 @@ const PostPreview = ({
             >
                 <Card className="post-card" padding="micro" shape="rounded">
                     <Element as="header">
-                        <Heading as="h5" marginBottom="micro">{title}</Heading>
+                        <Heading as="h5" marginBottom="micro" className="title">{title}</Heading>
                     </Element>
 
                     <Element as="footer">
@@ -39,9 +39,9 @@ const PostPreview = ({
                                 <Image src={author.picture} width={48} height={48} className="author-image" />
 
                                 <Element as="div" marginLeft="nano">
-                                    <Text>{author.name}</Text>
+                                    <Text className="card-text">{author.name}</Text>
 
-                                    <Text size="small">
+                                    <Text size="small" className="card-text">
                                         <DateFormatter dateString={date} />
                                     </Text>
                                 </Element>

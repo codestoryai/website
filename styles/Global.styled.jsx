@@ -1,8 +1,9 @@
 //  External deps
+import { lighten, darken, saturate } from "polished";
 import { createGlobalStyle } from "styled-components";
 
 //  Internal deps
-
+import { CodeStoryColours } from "./CodeStory.colours";
 //  Local components
 
 //  Local assets
@@ -50,6 +51,14 @@ export const GlobalStyle = createGlobalStyle`
         display: inline-block;
         vertical-align: middle;
         padding-bottom: 0.2em;
+    }
+
+    .title {
+        color: ${darken(0.2, CodeStoryColours.shrub)};
+    }
+
+    .card-text {
+        color: ${CodeStoryColours.ash};
     }
 
 	.author-image {
