@@ -1,5 +1,7 @@
-import { lighten, darken, transparentize } from "polished";
+import { darken, lighten, transparentize } from "polished";
 import { defaultColours } from "fictoan-react";
+
+import { CodeStoryColours } from "./CodeStory.colours";
 
 // GLOBALS  ///////////////////////////////////////////////////////////////////
 export const globalVariables = {
@@ -9,7 +11,7 @@ export const globalVariables = {
 
 export const CrucibleDarkTheme = {
     body : {
-        bg : "#094f39",
+        bg : "#063828",
     },
 
     //  TEXT  /////////////////////////////////////////////////////////////////
@@ -21,7 +23,7 @@ export const CrucibleDarkTheme = {
         },
         paras     : {
             font       : "Weissenhof Grotesk",
-            color      : "#1b2022",
+            color      : lighten(0.76, CodeStoryColours.undergrowth),
             lineHeight : 1.44,
             size       : 1,
             subtext    : defaultColours.white,
@@ -30,7 +32,7 @@ export const CrucibleDarkTheme = {
             font       : "Weissenhof Grotesk",
             weight     : 1000,
             lineHeight : 1.4,
-            color      : "#1b2022",
+            color      : lighten(0.76, CodeStoryColours.undergrowth),
             multiplier : 1.26,
         },
         links     : {

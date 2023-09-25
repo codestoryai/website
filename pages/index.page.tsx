@@ -1,25 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { NextSeo } from "next-seo";
-
-import {
-    Element,
-    Row,
-    Portion,
-    Heading, Button,
-} from "fictoan-react";
+import { UAParser } from "ua-parser-js";
+import { Row, Portion, Heading } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
-import { useDownload } from "../hooks/useDownload";
-import Header from "../components/header/Header";
 import FeaturesGrid from "../components/features-grid/FeaturesGrid";
 import Footer from "../components/footer/Footer";
 import AnimatedBackground from "../components/animated-background/AnimatedBackground";
+import { DownloadButtons } from "../components/download/download";
 
-const Home = () => {
-    const release = useDownload();
+const Home = ({ os, architecture }: { os?: string, architecture?: string }) => {
+    const [latestRelease, setLatestRelease] = useState<any>();
+    const [matchingRelease, setMatchingRelease] = useState<any>();
+
+    const fetchReleases = async () => {
+        try {
+            const response = await fetch("https://api.github.com/repos/codestoryai/binaries/releases")
+            const releases = await response.json();
+            setLatestRelease(releases[0]);
+
+            const osLookup = os.includes('windows') ? '.exe' : os.includes('mac') ? '.dmg' : 'aide-linux';
+            const archLookup = !!!architecture || architecture.includes("arm") ? "arm" : architecture === "amd64" ? "64" : undefined;
+
+            if (latestRelease && archLookup) {
+                const release = latestRelease.assets.find(
+                    asset => asset.name.toLowerCase().includes(osLookup) &&
+                        asset.name.toLowerCase().includes(osLookup)
+                );
+                if (release) {
+                    setMatchingRelease(release);
+                }
+            }
+        } catch (err) {
+            console.log("error: " + err);
+        }
+    }
+    fetchReleases();
 
     return (
         <HomeStyled
@@ -78,18 +96,11 @@ const Home = () => {
                         And Aide is built on VSCode, so you can migrate seamlessly and continue using your favourite extensions.
                     </Heading>
 
-                    <Link
-                        href={release?.assets?.[0]?.browser_download_url ?? ""}
-                        passHref
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Button kind="primary" shadow="hard">
-                            Download for MacOS (Apple Silicon)
-                        </Button>
-                    </Link>
-
-                    {/*<Link href="/manifesto">Read our manifesto &rarr;</Link>*/}
+                    <DownloadButtons
+                        matchingRelease={matchingRelease}
+                        latestRelease={latestRelease}
+                        os={os}
+                    />
                 </Portion>
             </Row>
 
@@ -99,7 +110,11 @@ const Home = () => {
             {/*  ////////////////////////////////////////////////////////////////////////////////////////////////// */}
             <Row sidePadding="medium" marginBottom="small">
                 <Portion>
-                    <FeaturesGrid />
+                    <FeaturesGrid
+                        matchingRelease={matchingRelease}
+                        latestRelease={latestRelease}
+                        os={os}
+                    />
                 </Portion>
             </Row>
 
@@ -115,5 +130,25 @@ const Home = () => {
         </HomeStyled>
     );
 };
+
+export async function getServerSideProps(context) {
+    const UA = context.req.headers['user-agent'];
+    const parser = new UAParser(UA);
+
+    let { name: os } = parser.getOS();
+    let { architecture } = parser.getCPU();
+
+    if (parser.getDevice().type) {
+        os = null;
+        architecture = null;
+    }
+
+    return {
+        props: {
+            os: os?.toLowerCase() ?? null,
+            architecture: architecture?.toLowerCase() ?? null
+        }
+    }
+}
 
 export default Home;
