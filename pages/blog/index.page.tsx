@@ -1,12 +1,10 @@
 import React from "react";
-import { getAllPosts } from "@/lib/api";
-
 import { Heading, Portion, Row } from "fictoan-react";
 
+import { getAllPosts } from "@/lib/api";
 import { BlogStyled } from "@/pages/blog/blog.styled";
-import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
-import PostPreview from "@/components/blog/PostPreview/post-preview";
+import PostPreview from "@/components/blog/PostPreview/PostPreview";
 import Post from "@/interfaces/post";
 
 type BlogHomeProps = {

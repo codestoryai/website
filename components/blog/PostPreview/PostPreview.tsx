@@ -30,7 +30,7 @@ const PostPreview = ({
             >
                 <Card className="post-card" padding="micro" shape="rounded">
                     <Element as="header">
-                        <Heading as="h5" marginBottom="micro" className="title">{title}</Heading>
+                        <Heading as="h5" marginBottom="micro" className="title card-text">{title}</Heading>
                     </Element>
 
                     <Element as="footer">
