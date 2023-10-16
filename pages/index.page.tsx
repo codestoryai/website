@@ -21,13 +21,13 @@ const Home = ({ os, architecture }: { os?: string, architecture?: string }) => {
             const releases = await response.json();
             setLatestRelease(releases[0]);
 
-            const osLookup = os.includes('windows') ? '.exe' : os.includes('mac') ? '.dmg' : 'aide-linux';
+            const osLookup = os.includes('windows') ? '.exe' : os.includes('mac') ? '.zip' : 'aide-linux';
             const archLookup = !!!architecture || architecture.includes("arm") ? "arm" : architecture === "amd64" ? "64" : undefined;
 
             if (latestRelease && archLookup) {
                 const release = latestRelease.assets.find(
                     asset => asset.name.toLowerCase().includes(osLookup) &&
-                        asset.name.toLowerCase().includes(osLookup)
+                        asset.name.toLowerCase().includes(archLookup)
                 );
                 if (release) {
                     setMatchingRelease(release);
