@@ -126,11 +126,11 @@ While doing code generation another interesting fact which we found by experimen
 
 When asked to generate code the GPT family of models output code which looks like this:
 
-````jsx
+```jsx
 ```{language}
 {code}
 `‎`‎`
-````
+```
 
 language here can be any of typescript, rust, javascript etc…
 
@@ -138,7 +138,7 @@ the backticks are super important markers for parsing cause they give us a hint 
 
 So our system prompt along with the messages ends up looking like this:
 
-````jsx
+```jsx
 const system_message = "
 You are an AI programming assistant.
 When asked for your name, you must respond with "Aide".
@@ -149,7 +149,7 @@ Follow the user's requirements carefully and to the last detail.
 - You always answer with {language} code.
 - Modify the code or create new code.
 - Unless directed otherwise, the user is expecting for you to edit their selected code.";
-````
+```
 
 The LLM pays special attention to the system message and we tell it to always spit out a single code block so we can start parsing quickly!
 
@@ -175,7 +175,7 @@ We use temperature setting to 0.1 (since we want the LLM to be imaginative but n
 
 Often times the completion of such prompt looks like this:
 
-````txt
+```txt
 Sure! Here's the modified code with the try-catch block added:
 
 ```typescript
