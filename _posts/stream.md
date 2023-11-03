@@ -250,4 +250,4 @@ But once we fix that, with our `spit_out_lines` function we can confidently tell
 
 And finally, we can go from code selection to code generation, inline in the editor!
 
-<video width="800" controls><source src="/assets/blog/stream/4.mov" type="video/mp4"></video>
+<video width="600" controls><source src="/assets/blog/stream/4.mov" type="video/mp4"></video>
