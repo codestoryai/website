@@ -11,7 +11,7 @@ export const globalVariables = {
 
 export const CrucibleDarkTheme = {
     body : {
-        bg : "#063828",
+        bg : "rgba(20, 23, 27, 1)",
     },
 
     //  TEXT  /////////////////////////////////////////////////////////////////
@@ -60,8 +60,7 @@ export const CrucibleDarkTheme = {
 
     // CARD ///////////////////////////////////////////////////////////////////
     card : {
-        bg           : "#49ca74",
-        border       : defaultColours.green,
+        border       : "transparent",
         borderRadius : "12px",
     },
 

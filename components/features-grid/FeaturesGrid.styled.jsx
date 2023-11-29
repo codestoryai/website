@@ -33,7 +33,7 @@ export const FeaturesGridStyled = styled.section`
         overflow        : hidden;
         backdrop-filter : blur(6px);
         background      : radial-gradient(circle at top center,
-        ${transparentize(0.6, CodeStoryColours.canopy)} 0%, ${transparentize(0.6, CodeStoryColours.shrub)} 70%);
+        ${transparentize(0.6, CodeStoryColours.primary)} 0%, ${transparentize(0.6, CodeStoryColours.ash)} 70%);
     }
 
     // AIDE INTRO CARD
@@ -84,20 +84,16 @@ export const FeaturesGridStyled = styled.section`
         padding: 1px;
     }
 
-    .prompt-examples {
-        padding       : 4px;
-        border-radius : 16px;
-        background    : linear-gradient(0.2turn, #bffa4a, #66bd43);
-        border        : none;
-    }
-
     #prompt-examples img {
         border-radius: 16px;
     }
 
     .prompt-wrapper {
-        background : linear-gradient(0.2turn, #82de5d, #bffa4a);
+        background : ${CodeStoryColours.shrub};
         border     : none;
+    }
+    .prompt-wrapper .card-text {
+        color: ${CodeStoryColours.primary}; 
     }
 
     // CODE EXPLANATIONS ======================================================
@@ -178,7 +174,7 @@ export const FeaturesGridStyled = styled.section`
         .kbd {
             background-color: ${CodeStoryColours.shrub};
             color: ${CodeStoryColours.ash};
-            border: 1px solid ${CodeStoryColours.undergrowth};
+            border: 1px solid ${CodeStoryColours.primary};
             border-radius: 12px;
             border-width: 1px 1px 3px 1px;
             padding: 8px !important;
@@ -245,9 +241,6 @@ export const FeaturesGridStyled = styled.section`
         width         : 100%;
         inset         : 0px;
         border-radius : inherit;
-        background    : radial-gradient(800px circle at var(--x-px) var(--y-px),
-        rgba(60, 186, 146, 0.4),
-        transparent 40%);
     }
 
     .feature:before { z-index : -1; }

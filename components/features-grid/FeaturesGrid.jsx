@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { Card, Element, Heading, Text, Portion, Row, HRule } from "fictoan-react";
+import { Card, Element, Heading, Text, Portion, Row, HRule, CodeBlock } from "fictoan-react";
 
 import Debugging from "../../public/images/home/debugging.mp4";
 import NLPSearch from "../../public/images/home/nlp-search.png";
@@ -22,6 +22,7 @@ import LogoGo from "../../public/images/logo-go.svg";
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 import { Player } from "video-react";
 import { DownloadButtons } from "../download/download";
+import { CodeStoryColours } from "../../styles/CodeStory.colours";
 
 
 const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
@@ -57,7 +58,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                     {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
                     <Card
                         id="aide" className="feature content-card"
-                        shape="rounded" borderColour="green"
+                        shape="rounded" borderColour={CodeStoryColours.primary}
                         style={{ padding: "4px" }}
                     >
                         {/*<Heading*/}
@@ -94,7 +95,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                             <source src={Debugging} type="video/mp4" />
                         </Player>
 
-                        <Element as="div" id="gradient-wrapper" />
+                        {/* <Element as="div" id="gradient-wrapper" /> */}
                         {/* </Element> */}
 
                     </Card>
@@ -168,7 +169,8 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                     <Card
                         id="prompt-examples"
                         className="feature content-card"
-                        shape="rounded" shadow="hard" padding="huge" borderColour="green"
+                        shape="rounded" shadow="hard" padding="huge"
+                        borderColour={CodeStoryColours.primary}
                     >
                         <Heading
                             as="h4"
@@ -187,11 +189,11 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Card
                             className="prompt-examples"
                             shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
+                            borderColour="transparent" shadow="hard"
                         >
                             <Card
                                 className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" borderColour="transparent"
                             >
                                 <Text margin="nano" weight="600" className="card-text">Make changes to your codebase</Text>
                             </Card>
@@ -203,11 +205,11 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Card
                             id="prompt-example-2" className="prompt-examples"
                             shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
+                            borderColour="transparent" shadow="hard"
                         >
                             <Card
                                 className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" borderColour="transparent"
                             >
                                 <Text margin="nano" weight="600" className="card-text">Debug issues in the code</Text>
                             </Card>
@@ -219,11 +221,11 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Card
                             id="prompt-example-3" className="prompt-examples"
                             shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
+                            borderColour="transparent" shadow="hard"
                         >
                             <Card
                                 className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" borderColour="transparent"
                             >
                                 <Text margin="nano" weight="600" className="card-text">Understand unfamiliar code</Text>
                             </Card>
@@ -235,11 +237,11 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         <Card
                             id="prompt-example-4" className="prompt-examples"
                             shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
+                            borderColour="transparent" shadow="hard"
                         >
                             <Card
                                 className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
+                                shape="rounded" borderColour="transparent"
                             >
                                 <Text margin="nano" weight="600" className="card-text">Eliminate all your tech debt</Text>
                             </Card>
@@ -374,7 +376,7 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                                 <Card
                                     className="feature content-card array-card"
                                     shape="rounded" padding="medium"
-                                    bgColour="green-60" borderColour="green" shadow="hard"
+                                    bgColour="green-60" borderColour={CodeStoryColours.primary} shadow="hard"
                                     marginBottom="nano"
                                 >
                                     <Heading as="h4">{featureItem.heading}</Heading>

@@ -1,39 +1,39 @@
 {
-    "name": "boilerplate-next",
-    "version": "0.1.4",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start"
-    },
-    "dependencies": {
-        "@svgr/webpack": "^6.2.1",
-        "@types/ua-parser-js": "^0.7.37",
-        "date-fns": "^2.30.0",
-        "fictoan-react": "0.46.8",
-        "framer-motion": "7.6.1",
-        "gray-matter": "^4.0.3",
-        "next": "^12.3.1",
-        "next-seo": "^6.1.0",
-        "next-videos": "^1.4.1",
-        "polished": "^4.2.2",
-        "react": "18.2.0",
-        "react-dom": "^18.2.0",
-        "react-icons": "^4.10.1",
-        "react-markdown": "^8.0.7",
-        "react-syntax-highlighter": "^15.5.0",
-        "rehype-raw": "^6.1.1",
-        "remark-gfm": "^3.0.1",
-        "styled-components": "^5.3.0",
-        "ua-parser-js": "^1.0.36",
-        "video-react": "^0.16.0"
-    },
-    "devDependencies": {
-        "@types/node": "^15.0.3",
-        "@types/react": "^17.0.5",
-        "@types/react-syntax-highlighter": "^15.5.7",
-        "file-loader": "^6.2.0",
-        "typescript": "5.1.6"
-    }
+  "name": "aide-website",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@types/ua-parser-js": "^0.7.37",
+    "date-fns": "^2.30.0",
+    "fictoan-react": "0.46.8",
+    "framer-motion": "7.6.1",
+    "gray-matter": "^4.0.3",
+    "next": "^12.3.1",
+    "next-seo": "^6.1.0",
+    "next-videos": "^1.4.1",
+    "polished": "^4.2.2",
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1",
+    "styled-components": "^5.3.0",
+    "ua-parser-js": "^1.0.36",
+    "video-react": "^0.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.3",
+    "@types/react": "^17.0.5",
+    "@types/react-syntax-highlighter": "^15.5.7",
+    "file-loader": "^6.2.0",
+    "typescript": "5.1.6"
+  }
 }
