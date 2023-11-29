@@ -4,13 +4,13 @@ excerpt: "We're building Aide by CodeStory, an AI-powered mod of VSCode. Here's 
 coverImage: "/assets/blog/code-reviews/cover.png"
 date: "2023-08-19T13:11:00.000Z"
 author:
-    name: Naresh Ramesh
-    picture: "/assets/blog/authors/naresh.jpg"
-    twitter: "https://twitter.com/ghostwriternr"
-    linkedin: "https://www.linkedin.com/in/naresh-ramesh"
-    github: "https://github.com/ghostwriternr"
+  name: Naresh Ramesh
+  picture: "/assets/blog/authors/naresh.jpg"
+  twitter: "https://twitter.com/ghostwriternr"
+  linkedin: "https://www.linkedin.com/in/naresh-ramesh"
+  github: "https://github.com/ghostwriternr"
 ogImage:
-    url: "/assets/blog/code-reviews/cover.png"
+  url: "/assets/blog/code-reviews/cover.png"
 ---
 
 How many times have you switched IDEs as a programmer? I’ve done so only thrice in 10 years. I started with Sublime Text at uni and briefly tried Atom before running back to Sublime due to its far superior performance. And then came VSCode. I’d be remiss if I also didn’t mention IntelliJ and GoLand, which I used for specific projects when my employer gave licenses to the JetBrains suite of IDEs. And of course, vim—but it’s too much work to make it do all the things I get from an IDE—so my usage there is limited to quick edits (and instead use vim keybindings in all my IDEs).

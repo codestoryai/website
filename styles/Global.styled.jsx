@@ -8,7 +8,6 @@ import { CodeStoryColours } from "./CodeStory.colours";
 
 //  Local assets
 
-
 export const GlobalStyle = createGlobalStyle`
     * { border-collapse : collapse; }
 

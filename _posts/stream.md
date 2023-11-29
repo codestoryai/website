@@ -4,13 +4,13 @@ excerpt: "LLM output to editor edits: A step by step guide"
 coverImage: "/assets/blog/code-reviews/cover.png"
 date: "2023-11-02T14:22:00.000Z"
 author:
-    name: Sandeep Kumar Pani
-    picture: "/assets/blog/authors/sandeep.jpg"
-    twitter: "https://twitter.com/skcd42"
-    linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani"
-    github: "https://github.com/theskcd"
+  name: Sandeep Kumar Pani
+  picture: "/assets/blog/authors/sandeep.jpg"
+  twitter: "https://twitter.com/skcd42"
+  linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani"
+  github: "https://github.com/theskcd"
 ogImage:
-    url: "/assets/blog/code-reviews/cover.png"
+  url: "/assets/blog/code-reviews/cover.png"
 ---
 
 TLDR: We use a mix of tree sitter queries and parsing the LLM output as it streams to generate editor edits to do in-place edits on the editor.
@@ -114,11 +114,11 @@ Since the context window is also limited, we have to be careful about the data w
 
 The problem boils down to the following:
 
--   send LLM the code we want it to change (duh!)
--   send some context about the code above (which is often times important)
--   send context about the code after the selection (which is not as important)
--   keep in mind the [Lost-in-the-middle](https://arxiv.org/abs/2307.03172) behaviour of LLMs
--   also give the LLM some space to think about how to change the code
+- send LLM the code we want it to change (duh!)
+- send some context about the code above (which is often times important)
+- send context about the code after the selection (which is not as important)
+- keep in mind the [Lost-in-the-middle](https://arxiv.org/abs/2307.03172) behaviour of LLMs
+- also give the LLM some space to think about how to change the code
 
 Lots of things right? But we can do something smart here using the system prompts and special markers which bias the LLM to not hallucinate and produce output which we can parse as quickly as possible.
 
@@ -126,11 +126,11 @@ While doing code generation another interesting fact which we found by experimen
 
 When asked to generate code the GPT family of models output code which looks like this:
 
-```jsx
+````jsx
 ```{language}
 {code}
 `‎`‎`
-```
+````
 
 language here can be any of typescript, rust, javascript etc…
 
@@ -138,7 +138,7 @@ the backticks are super important markers for parsing cause they give us a hint 
 
 So our system prompt along with the messages ends up looking like this:
 
-```jsx
+````jsx
 const system_message = "
 You are an AI programming assistant.
 When asked for your name, you must respond with "Aide".
@@ -149,7 +149,7 @@ Follow the user's requirements carefully and to the last detail.
 - You always answer with {language} code.
 - Modify the code or create new code.
 - Unless directed otherwise, the user is expecting for you to edit their selected code.";
-```
+````
 
 The LLM pays special attention to the system message and we tell it to always spit out a single code block so we can start parsing quickly!
 
@@ -175,7 +175,7 @@ We use temperature setting to 0.1 (since we want the LLM to be imaginative but n
 
 Often times the completion of such prompt looks like this:
 
-```txt
+````txt
 Sure! Here's the modified code with the try-catch block added:
 
 ```typescript
@@ -221,8 +221,8 @@ Great! so we got the LLM to output code, but we are not done yet, the magic of h
 
 If you set `stream=True` on most LLM models, you can get the delta of what has been produced. This is often handy for many reasons:
 
--   using `stream=True` in practice leads to a more stable connection with any LLM you are working on (the network stays fresh and there are fewer instances of timeouts or errors creeping in)
--   you get incremental updates which is a great UX win, cause no one wants to wait for **5-6+ seconds** before seeing an output.
+- using `stream=True` in practice leads to a more stable connection with any LLM you are working on (the network stays fresh and there are fewer instances of timeouts or errors creeping in)
+- you get incremental updates which is a great UX win, cause no one wants to wait for **5-6+ seconds** before seeing an output.
 
 So how do we start processing this stream of output from the LLM, in our case because of how the output from LLM looks like, we can use a few tricks (read as regexes and make assumptions about the code generated to fix things!)
 

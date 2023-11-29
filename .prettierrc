@@ -1,8 +1,7 @@
 {
-    "bracketSpacing": true,
-    "printWidth": 120,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+  "bracketSpacing": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false
 }
-

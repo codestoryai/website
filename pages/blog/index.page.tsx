@@ -53,14 +53,7 @@ export default function BlogHome({ allPosts }: BlogHomeProps) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+  const allPosts = getAllPosts(["title", "date", "slug", "author", "coverImage", "excerpt"]);
 
   return {
     props: { allPosts },
