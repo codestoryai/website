@@ -4,12 +4,15 @@ import Link from "next/link";
 import { AideLogoText } from "../logo/Aide";
 
 import { links } from "content/base";
-import { HeaderStyled } from "./Header.styled";
-
+import { HeaderStyled, HeaderTab } from "./Header.styled";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const node = useRef<HTMLDivElement>(null);
   const [showMobileHeader, setShowMobileHeader] = useState(false);
+
+  const router = useRouter();
+
   const handleRedirect = () => {
     setShowMobileHeader(false);
   };
@@ -32,16 +35,18 @@ const Header = () => {
 
   return (
     <HeaderStyled ref={node}>
-      <Link href="/">
-        <a>
-          <AideLogoText />
-        </a>
-      </Link>
       <nav>
+        <Link href="/">
+          <HeaderTab className={router.pathname === "/" ? "active" : ""}>
+            <AideLogoText />
+          </HeaderTab>
+        </Link>
         {links.map((item) => (
-          <div key={item.label} onClick={handleRedirect}>
-            <Link href={item.href}>{item.label}</Link>
-          </div>
+          <Link key={item.label} href={item.href}>
+            <HeaderTab className={router.pathname === item.href ? "active" : ""} onClick={handleRedirect}>
+              <a>{item.label}</a>
+            </HeaderTab>
+          </Link>
         ))}
       </nav>
       <div id="menu-toggle" onClick={() => setShowMobileHeader(!showMobileHeader)}>

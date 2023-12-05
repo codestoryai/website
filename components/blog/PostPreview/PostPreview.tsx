@@ -42,9 +42,7 @@ const PostPreview = ({ title, date, excerpt, slug, author }: Props) => {
     <PostPreviewStyled>
       <Link as={`/blog/${slug}`} href="/blog/[slug]">
         <PostCard>
-          <PostHeading>
-            {title}
-          </PostHeading>
+          <PostHeading>{title}</PostHeading>
 
           <Details>
             <Image src={author.picture} width={32} height={32} className="author-image" />

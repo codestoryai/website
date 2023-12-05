@@ -1,4 +1,4 @@
-import { flattenObject, forObjectReplace } from '../lib/objects'
+import { flattenObject, forObjectReplace } from "../lib/objects";
 export const CodeStoryColours = {
   canopy: "#3cba92",
   shrub: "#2B2B2B",
@@ -10,7 +10,6 @@ export const CodeStoryColours = {
 };
 
 export const themeVars = {
-
   font: {
     family: `"IBM Plex Sans", sans-serif`,
     heading: `"IBM Plex Mono", monospace`,
@@ -23,13 +22,14 @@ export const themeVars = {
       xl: "clamp(1.95rem, 1.55vw + 1.57rem, 2.96rem)",
       xxl: "clamp(2.44rem, 2.32vw + 1.86rem, 3.95rem)",
       xxxl: "clamp(3.05rem, 3.4vw + 2.2rem, 5.26rem)",
-    }
+    },
   },
 
   background: "#14171B",
 
   text: "#9B9BAE",
   fadeText: "#87879C",
+  fadeTextRgb: "135, 135, 156",
 
   primary: "#E56A50",
   primaryRgb: "229, 106, 80",
@@ -37,7 +37,8 @@ export const themeVars = {
 
   heading: "#babace",
 
-  borderRadius: "6px",
+  borderTight: "#222331",
+  borderRadius: "0px",
 
   card: "#191D21",
 
@@ -52,4 +53,4 @@ export const themeCssVars: Record<string, string> = flattenObject(themeVars, (ke
   value,
 ]);
 
-export const theme = forObjectReplace(themeVars, (keys) => `var(--${keys.join("-")})`)
+export const theme = forObjectReplace(themeVars, (keys) => `var(--${keys.join("-")})`);

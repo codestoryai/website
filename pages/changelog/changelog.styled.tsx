@@ -1,23 +1,15 @@
 import styled from "styled-components";
 
 import { CodeStoryColours, theme } from "../../styles/theme";
+import { PostStyled } from "@/styles/Post.styled";
 
-export const ChangelogStyled = styled.article`
-  margin: 8rem auto 8rem;
-  max-width: 60ch;
-  padding: 1rem;
-
-  p {
-    font-size: 1.4rem;
-  }
-
+export const ChangelogStyled = styled(PostStyled)`
   ul {
-    font-size: 1.2rem;
+    font-size: ${theme.font.size.sm};
     margin-top: 0px;
   }
 
   h4 {
-    padding-top: 40px;
     color: ${theme.primary};
   }
 
@@ -26,10 +18,8 @@ export const ChangelogStyled = styled.article`
     display: inline-block;
     font-size: 1.1rem;
     padding: 4px 8px;
-    border-radius: 4px;
     background-color: ${theme.card};
-    border: none;
-    color: ${theme.text};
+    color: ${theme.fadeText};
   }
 
   img {

@@ -21,4 +21,3 @@ export const LinkButton = styled.a`
   border-radius: ${theme.borderRadius};
   text-decoration: none;
 `;
-

@@ -11,7 +11,7 @@ const varcss = Object.entries(themeCssVars).reduce((p, c) => `${p}; --${c[0]}: $
 // console.log({ varcss })
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans&family=Outfit:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400&display=swap');
 
 /* Box sizing rules */
 *,
@@ -113,6 +113,7 @@ body, p, div {
 h1, h2, h3, h4, h5, h6 {
   color: ${theme.heading};
   font-family: 'IBM Plex Mono', sans-serif;
+  font-weight: normal;
 }
 
 a:focus,

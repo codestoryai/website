@@ -5,8 +5,14 @@ import { theme } from "./theme";
 
 export const PostStyled = styled(motion.article)`
   margin: 8rem auto 8rem;
-  max-width: 60ch;
-  padding: 1rem;
+  max-width: 70ch;
+  padding: 2rem;
+  border: 1px solid ${theme.borderTight};
+  background: ${theme.background};
+
+  h1.title {
+    color: ${theme.primary};
+  }
 
   h1,
   h2,
@@ -14,7 +20,6 @@ export const PostStyled = styled(motion.article)`
   h4,
   h5,
   h6 {
-    color: ${theme.heading};
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -56,13 +61,13 @@ export const PostStyled = styled(motion.article)`
     margin: 0;
   }
 
-
   h1.post-title {
     font-size: ${theme.font.size.xl};
     margin: 2rem 0;
   }
 
-  em, strong {
+  em,
+  strong {
     color: ${theme.heading};
   }
 

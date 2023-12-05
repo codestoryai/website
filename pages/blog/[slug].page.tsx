@@ -12,6 +12,8 @@ import { Markdown } from "@/components/markdown/Markdown";
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
 import { BlogStyled } from "@/pages/blog/blog.styled";
+import { Waves } from "@/components/decoration/waves";
+import { Title } from "@/components/typography";
 
 type Props = {
   post: PostType;
@@ -33,6 +35,9 @@ export default function Post({ post }: Props) {
       exit={{ opacity: 0 }}
       transition={{ ease: "easeInOut", duration: 0.24 }}
     >
+      <div>
+        <Waves />
+      </div>
       {router.isFallback ? (
         <div>Loading…</div>
       ) : (
@@ -42,19 +47,14 @@ export default function Post({ post }: Props) {
             <meta property="og:image" content={post.ogImage.url} />
           </Head>
 
-          <h1 className="post-title">
-            {post.title}
-          </h1>
+          <Title className="post-title">{post.title}</Title>
           <p>
             <DateFormatter dateString={post.date} />
           </p>
 
           <div className="author-intro">
-            <Image src={post.author.picture} width={56} height={56} className="author-image" />
-
-            <div>
-              {post.author.name}
-            </div>
+            <Image src={post.author.picture} width={56} height={32} className="author-image" />
+            <div>{post.author.name}</div>
             {(post.author.twitter || post.author.github || post.author.linkedin) && (
               <div>
                 {post.author.twitter && (
