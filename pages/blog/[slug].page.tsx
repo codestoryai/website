@@ -5,15 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import { Element, Heading, Portion, Row, Text } from "fictoan-react";
 
-import Header from "@/components/header/Header";
 import DateFormatter from "../../utils/date-formatter";
 import { PostStyled } from "../../styles/Post.styled";
 import { Markdown } from "@/components/markdown/Markdown";
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
-import Footer from "@/components/footer/Footer";
 import { BlogStyled } from "@/pages/blog/blog.styled";
 
 type Props = {
@@ -37,79 +34,58 @@ export default function Post({ post }: Props) {
       transition={{ ease: "easeInOut", duration: 0.24 }}
     >
       {router.isFallback ? (
-        <Text>Loading…</Text>
+        <div>Loading…</div>
       ) : (
         <>
-          <article>
-            <Head>
-              <title>{title}</title>
-              <meta property="og:image" content={post.ogImage.url} />
-            </Head>
+          <Head>
+            <title>{title}</title>
+            <meta property="og:image" content={post.ogImage.url} />
+          </Head>
 
-            <BlogStyled>
-              <Row sidePadding="medium" marginTop="small">
-                <Portion>
-                  <Heading as="h1" className="headline">
-                    {post.title}
-                  </Heading>
-                </Portion>
-              </Row>
+          <h1 className="post-title">
+            {post.title}
+          </h1>
+          <p>
+            <DateFormatter dateString={post.date} />
+          </p>
 
-              <Row sidePadding="medium" marginTop="small">
-                <Portion desktopSpan="one-fourth">
-                  <Row className="author-intro">
-                    <Portion verticallyCenterItems>
-                      <Image src={post.author.picture} width={56} height={56} className="author-image" />
+          <div className="author-intro">
+            <Image src={post.author.picture} width={56} height={56} className="author-image" />
 
-                      <Element as="div" marginLeft="nano">
-                        <Heading as="h6" marginRight="nano">
-                          {post.author.name}
-                        </Heading>
-                        <Text>
-                          <DateFormatter dateString={post.date} />
-                        </Text>
-                        {(post.author.twitter || post.author.github || post.author.linkedin) && (
-                          <Element as="div" style={{ marginTop: 4 }} verticallyCenterItems>
-                            {post.author.twitter && (
-                              <Link href={post.author.twitter} passHref>
-                                <a target="_blank" rel="noopener noreferrer">
-                                  <FaTwitter style={{ marginRight: 8 }} />
-                                </a>
-                              </Link>
-                            )}
-                            {post.author.github && (
-                              <Link href={post.author.github} passHref>
-                                <a target="_blank" rel="noopener noreferrer">
-                                  <TbBrandGithubFilled style={{ marginRight: 8 }} />
-                                </a>
-                              </Link>
-                            )}
-                            {post.author.linkedin && (
-                              <Link href={post.author.linkedin} passHref>
-                                <a target="_blank" rel="noopener noreferrer">
-                                  <FaLinkedinIn />
-                                </a>
-                              </Link>
-                            )}
-                          </Element>
-                        )}
-                      </Element>
-                    </Portion>
-                  </Row>
+            <div>
+              {post.author.name}
+            </div>
+            {(post.author.twitter || post.author.github || post.author.linkedin) && (
+              <div>
+                {post.author.twitter && (
+                  <Link href={post.author.twitter} passHref>
+                    <a target="_blank" rel="noopener noreferrer">
+                      <FaTwitter style={{ marginRight: 8 }} />
+                    </a>
+                  </Link>
+                )}
+                {post.author.github && (
+                  <Link href={post.author.github} passHref>
+                    <a target="_blank" rel="noopener noreferrer">
+                      <TbBrandGithubFilled style={{ marginRight: 8 }} />
+                    </a>
+                  </Link>
+                )}
+                {post.author.linkedin && (
+                  <Link href={post.author.linkedin} passHref>
+                    <a target="_blank" rel="noopener noreferrer">
+                      <FaLinkedinIn />
+                    </a>
+                  </Link>
+                )}
+              </div>
+            )}
+          </div>
+          <h4>{post.excerpt}</h4>
 
-                  <Heading as="h4">{post.excerpt}</Heading>
-                </Portion>
-
-                <Portion desktopSpan="three-fourth" className="blog-content">
-                  <Markdown content={post.content} />
-                </Portion>
-              </Row>
-            </BlogStyled>
-          </article>
+          <Markdown content={post.content} />
         </>
       )}
-
-      <Footer />
     </PostStyled>
   );
 }

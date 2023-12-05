@@ -1,20 +1,24 @@
-import React from "react";
+import { theme } from "@/styles/theme";
 import styled from "styled-components";
 
-const ButtonStyled = styled.div`
-  padding: 1rem;
-  background-color: #000;
+export const Button = styled.div`
+  padding: 0.5rem 1rem;
+  background-color: ${theme.primary};
+  color: ${theme.primaryOver};
   display: flex;
   align-items: center;
   width: max-content;
-  border-radius: 4px;
+  border-radius: ${theme.borderRadius};
 `;
 
-interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-  onClick: () => void;
-  disabled?: boolean;
-}
+export const LinkButton = styled.a`
+  padding: 0.5rem 1rem;
+  background-color: ${theme.primary};
+  color: ${theme.primaryOver};
+  display: flex;
+  align-items: center;
+  width: max-content;
+  border-radius: ${theme.borderRadius};
+  text-decoration: none;
+`;
 
-export const Button = (props: ButtonProps) => {
-  return <ButtonStyled {...props} />;
-};

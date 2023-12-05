@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { CodeStoryColours } from "../../styles/CodeStory.colours";
+import { CodeStoryColours } from "../../styles/theme";
 import { transparentize } from "polished";
 
 export const FeaturesGridStyled = styled.section`

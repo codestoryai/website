@@ -1,22 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
-import { CSLogoText } from "../logo/CSLogo";
-import { YCLogo } from "../logo/YCLogo";
+import { AideLogoText } from "../logo/Aide";
 
-import styled from "styled-components";
-import { CodeStoryColours } from "../../styles/CodeStory.colours";
+import { links } from "content/base";
+import { HeaderStyled } from "./Header.styled";
 
-const HeaderStyled = styled.header`
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 100;
-  color: ${CodeStoryColours.primary};
-  background-color: ${CodeStoryColours.ash};
-`;
 
 const Header = () => {
   const node = useRef<HTMLDivElement>(null);
@@ -41,27 +30,20 @@ const Header = () => {
     };
   }, [showMobileHeader]);
 
-  const menuItems = [
-    { url: "https://docs.codestory.ai", title: "Docs", external: true },
-    { url: "/blog", title: "Blog" },
-    { url: "/changelog", title: "Changelog" },
-    { url: "/about", title: "About" },
-  ];
-
   return (
     <HeaderStyled ref={node}>
       <Link href="/">
-        <CSLogoText />
+        <a>
+          <AideLogoText />
+        </a>
       </Link>
-      <div>
-        backed by
-        <YCLogo />
-      </div>
-      {menuItems.map((item) => (
-        <h3 key={item.title} onClick={handleRedirect}>
-          <Link href={item.url}>{item.title}</Link>
-        </h3>
-      ))}
+      <nav>
+        {links.map((item) => (
+          <div key={item.label} onClick={handleRedirect}>
+            <Link href={item.href}>{item.label}</Link>
+          </div>
+        ))}
+      </nav>
       <div id="menu-toggle" onClick={() => setShowMobileHeader(!showMobileHeader)}>
         Menu
       </div>

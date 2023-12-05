@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { Card, Element, Heading, Text, Portion, Row, HRule, CodeBlock } from "fictoan-react";
+import styled from "styled-components";
 
 import Debugging from "../../public/images/home/debugging.mp4";
 import NLPSearch from "../../public/images/home/nlp-search.png";
@@ -21,7 +21,17 @@ import LogoGo from "../../public/images/logo-go.svg";
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 import { Player } from "video-react";
 import { DownloadButtons } from "../download/download";
-import { CodeStoryColours } from "../../styles/CodeStory.colours";
+import { CodeStoryColours } from "../../styles/theme";
+
+// { Card, Element, Heading, Text, Portion, Row, HRule, CodeBlock } 
+const Card = styled.div``;
+const Element = styled.div``;
+const Heading = styled.h1``;
+const Text = styled.p``;
+const Portion = styled.div``;
+const Row = styled.div``;
+const HRule = styled.hr``;
+
 
 const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
   const featuresRef = useRef(null);

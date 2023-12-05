@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { FooterStyled } from "./Footer.styled";
+import { links, socialLinks } from "../../content/base";
 
 import { CSLogoText as CSLogo } from "../logo/CSLogo";
 import { YCLogo } from "../logo/YCLogo";
@@ -20,45 +21,28 @@ const Row = styled.div`
 `;
 
 const Footer = () => {
-  const links = [
-    { href: "https://docs.codestory.ai", label: "Docs", external: true },
-    { href: "/blog", label: "Blog" },
-    { href: "/changelog", label: "Changelog" },
-    { href: "/about", label: "About" },
-  ];
-
-  const socialLinks = [
-    {
-      href: "https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future",
-      label: "YC",
-      external: true,
-    },
-    { href: "https://discord.gg/DNnh6tC9VA", label: "Discord", external: true },
-    { href: "https://twitter.com/codestoryai", label: "Twitter", external: true },
-    { href: "https://www.linkedin.com/company/codestory-ai", label: "LinkedIn", external: true },
-  ];
-
+  const externalLinkProps = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+  }
   return (
     <FooterStyled>
       <Link href="/">
-        <CSLogo />
+        <a>
+          Made with ♥︎ by <CSLogo />
+        </a>
       </Link>
 
       <Backedby className="yc-logo">
-        Backed by
-        <YCLogo />
+        Backed by <YCLogo />
       </Backedby>
 
       <Row>
         {links.map((link, index) => (
           <Link key={index} href={link.href} passHref>
-            {link.external ? (
-              <a target="_blank" rel="noopener noreferrer">
-                {link.label}
-              </a>
-            ) : (
-              <a>{link.label}</a>
-            )}
+            <a {...(link.external ? externalLinkProps : {})}>
+              {link.label}
+            </a>
           </Link>
         ))}
       </Row>

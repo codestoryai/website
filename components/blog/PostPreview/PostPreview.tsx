@@ -9,28 +9,23 @@ const PostPreviewStyled = styled.div`
   /* Add your custom styles here */
 `;
 
-const Card = styled.div`
+const PostCard = styled.a`
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+`;
+
+const PostHeading = styled.h2`
   /* Add your custom styles here */
 `;
 
-const Element = styled.div`
-  /* Add your custom styles here */
-`;
-
-const Heading = styled.h5`
-  /* Add your custom styles here */
-`;
-
-const Portion = styled.div`
-  /* Add your custom styles here */
-`;
-
-const Row = styled.div`
-  /* Add your custom styles here */
-`;
-
-const Text = styled.p`
-  /* Add your custom styles here */
+const Details = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  p {
+    margin: 0;
+  }
 `;
 
 type Props = {
@@ -46,29 +41,21 @@ const PostPreview = ({ title, date, excerpt, slug, author }: Props) => {
   return (
     <PostPreviewStyled>
       <Link as={`/blog/${slug}`} href="/blog/[slug]">
-        <Card className="post-card" padding="micro" shape="rounded">
-          <Element as="header">
-            <Heading as="h5" marginBottom="micro" className="title card-text">
-              {title}
-            </Heading>
-          </Element>
+        <PostCard>
+          <PostHeading>
+            {title}
+          </PostHeading>
 
-          <Element as="footer">
-            <Row marginBottom="nano">
-              <Portion verticallyCenterItems>
-                <Image src={author.picture} width={48} height={48} className="author-image" />
+          <Details>
+            <Image src={author.picture} width={32} height={32} className="author-image" />
 
-                <Element as="div" marginLeft="nano">
-                  <Text className="card-text">{author.name}</Text>
+            <p className="card-text">{author.name}</p>
 
-                  <Text size="small" className="card-text">
-                    <DateFormatter dateString={date} />
-                  </Text>
-                </Element>
-              </Portion>
-            </Row>
-          </Element>
-        </Card>
+            <p>
+              <DateFormatter dateString={date} />
+            </p>
+          </Details>
+        </PostCard>
       </Link>
     </PostPreviewStyled>
   );

@@ -3,7 +3,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialOceanic as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import aideCode from "../../styles/code"
 
 const markdownComponents: object = {
   p(paragraph: { children?: boolean; node?: any }) {
@@ -31,6 +31,7 @@ const markdownComponents: object = {
             priority={isPriority}
             placeholder={blurSupported ? "blur" : "empty"}
           />
+
           {hasCaption ? (
             <div className="caption" aria-label={caption}>
               {caption}
@@ -39,15 +40,18 @@ const markdownComponents: object = {
         </div>
       );
     }
+
     return <p>{paragraph.children}</p>;
   },
+
   code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
+
     return !inline && match ? (
       <SyntaxHighlighter
         {...props}
         children={String(children).replace(/\n$/, "")}
-        style={theme}
+        style={aideCode as any}
         language={match[1]}
         PreTag="div"
       />
@@ -64,9 +68,5 @@ type MarkdownProps = {
 };
 
 export const Markdown = ({ content }: MarkdownProps) => {
-  return (
-    <>
-      <ReactMarkdown children={content} components={markdownComponents} rehypePlugins={[rehypeRaw, remarkGfm]} />
-    </>
-  );
+  return <ReactMarkdown children={content} components={markdownComponents} rehypePlugins={[rehypeRaw, remarkGfm]} />;
 };

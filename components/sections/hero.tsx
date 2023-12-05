@@ -1,30 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 import { DownloadButtons } from "../../components/download/download";
+import { intro } from "content/landing";
+import { theme } from "@/styles/theme";
 
-const StyledRow = styled.div`
-  margin-top: ${(props) => props.marginTop};
-  margin-bottom: ${(props) => props.marginBottom};
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  height: 100dvh;
+  width: 100%;
 `;
 
-const StyledPortion = styled.div`
-  flex: ${(props) => props.desktopSpan};
-  margin-bottom: ${(props) => props.marginBottom};
-`;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 60ch;
+  padding: ${theme.font.size.lg};
+`
 
-const StyledHeading = styled.h2`
-  color: ${(props) => props.textColour};
-  font-weight: ${(props) => props.weight};
-  opacity: ${(props) => props.opacity};
-  margin-bottom: ${(props) => props.marginBottom};
-`;
 
-const StyledSubHeading = styled.h5`
-  color: ${(props) => props.textColour};
-  font-weight: ${(props) => props.weight};
-  opacity: ${(props) => props.opacity};
-  margin-bottom: ${(props) => props.marginBottom};
-`;
+const Heading = styled.h2``;
+
+const SubHeading = styled.h2``;
 
 interface HeroProps {
   matchingRelease: string;
@@ -34,32 +37,28 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ matchingRelease, latestRelease, os }) => {
   return (
-    <StyledRow>
-      <StyledHeading
-        as="h2"
-        className="headline"
-        textColour="white"
-        title="AI + IDE = Aide = help / assist / assitant. Clever, huh?"
-      >
-        Introducing Aide.
-      </StyledHeading>
-      <StyledHeading as="h2" className="headline" textColour="white">
-        The AI-powered mod of VSCode.
-      </StyledHeading>
+    <Wrapper>
+      <Content>
+        <Heading
+          className="headline"
+        >
+          Introducing Aide.
+        </Heading>
+        <SubHeading>
+          The AI-powered mod of VSCode.
+        </SubHeading>
 
-      <StyledPortion desktopSpan="half">
-        <StyledSubHeading weight="400" textColour="white" opacity="80" marginBottom="micro">
+        <SubHeading>
           <span>Instruct AI agents to build your software.</span>
-        </StyledSubHeading>
+        </SubHeading>
 
-        <StyledSubHeading weight="400" textColour="white" opacity="80" marginBottom="micro">
-          Editing across files, searching, debugging, refactoring—our agent can do everything you do within the IDE. And
-          Aide is built on VSCode, so you can migrate seamlessly and continue using your favourite extensions.
-        </StyledSubHeading>
+        <p>
+          {intro.para}
+        </p>
 
         <DownloadButtons matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
-      </StyledPortion>
-    </StyledRow>
+      </Content>
+    </Wrapper>
   );
 };
 

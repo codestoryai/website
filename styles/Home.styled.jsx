@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { CodeStoryColours } from "./CodeStory.colours";
+import { CodeStoryColours } from "./theme";
 
 export const HomeStyled = styled(motion.article)`
   span {

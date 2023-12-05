@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { UAParser } from "ua-parser-js";
-import { Row, Portion } from "fictoan-react";
 
 import { HomeStyled } from "../styles/Home.styled";
 
-import FeaturesGrid from "../components/features-grid/FeaturesGrid";
-import Footer from "../components/footer/Footer";
-
-import { DownloadButtons } from "../components/download/download";
 import Hero from "../components/sections/hero";
+import { aide } from "content/base";
 
 const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
   const [latestRelease, setLatestRelease] = useState<any>();
@@ -39,7 +35,10 @@ const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
       console.log("error: " + err);
     }
   };
-  fetchReleases();
+
+  useEffect(() => {
+    fetchReleases();
+  }, []);
 
   return (
     <HomeStyled
@@ -54,30 +53,20 @@ const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
       </Head>
 
       <NextSeo
-        title="CodeStory — AI-powered mod of VSCode"
-        description="A whole new paradigm for creating software"
+        title={aide.title}
+        description={aide.desc}
         openGraph={{
-          url: "https://codestory.ai/",
-          title: "CodeStory — AI-powered mod of VSCode",
-          description: "A whole new paradigm for creating software",
-          images: [
-            {
-              url: "https://codestory.ai/",
-            },
-          ],
-          site_name: "CodeStory",
+          url: aide.url,
+          title: aide.title,
+          description: aide.desc,
+          images: [{ url: aide.image, }],
+          site_name: aide.site_name,
         }}
       />
 
       <Hero matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
 
-      <Row sidePadding="medium" marginBottom="small">
-        <Portion>
-          <FeaturesGrid matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
-        </Portion>
-      </Row>
-
-      <Footer />
+      {/* <FeaturesGrid matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} /> */}
     </HomeStyled>
   );
 };

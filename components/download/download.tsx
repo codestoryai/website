@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Element, Text, Button } from "fictoan-react";
+import { LinkButton } from "../forms/button";
 
 type DownloadButtonsPropTypes = {
   matchingRelease: any;
@@ -15,29 +15,27 @@ const osLabel = {
 
 export const DownloadButtons = ({ matchingRelease, latestRelease, os }: DownloadButtonsPropTypes) => {
   return matchingRelease ? (
-    <Element as="div" verticallyCenterItems>
+    <div>
       <Link href={matchingRelease.browser_download_url ?? ""} passHref target="_blank" rel="noopener noreferrer">
-        <Button kind="primary" shadow="hard">
+        <LinkButton>
           Download for {osLabel[os]}
-        </Button>
+        </LinkButton>
       </Link>
 
       {latestRelease && (
         <Link href={latestRelease["html_url"]} passHref>
-          <a target="_blank" rel="noopener noreferrer">
-            <Text marginLeft="micro" weight="600" textColor="white">
+          <LinkButton target="_blank" rel="noopener noreferrer">
               Other
-            </Text>
-          </a>
+          </LinkButton>
         </Link>
       )}
-    </Element>
+    </div>
   ) : (
     latestRelease && (
       <Link href={latestRelease["html_url"]} passHref target="_blank" rel="noopener noreferrer">
-        <Button kind="primary" shadow="hard">
+        <LinkButton>
           Download
-        </Button>
+        </LinkButton>
       </Link>
     )
   );

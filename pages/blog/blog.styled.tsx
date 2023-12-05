@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { defaultColours } from "fictoan-react";
 import { transparentize } from "polished";
+import { theme } from "../../styles/theme"
 
 export const BlogStyled = styled.article`
   .blog-content h1,
@@ -9,16 +9,16 @@ export const BlogStyled = styled.article`
   .blog-content h4,
   .blog-content h5,
   .blog-content h6 {
-    color: ${defaultColours.white};
-    margin-top: 32px;
-    margin-bottom: 16px;
+    color: ${theme.heading};
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   .blog-content p,
   .blog-content li {
-    font-family: "Weissenhof Grotesk", sans-serif;
+    font-family: ${theme.font.heading};
     font-size: 140%;
-    color: ${transparentize(0.2, defaultColours.white)};
+    color: ${transparentize(0.2, 'white')};
     margin-bottom: 24px;
   }
 
