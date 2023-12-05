@@ -44,7 +44,7 @@ const Header = () => {
         {links.map((item) => (
           <Link key={item.label} href={item.href}>
             <HeaderTab className={router.pathname === item.href ? "active" : ""} onClick={handleRedirect}>
-              <a>{item.label}</a>
+              {item.label}
             </HeaderTab>
           </Link>
         ))}
