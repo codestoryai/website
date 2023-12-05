@@ -9,9 +9,11 @@ export const HeaderStyled = styled(motion.header)`
   justify-content: space-between;
   top: 0;
   width: 100%;
+  max-width: 70ch;
+  margin: 0 auto;
   z-index: 5000;
   background: ${theme.background};
-  padding: 0 1rem;
+  padding: 0;
 
   nav {
     display: flex;

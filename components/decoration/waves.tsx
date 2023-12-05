@@ -9,10 +9,11 @@ const Wave = styled.div<{ i: number }>`
   opacity: calc(1 - 0.1 * ${({ i }) => i});
   border: 1px dashed ${theme.primary};
   z-index: 0;
+  pointer-events: none;
 `;
 export const Waves = ({ count = 10 }) => {
   return (
-    <div>
+    <div style={{ height: "20rem" }}>
       {Array.from({ length: count })
         .map((_, i) => {
           console.log({ i });
