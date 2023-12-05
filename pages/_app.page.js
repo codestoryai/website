@@ -10,13 +10,11 @@ import Header from "../components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { themeCssVars } from "@/styles/theme";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 const animateIn = keyframes`
   0% {
     opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
   }
   100% {
     opacity: 1;
@@ -46,6 +44,7 @@ const Animated = styled.div`
 `;
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
     <div>
       <Script
@@ -65,9 +64,11 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
 
       <Header />
-      <Animated>
-        <Component {...pageProps} />
-      </Animated>
+      <motion.div key={router.asPath} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <Animated>
+          <Component {...pageProps} />
+        </Animated>
+      </motion.div>
       <Footer />
     </div>
   );

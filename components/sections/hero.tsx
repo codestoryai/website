@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   gap: 1rem;
   height: 100dvh;
   width: 100%;
+  padding: 1rem;
 `;
 
 const Content = styled.div`
@@ -22,8 +23,8 @@ const Content = styled.div`
   justify-content: center;
   max-width: 60ch;
   padding: ${theme.font.size.lg};
-`
-
+  border: 1px solid ${theme.borderTight};
+`;
 
 const Heading = styled.h2``;
 
@@ -39,22 +40,14 @@ const Hero: React.FC<HeroProps> = ({ matchingRelease, latestRelease, os }) => {
   return (
     <Wrapper>
       <Content>
-        <Heading
-          className="headline"
-        >
-          Introducing Aide.
-        </Heading>
-        <SubHeading>
-          The AI-powered mod of VSCode.
-        </SubHeading>
+        <Heading className="headline">Introducing Aide.</Heading>
+        <SubHeading>The AI-powered mod of VSCode.</SubHeading>
 
         <SubHeading>
           <span>Instruct AI agents to build your software.</span>
         </SubHeading>
 
-        <p>
-          {intro.para}
-        </p>
+        <p>{intro.para}</p>
 
         <DownloadButtons matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
       </Content>
