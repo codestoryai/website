@@ -53,7 +53,7 @@ export default function Post({ post }: Props) {
           </p>
 
           <div className="author-intro">
-            <Image src={post.author.picture} width={56} height={32} className="author-image" />
+            <Image src={post.author.picture} width={32} height={32} className="author-image" />
             <div>{post.author.name}</div>
             {(post.author.twitter || post.author.github || post.author.linkedin) && (
               <div>
