@@ -13,6 +13,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
 import { Waves } from "@/components/decoration/waves";
 import { Title } from "@/components/typography";
+import styled from "styled-components";
 
 type Props = {
   post: PostType;
@@ -28,12 +29,7 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <PostStyled
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ ease: "easeInOut", duration: 0.24 }}
-    >
+    <PostStyled>
       <div>
         <Waves />
       </div>
@@ -46,8 +42,9 @@ export default function Post({ post }: Props) {
             <meta property="og:image" content={post.ogImage.url} />
           </Head>
 
-          <Title className="post-title">{post.title}</Title>
-          <p>
+          <Title>{post.title}</Title>
+
+          <p className="postDate">
             <DateFormatter dateString={post.date} />
           </p>
 

@@ -11,6 +11,13 @@ export const PostStyled = styled(motion.article)`
   border: 1px solid ${theme.borderTight};
   background: ${theme.card};
 
+  .postDate {
+    margin: 1rem 0;
+    font-style: italic;
+    font-family: ${theme.font.brand};
+    color: ${theme.fadeText};
+  }
+
   .markdownContent h1,
   .markdownContent h2,
   .markdownContent h3,
