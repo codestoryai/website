@@ -6,8 +6,9 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   top: 0;
-  width: 100%;
-  max-width: 70ch;
+  width: 70ch;
+  max-width: 100%;
+  overflow-x: auto;
   margin: 0 auto;
   z-index: 5000;
   background: ${theme.background};
