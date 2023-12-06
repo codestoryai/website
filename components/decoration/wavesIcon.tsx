@@ -8,21 +8,26 @@ type Icon = "arrow-right" | "pen";
 
 const WaveIcon = styled.div<{ i: number }>`
   position: absolute;
-  color: ${theme.primary};
+  color: ${theme.card};
+  svg {
+    filter: drop-shadow(3px 3px 0px ${theme.primary});
+  }
   font-size: 10rem;
-  top: 4rem;
-  left: 4rem;
+  bottom: 0;
+  right: 0;
+  height: 11rem;
+  width: 11rem;
 `;
 
 const Wrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 20rem;
+  height: 20rem;
 `;
 
 export const WavesIcon = ({ count = 1, icon = icons.blog }) => {
   return (
-    <Wrapper style={{ height: "20rem" }}>
+    <Wrapper>
       <Waves />
       {Array.from({ length: count })
         .map((_, i) => {
