@@ -22,8 +22,7 @@
       "@/lib/*": ["lib/*"],
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"]
-    },
-    "types": [ "unplugin-icons/types/react"],
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.page.js"],
   "exclude": ["node_modules"]
