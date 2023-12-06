@@ -13,6 +13,7 @@ export const themeVars = {
   font: {
     family: `"IBM Plex Sans", sans-serif`,
     heading: `"IBM Plex Mono", monospace`,
+    brand: `"IBM Plex Mono", monospace`,
 
     size: {
       sm: "clamp(0.8rem, 0.21vw + 0.75rem, 0.94rem)",
@@ -33,9 +34,10 @@ export const themeVars = {
 
   primary: "#E56A50",
   primaryRgb: "229, 106, 80",
-  primaryOver: "#fff",
+  primaryOver: "#000",
 
   heading: "#babace",
+  headingColored: "#978EC2",
 
   borderTight: "#222331",
   borderRadius: "0px",

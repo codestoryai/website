@@ -1,14 +1,12 @@
-//  External deps
-import { desaturate } from "polished";
 import { createGlobalStyle } from "styled-components";
 
 //  Internal deps
-import { CodeStoryColours, theme, themeCssVars } from "./theme";
-//  Local components
+import { theme, themeCssVars } from "./theme";
 
-//  Local assets
+
+//  CSS variables from theme
 const varcss = Object.entries(themeCssVars).reduce((p, c) => `${p}; --${c[0]}: ${c[1]}`, '');
-// console.log({ varcss })
+
 
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400&display=swap');
@@ -48,7 +46,7 @@ body {
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,
 button, input, label {
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 /* Balance text wrapping on headings */

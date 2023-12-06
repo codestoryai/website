@@ -6,6 +6,7 @@ import { AideLogoText } from "../logo/Aide";
 import { links } from "content/base";
 import { HeaderStyled, HeaderTab } from "./Header.styled";
 import { useRouter } from "next/router";
+import { Icon } from "@iconify/react";
 
 const Header = () => {
   const node = useRef<HTMLDivElement>(null);
@@ -43,15 +44,16 @@ const Header = () => {
         </Link>
         {links.map((item) => (
           <Link key={item.label} href={item.href}>
-            <HeaderTab className={router.pathname === item.href ? "active" : ""} onClick={handleRedirect}>
+            <HeaderTab className={router.pathname.startsWith(item.href) ? "active" : ""} onClick={handleRedirect}>
+              {item.icon && <Icon icon={item.icon} />}
               {item.label}
             </HeaderTab>
           </Link>
         ))}
       </nav>
-      <div id="menu-toggle" onClick={() => setShowMobileHeader(!showMobileHeader)}>
+      {/* <div id="menu-toggle" onClick={() => setShowMobileHeader(!showMobileHeader)}>
         Menu
-      </div>
+      </div> */}
     </HeaderStyled>
   );
 };

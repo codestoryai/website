@@ -11,7 +11,6 @@ import { PostStyled } from "../../styles/Post.styled";
 import { Markdown } from "@/components/markdown/Markdown";
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import type PostType from "@/interfaces/post";
-import { BlogStyled } from "@/pages/blog/blog.styled";
 import { Waves } from "@/components/decoration/waves";
 import { Title } from "@/components/typography";
 

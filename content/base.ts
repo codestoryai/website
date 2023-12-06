@@ -1,3 +1,5 @@
+import { icons } from "./icons";
+
 export const aide = {
   title: 'Aide',
   desc: 'Instruct AI agents to build your software.',
@@ -11,13 +13,14 @@ interface Link {
   href: string;
   label: string;
   external?: boolean;
+  icon?: string;
 }
 
 export const links: Link[] = [
-  { href: "https://docs.codestory.ai", label: "Docs", external: true },
-  { href: "/blog", label: "Blog" },
-  { href: "/changelog", label: "Changelog" },
-  { href: "/about", label: "About" },
+  { href: "https://docs.codestory.ai", label: "Docs", external: true, icon: icons.docs },
+  { href: "/blog", label: "Blog", icon: icons.blog },
+  { href: "/changelog", label: "Changelog", icon: icons.changelog },
+  { href: "/about", label: "Manifesto", icon: icons.manifesto },
 ];
 
 export const socialLinks: Link[] = [

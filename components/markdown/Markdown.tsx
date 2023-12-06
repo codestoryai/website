@@ -3,9 +3,46 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import aideCode from "../../styles/code"
+import aideCode from "../../styles/code";
+import { Icon } from "@iconify/react";
+import { icons } from "content/icons";
+
+/** This heading modifier adds a id tag by slugging the heading text and a link icon for link to the heading */
+const headingModifier = (heading: { children?: string[]; level: number } & any) => {
+  const node = heading;
+  console.log(node);
+
+  if (!node.children || !node.children[0]) return <h1>{heading.children}</h1>;
+
+  const children = node.children[0];
+  const text = children;
+  console.log({ node, children, text });
+  if (!text) return <h1>{heading.children}</h1>;
+  const slug = text
+    .toLowerCase()
+    .replace(/\s/g, "-")
+    .replace(/[^\w-]/g, "");
+  const link = `#${slug}`;
+
+  const Heading = `h${heading.level ?? 2}` as keyof JSX.IntrinsicElements;
+
+  return (
+    <Heading id={slug} className="heading">
+      {heading.children}
+      <a href={link} className="headingLink">
+        <Icon icon={icons.headingLink} />
+      </a>
+    </Heading>
+  );
+};
 
 const markdownComponents: object = {
+  h1: headingModifier,
+  h2: headingModifier,
+  h3: headingModifier,
+  h4: headingModifier,
+  h5: headingModifier,
+  h6: headingModifier,
   p(paragraph: { children?: boolean; node?: any }) {
     const { node } = paragraph;
 
@@ -68,5 +105,12 @@ type MarkdownProps = {
 };
 
 export const Markdown = ({ content }: MarkdownProps) => {
-  return <ReactMarkdown children={content} components={markdownComponents} rehypePlugins={[rehypeRaw, remarkGfm]} />;
+  return (
+    <ReactMarkdown
+      className="markdownContent"
+      children={content}
+      components={markdownComponents}
+      rehypePlugins={[rehypeRaw, remarkGfm]}
+    />
+  );
 };

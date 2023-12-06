@@ -4,21 +4,24 @@ import { CodeStoryColours, theme } from "../../styles/theme";
 import { PostStyled } from "@/styles/Post.styled";
 
 export const ChangelogStyled = styled(PostStyled)`
-  ul {
-    font-size: ${theme.font.size.sm};
-    margin-top: 0px;
+  .markdownContent h4 {
+    font-size: ${theme.font.size.md};
+    color: ${theme.headingColored};
+  }
+  .markdownContent p {
+    margin: 1rem 0;
   }
 
-  h4 {
-    color: ${theme.primary};
+  h6 .headingLink {
+    display: none;
   }
 
-  h6 {
-    margin: 20px 0 10px 0;
-    display: inline-block;
+  .markdownContent h6 {
+    margin: 0;
+    display: inline-flex;
     font-size: 1.1rem;
     padding: 4px 8px;
-    background-color: ${theme.card};
+    background-color: rgba(${theme.fadeTextRgb}, 0.1);
     color: ${theme.fadeText};
   }
 

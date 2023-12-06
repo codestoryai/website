@@ -6,6 +6,7 @@ import Post from "@/interfaces/post";
 import { PostStyled } from "@/styles/Post.styled";
 import { Title } from "@/components/typography";
 import styled from "styled-components";
+import { WavesIcon } from "@/components/decoration/wavesIcon";
 
 type BlogHomeProps = {
   allPosts: Post[];
@@ -14,15 +15,15 @@ type BlogHomeProps = {
 const AllPosts = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-`
+  gap: 4rem;
+  margin: 2rem 0;
+`;
 
 export default function BlogHome({ allPosts }: BlogHomeProps) {
   return (
     <PostStyled>
-      <Title>
-        Blog
-      </Title>
+      <WavesIcon />
+      <Title>Blog</Title>
 
       <AllPosts>
         {allPosts.map((post) => (

@@ -24,6 +24,7 @@ const Content = styled.div`
   max-width: 60ch;
   padding: ${theme.font.size.lg};
   border: 1px solid ${theme.borderTight};
+  background-color: ${theme.card};
 `;
 
 const Heading = styled.h2``;

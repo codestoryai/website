@@ -5,6 +5,8 @@ import { getChangeLogFile } from "../../lib/changelog";
 import { ChangelogStyled } from "./changelog.styled";
 import { Markdown } from "../../components/markdown/Markdown";
 import { Title } from "@/components/typography";
+import { WavesIcon } from "@/components/decoration/wavesIcon";
+import { icons } from "content/icons";
 
 type Props = {
   content: string;
@@ -22,6 +24,8 @@ export default function Changelog({ content }: Props) {
         <title>Changelog — CodeStory</title>
         <link rel="shortcut icon" href="/favicon.png" />
       </Head>
+
+      <WavesIcon icon={icons.changelog} />
 
       <Title>Changelog</Title>
 

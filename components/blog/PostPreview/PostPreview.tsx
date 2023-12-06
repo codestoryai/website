@@ -4,27 +4,40 @@ import styled from "styled-components";
 
 import DateFormatter from "@/utils/date-formatter";
 import type Author from "@/interfaces/author";
+import { theme } from "@/styles/theme";
 
-const PostPreviewStyled = styled.div`
+const PostPreviewStyled = styled.a`
   /* Add your custom styles here */
-`;
-
-const PostCard = styled.a`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 `;
 
+const AuthorDetails = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
 const PostHeading = styled.h2`
   /* Add your custom styles here */
+  color: ${theme.headingColored};
 `;
 
 const Details = styled.p`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  p {
+  width: 100%;
+  & > p {
     margin: 0;
+  }
+  time {
+    color: ${theme.fadeText};
   }
 `;
 
@@ -39,23 +52,21 @@ type Props = {
 
 const PostPreview = ({ title, date, excerpt, slug, author }: Props) => {
   return (
-    <PostPreviewStyled>
-      <Link as={`/blog/${slug}`} href="/blog/[slug]">
-        <PostCard>
-          <PostHeading>{title}</PostHeading>
+    <Link as={`/blog/${slug}`} href="/blog/[slug]">
+      <PostPreviewStyled>
+        <PostHeading>{title}</PostHeading>
 
-          <Details>
-            <Image src={author.picture} width={32} height={32} className="author-image" />
+        <Details>
+          <AuthorDetails className="card-text">
+            <Image src={author.picture} width={32} height={32} className="author-image" /> {author.name}
+          </AuthorDetails>
 
-            <p className="card-text">{author.name}</p>
-
-            <p>
-              <DateFormatter dateString={date} />
-            </p>
-          </Details>
-        </PostCard>
-      </Link>
-    </PostPreviewStyled>
+          <p>
+            <DateFormatter dateString={date} />
+          </p>
+        </Details>
+      </PostPreviewStyled>
+    </Link>
   );
 };
 

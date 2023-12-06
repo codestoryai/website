@@ -2,32 +2,55 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { theme } from "./theme";
+import { Title } from "@/components/typography";
 
 export const PostStyled = styled(motion.article)`
-  margin: 8rem auto 8rem;
+  margin: 0rem auto 8rem;
   max-width: 70ch;
   padding: 2rem;
   border: 1px solid ${theme.borderTight};
-  background: ${theme.background};
+  background: ${theme.card};
 
-  h1.title {
-    color: ${theme.primary};
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2rem;
+  .markdownContent h1,
+  .markdownContent h2,
+  .markdownContent h3,
+  .markdownContent h4,
+  .markdownContent h5,
+  .markdownContent h6 {
+    color: ${theme.heading};
+    margin-top: 4rem;
     margin-bottom: 1rem;
   }
 
-  p,
-  li {
+  h1.title,
+  ${Title} {
+    color: ${theme.primary};
+  }
+
+  .markdownContent ul,
+  .markdownContent ol {
+    margin: 1rem 0;
+  }
+  .markdownContent .heading .headingLink {
+    color: ${theme.fadeText};
+    margin-left: 0.5rem;
+    text-decoration: none;
+    height: 100%;
+    opacity: 0.2;
+  }
+  .markdownContent .heading .headingLink svg {
+    padding-top: 0.25rem;
+  }
+  .markdownContent .heading:hover .headingLink {
+    opacity: 1;
+  }
+
+  .markdownContent p,
+  .markdownContent li {
     font-family: ${theme.font.family};
-    margin-bottom: 24px;
+  }
+  .markdownContent p {
+    margin: 2rem 0;
   }
 
   .postImgWrapper {
@@ -57,7 +80,7 @@ export const PostStyled = styled(motion.article)`
     font-style: italic;
   }
 
-  blockquote p {
+  .markdownContent blockquote p {
     margin: 0;
   }
 
@@ -66,8 +89,9 @@ export const PostStyled = styled(motion.article)`
     margin: 2rem 0;
   }
 
-  em,
-  strong {
+  .markdownContent em,
+  .markdownContent strong {
+    font-family: ${theme.font.brand};
     color: ${theme.heading};
   }
 

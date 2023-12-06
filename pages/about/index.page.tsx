@@ -3,6 +3,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { PostStyled } from "@/styles/Post.styled";
 import { Title } from "@/components/typography";
+import { aboutUs } from "../../content/about";
+import { Markdown } from "@/components/markdown/Markdown";
+import { WavesIcon } from "@/components/decoration/wavesIcon";
+import { icons } from "content/icons";
+import styled from "styled-components";
+import { theme } from "@/styles/theme";
+
+const Wrapper = styled.div`
+  h3 {
+    font-style: italic;
+    color: ${theme.headingColored};
+  }
+`;
 
 const About = () => {
   return (
@@ -12,34 +25,18 @@ const About = () => {
         <link rel="shortcut icon" href="/favicon.png" />
       </Head>
 
-      <div>
-        <Title>Manifesto</Title>
+      <Wrapper>
+        <WavesIcon icon={icons.manifesto} />
+        <Title>{aboutUs.title}</Title>
 
-        <h3>We're on a mission to empower developers reach new heights of creativity and productivity.</h3>
-        <p>
-          Developers today accomplish incredible things with programming, a highly delicate art that allows immense
-          levels of mastery and value creation.
-        </p>
+        <h3>{aboutUs.subtitle}</h3>
 
-        <p>
-          But the development process hasn't fundamentally changed in decades and requires substantial time commitment
-          and navigation through the ever-growing complexities it brings.
-        </p>
-
-        <p>
-          We want to build tools that bring the focus back to the joyful process of building and creating—testing ideas,
-          iterating, trying and even failing.
-        </p>
-        <p>
-          And we're starting this with <Link href="/">Aide</Link>, an AI-powered IDE. We see AI not just as a tool, but
-          a trusted partner willing and capable of doing all the heavy-lifting for you. Like a team member who has your
-          back.
-        </p>
+        <Markdown content={aboutUs.content} />
 
         <a href="https://stevejobsarchive.com/book" target="_blank" rel="noreferrer noopener">
           &ldquo;Give people wonderful tools, and they'll do wonderful things&rdquo;
         </a>
-      </div>
+      </Wrapper>
     </PostStyled>
   );
 };
