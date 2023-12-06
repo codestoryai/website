@@ -41,12 +41,7 @@ const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
   }, []);
 
   return (
-    <HomeStyled
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ ease: "easeInOut", duration: 0.24 }}
-    >
+    <HomeStyled>
       <Head>
         <title>CodeStory — AI-powered mod of VSCode</title>
         <link rel="shortcut icon" href="/favicon.png" />
@@ -59,7 +54,7 @@ const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
           url: aide.url,
           title: aide.title,
           description: aide.desc,
-          images: [{ url: aide.image, }],
+          images: [{ url: aide.image }],
           site_name: aide.site_name,
         }}
       />
