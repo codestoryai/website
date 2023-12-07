@@ -27,10 +27,31 @@ export const socialLinks: Link[] = [
   {
     href: "https://www.ycombinator.com/launches/JCn-codestory-an-ai-first-ide-re-imagined-for-the-future",
     label: "YC",
+    icon: icons.social.yc,
     external: true,
   },
-  { href: "https://discord.gg/DNnh6tC9VA", label: "Discord", external: true },
-  { href: "https://twitter.com/codestoryai", label: "Twitter", external: true },
-  { href: "https://www.linkedin.com/company/codestory-ai", label: "LinkedIn", external: true },
+  {
+    href: "https://discord.gg/DNnh6tC9VA",
+    label: "Discord",
+    external: true,
+    icon: icons.social.discord,
+  },
+  {
+    href: "https://github.com/codestoryai",
+    label: "Github",
+    external: true,
+    icon: icons.social.github,
+  },
+  {
+    href: "https://twitter.com/codestoryai",
+    label: "Twitter",
+    external: true,
+    icon: icons.social.twitter,
+  },
+  {
+    href: "https://www.linkedin.com/company/codestory-ai",
+    label: "LinkedIn",
+    external: true,
+    icon: icons.social.linkedin,
+  },
 ];
-

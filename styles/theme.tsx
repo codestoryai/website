@@ -10,6 +10,9 @@ export const CodeStoryColours = {
 };
 
 export const themeVars = {
+  layout: {
+    maxWidth: "1200px",
+  },
   font: {
     family: `"IBM Plex Sans", sans-serif`,
     heading: `"IBM Plex Mono", monospace`,

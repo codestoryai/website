@@ -6,7 +6,7 @@ export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   top: 0;
-  width: 70ch;
+  width: ${theme.layout.maxWidth};
   max-width: 100%;
   overflow-x: auto;
   margin: 0 auto;
@@ -22,6 +22,7 @@ export const HeaderStyled = styled.header`
   }
 
   nav a {
+    color: ${theme.text};
   }
 `;
 

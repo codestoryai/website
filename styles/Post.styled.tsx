@@ -6,7 +6,7 @@ import { Title } from "@/components/typography";
 
 export const PostStyled = styled(motion.article)`
   margin: 0rem auto 8rem;
-  max-width: 70ch;
+  max-width: ${theme.layout.maxWidth};
   padding: 2rem;
   border: 1px solid ${theme.borderTight};
   background: ${theme.card};

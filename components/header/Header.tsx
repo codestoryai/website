@@ -7,8 +7,13 @@ import { links } from "content/base";
 import { HeaderStyled, HeaderTab } from "./Header.styled";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
+import { icons } from "content/icons";
 
 const Header = () => {
+  const externalLinkProps = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
   const node = useRef<HTMLDivElement>(null);
   const [showMobileHeader, setShowMobileHeader] = useState(false);
 
@@ -43,10 +48,15 @@ const Header = () => {
           </HeaderTab>
         </Link>
         {links.map((item) => (
-          <Link key={item.label} href={item.href}>
-            <HeaderTab className={router.pathname.startsWith(item.href) ? "active" : ""} onClick={handleRedirect}>
+          <Link key={item.label} href={item.href} passHref>
+            <HeaderTab
+              {...(item.external ? externalLinkProps : {})}
+              className={router.pathname.startsWith(item.href) ? "active" : ""}
+              onClick={handleRedirect}
+            >
               {item.icon && <Icon icon={item.icon} />}
               {item.label}
+              {item.external && <Icon icon={icons.external} />}
             </HeaderTab>
           </Link>
         ))}
