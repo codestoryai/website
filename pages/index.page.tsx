@@ -7,6 +7,7 @@ import { HomeStyled } from "../styles/Home.styled";
 
 import Hero from "../components/sections/hero";
 import { aide } from "content/base";
+import { FeatureList } from "@/components/features/FeatureList";
 
 const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
   const [latestRelease, setLatestRelease] = useState<any>();
@@ -60,6 +61,8 @@ const Home = ({ os, architecture }: { os?: string; architecture?: string }) => {
       />
 
       <Hero matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
+
+      <FeatureList />
 
       {/* <FeaturesGrid matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} /> */}
     </HomeStyled>

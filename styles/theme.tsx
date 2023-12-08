@@ -1,4 +1,5 @@
 import { flattenObject, forObjectReplace } from "../lib/objects";
+
 export const CodeStoryColours = {
   canopy: "#3cba92",
   shrub: "#2B2B2B",
@@ -12,6 +13,7 @@ export const CodeStoryColours = {
 export const themeVars = {
   layout: {
     maxWidth: "1200px",
+    maxWidthLarge: "1400px",
   },
   font: {
     family: `"IBM Plex Sans", sans-serif`,

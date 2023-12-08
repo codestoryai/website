@@ -16,13 +16,11 @@ const AideLogo = () => {
   );
 };
 
-const AideLogoText = () => {
-  return (
-    <Wrapper>
-      <AideLogo />
-      <span>Aide</span>
-    </Wrapper>
-  );
-};
+const AideLogoText = () => (
+  <Wrapper>
+    <AideLogo />
+    <span>Aide</span>
+  </Wrapper>
+);
 
 export { AideLogo, AideLogoText };
