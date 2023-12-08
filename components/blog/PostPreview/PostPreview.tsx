@@ -1,57 +1,73 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Card, Element, Heading, Portion, Row, Text } from "fictoan-react";
+import styled from "styled-components";
 
-import { PostPreviewStyled } from "@/components/blog/PostPreview/PostPreview.styled";
 import DateFormatter from "@/utils/date-formatter";
 import type Author from "@/interfaces/author";
+import { theme } from "@/styles/theme";
+
+const PostPreviewStyled = styled.a`
+  /* Add your custom styles here */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+`;
+
+const AuthorDetails = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const PostHeading = styled.h2`
+  /* Add your custom styles here */
+  color: ${theme.headingColored};
+`;
+
+const Details = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  & > p {
+    margin: 0;
+  }
+  time {
+    color: ${theme.fadeText};
+  }
+`;
 
 type Props = {
-    title: string;
-    coverImage: string;
-    date: string;
-    excerpt: string;
-    author: Author;
-    slug: string;
+  title: string;
+  coverImage: string;
+  date: string;
+  excerpt: string;
+  author: Author;
+  slug: string;
 };
 
-const PostPreview = ({
-    title,
-    date,
-    excerpt,
-    slug,
-    author,
-}: Props) => {
-    return (
-        <PostPreviewStyled>
-            <Link
-                as={`/blog/${slug}`}
-                href="/blog/[slug]"
-            >
-                <Card className="post-card" padding="micro" shape="rounded">
-                    <Element as="header">
-                        <Heading as="h5" marginBottom="micro" className="title card-text">{title}</Heading>
-                    </Element>
+const PostPreview = ({ title, date, excerpt, slug, author }: Props) => {
+  return (
+    <Link as={`/blog/${slug}`} href="/blog/[slug]">
+      <PostPreviewStyled>
+        <PostHeading>{title}</PostHeading>
 
-                    <Element as="footer">
-                        <Row marginBottom="nano">
-                            <Portion verticallyCenterItems>
-                                <Image src={author.picture} width={48} height={48} className="author-image" />
+        <Details>
+          <AuthorDetails className="card-text">
+            <Image src={author.picture} width={32} height={32} className="author-image" /> {author.name}
+          </AuthorDetails>
 
-                                <Element as="div" marginLeft="nano">
-                                    <Text className="card-text">{author.name}</Text>
-
-                                    <Text size="small" className="card-text">
-                                        <DateFormatter dateString={date} />
-                                    </Text>
-                                </Element>
-                            </Portion>
-                        </Row>
-                    </Element>
-                </Card>
-            </Link>
-        </PostPreviewStyled>
-    );
+          <p>
+            <DateFormatter dateString={date} />
+          </p>
+        </Details>
+      </PostPreviewStyled>
+    </Link>
+  );
 };
 
 export default PostPreview;

@@ -4,13 +4,13 @@ excerpt: "To start with, we wanted the LLM to see a code repository as we humans
 coverImage: "/assets/blog/code-reviews/cover.png"
 date: "2023-07-31T13:09:00.000Z"
 author:
-    name: Sandeep Kumar Pani
-    picture: "/assets/blog/authors/sandeep.jpg"
-    twitter: "https://twitter.com/skcd42"
-    linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani"
-    github: "https://github.com/theskcd"
+  name: Sandeep Kumar Pani
+  picture: "/assets/blog/authors/sandeep.jpg"
+  twitter: "https://twitter.com/skcd42"
+  linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani"
+  github: "https://github.com/theskcd"
 ogImage:
-    url: "/assets/blog/code-reviews/cover.png"
+  url: "/assets/blog/code-reviews/cover.png"
 ---
 
 With CodeStory we want to build a senior engineer right in your IDE!
@@ -35,7 +35,7 @@ Parsing typescript code is a bit of hit and miss unless you are very careful and
 
 ```js
 export function something() {
-    console.log("interesting");
+  console.log("interesting");
 }
 ```
 
@@ -43,7 +43,7 @@ or you can [declare](https://github.com/codestoryai/typescript_parsing/blob/main
 
 ```js
 export const something = () => {
-    console.log("interesting");
+  console.log("interesting");
 };
 ```
 
@@ -51,7 +51,7 @@ and there are [cases](https://github.com/codestoryai/typescript_parsing/blob/mai
 
 ```js
 export const revisit = doSomething("interesting", {
-    maxAge: 24 * 60 * 60, // one week
+  maxAge: 24 * 60 * 60, // one week
 });
 ```
 
@@ -61,19 +61,19 @@ The core part of a code graph is getting a unique name for each symbol in the co
 
 ```js
 export interface CodeSymbolInformation {
-    symbolName: string;
-    symbolKind: CodeSymbolKind;
-    symbolStartLine: number;
-    symbolEndLine: number;
-    codeSnippet: { languageId: string, code: string };
-    extraSymbolHint: string | null;
-    dependencies: CodeSymbolDependencies[];
-    fsFilePath: string;
-    originalFilePath: string;
-    workingDirectory: string;
-    displayName: string;
-    originalName: string;
-    originalSymbolName: string;
+  symbolName: string;
+  symbolKind: CodeSymbolKind;
+  symbolStartLine: number;
+  symbolEndLine: number;
+  codeSnippet: { languageId: string, code: string };
+  extraSymbolHint: string | null;
+  dependencies: CodeSymbolDependencies[];
+  fsFilePath: string;
+  originalFilePath: string;
+  workingDirectory: string;
+  displayName: string;
+  originalName: string;
+  originalSymbolName: string;
 }
 ```
 
@@ -118,8 +118,8 @@ By giving the LLM a **Code Graph** it can walk on, we are able to get the LLM to
 
 This allows the LLM to ask for:
 
--   more information about the symbol if it has not seen
--   provide better code completion and reasoning as it now has a LSP to interact with
+- more information about the symbol if it has not seen
+- provide better code completion and reasoning as it now has a LSP to interact with
 
 ---
 
@@ -131,6 +131,6 @@ While on our quest to create a senior engineer we are also building these toolin
 
 We are finishing up work on giving:
 
--   **terminal** access to the LLM so it can run commands
--   **linters** so the the code generated is closer to what a human would write
--   **debuggers** so it can debug its own code
+- **terminal** access to the LLM so it can run commands
+- **linters** so the the code generated is closer to what a human would write
+- **debuggers** so it can debug its own code

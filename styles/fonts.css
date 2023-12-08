@@ -48,30 +48,30 @@ https://github.com/styled-components/styled-components/issues/2227 */
 
 /* SF Pro ========================================================================================================== */
 @font-face {
-    font-family : "Weissenhof Grotesk";
-    src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Regular.otf") format("opentype");
-    font-weight : 400;
-    font-style  : normal;
+  font-family: "Weissenhof Grotesk";
+  src: url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family : "Weissenhof Grotesk";
-    src         : url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Bold.otf") format("opentype");
-    font-weight : 1000;
-    font-style  : normal;
+  font-family: "Weissenhof Grotesk";
+  src: url("../assets/fonts/wissenhof-grotesk/WeissenhofGrotesk-Bold.otf") format("opentype");
+  font-weight: 1000;
+  font-style: normal;
 }
 
 /* PARSE GROTESK MONO ============================================================================================== */
 @font-face {
-    font-family : "Parse Grotesk Mono";
-    src         : url("../assets/fonts/parse-grotesk-mono/AFParseGroteskMono-Regular.woff2") format("woff2");
-    font-weight : 400;
-    font-style  : normal;
+  font-family: "Parse Grotesk Mono";
+  src: url("../assets/fonts/parse-grotesk-mono/AFParseGroteskMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family : "Parse Grotesk Mono";
-    src         : url("../assets/fonts/parse-grotesk-mono/AFParseGroteskMono-Bold.woff2") format("woff2");
-    font-weight : 600;
-    font-style  : normal;
+  font-family: "Parse Grotesk Mono";
+  src: url("../assets/fonts/parse-grotesk-mono/AFParseGroteskMono-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
 }

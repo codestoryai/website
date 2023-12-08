@@ -1,37 +1,31 @@
 import styled from "styled-components";
-import { defaultColours } from "fictoan-react";
 
-import { CodeStoryColours } from "../../styles/CodeStory.colours"
+import { CodeStoryColours, theme } from "../../styles/theme";
+import { PostStyled } from "@/styles/Post.styled";
 
-export const ChangelogStyled = styled.article`
-    .post-body p {
-        font-size: 1.4rem;
-        color: ${defaultColours.white};
-    }
+export const ChangelogStyled = styled(PostStyled)`
+  .markdownContent h4 {
+    font-size: ${theme.font.size.md};
+    color: ${theme.headingColored};
+  }
+  .markdownContent p {
+    margin: 1rem 0;
+  }
 
-    .post-body ul {
-        font-size: 1.2rem;
-        margin-top: 0px;
-        color: ${defaultColours.white};
-    }
+  h6 .headingLink {
+    display: none;
+  }
 
-    .post-body h4 {
-        padding-top: 40px;
-        color : #15c28c;
-    }
+  .markdownContent h6 {
+    margin: 0;
+    display: inline-flex;
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    background-color: rgba(${theme.fadeTextRgb}, 0.1);
+    color: ${theme.fadeText};
+  }
 
-    .post-body h6 {
-        margin: 20px 0 10px 0;
-        display: inline-block;
-        font-size: 1.1rem;
-        padding: 4px 8px;
-        border-radius: 4px;
-        background-color: ${CodeStoryColours.shrub};
-        border: none;
-        color: black;
-    }
-
-    .post-body img {
-        padding: 10px 0;
-    }
+  img {
+    margin: 1rem 0;
+  }
 `;

@@ -20,23 +20,22 @@
 - Long file edits are now more stable with huristics and fuzzy matching instead of being fully controlled by AI.
 - Initial golang support with dependencies powered by LSP and Tree-sitter.
 
-
 #### 18th August, 2023
 
 ###### Aide — v1.0.11
 
--   Introducing a new chat with support for slash commands!
--   You can now invoke the AI agent from the chat using the `/agent` command.
-    ![Chat](/changelog/1808-1.gif)
--   Streaming output within the chat view to make the system feel more responsive and increase stability.
-    ![Streaming output](/changelog/1808-2.gif)
+- Introducing a new chat with support for slash commands!
+- You can now invoke the AI agent from the chat using the `/agent` command.
+  ![Chat](/changelog/1808-1.gif)
+- Streaming output within the chat view to make the system feel more responsive and increase stability.
+  ![Streaming output](/changelog/1808-2.gif)
 
 #### 17th August, 2023
 
 ###### Aide — v1.0.10
 
--   Typescript and Javascript support using LSP
--   Agent view is more responsive and better prompt tuned.
+- Typescript and Javascript support using LSP
+- Agent view is more responsive and better prompt tuned.
 
 #### 16th August, 2023
 
@@ -66,9 +65,9 @@ Initial launch of CodeStory's AI powered mod of VSCode! 🎉
 
 With Aide you can do:
 
--   AI agents which can do repo wide edits
--   AI which takes care of keeping your commits
--   Semantic search over your codebase
+- AI agents which can do repo wide edits
+- AI which takes care of keeping your commits
+- Semantic search over your codebase
 
 #### 28th July, 2023
 
@@ -88,19 +87,19 @@ We now link 🖇️ directly to the diff page, allowing easier navigation to the
 
 ###### VSCode Extension
 
--   Automatic summaries for grouped changes under the "What was I doing?" feature.
-    ![Automatic summaries](/changelog/1907-1.gif)
--   Commit message helper that automatically captures the "what" of your changes, and let you fill in the "why".
-    ![Commit message helper](/changelog/1907-2.gif)
+- Automatic summaries for grouped changes under the "What was I doing?" feature.
+  ![Automatic summaries](/changelog/1907-1.gif)
+- Commit message helper that automatically captures the "what" of your changes, and let you fill in the "why".
+  ![Commit message helper](/changelog/1907-2.gif)
 
 #### 17th July, 2023
 
 ###### VSCode Extension
 
--   Support for multiple tsconfig.json files in a Typescript project.
-    ![Support for multiple tsconfig.json files](/changelog/1707.jpg)
+- Support for multiple tsconfig.json files in a Typescript project.
+  ![Support for multiple tsconfig.json files](/changelog/1707.jpg)
 
--   Fix the caching logic to avoid re-indexing files while saving changes.
+- Fix the caching logic to avoid re-indexing files while saving changes.
 
 #### 14th July, 2023
 
@@ -163,10 +162,10 @@ Cloud backed explanations and semantic search.
 
 Launching the CodeStory VSCode extension! 🎉
 
--   Look up code using the context you remember in natural language 🔍
+- Look up code using the context you remember in natural language 🔍
 
 ![search](/changelog/0407.gif)
 
--   Recover from context switches and recollect work easily with an automatic timeline of changes 📅
+- Recover from context switches and recollect work easily with an automatic timeline of changes 📅
 
--   Self-serve onboarding for new hires and on-call with explanations for any class or function like your co-worker would 🚍
+- Self-serve onboarding for new hires and on-call with explanations for any class or function like your co-worker would 🚍

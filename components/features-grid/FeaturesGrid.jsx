@@ -1,380 +1,350 @@
 import React, { useRef, useEffect } from "react";
 
-import { Card, Element, Heading, Text, Portion, Row, HRule } from "fictoan-react";
+import styled from "styled-components";
 
 import Debugging from "../../public/images/home/debugging.mp4";
 import NLPSearch from "../../public/images/home/nlp-search.png";
 import Agent from "../../public/images/home/agent.png";
-import Omnibar from "../../public/images/home/omnibar.png"
+import Omnibar from "../../public/images/home/omnibar.png";
 import GitDiff from "../../public/images/home/git-diff.png";
 import SlashCommands from "../../public/images/home/slash-commands.png";
 import DebugPrompt from "../../public/images/home/debug.png";
 import ExplainPrompt from "../../public/images/home/explain-prompt.png";
 import Migration from "../../public/images/home/migrate.png";
-import VSCode from "../../public/assets/logos/vscode.svg"
+import VSCode from "../../public/assets/logos/vscode.svg";
 import Aide from "../../public/images/aide-white.svg";
 import LogoTS from "../../public/images/logo-ts.svg";
 import LogoJS from "../../public/images/logo-js.svg";
 import LogoPython from "../../public/images/logo-python.svg";
 import LogoGo from "../../public/images/logo-go.svg";
 
-
 import { FeaturesGridStyled } from "./FeaturesGrid.styled";
 import { Player } from "video-react";
 import { DownloadButtons } from "../download/download";
+import { CodeStoryColours } from "../../styles/theme";
+
+// { Card, Element, Heading, Text, Portion, Row, HRule, CodeBlock } 
+const Card = styled.div``;
+const Element = styled.div``;
+const Heading = styled.h1``;
+const Text = styled.p``;
+const Portion = styled.div``;
+const Row = styled.div``;
+const HRule = styled.hr``;
 
 
 const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
-    const featuresRef = useRef(null);
+  const featuresRef = useRef(null);
 
-    useEffect(() => {
-        const featuresEl = featuresRef.current;
-        if (!featuresEl) return;
+  useEffect(() => {
+    const featuresEl = featuresRef.current;
+    if (!featuresEl) return;
 
-        const featureEls = featuresEl.querySelectorAll(".content-card");
+    const featureEls = featuresEl.querySelectorAll(".content-card");
 
-        const handlePointerMove = (ev) => {
-            featureEls.forEach((featureEl) => {
-                const rect = featureEl.getBoundingClientRect();
-                featureEl.style.setProperty("--x", ev.clientX - rect.left);
-                featureEl.style.setProperty("--y", ev.clientY - rect.top);
-            });
-        };
+    const handlePointerMove = (ev) => {
+      featureEls.forEach((featureEl) => {
+        const rect = featureEl.getBoundingClientRect();
+        featureEl.style.setProperty("--x", ev.clientX - rect.left);
+        featureEl.style.setProperty("--y", ev.clientY - rect.top);
+      });
+    };
 
-        featuresEl.addEventListener("pointermove", handlePointerMove);
+    featuresEl.addEventListener("pointermove", handlePointerMove);
 
-        return () => {
-            featuresEl.removeEventListener("pointermove", handlePointerMove);
-        };
-    }, []);
+    return () => {
+      featuresEl.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, []);
 
-    return (
-        <FeaturesGridStyled>
-            <Element as="div" ref={featuresRef}>
-                <Element as="div" id="features-grid" className="features">
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  AIDE INTRO  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="aide" className="feature content-card"
-                        shape="rounded" borderColour="green"
-                        style={{ padding: "4px" }}
-                    >
-                        {/*<Heading*/}
-                        {/*    as="h2" align="centre"*/}
-                        {/*    marginBottom="micro"*/}
-                        {/*    className="line-height-one"*/}
-                        {/*    */}
-                        {/*>*/}
-                        {/*    Introducing CodeStory ✨<br />An AI-powered mod of VSCode*/}
-                        {/*</Heading>*/}
+  return (
+    <FeaturesGridStyled>
+      <Element as="div" ref={featuresRef}>
+        <Element as="div" id="features-grid" className="features">
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  AIDE INTRO  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card
+            id="aide"
+            className="feature content-card"
+            shape="rounded"
+            borderColour={CodeStoryColours.primary}
+            style={{ padding: "4px" }}
+          >
+            {/*<Heading*/}
+            {/*    as="h2" align="centre"*/}
+            {/*    marginBottom="micro"*/}
+            {/*    className="line-height-one"*/}
+            {/*    */}
+            {/*>*/}
+            {/*    Introducing CodeStory ✨<br />An AI-powered mod of VSCode*/}
+            {/*</Heading>*/}
 
-                        {/*<Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">*/}
-                        {/*    Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve*/}
-                        {/*    problems across your dev environment.*/}
-                        {/*</Heading>*/}
+            {/*<Heading as="h5" align="centre" weight="400" marginBottom="micro" paddingLeft="small" paddingRight="small">*/}
+            {/*    Rather than humans to write code, we’ve optimised the IDE for AI to perform tasks and solve*/}
+            {/*    problems across your dev environment.*/}
+            {/*</Heading>*/}
 
-                        {/*<Row>*/}
-                        {/*    <Portion>*/}
-                        {/*        <Link*/}
-                        {/*            href={release?.assets?.[0]?.browser_download_url ?? ""}*/}
-                        {/*            passHref*/}
-                        {/*            target="_blank"*/}
-                        {/*            rel="noopener noreferrer"*/}
-                        {/*        >*/}
-                        {/*            <Button horizontallyCenterThis kind="primary" shadow="hard">*/}
-                        {/*                Download for MacOS (Apple Silicon)*/}
-                        {/*            </Button>*/}
-                        {/*        </Link>*/}
-                        {/*    </Portion>*/}
-                        {/*</Row>*/}
+            {/*<Row>*/}
+            {/*    <Portion>*/}
+            {/*        <Link*/}
+            {/*            href={release?.assets?.[0]?.browser_download_url ?? ""}*/}
+            {/*            passHref*/}
+            {/*            target="_blank"*/}
+            {/*            rel="noopener noreferrer"*/}
+            {/*        >*/}
+            {/*            <Button horizontallyCenterThis kind="primary" shadow="hard">*/}
+            {/*                Download for MacOS (Apple Silicon)*/}
+            {/*            </Button>*/}
+            {/*        </Link>*/}
+            {/*    </Portion>*/}
+            {/*</Row>*/}
 
-                        {/* <Element as="div" id="image-wrapper" shadow="soft"> */}
-                        <Player muted loop autoPlay playsInline width="100%">
-                            <source src={Debugging} type="video/mp4" />
-                        </Player>
+            {/* <Element as="div" id="image-wrapper" shadow="soft"> */}
+            <Player muted loop autoPlay playsInline width="100%">
+              <source src={Debugging} type="video/mp4" />
+            </Player>
 
-                        <Element as="div" id="gradient-wrapper" />
-                        {/* </Element> */}
+            {/* <Element as="div" id="gradient-wrapper" /> */}
+            {/* </Element> */}
+          </Card>
 
-                    </Card>
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  CODE EXPLANATIONS  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="code-explanation" className="feature content-card" shape="rounded" padding="large">
+            <Heading as="h4" marginTop="micro" marginBottom="nano" className="title">
+              AI that understands new & existing codebases.
+            </Heading>
+            <Row>
+              <Portion desktopSpan="one-fourth">
+                <Heading as="h5" weight="400" marginTop="nano">
+                  The agent can scan your codebase, navigate it, find the right places to edit, make changes and verify
+                  its work before reporting back to you.
+                </Heading>
+              </Portion>
 
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  CODE EXPLANATIONS  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="code-explanation"
-                        className="feature content-card"
-                        shape="rounded" padding="large"
-                    >
-                        <Heading
-                            as="h4"
-                            marginTop="micro"
-                            marginBottom="nano"
-                            className="title"
-                        >
-                            AI that understands new & existing codebases.
-                        </Heading>
-                        <Row>
-                            <Portion desktopSpan="one-fourth">
-                                <Heading as="h5" weight="400" marginTop="nano">
-                                    The agent can scan your codebase, navigate it,
-                                    find the right places to edit, make changes and verify its work
-                                    before reporting back to you.
-                                </Heading>
-                            </Portion>
+              <Portion desktopSpan="three-fourth" padding="nano">
+                <Element as="img" src={Agent.src} />
+              </Portion>
+            </Row>
+          </Card>
 
-                            <Portion desktopSpan="three-fourth" padding="nano">
-                                <Element as="img" src={Agent.src} />
-                            </Portion>
-                        </Row>
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  AUTO GEN COMMIT MESSAGES  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="commit-messages"
-                        className="feature content-card"
-                        shape="rounded"
-                    >
-                        <Element as="div" padding="micro" marginTop="nano">
-                            <Heading
-                                as="h4"
-                                marginBottom="micro"
-                                className="title"
-                            >
-                                At your command.
-                            </Heading>
-                            <Heading
-                                as="h6"
-                                marginBottom="micro"
-                                className="line-height-one"
-                            >
-                                <Element as="span" className="kbd">shift</Element> + <Element as="span" className="kbd">shift</Element>
-                            </Heading>
-
-                            <Heading as="h5" weight="400">
-                                You’re always a keyboard shortcut away from accessing the AI agent.
-                            </Heading>
-                        </Element>
-
-                        <Element as="img" src={Omnibar.src} />
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  AIDE USP 1  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="prompt-examples"
-                        className="feature content-card"
-                        shape="rounded" shadow="hard" padding="huge" borderColour="green"
-                    >
-                        <Heading
-                            as="h4"
-                            className="line-height-one title"
-                            marginBottom="micro"
-                        >
-                            Prompt anytime, anywhere.
-                        </Heading>
-
-                        <Heading as="h5" weight="400" marginBottom="micro">
-                            Ask general questions, or use slash commands and `@` context providers
-                            for powerful workflows.
-                        </Heading>
-
-                        {/* PROMPT 1 ================================== */}
-                        <Card
-                            className="prompt-examples"
-                            shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
-                        >
-                            <Card
-                                className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
-                            >
-                                <Text margin="nano" weight="600" className="card-text">Make changes to your codebase</Text>
-                            </Card>
-                        </Card>
-
-                        <Element as="img" src={SlashCommands.src} marginBottom="micro" />
-
-                        {/* PROMPT 2 ================================== */}
-                        <Card
-                            id="prompt-example-2" className="prompt-examples"
-                            shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
-                        >
-                            <Card
-                                className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
-                            >
-                                <Text margin="nano" weight="600" className="card-text">Debug issues in the code</Text>
-                            </Card>
-                        </Card>
-
-                        <Element as="img" src={DebugPrompt.src} marginBottom="micro" />
-
-                        {/* PROMPT 3 ================================== */}
-                        <Card
-                            id="prompt-example-3" className="prompt-examples"
-                            shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
-                        >
-                            <Card
-                                className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
-                            >
-                                <Text margin="nano" weight="600" className="card-text">Understand unfamiliar code</Text>
-                            </Card>
-                        </Card>
-
-                        <Element as="img" src={ExplainPrompt.src} marginBottom="micro" />
-
-                        {/* PROMPT 4 ================================== */}
-                        <Card
-                            id="prompt-example-4" className="prompt-examples"
-                            shape="rounded" marginBottom="nano"
-                            bgColour="green-60" borderColour="transparent" shadow="hard"
-                        >
-                            <Card
-                                className="prompt-wrapper"
-                                shape="rounded" bgColour="white" borderColour="transparent"
-                            >
-                                <Text margin="nano" weight="600" className="card-text">Eliminate all your tech debt</Text>
-                            </Card>
-                        </Card>
-
-                        <Text marginTop="nano" weight="600">Ok, we don’t support this one yet.</Text>
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  NATURAL LANGUAGE SEARCH  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="nlp-search"
-                        className="feature content-card"
-                        shape="rounded" padding="huge"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one title"
-                            paddingTop="micro"
-                        >
-                            Search as you’d think
-                        </Heading>
-
-                        <Heading as="h5" weight="400" marginBottom="micro">
-                            Type intuitively even when you can’t remember what you’re looking for.
-                        </Heading>
-
-                        <Element as="img" src={NLPSearch.src} />
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  GIT DIFF  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="git-diff"
-                        className="feature content-card"
-                        shape="rounded" padding="huge"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one title"
-                            paddingTop="micro"
-                        >
-                            Stay on top of your work
-                        </Heading>
-
-                        <Heading as="h5" weight="400" marginBottom="micro">
-                            Keep track of your changes through grouped summaries provided by AI.
-                        </Heading>
-
-                        <Element as="img" src={GitDiff.src} />
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  MORE FEATURES  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="more-features"
-                        className="feature content-card"
-                        shape="rounded" padding="large"
-                    >
-                        <Heading
-                            as="h4"
-                            marginBottom="nano"
-                            className="line-height-one title"
-                        >
-                            Migrate from VSCode in 1-click. And stay updated.
-                        </Heading>
-
-                        <Element as="div" padding="micro" horizontallyCenterThis>
-                            <Element as="div" verticallyCenterItems>
-                                <VSCode />
-                                <Text as="div" size="huge" marginLeft="micro" marginRight="micro">
-                                    &rarr;
-                                </Text>
-                                <Aide />
-                            </Element>
-                        </Element>
-
-                        <Element as="img" marginBottom="micro" src={Migration.src} />
-
-                        <Heading as="h5" weight="400">
-                            We’ll keep Aide up to date with VSCode releases, so you never have to compromise between editors.
-                        </Heading>
-
-                    </Card>
-
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    {/*  LANGUAGE SUPPORT  */}
-                    {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                    <Card
-                        id="language-support"
-                        className="feature content-card"
-                        shape="rounded" padding="medium"
-                    >
-                        <Heading as="h5" marginBottom="micro" className="title">
-                            Supported languages
-                        </Heading>
-
-                        <Element as="div" id="language-grid" marginBottom="micro">
-                            <Element as="div" className="language-logo" marginRight="nano">
-                                <LogoTS />
-                            </Element>
-
-                            <Element as="div" className="language-logo">
-                                <LogoJS />
-                            </Element>
-
-                            <Element as="div" className="language-logo python" >
-                                <LogoPython />
-                            </Element>
-
-                            <Element as="div" className="language-logo">
-                                <LogoGo />
-                            </Element>
-                        </Element>
-
-                        <Text>With more languages on the way!</Text>
-                    </Card>
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  AUTO GEN COMMIT MESSAGES  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="commit-messages" className="feature content-card" shape="rounded">
+            <Element as="div" padding="micro" marginTop="nano">
+              <Heading as="h4" marginBottom="micro" className="title">
+                At your command.
+              </Heading>
+              <Heading as="h6" marginBottom="micro" className="line-height-one">
+                <Element as="span" className="kbd">
+                  shift
+                </Element>{" "}
+                +{" "}
+                <Element as="span" className="kbd">
+                  shift
                 </Element>
+              </Heading>
 
-                {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/* FEATURES LOADED FROM ARRAY */}
-                {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
-                {/* <Row id="other-features" marginTop="nano">
+              <Heading as="h5" weight="400">
+                You’re always a keyboard shortcut away from accessing the AI agent.
+              </Heading>
+            </Element>
+
+            <Element as="img" src={Omnibar.src} />
+          </Card>
+
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  AIDE USP 1  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card
+            id="prompt-examples"
+            className="feature content-card"
+            shape="rounded"
+            shadow="hard"
+            padding="huge"
+            borderColour={CodeStoryColours.primary}
+          >
+            <Heading as="h4" className="line-height-one title" marginBottom="micro">
+              Prompt anytime, anywhere.
+            </Heading>
+
+            <Heading as="h5" weight="400" marginBottom="micro">
+              Ask general questions, or use slash commands and `@` context providers for powerful workflows.
+            </Heading>
+
+            {/* PROMPT 1 ================================== */}
+            <Card
+              className="prompt-examples"
+              shape="rounded"
+              marginBottom="nano"
+              borderColour="transparent"
+              shadow="hard"
+            >
+              <Card className="prompt-wrapper" shape="rounded" borderColour="transparent">
+                <Text margin="nano" weight="600" className="card-text">
+                  Make changes to your codebase
+                </Text>
+              </Card>
+            </Card>
+
+            <Element as="img" src={SlashCommands.src} marginBottom="micro" />
+
+            {/* PROMPT 2 ================================== */}
+            <Card
+              id="prompt-example-2"
+              className="prompt-examples"
+              shape="rounded"
+              marginBottom="nano"
+              borderColour="transparent"
+              shadow="hard"
+            >
+              <Card className="prompt-wrapper" shape="rounded" borderColour="transparent">
+                <Text margin="nano" weight="600" className="card-text">
+                  Debug issues in the code
+                </Text>
+              </Card>
+            </Card>
+
+            <Element as="img" src={DebugPrompt.src} marginBottom="micro" />
+
+            {/* PROMPT 3 ================================== */}
+            <Card
+              id="prompt-example-3"
+              className="prompt-examples"
+              shape="rounded"
+              marginBottom="nano"
+              borderColour="transparent"
+              shadow="hard"
+            >
+              <Card className="prompt-wrapper" shape="rounded" borderColour="transparent">
+                <Text margin="nano" weight="600" className="card-text">
+                  Understand unfamiliar code
+                </Text>
+              </Card>
+            </Card>
+
+            <Element as="img" src={ExplainPrompt.src} marginBottom="micro" />
+
+            {/* PROMPT 4 ================================== */}
+            <Card
+              id="prompt-example-4"
+              className="prompt-examples"
+              shape="rounded"
+              marginBottom="nano"
+              borderColour="transparent"
+              shadow="hard"
+            >
+              <Card className="prompt-wrapper" shape="rounded" borderColour="transparent">
+                <Text margin="nano" weight="600" className="card-text">
+                  Eliminate all your tech debt
+                </Text>
+              </Card>
+            </Card>
+
+            <Text marginTop="nano" weight="600">
+              Ok, we don’t support this one yet.
+            </Text>
+          </Card>
+
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  NATURAL LANGUAGE SEARCH  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="nlp-search" className="feature content-card" shape="rounded" padding="huge">
+            <Heading as="h4" marginBottom="nano" className="line-height-one title" paddingTop="micro">
+              Search as you’d think
+            </Heading>
+
+            <Heading as="h5" weight="400" marginBottom="micro">
+              Type intuitively even when you can’t remember what you’re looking for.
+            </Heading>
+
+            <Element as="img" src={NLPSearch.src} />
+          </Card>
+
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  GIT DIFF  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="git-diff" className="feature content-card" shape="rounded" padding="huge">
+            <Heading as="h4" marginBottom="nano" className="line-height-one title" paddingTop="micro">
+              Stay on top of your work
+            </Heading>
+
+            <Heading as="h5" weight="400" marginBottom="micro">
+              Keep track of your changes through grouped summaries provided by AI.
+            </Heading>
+
+            <Element as="img" src={GitDiff.src} />
+          </Card>
+
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  MORE FEATURES  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="more-features" className="feature content-card" shape="rounded" padding="large">
+            <Heading as="h4" marginBottom="nano" className="line-height-one title">
+              Migrate from VSCode in 1-click. And stay updated.
+            </Heading>
+
+            <Element as="div" padding="micro" horizontallyCenterThis>
+              <Element as="div" verticallyCenterItems>
+                <VSCode />
+                <Text as="div" size="huge" marginLeft="micro" marginRight="micro">
+                  &rarr;
+                </Text>
+                <Aide />
+              </Element>
+            </Element>
+
+            <Element as="img" marginBottom="micro" src={Migration.src} />
+
+            <Heading as="h5" weight="400">
+              We’ll keep Aide up to date with VSCode releases, so you never have to compromise between editors.
+            </Heading>
+          </Card>
+
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          {/*  LANGUAGE SUPPORT  */}
+          {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+          <Card id="language-support" className="feature content-card" shape="rounded" padding="medium">
+            <Heading as="h5" marginBottom="micro" className="title">
+              Supported languages
+            </Heading>
+
+            <Element as="div" id="language-grid" marginBottom="micro">
+              <Element as="div" className="language-logo" marginRight="nano">
+                <LogoTS />
+              </Element>
+
+              <Element as="div" className="language-logo">
+                <LogoJS />
+              </Element>
+
+              <Element as="div" className="language-logo python">
+                <LogoPython />
+              </Element>
+
+              <Element as="div" className="language-logo">
+                <LogoGo />
+              </Element>
+            </Element>
+
+            <Text>With more languages on the way!</Text>
+          </Card>
+        </Element>
+
+        {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+        {/* FEATURES LOADED FROM ARRAY */}
+        {/*  //////////////////////////////////////////////////////////////////////////////////////////////////  */}
+        {/* <Row id="other-features" marginTop="nano">
                     {ListOfAdditionalFeatures.map((featureItem, index) => {
                         return (
                             <Portion key={index} desktopSpan={featureItem.portionWidth}>
                                 <Card
                                     className="feature content-card array-card"
                                     shape="rounded" padding="medium"
-                                    bgColour="green-60" borderColour="green" shadow="hard"
+                                    bgColour="green-60" borderColour={CodeStoryColours.primary} shadow="hard"
                                     marginBottom="nano"
                                 >
                                     <Heading as="h4">{featureItem.heading}</Heading>
@@ -389,29 +359,21 @@ const FeaturesGrid = ({ matchingRelease, latestRelease, os }) => {
                         )
                     })}
                 </Row> */}
-            </Element>
+      </Element>
 
-            <HRule marginTop="micro" marginBottom="micro" bgColour="green" />
+      <HRule marginTop="micro" marginBottom="micro" bgColour="green" />
 
-            <Card
-                id="more-features"
-                className="feature content-card"
-                shape="rounded" padding="medium"
-            >
-                <Heading as="h6" weight="400" align="centre" marginBottom="micro">
-                    A lot more features coming soon—take our early build for a spin in the meanwhile!
-                </Heading>
+      <Card id="more-features" className="feature content-card" shape="rounded" padding="medium">
+        <Heading as="h6" weight="400" align="centre" marginBottom="micro">
+          A lot more features coming soon—take our early build for a spin in the meanwhile!
+        </Heading>
 
-                <Element as="div" horizontallyCenterThis>
-                    <DownloadButtons
-                        matchingRelease={matchingRelease}
-                        latestRelease={latestRelease}
-                        os={os}
-                    />
-                </Element>
-            </Card>
-        </FeaturesGridStyled>
-    );
-}
+        <Element as="div" horizontallyCenterThis>
+          <DownloadButtons matchingRelease={matchingRelease} latestRelease={latestRelease} os={os} />
+        </Element>
+      </Card>
+    </FeaturesGridStyled>
+  );
+};
 
 export default FeaturesGrid;
