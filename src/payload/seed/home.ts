@@ -233,45 +233,6 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Comments',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Users can comment on posts and editors can moderate comments directly from the ',
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin/collections/comments',
-                  children: [
-                    {
-                      text: 'admin dashboard',
-                    },
-                  ],
-                },
-                {
-                  text: '.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
                   text: 'User Accounts',
                 },
               ],
@@ -293,7 +254,7 @@ export const home: Partial<Page> = {
                   ],
                 },
                 {
-                  text: ', view their comment history, and more without leaving the site.',
+                  text: 'without leaving the site.',
                 },
               ],
             },
