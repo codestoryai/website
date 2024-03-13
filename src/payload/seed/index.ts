@@ -53,7 +53,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   payload.logger.info(`— Seeding demo author and user...`)
 
   await Promise.all(
-    ['demo-author@payloadcms.com', 'demo-user@payloadcms.com'].map(async email => {
+    ['ghost@codestory.ai', 'skcd@codestory.ai'].map(async email => {
       await payload.delete({
         collection: 'users',
         where: {
@@ -69,19 +69,19 @@ export const seed = async (payload: Payload): Promise<void> => {
     await payload.create({
       collection: 'users',
       data: {
-        email: 'demo-author@payloadcms.com',
-        name: 'Demo Author',
-        password: 'password',
+        email: 'ghost@codestory.ai',
+        name: 'Naresh Ramesh',
+        password: 'CodeStory@1234',
         roles: ['admin'],
       },
     }),
     await payload.create({
       collection: 'users',
       data: {
-        email: 'demo-user@payloadcms.com',
-        name: 'Demo User',
-        password: 'password',
-        roles: ['user'],
+        email: 'skcd@codestory.ai',
+        name: 'Sandeep Pani',
+        password: 'CodeStory@1234',
+        roles: ['admin'],
       },
     }),
   ])
@@ -103,14 +103,7 @@ export const seed = async (payload: Payload): Promise<void> => {
 
   payload.logger.info(`— Seeding categories...`)
 
-  const [
-    technologyCategory,
-    newsCategory,
-    financeCategory,
-    designCat,
-    softwareCat,
-    engineeringCat,
-  ] = await Promise.all([
+  const [technologyCategory, newsCategory, financeCategory] = await Promise.all([
     await payload.create({
       collection: 'categories',
       data: {
