@@ -43,7 +43,6 @@ export const POST = `
           ${MEDIA_BLOCK}
           ${ARCHIVE_BLOCK}
         }
-        enablePremiumContent
         relatedPosts {
           id
           slug
@@ -51,21 +50,6 @@ export const POST = `
           ${META}
         }
         ${META}
-      }
-    }
-  }
-`
-
-export const POST_PREMIUM_CONTENT = `
-  query Post($slug: String, $draft: Boolean) {
-    Posts(where: { slug: { equals: $slug }}, limit: 1, draft: $draft) {
-      docs {
-        premiumContent {
-          ${CALL_TO_ACTION}
-          ${CONTENT}
-          ${MEDIA_BLOCK}
-          ${ARCHIVE_BLOCK}
-        }
       }
     }
   }

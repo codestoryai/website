@@ -7,7 +7,6 @@ import { Post } from '../../../../payload/payload-types'
 import { fetchDoc } from '../../../_api/fetchDoc'
 import { fetchDocs } from '../../../_api/fetchDocs'
 import { Blocks } from '../../../_components/Blocks'
-import { PremiumContent } from '../../../_components/PremiumContent'
 import { PostHero } from '../../../_heros/PostHero'
 import { generateMeta } from '../../../_utilities/generateMeta'
 
@@ -34,13 +33,12 @@ export default async function Post({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, relatedPosts, enablePremiumContent, premiumContent } = post
+  const { layout, relatedPosts } = post
 
   return (
     <React.Fragment>
       <PostHero post={post} />
       <Blocks blocks={layout} />
-      {enablePremiumContent && <PremiumContent postSlug={slug as string} disableTopPadding />}
       <Blocks
         disableTopPadding
         blocks={[

@@ -69,7 +69,7 @@ export const seed = async (payload: Payload): Promise<void> => {
     }),
   )
 
-  let [{ id: demoAuthorID }, { id: demoUserID }] = await Promise.all([
+  let [{ id: demoAuthorID }] = await Promise.all([
     await payload.create({
       collection: 'users',
       data: {
@@ -192,8 +192,6 @@ export const seed = async (payload: Payload): Promise<void> => {
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
     ),
   })
-
-  const posts = [post1Doc, post2Doc, post3Doc]
 
   // update each post with related posts
 

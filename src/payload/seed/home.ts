@@ -272,32 +272,6 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Premium Content',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Easily restrict access to premium content to only authenticated members of your site.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
                   text: 'Page Builder',
                 },
               ],
