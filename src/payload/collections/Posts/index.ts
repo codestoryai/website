@@ -6,7 +6,6 @@ import { Archive } from '../../blocks/ArchiveBlock'
 import { CallToAction } from '../../blocks/CallToAction'
 import { Content } from '../../blocks/Content'
 import { MediaBlock } from '../../blocks/MediaBlock'
-import { hero } from '../../fields/hero'
 import { slugField } from '../../fields/slug'
 import { populateArchiveBlock } from '../../hooks/populateArchiveBlock'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -109,10 +108,6 @@ export const Posts: CollectionConfig = {
     {
       type: 'tabs',
       tabs: [
-        {
-          label: 'Hero',
-          fields: [hero],
-        },
         {
           label: 'Content',
           fields: [

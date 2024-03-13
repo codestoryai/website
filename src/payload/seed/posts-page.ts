@@ -9,28 +9,6 @@ export const postsPage: Partial<Page> = {
     description: 'An open-source website built with Payload and Next.js.',
     image: '{{IMAGE}}',
   },
-  hero: {
-    type: 'lowImpact',
-    richText: [
-      {
-        type: 'h1',
-        children: [
-          {
-            text: 'All posts',
-          },
-        ],
-      },
-      {
-        type: 'p',
-        children: [
-          {
-            text: 'This page displays all or some of the posts of your blog. Each post is complete with a dynamic page layout builder for a completely custom user experience that is under your full control.',
-          },
-        ],
-      },
-    ],
-    media: undefined,
-  },
   layout: [
     {
       blockName: 'Archive Block',

@@ -9,21 +9,6 @@ export const post1: Partial<Post> = {
     image: '{{IMAGE}}',
   },
   authors: ['{{AUTHOR}}'],
-  hero: {
-    type: 'lowImpact',
-    links: null,
-    richText: [
-      {
-        children: [
-          {
-            text: 'Post 1',
-          },
-        ],
-        type: 'h1',
-      },
-    ],
-    media: null,
-  },
   layout: [
     {
       blockType: 'content',

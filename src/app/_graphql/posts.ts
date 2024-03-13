@@ -28,14 +28,6 @@ export const POST = `
           id
           name
         }
-        hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
-        }
         layout {
           ${CONTENT}
           ${CALL_TO_ACTION}

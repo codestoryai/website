@@ -3,11 +3,11 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import { Post } from '../../../../payload/payload-types'
+import type { Post } from '../../../../payload/payload-types'
 import { fetchDoc } from '../../../_api/fetchDoc'
 import { fetchDocs } from '../../../_api/fetchDocs'
 import { Blocks } from '../../../_components/Blocks'
-import { PostHero } from '../../../_heros/PostHero'
+import { Gutter } from '../../../_components/Gutter'
 import { generateMeta } from '../../../_utilities/generateMeta'
 
 // Force this page to be dynamic so that Next.js does not cache it
@@ -33,11 +33,13 @@ export default async function Post({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, relatedPosts } = post
+  const { title, layout, relatedPosts } = post
 
   return (
     <React.Fragment>
-      <PostHero post={post} />
+      <Gutter>
+        <h1>{title}</h1>
+      </Gutter>
       <Blocks blocks={layout} />
       <Blocks
         disableTopPadding

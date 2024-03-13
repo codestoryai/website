@@ -9,69 +9,6 @@ export const home: Partial<Page> = {
     description: 'An open-source website built with Payload and Next.js.',
     image: '{{IMAGE_1}}',
   },
-  hero: {
-    type: 'highImpact',
-    richText: [
-      {
-        children: [
-          {
-            text: 'Payload Website Template',
-          },
-        ],
-        type: 'h1',
-      },
-      {
-        children: [
-          {
-            text: 'Welcome to your website! ',
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: '/admin',
-            children: [
-              {
-                text: 'Visit the admin dashboard',
-              },
-            ],
-          },
-          {
-            text: " to begin managing this site's content. The code for this template is completely open-source and can be found ",
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
-            newTab: true,
-            children: [
-              {
-                text: 'here',
-              },
-            ],
-          },
-          {
-            text: '.',
-          },
-        ],
-        type: 'large-body',
-      },
-    ],
-    links: [
-      {
-        link: {
-          type: 'reference',
-          appearance: 'primary',
-          reference: {
-            relationTo: 'pages',
-            value: '{{POSTS_PAGE_ID}}',
-          },
-          label: 'All posts',
-          url: '',
-        },
-      },
-    ],
-    media: '{{IMAGE_1}}',
-  },
   layout: [
     {
       blockName: 'Content Block',
