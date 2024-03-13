@@ -18,11 +18,5 @@ export const Settings: GlobalConfig = {
       relationTo: 'pages',
       label: 'Posts page',
     },
-    {
-      name: 'projectsPage',
-      type: 'relationship',
-      relationTo: 'pages',
-      label: 'Projects page',
-    },
   ],
 }

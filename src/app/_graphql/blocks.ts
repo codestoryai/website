@@ -53,25 +53,12 @@ export const ARCHIVE_BLOCK = `
         title
         ${META}
       }
-      ...on Project {
-        id
-        slug
-        title
-        ${META}
-      }
     }
   }
   populatedDocs {
     relationTo
     value {
       ...on Post {
-        id
-        slug
-        title
-        ${CATEGORIES}
-        ${META}
-      }
-      ...on Project {
         id
         slug
         title

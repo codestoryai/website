@@ -33,9 +33,6 @@ export const SETTINGS = `
     postsPage {
       slug
     }
-    projectsPage {
-      slug
-    }
   }
 `
 

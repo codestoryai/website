@@ -69,18 +69,6 @@ export const home: Partial<Page> = {
           url: '',
         },
       },
-      {
-        link: {
-          type: 'reference',
-          appearance: 'secondary',
-          reference: {
-            relationTo: 'pages',
-            value: '{{PROJECTS_PAGE_ID}}',
-          },
-          label: 'All projects',
-          url: '',
-        },
-      },
     ],
     media: '{{IMAGE_1}}',
   },
@@ -123,7 +111,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: "Manage this site's pages, posts, projects and more from the ",
+                  text: "Manage this site's pages, posts and more from the ",
                 },
                 {
                   type: 'link',
@@ -280,7 +268,7 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Custom page builder allows you to create unique page, post, and project layouts for any type of content.',
+                  text: 'Custom page builder allows you to create unique page, and post layouts for any type of content.',
                 },
               ],
             },
@@ -391,31 +379,6 @@ export const home: Partial<Page> = {
       categories: [],
     },
     {
-      blockName: 'Archive Block',
-      blockType: 'archive',
-      introContent: [
-        {
-          type: 'h4',
-          children: [
-            {
-              text: 'Recent projects',
-            },
-          ],
-        },
-        {
-          type: 'p',
-          children: [
-            {
-              text: 'The projects below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or projects can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.',
-            },
-          ],
-        },
-      ],
-      populateBy: 'collection',
-      relationTo: 'projects',
-      categories: [],
-    },
-    {
       blockType: 'cta',
       blockName: 'CTA',
       richText: [
@@ -457,18 +420,6 @@ export const home: Partial<Page> = {
             appearance: 'primary',
             reference: {
               value: '{{POSTS_PAGE_ID}}',
-              relationTo: 'pages',
-            },
-          },
-        },
-        {
-          link: {
-            type: 'reference',
-            url: '',
-            label: 'All projects',
-            appearance: 'secondary',
-            reference: {
-              value: '{{PROJECTS_PAGE_ID}}',
               relationTo: 'pages',
             },
           },
