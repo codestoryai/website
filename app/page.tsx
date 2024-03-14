@@ -1,13 +1,14 @@
 'use client';
 
+import { ArrowRightFromLine, LockKeyhole, MessagesSquare } from "lucide-react";
 import Image from "next/image";
-import { ArrowRightFromLine, MessagesSquare, LockKeyhole, PlugZap } from "lucide-react";
 
+import ScrollToTopButton from "@/components/downloadButton";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import { Kbd } from "@/components/ui/kbd";
 
 import AideDesktopSS from "../public/aide-desktop.png";
-import { Kbd } from "@/components/ui/kbd";
 
 export default function Home() {
   return (
@@ -143,6 +144,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <ScrollToTopButton />
     </main >
   );
 }
