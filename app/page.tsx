@@ -1,14 +1,44 @@
 'use client';
 
-import { ArrowRightFromLine, LockKeyhole, MessagesSquare } from "lucide-react";
+import { ArrowRightFromLine, BellRing, LockKeyhole, MessagesSquare } from "lucide-react";
 import Image from "next/image";
 
 import ScrollToTopButton from "@/components/downloadButton";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Kbd } from "@/components/ui/kbd";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import AideDesktopSS from "../public/aide-desktop.png";
+
+const lspSupportedLanguages = [
+  {
+    title: "TypeScript",
+    logo: "/languages/ts-logo-128.svg",
+    size: 48
+  },
+  {
+    title: "JavaScript",
+    logo: "/languages/javascript-logo.png",
+    size: 48
+  },
+  {
+    title: "Python",
+    logo: "/languages/python-logo.svg",
+    size: 36
+  },
+  {
+    title: "Rust",
+    logo: "/languages/rust-logo.svg",
+    size: 72
+  },
+  {
+    title: "Golang",
+    logo: "/languages/go-logo.svg",
+    size: 72
+  },
+]
 
 export default function Home() {
   return (
@@ -29,7 +59,33 @@ export default function Home() {
             <div className="col-span-2">
               <p className="text-3xl font-light">
                 Fast, intelligent and context-aware code completions. Aide doesn&apos;t just look at your active files, but it also
-                hooks with the Language Server to navigate and utilise related code for a growing list of languages.
+                hooks with the Language Server to navigate and utilise related code for{" "}
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <span className="underline decoration-dotted underline-offset-8 decoration-2">a growing list of languages.</span>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom">
+                      <Card className="w-[380px] border-none shadow-none">
+                        <CardHeader>
+                          <CardTitle>Languages with LSP integration</CardTitle>
+                          <CardDescription>New languages are being added every week.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="grid grid-cols-7 gap-1 place-items-center">
+                          {lspSupportedLanguages.map((language, index) => (
+                            <Image
+                              key={index}
+                              src={language.logo}
+                              alt={`${language.title} Logo`}
+                              width={language.size}
+                              height={language.size}
+                            />
+                          ))}
+                        </CardContent>
+                      </Card>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <br /><br />
                 <Kbd>tab</Kbd> can be your best friend.
               </p>
