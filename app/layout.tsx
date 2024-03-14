@@ -4,7 +4,7 @@ import { Fira_Sans } from 'next/font/google';
 import "./globals.css";
 
 const firaSans = Fira_Sans({
-  weight: ['400', '500', '700', '800'],
+  weight: ['400', '600', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
 })
