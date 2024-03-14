@@ -29,7 +29,7 @@ export default function Header() {
                       title="Docs"
                       href="/docs"
                     >
-                      Latest documentation for Aide.
+                      Latest user documentation for Aide.
                     </ListItem>
                     <ListItem
                       title="Releases"
@@ -41,7 +41,7 @@ export default function Header() {
                       title="Blog"
                       href="/blog"
                     >
-                      Read about our thoughts and challenges behind building Aide.
+                      Read our thoughts and challenges behind building Aide.
                     </ListItem>
                     <ListItem
                       title="Open Source"
@@ -49,7 +49,7 @@ export default function Header() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Take a look under the hood at some of our Open Source components.
+                      Look under-the-hood at our Open Source projects.
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
