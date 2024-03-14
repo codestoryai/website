@@ -9,7 +9,7 @@ import AideDesktopSS from "../public/aide-desktop.png";
 export default function Hero() {
   return (
     <div className="max-w-screen-xl m-auto my-12 flex flex-col">
-      <p className="text-6xl text-foreground">
+      <p className="text-5xl font-semibold text-foreground">
         Code with the <span className="text-primary">speed</span> and <span className="text-primary">knowledge</span> of the best programmer you know.{" "}
         <TooltipProvider>
           <Tooltip>

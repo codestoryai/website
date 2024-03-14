@@ -18,9 +18,6 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        replica: ['var(--font-replica)']
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

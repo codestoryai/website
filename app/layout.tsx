@@ -1,51 +1,12 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
+import { Fira_Sans } from 'next/font/google';
 import "./globals.css";
 
-const replica = localFont({
-  src: [
-    {
-      path: './fonts/ReplicaLLTrialWeb-Light.woff2',
-      weight: '300',
-      style: 'normal'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-LightItalic.woff2',
-      weight: '300',
-      style: 'italic'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-Regular.woff2',
-      weight: '400',
-      style: 'normal'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-Italic.woff2',
-      weight: '400',
-      style: 'italic'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-Bold.woff2',
-      weight: '700',
-      style: 'normal'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-BoldItalic.woff2',
-      weight: '700',
-      style: 'italic'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-Heavy.woff2',
-      weight: '800',
-      style: 'normal'
-    },
-    {
-      path: './fonts/ReplicaLLTrialWeb-HeavyItalic.woff2',
-      weight: '800',
-      style: 'italic'
-    }
-  ],
-  variable: '--font-replica'
+const firaSans = Fira_Sans({
+  weight: ['400', '500', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -59,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${replica.variable}`}>
+    <html lang="en" className={`${firaSans.className}`}>
       <body>{children}</body>
     </html>
   );
