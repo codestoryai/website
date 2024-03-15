@@ -1,4 +1,4 @@
-import { ArrowRightFromLine, LockKeyhole, MessagesSquare } from "lucide-react";
+import { ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Downloads } from "@/lib/types";
 
 import AideDesktopSS from "../public/aide-desktop.png";
-
 
 const lspSupportedLanguages = [
     {
@@ -166,7 +165,7 @@ export default function Sections({ latestRelease }: SectionsProps) {
                 <div className="max-w-screen-xl m-auto">
                     <div>
                         <h4 className="flex text-lg font-bold">
-                            <MessagesSquare className="mr-2" />AI Developers
+                            <Braces className="mr-2" />AI Developers
                         </h4>
                         <h2 className="mt-8 mb-12 text-6xl font-bold">
                             The future of AI is Open Source.
@@ -203,7 +202,7 @@ export default function Sections({ latestRelease }: SectionsProps) {
                     <p className="text-3xl font-extrabold">
                         Explore an AI-native editor experience.
                     </p>
-                    <div className="w-full grid grid-cols-9 mt-8">
+                    <div className="w-full grid grid-cols-9 mt-8 text-lg">
                         <div className="col-span-3 flex flex-col items-center">
                             <h4 className="text-xl font-bold mb-4">
                                 MacOS
@@ -215,8 +214,8 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">.dmg</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.dmg && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.dmg}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.dmg && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.dmg}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64.dmg && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.dmg}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64.dmg && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.dmg}>Intel Macs</a></Button>}
                                             </div>
                                         </>
                                     )}
@@ -224,8 +223,8 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.zip && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.zip}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.zip && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.zip}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.zip}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.zip}>Intel Macs</a></Button>}
                                             </div>
                                         </>
                                     )}
@@ -248,8 +247,8 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">User Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.userInstaller && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.userInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.userInstaller && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.userInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.userInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.userInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.userInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.userInstaller}>Arm64</a></Button>}
                                             </div>
                                         </>
                                     )}
@@ -257,8 +256,8 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">System Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.systemInstaller && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.systemInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.systemInstaller && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.systemInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.systemInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.systemInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.systemInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.systemInstaller}>Arm64</a></Button>}
                                             </div>
                                         </>
                                     )}
@@ -266,8 +265,8 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.zip && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.zip}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.zip && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.zip}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.zip}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.zip}>Arm64</a></Button>}
                                             </div>
                                         </>
                                     )}
@@ -290,9 +289,9 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <>
                                             <p className="col-span-2 text-right pr-4">.tar</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Linux.amd64.tar && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.amd64.tar}>x64</a></Button>}
-                                                {latestRelease.Linux.armhf.tar && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.armhf.tar}>Arm32</a></Button>}
-                                                {latestRelease.Linux.arm64.tar && <Button variant="link" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.arm64.tar}>Arm64</a></Button>}
+                                                {latestRelease.Linux.amd64.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.amd64.tar}>x64</a></Button>}
+                                                {latestRelease.Linux.armhf.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.armhf.tar}>Arm32</a></Button>}
+                                                {latestRelease.Linux.arm64.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.arm64.tar}>Arm64</a></Button>}
                                             </div>
                                         </>
                                     )}
