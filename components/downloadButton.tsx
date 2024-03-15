@@ -1,17 +1,19 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { scrollToBottom } from "@/lib/utils";
 
-const ScrollToTopButton = () => {
+const DownloadButton = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const toggleVisibility = () => {
       // if the user scrolls down, show the button
-      window.scrollY > 200 ? setIsVisible(true) : setIsVisible(false)
+      const reachedBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      window.scrollY > 200 && !reachedBottom ? setIsVisible(true) : setIsVisible(false);
     }
     // listen for scroll events
     window.addEventListener("scroll", toggleVisibility)
@@ -25,7 +27,8 @@ const ScrollToTopButton = () => {
   return (
     <Button
       variant="outline"
-      className={`fixed top-12 right-12 text-md font-bold flex items-center transition-opacity duration-200 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`fixed z-50 top-12 right-12 text-md font-bold flex items-center transition-opacity duration-200 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      onClick={scrollToBottom}
     >
       <Image
         src="/aide-white.svg"
@@ -41,4 +44,4 @@ const ScrollToTopButton = () => {
   )
 }
 
-export default ScrollToTopButton
+export default DownloadButton

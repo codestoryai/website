@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuTrigger, NavigationMenuContent, ListItem } from "@/components/ui/navigation-menu";
+import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { scrollToBottom } from "@/lib/utils";
 
 export default function Header() {
   return (
@@ -115,7 +118,10 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>Download</NavigationMenuLink>
+                <NavigationMenuLink
+                  className={`${navigationMenuTriggerStyle()} font-semibold`}
+                  onClick={scrollToBottom}
+                >Download</NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
