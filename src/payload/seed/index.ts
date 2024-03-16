@@ -10,7 +10,7 @@ import { post2 } from './post-2'
 import { post3 } from './post-3'
 import { postsPage } from './posts-page'
 
-const collections = ['categories', 'media', 'pages', 'posts']
+const collections = ['media', 'pages', 'posts']
 const globals = ['header', 'settings', 'footer']
 
 // Next.js revalidation errors are normal when seeding the database without a server running
@@ -101,47 +101,6 @@ export const seed = async (payload: Payload): Promise<void> => {
     }),
   ])
 
-  payload.logger.info(`— Seeding categories...`)
-
-  const [technologyCategory, newsCategory, financeCategory] = await Promise.all([
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Technology',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'News',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Finance',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Design',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Software',
-      },
-    }),
-    await payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Engineering',
-      },
-    }),
-  ])
-
   let image1ID = image1Doc.id
   let image2ID = image2Doc.id
 
@@ -158,7 +117,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post1Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post1, categories: [technologyCategory.id] })
+      JSON.stringify({ ...post1 })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
     ),
@@ -167,7 +126,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post2Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post2, categories: [newsCategory.id] })
+      JSON.stringify({ ...post2 })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
     ),
@@ -176,7 +135,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post3Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post3, categories: [financeCategory.id] })
+      JSON.stringify({ ...post3 })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
     ),

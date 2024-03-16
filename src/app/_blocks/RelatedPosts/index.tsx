@@ -41,7 +41,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = props => {
                   .filter(Boolean)
                   .join(' ')}
               >
-                <Card relationTo={relationTo} doc={doc} showCategories />
+                <Card relationTo={relationTo} doc={doc} />
               </div>
             )
           })}

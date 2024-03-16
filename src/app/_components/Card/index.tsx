@@ -9,26 +9,17 @@ import classes from './index.module.scss'
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
-  showCategories?: boolean
   hideImagesOnMobile?: boolean
   title?: string
   relationTo?: 'posts'
   doc?: Post
   orientation?: 'horizontal' | 'vertical'
 }> = props => {
-  const {
-    relationTo,
-    showCategories,
-    title: titleFromProps,
-    doc,
-    className,
-    orientation = 'vertical',
-  } = props
+  const { relationTo, title: titleFromProps, doc, className, orientation = 'vertical' } = props
 
-  const { slug, title, categories, meta } = doc || {}
+  const { slug, title, meta } = doc || {}
   const { description, image: metaImage } = meta || {}
 
-  const hasCategories = categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
   const href = `/${relationTo}/${slug}`
@@ -46,32 +37,6 @@ export const Card: React.FC<{
         )}
       </Link>
       <div className={classes.content}>
-        {showCategories && hasCategories && (
-          <div className={classes.leader}>
-            {showCategories && hasCategories && (
-              <div>
-                {categories?.map((category, index) => {
-                  if (typeof category === 'object') {
-                    const { title: titleFromCategory } = category
-
-                    const categoryTitle = titleFromCategory || 'Untitled category'
-
-                    const isLast = index === categories.length - 1
-
-                    return (
-                      <Fragment key={index}>
-                        {categoryTitle}
-                        {!isLast && <Fragment>, &nbsp;</Fragment>}
-                      </Fragment>
-                    )
-                  }
-
-                  return null
-                })}
-              </div>
-            )}
-          </div>
-        )}
         {titleToUse && (
           <h4 className={classes.title}>
             <Link href={href} className={classes.titleLink}>

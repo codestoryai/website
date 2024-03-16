@@ -19,9 +19,6 @@ export const POST = `
       docs {
         id
         title
-        categories {
-          title
-        }
         createdAt
         publishedAt
         populatedAuthors {

@@ -26,7 +26,7 @@ export const postsPage: Partial<Page> = {
           type: 'p',
           children: [
             {
-              text: 'The posts below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or posts can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.',
+              text: 'The posts below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection, or posts can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.',
             },
           ],
         },
@@ -34,7 +34,6 @@ export const postsPage: Partial<Page> = {
       populateBy: 'collection',
       relationTo: 'posts',
       limit: 10,
-      categories: [],
     },
   ],
 }

@@ -24,7 +24,6 @@ type Result = {
 }
 
 export type Props = {
-  categories?: ArchiveBlockProps['categories']
   className?: string
   limit?: number
   onResultChange?: (result: Result) => void // eslint-disable-line no-unused-vars
@@ -39,7 +38,6 @@ export type Props = {
 
 export const CollectionArchive: React.FC<Props> = props => {
   const {
-    categories: catsFromProps,
     className,
     limit = 10,
     onResultChange,
@@ -74,10 +72,6 @@ export const CollectionArchive: React.FC<Props> = props => {
   const hasHydrated = useRef(false)
   const isRequesting = useRef(false)
   const [page, setPage] = useState(1)
-
-  const categories = (catsFromProps || [])
-    .map(cat => (typeof cat === 'object' ? cat.id : cat))
-    .join(',')
 
   const scrollToRef = useCallback(() => {
     const { current } = scrollRef
@@ -115,15 +109,6 @@ export const CollectionArchive: React.FC<Props> = props => {
           limit,
           page,
           sort,
-          where: {
-            ...(categories
-              ? {
-                  categories: {
-                    in: categories,
-                  },
-                }
-              : {}),
-          },
         },
         { encode: false },
       )
@@ -162,7 +147,7 @@ export const CollectionArchive: React.FC<Props> = props => {
     return () => {
       if (timer) clearTimeout(timer)
     }
-  }, [page, categories, relationTo, onResultChange, sort, limit, populateBy])
+  }, [page, relationTo, onResultChange, sort, limit, populateBy])
 
   return (
     <div className={[classes.collectionArchive, className].filter(Boolean).join(' ')}>
@@ -187,7 +172,7 @@ export const CollectionArchive: React.FC<Props> = props => {
               if (typeof result === 'object' && result !== null) {
                 return (
                   <div className={classes.column} key={index}>
-                    <Card doc={result} relationTo={relationTo} showCategories />
+                    <Card doc={result} relationTo={relationTo} />
                   </div>
                 )
               }

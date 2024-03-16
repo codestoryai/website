@@ -23,20 +23,6 @@ export const populateArchiveBlock: AfterReadHook = async ({ doc, context, req: {
             context: {
               isPopulatingArchiveBlock: true,
             },
-            where: {
-              ...(archiveBlock?.categories?.length > 0
-                ? {
-                    categories: {
-                      in: archiveBlock.categories
-                        .map(cat => {
-                          if (typeof cat === 'string' || typeof cat === 'number') return cat
-                          return cat.id
-                        })
-                        .join(','),
-                    },
-                  }
-                : {}),
-            },
             sort: '-publishedAt',
           })
 

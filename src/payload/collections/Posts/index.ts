@@ -44,15 +44,6 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
-      name: 'categories',
-      type: 'relationship',
-      relationTo: 'categories',
-      hasMany: true,
-      admin: {
-        position: 'sidebar',
-      },
-    },
-    {
       name: 'publishedAt',
       type: 'date',
       admin: {
