@@ -26,7 +26,10 @@ export const Blocks: React.FC<{
             const Block = blockComponents[blockType]
             if (Block) {
               return (
-                <Block id={toKebabCase(blockName)} key={index} {...block} />
+                <React.Fragment>
+                  {/* @ts-expect-error */}
+                  <Block id={toKebabCase(blockName)} key={index} {...block} />
+                </React.Fragment>
               )
             }
           }

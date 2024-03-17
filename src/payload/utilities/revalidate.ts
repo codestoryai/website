@@ -16,11 +16,13 @@ export const revalidate = async (args: {
       payload.logger.info(`Revalidated page '${slug}' in collection '${collection}'`)
     } else {
       payload.logger.error(
+        // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
         `Error revalidating page '${slug}' in collection '${collection}': ${res}`,
       )
     }
   } catch (err: unknown) {
     payload.logger.error(
+      // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
       `Error hitting revalidate route for page '${slug}' in collection '${collection}': ${err}`,
     )
   }

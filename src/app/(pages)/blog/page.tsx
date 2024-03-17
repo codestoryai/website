@@ -5,12 +5,12 @@ import Footer from "@/app/_components/footer";
 import Header from "@/app/_components/header";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/app/_components/ui/card";
 import { Sparkles } from "lucide-react";
-import { draftMode } from "next/headers"
+// import { draftMode } from "next/headers"
 import Link from "next/link";
 import React from "react";
 
 export default async function Post() {
-    const { isEnabled: isDraftMode } = draftMode()
+    // const { isEnabled: isDraftMode } = draftMode()
 
     let posts: Post[] = []
     try {

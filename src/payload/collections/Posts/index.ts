@@ -21,6 +21,7 @@ export const Posts: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     preview: doc => {
       return `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/next/preview?url=${encodeURIComponent(
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-base-to-string
         `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/posts/${doc?.slug}`,
       )}&secret=${process.env.PAYLOAD_PUBLIC_DRAFT_SECRET}`
     },

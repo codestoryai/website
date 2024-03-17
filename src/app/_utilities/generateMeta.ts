@@ -3,12 +3,14 @@ import type { Metadata } from 'next'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export const generateMeta = async (args: { doc: Post }): Promise<Metadata> => {
   const { doc } = args || {}
 
   const ogImage =
     typeof doc?.meta?.image === 'object' &&
     doc?.meta?.image !== null &&
+    // eslint-disable-next-line no-unsafe-optional-chaining
     'url' in doc?.meta?.image &&
     `${process.env.NEXT_PUBLIC_SERVER_URL}${doc.meta.image.url}`
 

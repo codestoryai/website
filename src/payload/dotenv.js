@@ -1,3 +1,1 @@
-module.exports = {
-  config: () => null,
-}
+export function config() { return null; }
