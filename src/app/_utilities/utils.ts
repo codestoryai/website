@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function scrollToBottom() {
     window.scrollTo({
-      top: document.body.scrollHeight,
       behavior: "auto",
+      top: document.body.scrollHeight,
     })
 }

@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-
 import { Button } from "@/_components/ui/button";
-import { scrollToBottom } from "@/_lib/utils";
+import { scrollToBottom } from "@/_utilities/utils";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 const DownloadButton = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -26,16 +25,16 @@ const DownloadButton = () => {
 
   return (
     <Button
-      variant="outline"
       className={`fixed z-50 top-12 right-12 text-md font-bold flex items-center transition-opacity duration-200 ${isVisible ? "opacity-100" : "opacity-0"}`}
       onClick={scrollToBottom}
+      variant="outline"
     >
       <Image
-        src="/aide-white.svg"
         alt="CodeStory Logo"
-        width={30}
         height={20}
         priority
+        src="/aide-white.svg"
+        width={30}
       />
       <p className="pl-2 text-foreground font-bold">
         Download Aide

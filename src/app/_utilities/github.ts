@@ -61,6 +61,7 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
             }
         }
     } catch (err) {
+        // eslint-disable-next-line no-console
         console.log(err);
     }
 

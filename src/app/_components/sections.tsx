@@ -1,39 +1,39 @@
-import { ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } from "lucide-react";
-import Image from "next/image";
-
 import { Button } from "@/_components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/_components/ui/card";
 import { Kbd } from "@/_components/ui/kbd";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/_components/ui/tooltip";
-import { Downloads } from "@/_lib/types";
+import { Downloads } from "@/_utilities/types";
+import { ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 import AideDesktopSS from "../../../public/aide-desktop.png";
 
 const lspSupportedLanguages = [
     {
-        title: "TypeScript",
         logo: "/languages/ts-logo-128.svg",
-        size: 48
+        size: 48,
+        title: "TypeScript"
     },
     {
-        title: "JavaScript",
         logo: "/languages/javascript-logo.png",
-        size: 48
+        size: 48,
+        title: "JavaScript"
     },
     {
-        title: "Python",
         logo: "/languages/python-logo.svg",
-        size: 36
+        size: 36,
+        title: "Python"
     },
     {
-        title: "Rust",
         logo: "/languages/rust-logo.svg",
-        size: 72
+        size: 72,
+        title: "Rust"
     },
     {
-        title: "Golang",
         logo: "/languages/go-logo.svg",
-        size: 72
+        size: 72,
+        title: "Golang"
     },
 ]
 
@@ -71,11 +71,11 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                                 <CardContent className="grid grid-cols-7 gap-1 place-items-center">
                                                     {lspSupportedLanguages.map((language, index) => (
                                                         <Image
+                                                            alt={`${language.title} Logo`}
+                                                            height={language.size}
                                                             key={index}
                                                             src={language.logo}
-                                                            alt={`${language.title} Logo`}
                                                             width={language.size}
-                                                            height={language.size}
                                                         />
                                                     ))}
                                                 </CardContent>
@@ -90,10 +90,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-4 overflow-visible">
                             <div className="transform scale-125 origin-top-left">
                                 <Image
-                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
-                                    src={AideDesktopSS}
                                     alt="Aide screenshot"
+                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
+                                    src={AideDesktopSS}
                                 />
                             </div>
                         </div>
@@ -112,10 +112,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-4 overflow-visible">
                             <div className="transform scale-125 origin-top-right">
                                 <Image
-                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
-                                    src={AideDesktopSS}
                                     alt="Aide screenshot"
+                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
+                                    src={AideDesktopSS}
                                 />
                             </div>
                         </div>
@@ -151,10 +151,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-4 overflow-visible">
                             <div className="transform scale-125 origin-top-left">
                                 <Image
-                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
-                                    src={AideDesktopSS}
                                     alt="Aide screenshot"
+                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
+                                    src={AideDesktopSS}
                                 />
                             </div>
                         </div>
@@ -175,10 +175,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-4 overflow-visible">
                             <div className="transform scale-125 origin-top-right">
                                 <Image
-                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
-                                    src={AideDesktopSS}
                                     alt="Aide screenshot"
+                                    className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
+                                    src={AideDesktopSS}
                                 />
                             </div>
                         </div>
@@ -186,7 +186,7 @@ export default function Sections({ latestRelease }: SectionsProps) {
                             <p className="text-3xl font-light">
                                 Aide lets you pick an infra provider and model of choice, add your API key and just start coding.
                                 All queries made to the model are available to you in a SQLite DB locally, and our{" "}
-                                <a href="https://github.com/codestoryai/prompts" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/codestoryai/prompts" rel="noopener noreferrer" target="_blank">
                                     <span className="underline underline-offset-8 cursor-pointer">prompts are Open Source</span>
                                 </a>.
                                 <br /><br />
@@ -211,22 +211,22 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                 ?
                                 <div className="grid grid-cols-4 w-full">
                                     {(latestRelease.macOS.arm64.dmg || latestRelease.macOS.amd64.dmg) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.dmg</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.dmg && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.dmg}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.dmg && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.dmg}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64.dmg}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64.dmg}>Intel Macs</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                     {(latestRelease.macOS.arm64.zip || latestRelease.macOS.amd64.zip) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.arm64.zip}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.macOS.amd64.zip}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64.zip}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64.zip}>Intel Macs</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                 </div>
                                 :
@@ -244,31 +244,31 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                 ?
                                 <div className="grid grid-cols-4 w-full">
                                     {(latestRelease.Windows.arm64.userInstaller || latestRelease.Windows.amd64.userInstaller) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">User Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.userInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.userInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.userInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.userInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.userInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.userInstaller}>Arm64</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                     {(latestRelease.Windows.arm64.systemInstaller || latestRelease.Windows.amd64.systemInstaller) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">System Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.systemInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.systemInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.systemInstaller && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.systemInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.systemInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.systemInstaller}>Arm64</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                     {(latestRelease.Windows.arm64.zip || latestRelease.Windows.amd64.zip) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.amd64.zip}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.zip && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Windows.arm64.zip}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.zip}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.zip}>Arm64</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                 </div>
                                 :
@@ -286,14 +286,14 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                 ?
                                 <div className="grid grid-cols-4 w-full">
                                     {(latestRelease.Linux.amd64?.tar || latestRelease.Linux.armhf?.tar || latestRelease.Linux.arm64?.tar) && (
-                                        <>
+                                        <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.tar</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Linux.amd64.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.amd64.tar}>x64</a></Button>}
-                                                {latestRelease.Linux.armhf.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.armhf.tar}>Arm32</a></Button>}
-                                                {latestRelease.Linux.arm64.tar && <Button variant="link" size="sm" className="p-0 mx-2 cursor-default"><a href={latestRelease.Linux.arm64.tar}>Arm64</a></Button>}
+                                                {latestRelease.Linux.amd64.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.amd64.tar}>x64</a></Button>}
+                                                {latestRelease.Linux.armhf.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.armhf.tar}>Arm32</a></Button>}
+                                                {latestRelease.Linux.arm64.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.arm64.tar}>Arm64</a></Button>}
                                             </div>
-                                        </>
+                                        </React.Fragment>
                                     )}
                                 </div>
                                 :

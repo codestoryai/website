@@ -1,13 +1,17 @@
 "use server"
 
-import { headers } from 'next/headers';
-import { ICPU, UAParser } from 'ua-parser-js';
+import type { ICPU} from 'ua-parser-js';
 
-import { Downloads, SupportedOS, supportedOS } from './types';
+import { headers } from 'next/headers';
+import { UAParser } from 'ua-parser-js';
+
+import type { Downloads, SupportedOS} from './types';
+
+import { supportedOS } from './types';
 
 export interface UserDevice {
-  os: SupportedOS;
   arch: ICPU['architecture'];
+  os: SupportedOS;
 }
 
 export const getDevice = async (): Promise<UserDevice | undefined> => {
@@ -15,13 +19,14 @@ export const getDevice = async (): Promise<UserDevice | undefined> => {
     throw new Error('[Server method] you are importing a server-only module outside of server');
   }
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { get } = headers();
   const ua = get('user-agent');
 
   const parser = new UAParser(ua || '');
   const result = await parser.getResult().withClientHints();
 
-  let os = result.os.name as SupportedOS;
+  const os = result.os.name as SupportedOS;
   if (!os || !supportedOS.includes(os)) {
     return undefined;
   }
@@ -32,20 +37,20 @@ export const getDevice = async (): Promise<UserDevice | undefined> => {
   }
 
   if (os && arch) {
-    return { os, arch };
+    return { arch, os };
   } else {
     return undefined
   }
 };
 
 export interface DeviceDetails {
-  os: string;
   arch: string;
+  os: string;
   url: string;
 }
 
 export const cleanDeviceDetails = (currentDetails: Downloads['current']): DeviceDetails => {
-  let cleanedDetails = { ...currentDetails } as DeviceDetails;
+  const cleanedDetails = { ...currentDetails } as DeviceDetails;
 
   if (currentDetails.os === 'macOS') {
     cleanedDetails.os = 'MacOS';

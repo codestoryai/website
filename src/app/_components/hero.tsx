@@ -1,12 +1,12 @@
 "use client";
 
-import { Download } from "lucide-react";
-import Image from "next/image";
-
 import { Button } from "@/_components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/_components/ui/tooltip";
-import { DeviceDetails } from "@/_lib/ua";
-import { scrollToBottom } from "@/_lib/utils";
+import { DeviceDetails } from "@/_utilities/ua";
+import { scrollToBottom } from "@/_utilities/utils";
+import { Download } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 import AideDesktopSS from "../../../public/aide-desktop.png";
 
@@ -34,7 +34,7 @@ export default function Hero({ deviceDetails }: HeroProps) {
         {deviceDetails
           ?
           <div className="my-8 flex flex-col items-center w-fit">
-            <Button variant="outline" size="lg">
+            <Button size="lg" variant="outline">
               <a href={deviceDetails.url}>
                 <div className="flex items-center">
                   <div className="flex flex-col">
@@ -45,18 +45,18 @@ export default function Hero({ deviceDetails }: HeroProps) {
                 </div>
               </a>
             </Button>
-            <Button variant="link" className="text-md text-foreground" onClick={scrollToBottom}>
+            <Button className="text-md text-foreground" onClick={scrollToBottom} variant="link">
               Looking for a different platform?
             </Button>
           </div>
           :
-          <div></div>
+          <div />
         }
         <Image
-          className="mt-8 rounded-lg border shadow-xl"
-          src={AideDesktopSS}
           alt="Aide screenshot"
+          className="mt-8 rounded-lg border shadow-xl"
           priority
+          src={AideDesktopSS}
         />
       </div>
     </div>

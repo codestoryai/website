@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-
 import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/_components/ui/navigation-menu";
-import { scrollToBottom } from "@/_lib/utils";
+import { scrollToBottom } from "@/_utilities/utils";
+import Image from "next/image";
+import React from "react";
 
 export default function Header() {
   return (
@@ -11,11 +11,11 @@ export default function Header() {
       <div className="max-w-screen-2xl m-auto p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
           <Image
-            src="/aide-white.svg"
             alt="CodeStory Logo"
-            width={48}
             height={32}
             priority
+            src="/aide-white.svg"
+            width={48}
           />
           <p className="pl-2 text-foreground font-bold">
             Aide
@@ -29,28 +29,28 @@ export default function Header() {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                     <ListItem
-                      title="Docs"
                       href="/docs"
+                      title="Docs"
                     >
                       Latest user documentation for Aide.
                     </ListItem>
                     <ListItem
-                      title="Releases"
                       href="/releases"
+                      title="Releases"
                     >
                       Stay up-to-date on new changes to Aide.
                     </ListItem>
                     <ListItem
-                      title="Blog"
                       href="/blog"
+                      title="Blog"
                     >
                       Read our thoughts and challenges behind building Aide.
                     </ListItem>
                     <ListItem
-                      title="Open Source"
                       href="https://github.com/codestoryai"
-                      target="_blank"
                       rel="noopener noreferrer"
+                      target="_blank"
+                      title="Open Source"
                     >
                       Look under-the-hood at our Open Source projects.
                     </ListItem>
@@ -62,14 +62,14 @@ export default function Header() {
                 <NavigationMenuContent>
                   <ul className="grid grid-cols-1 w-[200px] gap-3 p-4 lg:w-[300px]">
                     <ListItem
-                      title="Overview"
                       href="/"
+                      title="Overview"
                     >
                       Understand Aide&apos;s Enterprise offering.
                     </ListItem>
                     <ListItem
-                      title="Contact Sales"
                       href="/"
+                      title="Contact Sales"
                     >
                       Want to learn more, or ready to onboard? Speak with us!
                     </ListItem>
@@ -90,11 +90,11 @@ export default function Header() {
                           href="https://codestory.ai"
                         >
                           <Image
-                            src="/cs-logomark.svg"
                             alt="CodeStory Logo"
-                            width={48}
                             height={48}
                             priority
+                            src="/cs-logomark.svg"
+                            width={48}
                           />
                           <div className="m-2 text-lg font-semibold">
                             CodeStory

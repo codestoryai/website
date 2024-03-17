@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local';
+
 import { Fira_Sans } from 'next/font/google';
+import React from "react";
+
 import "./globals.css";
 
 const firaSans = Fira_Sans({
-  weight: ['400', '600', '700', '900'],
-  subsets: ['latin'],
   display: 'swap',
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '900'],
 })
 
 export const metadata: Metadata = {
-  title: "Aide",
   description: "The AI-powered mod of VSCode",
+  title: "Aide",
 };
 
 export default function RootLayout({
@@ -20,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${firaSans.className}`}>
+    <html className={`${firaSans.className}`} lang="en">
       <body>{children}</body>
     </html>
   );
