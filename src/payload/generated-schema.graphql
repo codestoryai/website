@@ -32,7 +32,6 @@ type Post {
   authors: [User!]
   populatedAuthors: [Post_PopulatedAuthors!]
   layout: [Post_Layout!]!
-  relatedPosts: [Post!]
   slug: String
   meta: Post_Meta
   updatedAt: DateTime
@@ -478,7 +477,6 @@ input Post_where {
   authors: Post_authors_operator
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
-  relatedPosts: Post_relatedPosts_operator
   slug: Post_slug_operator
   meta__title: Post_meta__title_operator
   meta__description: Post_meta__description_operator
@@ -540,15 +538,6 @@ input Post_populatedAuthors__name_operator {
   in: [String]
   not_in: [String]
   all: [String]
-  exists: Boolean
-}
-
-input Post_relatedPosts_operator {
-  equals: JSON
-  not_equals: JSON
-  in: [JSON]
-  not_in: [JSON]
-  all: [JSON]
   exists: Boolean
 }
 
@@ -641,7 +630,6 @@ input Post_where_and {
   authors: Post_authors_operator
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
-  relatedPosts: Post_relatedPosts_operator
   slug: Post_slug_operator
   meta__title: Post_meta__title_operator
   meta__description: Post_meta__description_operator
@@ -660,7 +648,6 @@ input Post_where_or {
   authors: Post_authors_operator
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
-  relatedPosts: Post_relatedPosts_operator
   slug: Post_slug_operator
   meta__title: Post_meta__title_operator
   meta__description: Post_meta__description_operator
@@ -688,7 +675,6 @@ type PostsDocAccessFields {
   authors: PostsDocAccessFields_authors
   populatedAuthors: PostsDocAccessFields_populatedAuthors
   layout: PostsDocAccessFields_layout
-  relatedPosts: PostsDocAccessFields_relatedPosts
   slug: PostsDocAccessFields_slug
   meta: PostsDocAccessFields_meta
   updatedAt: PostsDocAccessFields_updatedAt
@@ -860,29 +846,6 @@ type PostsDocAccessFields_layout_Update {
 }
 
 type PostsDocAccessFields_layout_Delete {
-  permission: Boolean!
-}
-
-type PostsDocAccessFields_relatedPosts {
-  create: PostsDocAccessFields_relatedPosts_Create
-  read: PostsDocAccessFields_relatedPosts_Read
-  update: PostsDocAccessFields_relatedPosts_Update
-  delete: PostsDocAccessFields_relatedPosts_Delete
-}
-
-type PostsDocAccessFields_relatedPosts_Create {
-  permission: Boolean!
-}
-
-type PostsDocAccessFields_relatedPosts_Read {
-  permission: Boolean!
-}
-
-type PostsDocAccessFields_relatedPosts_Update {
-  permission: Boolean!
-}
-
-type PostsDocAccessFields_relatedPosts_Delete {
   permission: Boolean!
 }
 
@@ -1122,7 +1085,6 @@ type PostVersion_Version {
   authors: [User!]
   populatedAuthors: [PostVersion_Version_PopulatedAuthors!]
   layout: [PostVersion_Version_Layout!]!
-  relatedPosts: [Post!]
   slug: String
   meta: PostVersion_Version_Meta
   updatedAt: DateTime
@@ -1331,7 +1293,6 @@ input versionsPost_where {
   version__authors: versionsPost_version__authors_operator
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
-  version__relatedPosts: versionsPost_version__relatedPosts_operator
   version__slug: versionsPost_version__slug_operator
   version__meta__title: versionsPost_version__meta__title_operator
   version__meta__description: versionsPost_version__meta__description_operator
@@ -1405,15 +1366,6 @@ input versionsPost_version__populatedAuthors__name_operator {
   in: [String]
   not_in: [String]
   all: [String]
-  exists: Boolean
-}
-
-input versionsPost_version__relatedPosts_operator {
-  equals: JSON
-  not_equals: JSON
-  in: [JSON]
-  not_in: [JSON]
-  all: [JSON]
   exists: Boolean
 }
 
@@ -1535,7 +1487,6 @@ input versionsPost_where_and {
   version__authors: versionsPost_version__authors_operator
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
-  version__relatedPosts: versionsPost_version__relatedPosts_operator
   version__slug: versionsPost_version__slug_operator
   version__meta__title: versionsPost_version__meta__title_operator
   version__meta__description: versionsPost_version__meta__description_operator
@@ -1558,7 +1509,6 @@ input versionsPost_where_or {
   version__authors: versionsPost_version__authors_operator
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
-  version__relatedPosts: versionsPost_version__relatedPosts_operator
   version__slug: versionsPost_version__slug_operator
   version__meta__title: versionsPost_version__meta__title_operator
   version__meta__description: versionsPost_version__meta__description_operator
@@ -3521,7 +3471,6 @@ type PostsFields {
   authors: PostsFields_authors
   populatedAuthors: PostsFields_populatedAuthors
   layout: PostsFields_layout
-  relatedPosts: PostsFields_relatedPosts
   slug: PostsFields_slug
   meta: PostsFields_meta
   updatedAt: PostsFields_updatedAt
@@ -3693,29 +3642,6 @@ type PostsFields_layout_Update {
 }
 
 type PostsFields_layout_Delete {
-  permission: Boolean!
-}
-
-type PostsFields_relatedPosts {
-  create: PostsFields_relatedPosts_Create
-  read: PostsFields_relatedPosts_Read
-  update: PostsFields_relatedPosts_Update
-  delete: PostsFields_relatedPosts_Delete
-}
-
-type PostsFields_relatedPosts_Create {
-  permission: Boolean!
-}
-
-type PostsFields_relatedPosts_Read {
-  permission: Boolean!
-}
-
-type PostsFields_relatedPosts_Update {
-  permission: Boolean!
-}
-
-type PostsFields_relatedPosts_Delete {
   permission: Boolean!
 }
 
@@ -5261,7 +5187,6 @@ input mutationPostInput {
   authors: [String]
   populatedAuthors: [mutationPost_PopulatedAuthorsInput]
   layout: JSON
-  relatedPosts: [String]
   slug: String
   meta: mutationPost_MetaInput
   updatedAt: String
@@ -5291,7 +5216,6 @@ input mutationPostUpdateInput {
   authors: [String]
   populatedAuthors: [mutationPostUpdate_PopulatedAuthorsInput]
   layout: JSON
-  relatedPosts: [String]
   slug: String
   meta: mutationPostUpdate_MetaInput
   updatedAt: String

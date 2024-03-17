@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/_components/ui/button";
-import { scrollToBottom } from "@/_utilities/utils";
+import { Button } from "@/app/_components/ui/button";
+import { scrollToBottom } from "@/app/_utilities/utils";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 

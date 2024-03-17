@@ -58,7 +58,6 @@ export interface Post {
         blockType: 'mediaBlock';
       }
   )[];
-  relatedPosts?: (string | Post)[] | null;
   slug?: string | null;
   meta?: {
     title?: string | null;

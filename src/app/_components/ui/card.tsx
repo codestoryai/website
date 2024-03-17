@@ -1,4 +1,4 @@
-import { cn } from "@/_utilities/utils"
+import { cn } from "@/app/_utilities/utils"
 import * as React from "react"
 
 const Card = React.forwardRef<

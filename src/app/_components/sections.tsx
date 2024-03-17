@@ -1,13 +1,12 @@
-import { Button } from "@/_components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/_components/ui/card";
-import { Kbd } from "@/_components/ui/kbd";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/_components/ui/tooltip";
-import { Downloads } from "@/_utilities/types";
+import { Button } from "@/app/_components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/_components/ui/card";
+import { Kbd } from "@/app/_components/ui/kbd";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip";
+import { Downloads } from "@/app/_utilities/types";
+import AideDesktopSS from "@/public/aide-desktop.png";
 import { ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-
-import AideDesktopSS from "../../../public/aide-desktop.png";
 
 const lspSupportedLanguages = [
     {

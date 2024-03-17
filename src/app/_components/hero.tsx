@@ -1,14 +1,13 @@
 "use client";
 
-import { Button } from "@/_components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/_components/ui/tooltip";
-import { DeviceDetails } from "@/_utilities/ua";
-import { scrollToBottom } from "@/_utilities/utils";
+import { Button } from "@/app/_components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip";
+import { DeviceDetails } from "@/app/_utilities/ua";
+import { scrollToBottom } from "@/app/_utilities/utils";
+import AideDesktopSS from "@/public/aide-desktop.png";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-
-import AideDesktopSS from "../../../public/aide-desktop.png";
 
 interface HeroProps {
   deviceDetails: DeviceDetails | undefined;

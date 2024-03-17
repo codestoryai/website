@@ -65,7 +65,7 @@
     "nodemon": "^3.1.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
-    "slate": "^0.102.0",
+    "slate": "0.91.4",
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5"

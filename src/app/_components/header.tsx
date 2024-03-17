@@ -1,25 +1,44 @@
 "use client";
 
-import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/_components/ui/navigation-menu";
-import { scrollToBottom } from "@/_utilities/utils";
+import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/app/_components/ui/navigation-menu";
+import { scrollToBottom } from "@/app/_utilities/utils";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-export default function Header() {
+interface HeaderProps {
+  logoSuffix?: {
+    path?: string;
+    text: string;
+  }
+}
+
+export default function Header({ logoSuffix }: HeaderProps) {
   return (
     <div className="absolute w-screen">
       <div className="max-w-screen-2xl m-auto p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
-          <Image
-            alt="CodeStory Logo"
-            height={32}
-            priority
-            src="/aide-white.svg"
-            width={48}
-          />
-          <p className="pl-2 text-foreground font-bold">
-            Aide
-          </p>
+          <Link className="flex items-center" href="/">
+            <Image
+              alt="CodeStory Logo"
+              height={32}
+              priority
+              src="/aide-white.svg"
+              width={48}
+            />
+            <p className="pl-2 text-foreground font-bold">
+              Aide
+            </p>
+          </Link>
+          {
+            logoSuffix
+              ?
+              <p className="pl-2 text-foreground font-bold">
+                {logoSuffix.path ? <Link href={logoSuffix.path}>{logoSuffix.text}</Link> : logoSuffix.text}
+              </p>
+              :
+              <React.Fragment />
+          }
         </div>
         <div className="fixed bottom-4 left-0 flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
           <NavigationMenu className="cursor-pointer">

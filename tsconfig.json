@@ -25,7 +25,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/app/*"],
+      "@/app/*": ["./src/app/*"],
+      "@/payload/*": ["./src/payload/*"],
+      "@/public/*": ["./public/*"],
       "react": ["./node_modules/@types/react"],
     }
   },

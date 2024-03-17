@@ -101,19 +101,6 @@ export const Posts: CollectionConfig = {
         },
       ],
     },
-    {
-      name: 'relatedPosts',
-      type: 'relationship',
-      filterOptions: ({ id }) => {
-        return {
-          id: {
-            not_in: [id],
-          },
-        }
-      },
-      hasMany: true,
-      relationTo: 'posts',
-    },
     slugField(),
   ],
   hooks: {
