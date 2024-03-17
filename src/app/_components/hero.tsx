@@ -3,12 +3,12 @@
 import { Download } from "lucide-react";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { DeviceDetails } from "@/lib/ua";
-import { scrollToBottom } from "@/lib/utils";
+import { Button } from "@/_components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/_components/ui/tooltip";
+import { DeviceDetails } from "@/_lib/ua";
+import { scrollToBottom } from "@/_lib/utils";
 
-import AideDesktopSS from "../public/aide-desktop.png";
+import AideDesktopSS from "../../../public/aide-desktop.png";
 
 interface HeroProps {
   deviceDetails: DeviceDetails | undefined;

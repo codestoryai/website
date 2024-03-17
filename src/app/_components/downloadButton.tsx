@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import { scrollToBottom } from "@/lib/utils";
+import { Button } from "@/_components/ui/button";
+import { scrollToBottom } from "@/_lib/utils";
 
 const DownloadButton = () => {
   const [isVisible, setIsVisible] = useState(false)

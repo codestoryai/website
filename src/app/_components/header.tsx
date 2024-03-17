@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { scrollToBottom } from "@/lib/utils";
+import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/_components/ui/navigation-menu";
+import { scrollToBottom } from "@/_lib/utils";
 
 export default function Header() {
   return (
