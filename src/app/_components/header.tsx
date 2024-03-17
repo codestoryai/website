@@ -48,7 +48,9 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                     <ListItem
-                      href="/docs"
+                      href="https://docs.codestory.ai"
+                      rel="noopener noreferrer"
+                      target="_blank"
                       title="Docs"
                     >
                       Latest user documentation for Aide.
@@ -81,13 +83,13 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <NavigationMenuContent>
                   <ul className="grid grid-cols-1 w-[200px] gap-3 p-4 lg:w-[300px]">
                     <ListItem
-                      href="/"
+                      href="/enterprise"
                       title="Overview"
                     >
                       Understand Aide&apos;s Enterprise offering.
                     </ListItem>
                     <ListItem
-                      href="/"
+                      href="mailto:founders@codestory.ai"
                       title="Contact Sales"
                     >
                       Want to learn more, or ready to onboard? Speak with us!
