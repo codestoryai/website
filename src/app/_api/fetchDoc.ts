@@ -1,8 +1,8 @@
+import type { Config } from '@/payload/payload-types'
 import type { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
 
-import type { Config } from '../../payload/payload-types'
+import { POST } from '@/app/_graphql/posts'
 
-import { POST } from '../_graphql/posts'
 import { GRAPHQL_API_URL } from './shared'
 import { payloadToken } from './token'
 

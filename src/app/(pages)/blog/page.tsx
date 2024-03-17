@@ -48,7 +48,7 @@ export default async function Post() {
                     <div className="mt-16 mx-8">
                         {remainingPosts.map((post) => (
                             <div className="mb-6" key={post.id}>
-                                <Link href={`/blog/${latestPost.slug}`}>
+                                <Link href={`/blog/${post.slug}`}>
                                     <h1 className="text-4xl font-bold">{post.title}</h1>
                                 </Link>
                                 <p className="text-zinc-500 text-lg py-4">Feb. 29, 2024, Naresh Ramesh</p>

@@ -1,6 +1,5 @@
+import type { Post } from '@/payload/payload-types'
 import type { Metadata } from 'next'
-
-import type { Post } from '../../payload/payload-types'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 
