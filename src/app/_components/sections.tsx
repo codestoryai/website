@@ -196,7 +196,7 @@ export default function Sections({ latestRelease }: SectionsProps) {
                     </div>
                 </div>
             </div>
-            <div className="p-12 py-24 bg-noise bg-background border-t border-t-muted">
+            <div className="p-12 py-24 bg-white border-t border-t-muted">
                 <div className="max-w-screen-xl m-auto flex flex-col justify-center items-center">
                     <p className="text-3xl font-extrabold">
                         Explore an AI-native editor experience.
