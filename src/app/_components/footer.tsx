@@ -15,8 +15,8 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-4 md:text-lg">
               <div className="col-span-1 flex flex-col font-semibold gap-2">
                 <Link className="hover:text-primary" href="https://docs.codestory.ai" rel="noopener noreferrer" target="_blank">Docs</Link>
-                <Link className="hover:text-primary" href="/releases">Releases</Link>
-                <Link className="hover:text-primary" href="/blog">Blog</Link>
+                <Link className="hover:text-primary" href="https://github.com/codestoryai/binaries/releases" rel="noopener noreferrer" target="_blank">Releases</Link>
+                <Link className="hover:text-primary" href="https://codestory.ai/blog" rel="noopener noreferrer" target="_blank">Blog</Link>
                 <Link className="hover:text-primary" href="https://github.com/codestoryai" rel="noopener noreferrer" target="_blank">Open Source</Link>
                 <Link className="hover:text-primary" href="/enterprise">Enterprise</Link>
               </div>

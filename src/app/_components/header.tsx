@@ -56,13 +56,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                       Latest user documentation for Aide.
                     </ListItem>
                     <ListItem
-                      href="/releases"
+                      href="https://github.com/codestoryai/binaries/releases"
+                      rel="noopener noreferrer"
+                      target="_blank"
                       title="Releases"
                     >
                       Stay up-to-date on new changes to Aide.
                     </ListItem>
                     <ListItem
-                      href="/blog"
+                      href="https://codestory.ai/blog"
+                      rel="noopener noreferrer"
+                      target="_blank"
                       title="Blog"
                     >
                       Read our thoughts and challenges behind building Aide.
@@ -111,10 +115,11 @@ export default function Header({ logoSuffix }: HeaderProps) {
                   <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
-                        <a
+                        {/* <a
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-2 no-underline outline-none focus:shadow-md"
                           href="https://codestory.ai"
-                        >
+                        > */}
+                        <div>
                           <Image
                             alt="CodeStory Logo"
                             height={48}
@@ -128,16 +133,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                           <p className="m-2 mt-0 text-sm leading-tight text-muted-foreground">
                             Get to know the company behind Aide.
                           </p>
-                        </a>
+                        </div>
+                        {/* </a> */}
                       </NavigationMenuLink>
                     </li>
-                    <ListItem href="/docs/installation" title="Manifesto">
+                    <ListItem title="Manifesto">
                       What we stand for, and why it matters.
                     </ListItem>
-                    <ListItem href="/docs/installation" title="Team">
+                    <ListItem title="Team">
                       Aide is built by a team of two based in London, United Kingdom.
                     </ListItem>
-                    <ListItem href="/docs/primitives/typography" title="Careers">
+                    <ListItem title="Careers">
                       Work with us to re-imagine software engineering for the coming decade.
                     </ListItem>
                   </ul>
