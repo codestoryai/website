@@ -1,6 +1,6 @@
 const policies = {
   'child-src': ["'self'"],
-  'connect-src': ["'self'", 'https://maps.googleapis.com'],
+  'connect-src': ["'self'", 'https://maps.googleapis.com', 'https://us.i.posthog.com'],
   'default-src': ["'self'"],
   'font-src': ["'self'"],
   'frame-src': ["'self'"],
