@@ -98,7 +98,12 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Pricing</NavigationMenuLink>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="/pricing"
+                >
+                  Pricing
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
