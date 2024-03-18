@@ -40,7 +40,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
               <React.Fragment />
           }
         </div>
-        <div className="fixed bottom-4 left-0 flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
+        <div className="fixed bottom-4 left-0 hidden md:flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
           <NavigationMenu className="cursor-pointer">
             <NavigationMenuList>
               <NavigationMenuItem>
