@@ -22,6 +22,20 @@ export default async function Post() {
         // console.error(error)
     }
 
+    if (posts.length === 0) {
+        return (
+            <React.Fragment>
+                <Header logoSuffix={{ path: "/blog", text: "blog" }} />
+                <div className="p-12 pt-48 bg-noise bg-background flex flex-col items-center">
+                    <div className="w-full max-w-screen-lg m-auto">
+                        <h1 className="text-4xl font-bold">No posts found</h1>
+                    </div>
+                </div>
+                <Footer />
+            </React.Fragment>
+        )
+    }
+
     const latestPost = posts[0];
     const remainingPosts = posts.slice(1);
 
