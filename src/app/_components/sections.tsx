@@ -209,21 +209,21 @@ export default function Sections({ latestRelease }: SectionsProps) {
                             {latestRelease.macOS
                                 ?
                                 <div className="grid grid-cols-4 w-full">
-                                    {(latestRelease.macOS.arm64.dmg || latestRelease.macOS.amd64.dmg) && (
+                                    {(latestRelease.macOS.arm64?.dmg || latestRelease.macOS.amd64?.dmg) && (
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.dmg</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64.dmg}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64.dmg}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64?.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64?.dmg}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64?.dmg && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64?.dmg}>Intel Macs</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
-                                    {(latestRelease.macOS.arm64.zip || latestRelease.macOS.amd64.zip) && (
+                                    {(latestRelease.macOS.arm64?.zip || latestRelease.macOS.amd64?.zip) && (
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.macOS.arm64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64.zip}>Apple Silicon</a></Button>}
-                                                {latestRelease.macOS.amd64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64.zip}>Intel Macs</a></Button>}
+                                                {latestRelease.macOS.arm64?.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.arm64?.zip}>Apple Silicon</a></Button>}
+                                                {latestRelease.macOS.amd64?.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.macOS.amd64?.zip}>Intel Macs</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
@@ -242,30 +242,30 @@ export default function Sections({ latestRelease }: SectionsProps) {
                             {latestRelease.Windows
                                 ?
                                 <div className="grid grid-cols-4 w-full">
-                                    {(latestRelease.Windows.arm64.userInstaller || latestRelease.Windows.amd64.userInstaller) && (
+                                    {(latestRelease.Windows.arm64?.userInstaller || latestRelease.Windows.amd64?.userInstaller) && (
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">User Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.userInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.userInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64?.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64?.userInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64?.userInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64?.userInstaller}>Arm64</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
-                                    {(latestRelease.Windows.arm64.systemInstaller || latestRelease.Windows.amd64.systemInstaller) && (
+                                    {(latestRelease.Windows.arm64?.systemInstaller || latestRelease.Windows.amd64?.systemInstaller) && (
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">System Installer</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.systemInstaller}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.systemInstaller}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64?.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64?.systemInstaller}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64?.systemInstaller && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64?.systemInstaller}>Arm64</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
-                                    {(latestRelease.Windows.arm64.zip || latestRelease.Windows.amd64.zip) && (
+                                    {(latestRelease.Windows.arm64?.zip || latestRelease.Windows.amd64?.zip) && (
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.zip</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Windows.amd64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64.zip}>x64</a></Button>}
-                                                {latestRelease.Windows.arm64.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64.zip}>Arm64</a></Button>}
+                                                {latestRelease.Windows.amd64?.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.amd64?.zip}>x64</a></Button>}
+                                                {latestRelease.Windows.arm64?.zip && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Windows.arm64?.zip}>Arm64</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
@@ -288,9 +288,9 @@ export default function Sections({ latestRelease }: SectionsProps) {
                                         <React.Fragment>
                                             <p className="col-span-2 text-right pr-4">.tar</p>
                                             <div className="flex col-span-2">
-                                                {latestRelease.Linux.amd64.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.amd64.tar}>x64</a></Button>}
-                                                {latestRelease.Linux.armhf.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.armhf.tar}>Arm32</a></Button>}
-                                                {latestRelease.Linux.arm64.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.arm64.tar}>Arm64</a></Button>}
+                                                {latestRelease.Linux.amd64?.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.amd64?.tar}>x64</a></Button>}
+                                                {latestRelease.Linux.armhf?.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.armhf?.tar}>Arm32</a></Button>}
+                                                {latestRelease.Linux.arm64?.tar && <Button className="p-0 mx-2 cursor-default" size="sm" variant="link"><a href={latestRelease.Linux.arm64?.tar}>Arm64</a></Button>}
                                             </div>
                                         </React.Fragment>
                                     )}
