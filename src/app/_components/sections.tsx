@@ -4,6 +4,10 @@ import { Kbd } from "@/app/_components/ui/kbd";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip";
 import { Downloads } from "@/app/_utilities/types";
 import AideDesktopSS from "@/public/aide-desktop.png";
+import ChatSS from "@/public/screenshots/chat.png";
+import CopilotSS from "@/public/screenshots/copilot.png";
+import ModelSelectionSS from "@/public/screenshots/modelselection.png";
+import OfflineSS from "@/public/screenshots/offline.png";
 import { ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -89,10 +93,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-full md:col-span-4 overflow-visible">
                             <div className="transform md:scale-125 origin-top-left">
                                 <Image
-                                    alt="Aide screenshot"
+                                    alt="Inline completion"
                                     className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
-                                    src={AideDesktopSS}
+                                    src={CopilotSS}
                                 />
                             </div>
                         </div>
@@ -111,10 +115,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-full md:col-span-4 overflow-visible">
                             <div className="transform md:scale-125 origin-top-right">
                                 <Image
-                                    alt="Aide screenshot"
+                                    alt="Chat"
                                     className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
-                                    src={AideDesktopSS}
+                                    src={ChatSS}
                                 />
                             </div>
                         </div>
@@ -150,10 +154,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-full md:col-span-4 overflow-visible">
                             <div className="transform md:scale-125 origin-top-left">
                                 <Image
-                                    alt="Aide screenshot"
+                                    alt="Offline functionality"
                                     className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
-                                    src={AideDesktopSS}
+                                    src={OfflineSS}
                                 />
                             </div>
                         </div>
@@ -174,10 +178,10 @@ export default function Sections({ latestRelease }: SectionsProps) {
                         <div className="col-span-full md:col-span-4 overflow-visible">
                             <div className="transform md:scale-125 origin-top-right">
                                 <Image
-                                    alt="Aide screenshot"
+                                    alt="Model configuration support"
                                     className="rounded-lg border border-muted shadow-xl max-w-screen-md"
                                     priority
-                                    src={AideDesktopSS}
+                                    src={ModelSelectionSS}
                                 />
                             </div>
                         </div>
