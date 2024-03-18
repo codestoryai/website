@@ -8,7 +8,7 @@ export default function Enterprise() {
     return (
         <React.Fragment>
             <Header />
-            <div className="p-12 pt-48 bg-noise bg-background">
+            <div className="p-8 md:p-12 pt-48 bg-noise bg-background">
                 <div className="w-full max-w-screen-xl m-auto">
                     <div className="grid grid-cols-12 overflow-hidden">
                         <div className="col-span-4 flex flex-col justify-center">

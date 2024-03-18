@@ -26,7 +26,7 @@ export default async function Post() {
         return (
             <React.Fragment>
                 <Header logoSuffix={{ path: "/blog", text: "blog" }} />
-                <div className="p-12 pt-48 bg-noise bg-background flex flex-col items-center">
+                <div className="p-8 md:p-12 pt-48 bg-noise bg-background flex flex-col items-center">
                     <div className="w-full max-w-screen-lg m-auto">
                         <h1 className="text-4xl font-bold">No posts found</h1>
                     </div>
@@ -42,7 +42,7 @@ export default async function Post() {
     return (
         <React.Fragment>
             <Header logoSuffix={{ path: "/blog", text: "blog" }} />
-            <div className="p-12 pt-48 bg-noise bg-background flex flex-col items-center">
+            <div className="p-8 md:p-12 pt-48 bg-noise bg-background flex flex-col items-center">
                 <div className="w-full max-w-screen-lg m-auto">
                     <Link href={`/blog/${latestPost.slug}`}>
                         <Card className="rounded-3xl p-4 min-h-80 flex flex-col justify-between">

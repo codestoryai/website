@@ -25,7 +25,7 @@ const DownloadButton = () => {
 
   return (
     <Button
-      className={`fixed z-50 top-12 right-12 text-md font-bold flex items-center transition-opacity duration-200 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`fixed z-50 top-12 right-12 text-md font-bold hidden md:flex items-center transition-opacity duration-200 ${isVisible ? "opacity-100" : "opacity-0"}`}
       onClick={scrollToBottom}
       variant="outline"
     >

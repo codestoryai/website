@@ -15,14 +15,14 @@ interface HeroProps {
 
 export default function Hero({ deviceDetails }: HeroProps) {
   return (
-    <div className="p-12 pt-24 bg-noise bg-background">
-      <div className="max-w-screen-xl m-auto my-12 flex flex-col">
-        <p className="text-5xl font-semibold text-foreground">
+    <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
+      <div className="max-w-screen-xl m-auto my-6 md:my-12 flex flex-col">
+        <p className="text-4xl md:text-5xl font-semibold text-foreground">
           Code with the <span className="text-primary">speed</span> and <span className="text-primary">knowledge</span> of the best programmer you know.{" "}
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <span className="underline underline-offset-8 decoration-2">Aide</span>
+                <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">Aide</span>
               </TooltipTrigger>
               <TooltipContent side="bottom">
                 <p className="text-xl">AI + IDE</p>
@@ -32,7 +32,7 @@ export default function Hero({ deviceDetails }: HeroProps) {
         </p>
         {deviceDetails
           ?
-          <div className="my-8 flex flex-col items-center w-fit">
+          <div className="my-8 hidden md:flex flex-col items-center w-fit">
             <Button size="lg" variant="outline">
               <a href={deviceDetails.url}>
                 <div className="flex items-center">
