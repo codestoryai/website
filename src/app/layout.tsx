@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 
+import dynamic from 'next/dynamic'
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
 
 import "./globals.css";
+import { PHProvider } from './providers'
+
+const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
+  ssr: false,
+})
 
 const firaSans = Fira_Sans({
   display: 'swap',
@@ -23,7 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${firaSans.className}`} lang="en">
-      <body>{children}</body>
+      <PHProvider>
+        <body>
+          <PostHogPageView />
+          {children}
+        </body>
+      </PHProvider>
     </html>
   );
 }
