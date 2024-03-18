@@ -144,6 +144,22 @@ export default function Header({ logoSuffix }: HeaderProps) {
                   onClick={scrollToBottom}
                 >Download</NavigationMenuLink>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="https://discord.gg/mtgrhXM5Xf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image
+                    alt="Discord Link"
+                    height={20}
+                    priority
+                    src="/discord-mark.svg"
+                    width={20}
+                  />
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
