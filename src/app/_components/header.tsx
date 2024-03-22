@@ -115,37 +115,39 @@ export default function Header({ logoSuffix }: HeaderProps) {
                   <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
-                        {/* <a
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-2 no-underline outline-none focus:shadow-md"
+                        <Link
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-accent/50 to-aceent/20 p-2 no-underline outline-none focus:shadow-md"
                           href="https://codestory.ai"
-                        > */}
-                        <div>
-                          <Image
-                            alt="CodeStory Logo"
-                            height={48}
-                            priority
-                            src="/cs-logomark.svg"
-                            width={48}
-                          />
-                          <div className="m-2 text-lg font-semibold">
-                            CodeStory
+                          target="_blank"
+                        >
+                          <div>
+                            <Image
+                              alt="CodeStory Logo"
+                              height={72}
+                              priority
+                              src="/cs-logomark.svg"
+                              width={72}
+                            />
+                            <div className="m-2 text-xl font-bold">
+                              CodeStory
+                            </div>
+                            <p className="m-2 mt-0 text-base leading-tight text-muted-foreground">
+                              Get to know the company behind Aide.
+                            </p>
                           </div>
-                          <p className="m-2 mt-0 text-sm leading-tight text-muted-foreground">
-                            Get to know the company behind Aide.
-                          </p>
-                        </div>
-                        {/* </a> */}
+                        </Link>
                       </NavigationMenuLink>
                     </li>
-                    <ListItem title="Manifesto">
-                      What we stand for, and why it matters.
-                    </ListItem>
-                    <ListItem title="Team">
-                      Aide is built by a team of two based in London, United Kingdom.
-                    </ListItem>
-                    <ListItem title="Careers">
-                      Work with us to re-imagine software engineering for the coming decade.
-                    </ListItem>
+                    <Link href="https://codestory.ai" target="_blank">
+                      <ListItem title="Team">
+                        Aide is built by a team of two based in London, United Kingdom.
+                      </ListItem>
+                    </Link>
+                    <Link href="https://www.workatastartup.com/companies/codestory" target="_blank">
+                      <ListItem title="Careers">
+                        Work with us to re-imagine software engineering for the coming decade.
+                      </ListItem>
+                    </Link>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
