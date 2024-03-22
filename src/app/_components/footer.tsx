@@ -35,17 +35,19 @@ export default function Footer() {
           className="rounded-lg col-span-full md:col-span-4 row-span-1 row-start-2"
           src={TeamPhoto}
         />
-        <Card className="p-8 col-span-full md:col-span-4 row-span-2 border-0 bg-zinc-100 flex flex-col items-center justify-center">
-          <Image
-            alt="CodeStory Logo"
-            height={200}
-            src={CSLogo}
-            width={200}
-          />
-          <p className="text-center text-2xl font-bold pt-4">
-            A CodeStory product
-          </p>
-        </Card>
+        <Link className="col-span-full md:col-span-4 row-span-2" href="https://codestory.ai" target="_blank">
+          <Card className="p-8 w-full h-full border-0 bg-zinc-100 flex flex-col items-center justify-center hover:bg-secondary/20">
+            <Image
+              alt="CodeStory Logo"
+              height={200}
+              src={CSLogo}
+              width={200}
+            />
+            <p className="text-center text-2xl font-bold pt-4">
+              A CodeStory product
+            </p>
+          </Card>
+        </Link>
       </div>
     </footer>
   )

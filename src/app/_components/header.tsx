@@ -116,7 +116,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
                         <Link
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-accent/50 to-secondary p-2 no-underline outline-none focus:shadow-md"
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-accent/50 to-aceent/20 p-2 no-underline outline-none focus:shadow-md"
                           href="https://codestory.ai"
                           target="_blank"
                         >

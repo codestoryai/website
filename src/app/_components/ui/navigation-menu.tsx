@@ -40,7 +40,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-xl font-medium transition-colors hover:bg-accent/75 focus:bg-accent/75 focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/75 data-[state=open]:bg-accent/75"
+  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-xl font-medium transition-colors hover:bg-accent/50 focus:bg-accent/75 focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/75 data-[state=open]:bg-accent/75"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -123,7 +123,7 @@ const ListItem = React.forwardRef<
       <NavigationMenuLink asChild>
         <a
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none text-base no-underline outline-none transition-colors hover:bg-accent/75 focus:bg-accent/75 focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none text-base no-underline outline-none transition-colors hover:bg-accent/50 focus:bg-accent/75 focus:text-accent-foreground",
             className
           )}
           ref={ref}
