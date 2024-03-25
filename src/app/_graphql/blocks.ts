@@ -1,19 +1,13 @@
-import { MEDIA } from './media'
-
 export const CONTENT = `
 ...on Content {
   blockType
-  columns {
-    richText
-    enableLink
-  }
+  richTextContent_html
 }
 `
 
-export const MEDIA_BLOCK = `
-...on MediaBlock {
+export const CODEBLOCK = `
+...on Code {
   blockType
-  position
-  ${MEDIA}
+  codeblock
 }
 `

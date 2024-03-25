@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
 
+import { TooltipProvider } from "./_components/ui/tooltip";
 import "./globals.css";
 import { PHProvider } from './providers'
 
@@ -32,7 +33,9 @@ export default function RootLayout({
       <PHProvider>
         <body>
           <PostHogPageView />
-          {children}
+          <TooltipProvider delayDuration={0}>
+            {children}
+          </TooltipProvider>
         </body>
       </PHProvider>
     </html>

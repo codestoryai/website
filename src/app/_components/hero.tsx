@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/app/_components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/app/_components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/app/_components/ui/tooltip";
 import { DeviceDetails } from "@/app/_utilities/ua";
 import { scrollToBottom } from "@/app/_utilities/utils";
 import AideDesktopSS from "@/public/aide-desktop.png";
@@ -19,16 +19,14 @@ export default function Hero({ deviceDetails }: HeroProps) {
       <div className="max-w-screen-xl m-auto my-6 md:my-12 flex flex-col">
         <p className="text-4xl md:text-5xl font-semibold text-foreground">
           Code with the <span className="text-primary">speed</span> and <span className="text-primary">knowledge</span> of the best programmer you know.{" "}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">Aide</span>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">
-                <p className="text-xl">AI + IDE</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider> is by your side.
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">Aide</span>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">
+              <p className="text-xl">AI + IDE</p>
+            </TooltipContent>
+          </Tooltip> is by your side.
         </p>
         {deviceDetails
           ?

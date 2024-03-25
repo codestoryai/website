@@ -43,10 +43,10 @@ export default async function Post({ params: { slug } }) {
               <h1 className='mt-4 text-4xl md:text-5xl font-bold tracking-wide'>
                 {title}
               </h1>
+              <div className='max-w-screen-md m-auto mt-8'>
+                <Blocks blocks={layout} />
+              </div>
             </div>
-          </div>
-          <div className='max-w-screen-md m-auto'>
-            <Blocks blocks={layout} />
           </div>
         </div>
       </div>

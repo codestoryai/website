@@ -2,10 +2,12 @@ import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
 
 import { webpackBundler } from '@payloadcms/bundler-webpack'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
+import { gcsAdapter } from '@payloadcms/plugin-cloud-storage/gcs'
 import redirects from '@payloadcms/plugin-redirects'
 import seo from '@payloadcms/plugin-seo'
-import { slateEditor } from '@payloadcms/richtext-slate'
-import dotenv from 'dotenv'
+import { HTMLConverterFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import * as dotenv from 'dotenv'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 
@@ -13,8 +15,6 @@ import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
 import Users from './collections/Users'
 import BeforeLogin from './components/BeforeLogin'
-import { Footer } from './globals/Footer'
-import { Header } from './globals/Header'
 
 const generateTitle: GenerateTitle = () => {
     return 'Aide'
@@ -22,6 +22,13 @@ const generateTitle: GenerateTitle = () => {
 
 dotenv.config({
     path: path.resolve(__dirname, '../../.env'),
+})
+
+const gcpAdapter = gcsAdapter({
+  bucket: process.env.GCS_BUCKET,
+  options: {
+    credentials: JSON.parse(process.env.GCS_CREDENTIALS || '{}'),
+  },
 })
 
 export default buildConfig({
@@ -53,12 +60,26 @@ export default buildConfig({
     db: mongooseAdapter({
         url: process.env.DATABASE_URI,
     }),
-    editor: slateEditor({}),
-    globals: [Header, Footer],
+    editor: lexicalEditor({
+      features: ({ defaultFeatures }) => [
+        ...defaultFeatures,
+        HTMLConverterFeature({}),
+      ],
+    }),
     graphQL: {
         schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
     },
     plugins: [
+        cloudStorage({
+          collections: {
+            'media': {
+              adapter: gcpAdapter,
+            },
+            'posts': {
+              adapter: gcpAdapter,
+            },
+          },
+        }),
         redirects({
             collections: ['posts'],
         }),
