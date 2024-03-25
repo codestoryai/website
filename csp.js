@@ -4,9 +4,9 @@ const policies = {
   'default-src': ["'self'"],
   'font-src': ["'self'"],
   'frame-src': ["'self'"],
-  'img-src': ["'self'", 'https://raw.githubusercontent.com'],
+  'img-src': ["'self'", "data:", 'https://raw.githubusercontent.com'],
   'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://maps.googleapis.com', 'https://cdn.jsdelivr.net'],
-  'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+  'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', 'https://cdn.jsdelivr.net'],
 }
 
 module.exports = Object.entries(policies)
