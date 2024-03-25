@@ -24,7 +24,7 @@ export default function Hero({ deviceDetails }: HeroProps) {
               <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">Aide</span>
             </TooltipTrigger>
             <TooltipContent side="bottom">
-              <p className="text-xl">AI + IDE</p>
+              <span className="text-xl">AI + IDE</span>
             </TooltipContent>
           </Tooltip> is by your side.
         </p>
