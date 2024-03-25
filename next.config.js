@@ -47,6 +47,7 @@ const nextConfig = withPayload({
   reactStrictMode: true,
   redirects,
   swcMinify: true,
+  transpilePackages: ["@payloadcms/plugin-seo"]
 }, {
   configPath: path.resolve(__dirname, "./src/payload/payload.config.ts"),
   payloadPath: path.resolve(process.cwd(), "./src/payload/payloadClient.ts"),
