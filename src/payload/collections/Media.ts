@@ -1,7 +1,5 @@
 import type { CollectionConfig } from 'payload/types'
 
-import path from 'path'
-
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
@@ -19,6 +17,6 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
-    staticDir: path.resolve(__dirname, '../../../media'),
+    disableLocalStorage: true,
   },
 }

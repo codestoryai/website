@@ -18,8 +18,10 @@
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload/payload.config.ts payload"
   },
   "dependencies": {
+    "@google-cloud/storage": "^6.12.0",
     "@payloadcms/bundler-webpack": "^1.0.6",
     "@payloadcms/db-mongodb": "^1.4.3",
+    "@payloadcms/plugin-cloud-storage": "^1.1.2",
     "@payloadcms/plugin-redirects": "^1.0.1",
     "@payloadcms/plugin-seo": "^2.2.1",
     "@payloadcms/richtext-lexical": "^0.7.0",
