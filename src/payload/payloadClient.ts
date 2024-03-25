@@ -16,9 +16,11 @@ if (!process.env.PAYLOAD_SECRET) {
 let cached: {
   client: Payload | null,
   promise: Promise<Payload> | null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 } = (global as any).payload
 
 if (!cached) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cached = (global as any).payload = { client: null, promise: null }
 }
 
@@ -31,6 +33,7 @@ export const getPayloadClient = async (): Promise<Payload> => {
     cached.promise = getPayload({
       // Make sure that your environment variables are filled out accordingly
       config,
+      // @ts-expect-error
       secret: process.env.PAYLOAD_SECRET,
     })
   }

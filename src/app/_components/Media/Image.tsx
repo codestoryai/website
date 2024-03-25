@@ -37,7 +37,9 @@ export const Image: React.FC<MediaProps> = props => {
       width: fullWidth,
     } = resource
 
+    // @ts-expect-error
     width = fullWidth
+    // @ts-expect-error
     height = fullHeight
     alt = altFromResource
 

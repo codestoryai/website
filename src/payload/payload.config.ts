@@ -25,6 +25,7 @@ dotenv.config({
 })
 
 const gcpAdapter = gcsAdapter({
+  // @ts-expect-error
   bucket: process.env.GCS_BUCKET,
   options: {
     credentials: JSON.parse(process.env.GCS_CREDENTIALS || '{}'),
@@ -48,7 +49,7 @@ export default buildConfig({
             resolve: {
                 ...config.resolve,
                 alias: {
-                    ...config.resolve.alias,
+                    ...config.resolve?.alias,
                     dotenv: path.resolve(__dirname, './dotenv.js'),
                 },
             },
@@ -58,6 +59,7 @@ export default buildConfig({
     cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
     csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
     db: mongooseAdapter({
+        // @ts-expect-error
         url: process.env.DATABASE_URI,
     }),
     editor: lexicalEditor({

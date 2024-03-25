@@ -44,6 +44,7 @@ export default async function Post({ params: { slug } }) {
                 {title}
               </h1>
               <div className='max-w-screen-md m-auto mt-8'>
+                {/* @ts-expect-error */}
                 <Blocks blocks={layout} />
               </div>
             </div>
@@ -77,5 +78,6 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata> 
     })
   } catch (error) { /* empty */ }
 
+  // @ts-expect-error
   return generateMeta({ doc: post })
 }

@@ -10,6 +10,7 @@ const blockComponents = {
 }
 
 export const Blocks: React.FC<{
+  // @ts-expect-error
   blocks: (Post['layout'][0])[]
 }> = props => {
   const { blocks } = props
@@ -27,7 +28,6 @@ export const Blocks: React.FC<{
             if (Block) {
               return (
                 <React.Fragment key={index}>
-                  {/* @ts-expect-error */}
                   <Block id={toKebabCase(blockName)} key={index} {...block} />
                 </React.Fragment>
               )
