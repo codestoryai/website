@@ -59,7 +59,7 @@ export default async function Post({ params: { slug } }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const posts = await fetchDocs<Post>('posts')
     return posts?.map(({ slug }) => slug)
