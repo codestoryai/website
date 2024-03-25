@@ -32,6 +32,7 @@ export const fetchDocs = async <T>(
       query: queryMap[collection].query,
       variables,
     }),
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
       ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {}),
