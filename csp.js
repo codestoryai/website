@@ -7,6 +7,7 @@ const policies = {
   'img-src': ["'self'", "data:", 'https://raw.githubusercontent.com'],
   'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://maps.googleapis.com', 'https://cdn.jsdelivr.net'],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', 'https://cdn.jsdelivr.net'],
+  'worker-src': ["'self'", "blob:"],
 }
 
 module.exports = Object.entries(policies)
