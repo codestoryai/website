@@ -1,4 +1,4 @@
-import { CONTENT, MEDIA_BLOCK } from './blocks'
+import { CODEBLOCK, CONTENT } from './blocks'
 import { META } from './meta'
 
 export const POSTS = `
@@ -33,8 +33,7 @@ export const POST = `
         }
         layout {
           ${CONTENT}
-          ${CONTENT}
-          ${MEDIA_BLOCK}
+          ${CODEBLOCK}
         }
         ${META}
       }
