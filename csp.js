@@ -2,7 +2,7 @@ const policies = {
   'child-src': ["'self'"],
   'connect-src': ["'self'", 'https://maps.googleapis.com', 'https://us.i.posthog.com'],
   'default-src': ["'self'"],
-  'font-src': ["'self'"],
+  'font-src': ["'self'", "https://cdn.jsdelivr.net"],
   'frame-src': ["'self'"],
   'img-src': ["'self'", "data:", 'https://raw.githubusercontent.com'],
   'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://maps.googleapis.com', 'https://cdn.jsdelivr.net'],
