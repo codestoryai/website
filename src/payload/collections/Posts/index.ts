@@ -2,8 +2,8 @@ import type { CollectionConfig } from 'payload/types'
 
 import { admins } from '../../access/admins'
 import { adminsOrPublished } from '../../access/adminsOrPublished'
+import { CodeBlock } from '../../blocks/CodeBlock'
 import { Content } from '../../blocks/Content'
-import { MediaBlock } from '../../blocks/MediaBlock'
 import { slugField } from '../../fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { populateAuthors } from './hooks/populateAuthors'
@@ -94,8 +94,7 @@ export const Posts: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [Content, MediaBlock],
-              required: true,
+              blocks: [Content, CodeBlock]
             },
           ],
           label: 'Content',

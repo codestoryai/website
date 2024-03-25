@@ -1,6 +1,5 @@
 import type { CollectionConfig } from 'payload/types'
 
-import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
 
 export const Media: CollectionConfig = {
@@ -16,12 +15,7 @@ export const Media: CollectionConfig = {
     },
     {
       name: 'caption',
-      type: 'richText',
-      editor: slateEditor({
-        admin: {
-          elements: ['link'],
-        },
-      }),
+      type: 'richText'
     },
   ],
   upload: {

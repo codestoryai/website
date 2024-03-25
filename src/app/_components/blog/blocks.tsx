@@ -1,12 +1,12 @@
+import { CodeBlockBlock } from '@/app/_blocks/CodeBlock'
 import { ContentBlock } from '@/app/_blocks/Content'
-import { MediaBlock } from '@/app/_blocks/MediaBlock'
 import { toKebabCase } from '@/app/_utilities/toKebabCase'
 import { Post } from '@/payload/payload-types'
 import React, { Fragment } from 'react'
 
 const blockComponents = {
-  content: ContentBlock,
-  mediaBlock: MediaBlock,
+  code: CodeBlockBlock,
+  content: ContentBlock
 }
 
 export const Blocks: React.FC<{
@@ -26,7 +26,7 @@ export const Blocks: React.FC<{
             const Block = blockComponents[blockType]
             if (Block) {
               return (
-                <React.Fragment>
+                <React.Fragment key={index}>
                   {/* @ts-expect-error */}
                   <Block id={toKebabCase(blockName)} key={index} {...block} />
                 </React.Fragment>
