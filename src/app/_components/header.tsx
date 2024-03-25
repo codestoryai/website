@@ -63,12 +63,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     >
                       Stay up-to-date on new changes to Aide.
                     </ListItem>
-                    <ListItem
-                      href="https://codestory.ai/blog"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Blog"
-                    >
+                    <ListItem href="/blog" title="Blog">
                       Read our thoughts and challenges behind building Aide.
                     </ListItem>
                     <ListItem

@@ -60,7 +60,7 @@ export default function MarkdownRender({ mdString }: MarkdownRenderProps) {
 
           const language =
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (pre.children as any).props.className.replace(
+            (pre.children as any).props.className?.replace(
               /language-/g,
               ""
             ) as string;

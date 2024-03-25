@@ -5,6 +5,7 @@ import { fetchDocs } from '@/app/_api/fetchDocs'
 import { Blocks } from '@/app/_components/blog/blocks'
 import Footer from '@/app/_components/footer'
 import Header from '@/app/_components/header'
+import { formatDateTime } from '@/app/_utilities/formatDateTime'
 import { generateMeta } from '@/app/_utilities/generateMeta'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -30,20 +31,22 @@ export default async function Post({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, title } = post;
+  const { layout, populatedAuthors, publishedAt, title } = post;
 
   return (
     <React.Fragment>
-      <Header logoSuffix={{ path: "/blog", text: "blog" }} />
+      <Header logoSuffix={{ path: "/blog", text: "| Blog" }} />
       <div className="pt-80 bg-noise bg-background flex flex-col items-center">
-        <div className="px-12 w-full bg-white">
+        <div className="px-8 w-full bg-white">
           <div className='max-w-screen-md m-auto'>
-            <div className='max-w-screen-sm m-auto -translate-y-[5.3rem]'>
-              <h3 className='text-xl uppercase'>Feb. 29, 2024</h3>
-              <h1 className='mt-4 text-4xl md:text-5xl font-bold tracking-wide'>
+            <div className='max-w-screen-sm m-auto -translate-y-44 md:-translate-y-[6rem]'>
+              <h3 className='text-xl uppercase'>
+                {publishedAt ? `${formatDateTime(publishedAt)}, ` : ''}{populatedAuthors?.map((author) => author.name).join(', ')}
+              </h3>
+              <h1 className='mt-4 text-4xl md:text-6xl font-bold tracking-wide'>
                 {title}
               </h1>
-              <div className='max-w-screen-md m-auto mt-8'>
+              <div className='max-w-screen-md m-auto mt-16'>
                 {/* @ts-expect-error */}
                 <Blocks blocks={layout} />
               </div>
@@ -56,7 +59,7 @@ export default async function Post({ params: { slug } }) {
   )
 }
 
-export async function generateStaticParams() {
+export async function getServerSideProps() {
   try {
     const posts = await fetchDocs<Post>('posts')
     return posts?.map(({ slug }) => slug)
