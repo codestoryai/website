@@ -7,7 +7,7 @@ export const getMeUser = async (args?: {
   nullUserRedirect?: string
   validUserRedirect?: string
 }): Promise<{
-  token: string
+  token: string | undefined
   user: User
 }> => {
   const { nullUserRedirect, validUserRedirect } = args || {}

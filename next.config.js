@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const path = require("path");
+const { withPayload } = require("@payloadcms/next-payload");
 const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
-const nextConfig = {
+const nextConfig = withPayload({
   async headers() {
     const headers = []
 
@@ -45,6 +47,9 @@ const nextConfig = {
   reactStrictMode: true,
   redirects,
   swcMinify: true,
-}
+}, {
+  configPath: path.resolve(__dirname, "./src/payload/payload.config.ts"),
+  payloadPath: path.resolve(process.cwd(), "./src/payload/payloadClient.ts"),
+})
 
 module.exports = nextConfig

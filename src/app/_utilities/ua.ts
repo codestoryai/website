@@ -1,11 +1,9 @@
-"use server"
-
-import type { ICPU} from 'ua-parser-js';
+import type { ICPU } from 'ua-parser-js';
 
 import { headers } from 'next/headers';
 import { UAParser } from 'ua-parser-js';
 
-import type { Downloads, SupportedOS} from './types';
+import type { Downloads, SupportedOS } from './types';
 
 import { supportedOS } from './types';
 

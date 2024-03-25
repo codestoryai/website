@@ -17,6 +17,7 @@ export const generateMeta = async (args: { doc: Post }): Promise<Metadata> => {
   return {
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
+      // @ts-expect-error
       description: doc?.meta?.description,
       images: ogImage
         ? [
