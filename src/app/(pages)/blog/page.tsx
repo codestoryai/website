@@ -6,13 +6,10 @@ import Header from "@/app/_components/header";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/app/_components/ui/card";
 import { formatDateTime } from "@/app/_utilities/formatDateTime";
 import { Sparkles } from "lucide-react";
-// import { draftMode } from "next/headers"
 import Link from "next/link";
 import React from "react";
 
 export default async function Post() {
-  // const { isEnabled: isDraftMode } = draftMode()
-
   let posts: Post[] = []
   try {
     posts = await fetchDocs<Post>('posts')
@@ -20,7 +17,8 @@ export default async function Post() {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
     // so swallow the error here and simply render the page with fallback data where necessary
     // in production you may want to redirect to a 404  page or at least log the error somewhere
-    // console.error(error)
+    // eslint-disable-next-line no-console
+    console.error(error)
   }
 
   if (posts.length === 0) {
@@ -37,8 +35,11 @@ export default async function Post() {
     )
   }
 
-  const latestPost = posts[0];
-  const remainingPosts = posts.slice(1);
+  const sortedPosts = posts.sort((a, b) => {
+    return new Date(b.publishedAt ? b.publishedAt : Date.now().toString()).getTime() - new Date(a.publishedAt ? a.publishedAt : Date.now().toString()).getTime()
+  });
+  const latestPost = sortedPosts[0];
+  const remainingPosts = sortedPosts.slice(1);
 
   return (
     <React.Fragment>
