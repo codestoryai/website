@@ -18,5 +18,6 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     disableLocalStorage: true,
+    staticURL: "/media"
   },
 }
