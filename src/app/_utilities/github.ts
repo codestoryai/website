@@ -4,7 +4,12 @@ import { getDevice } from "./ua";
 export const fetchLatestRelease = async (): Promise<Downloads> => {
     const downloads: DeepPartial<Downloads> = {};
     try {
-        const release = await (await fetch("https://api.github.com/repos/codestoryai/binaries/releases/latest")).json() as GithubRelease;
+        const release = await (
+          await fetch(
+            "https://api.github.com/repos/codestoryai/binaries/releases/latest",
+            { next: { revalidate: 3600 } }
+          )
+        ).json() as GithubRelease;
         if (release) {
             const version = release.name;
             const assets = release.assets;
