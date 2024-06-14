@@ -1,44 +1,114 @@
-"use client";
+'use client'
 
-import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/app/_components/ui/navigation-menu";
-import { scrollToBottom } from "@/app/_utilities/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button } from '@/app/_components/ui/button'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/app/_components/ui/dialog'
+import {
+  ListItem,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/app/_components/ui/navigation-menu'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+
+import { DeviceDetails } from '../_utilities/ua'
+import { metadata } from '../layout'
+import { Input } from './ui/input'
 
 interface HeaderProps {
+  deviceDetails?: DeviceDetails
   logoSuffix?: {
-    path?: string;
-    text: string;
+    path?: string
+    text: string
   }
 }
 
-export default function Header({ logoSuffix }: HeaderProps) {
+interface WaitlistData {
+  amount_referred: 0
+  created_at: string
+  email: string
+  referral_link: string
+  referral_token: string
+  removed_date: string
+  uuid: string
+  verified: boolean
+  waitlist_api_key: string
+  waitlist_id: number
+}
+
+export default function Header({ deviceDetails, logoSuffix }: HeaderProps) {
+  const [waitlistData, setWaitlistData] = React.useState<WaitlistData>()
+  const [error, setError] = React.useState<string>()
+  const [loading, setLoading] = React.useState(false)
+
+  // Function to submit Waitlist data
+
+  const onSubmitWaitlist: React.FormEventHandler<HTMLFormElement> = event => {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+
+    if (!data.get('email')) {
+      setError('Please enter your email')
+      return
+    }
+
+    setLoading(true)
+
+    fetch('https://api.getwaitlist.com/api/v1/signup', {
+      body: JSON.stringify({
+        email: data.get('email'),
+        metadata: deviceDetails,
+        referral_link: document.URL,
+        waitlist_id: 17826,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+      .then(response => response.json())
+      .then(data => {
+        setWaitlistData(data)
+        setLoading(false)
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+  }
+
   return (
     <div className="absolute w-screen">
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
           <Link className="flex items-center" href="/">
-            <Image
-              alt="CodeStory Logo"
-              height={32}
-              priority
-              src="/aide-white.svg"
-              width={48}
-            />
-            <p className="pl-2 text-foreground font-bold">
-              Aide
-            </p>
+            <Image alt="CodeStory Logo" height={32} priority src="/aide-white.svg" width={48} />
+            <p className="pl-2 text-foreground font-bold">Aide</p>
           </Link>
-          {
-            logoSuffix
-              ?
-              <p className="pl-2 text-foreground font-bold">
-                {logoSuffix.path ? <Link href={logoSuffix.path}>{logoSuffix.text}</Link> : logoSuffix.text}
-              </p>
-              :
-              <React.Fragment />
-          }
+          {logoSuffix ? (
+            <p className="pl-2 text-foreground font-bold">
+              {logoSuffix.path ? (
+                <Link href={logoSuffix.path}>{logoSuffix.text}</Link>
+              ) : (
+                logoSuffix.text
+              )}
+            </p>
+          ) : (
+            <React.Fragment />
+          )}
         </div>
         <div className="fixed bottom-4 left-0 hidden md:flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
           <NavigationMenu className="cursor-pointer">
@@ -81,26 +151,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <NavigationMenuTrigger>Enterprise</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid grid-cols-1 w-[200px] gap-3 p-4 lg:w-[300px]">
-                    <ListItem
-                      href="/enterprise"
-                      title="Overview"
-                    >
+                    <ListItem href="/enterprise" title="Overview">
                       Understand Aide&apos;s Enterprise offering.
                     </ListItem>
-                    <ListItem
-                      href="mailto:founders@codestory.ai"
-                      title="Contact Sales"
-                    >
+                    <ListItem href="mailto:founders@codestory.ai" title="Contact Sales">
                       Want to learn more, or ready to onboard? Speak with us!
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle()}
-                  href="/pricing"
-                >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/pricing">
                   Pricing
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -123,9 +184,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                               src="/cs-logomark.svg"
                               width={72}
                             />
-                            <div className="m-2 text-xl font-bold">
-                              CodeStory
-                            </div>
+                            <div className="m-2 text-xl font-bold">CodeStory</div>
                             <p className="m-2 mt-0 text-base leading-tight text-muted-foreground">
                               Get to know the company behind Aide.
                             </p>
@@ -147,10 +206,43 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={`${navigationMenuTriggerStyle()} font-semibold`}
-                  onClick={scrollToBottom}
-                >Download</NavigationMenuLink>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
+                      Join waitlist
+                    </NavigationMenuLink>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Join waitlist</DialogTitle>
+                      <DialogDescription>
+                        Thank you for your interest in Aide! Please enter your email to join our
+                        waitlist.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={onSubmitWaitlist}>
+                      <div className="flex items-center space-x-2">
+                        <div className="grid flex-1 gap-2">
+                          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                          <label className="sr-only" htmlFor="email">
+                            Email
+                          </label>
+                          <Input id="email" name="email" />
+                        </div>
+                      </div>
+                      <DialogFooter className="sm:justify-end mt-3">
+                        <DialogClose asChild>
+                          <Button type="button" variant="ghost">
+                            Close
+                          </Button>
+                        </DialogClose>
+                        <Button className="px-3" size="sm" type="submit" variant="default">
+                          Sign up
+                        </Button>
+                      </DialogFooter>
+                    </form>
+                  </DialogContent>
+                </Dialog>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
