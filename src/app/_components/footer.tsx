@@ -31,7 +31,7 @@ export default function Footer() {
           </CardContent>
         </Card>
         <Image
-          alt="Aide screenshot"
+          alt="Team"
           className="rounded-lg col-span-full md:col-span-4 row-span-1 row-start-2"
           src={TeamPhoto}
         />
