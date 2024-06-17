@@ -6,14 +6,15 @@ import { fetchLatestRelease } from '@/app/_utilities/github'
 import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
 import React from 'react'
 
-import { WaitlistButton, WaitlistContextProvider } from './_components/waitlistDialog'
+import { WaitlistButton, WaitlistContextProvider } from './_components/waitlist'
 
 export default async function Home() {
   const latestRelease = await fetchLatestRelease()
+
   let currentDevice: DeviceDetails | undefined
+
   if (latestRelease.current) {
-    // eslint-disable-next-line @typescript-eslint/await-thenable
-    currentDevice = await cleanDeviceDetails(latestRelease.current)
+    currentDevice = cleanDeviceDetails(latestRelease.current)
   }
 
   return (

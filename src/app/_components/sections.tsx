@@ -18,7 +18,7 @@ import { ArrowRight, ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } f
 import Image from 'next/image'
 import React from 'react'
 
-import { WaitlistForm } from './waitlistDialog'
+import { WaitlistForm } from './waitlist'
 
 const lspSupportedLanguages = [
   {

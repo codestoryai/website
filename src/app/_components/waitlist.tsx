@@ -10,6 +10,7 @@ import { cn } from '../_utilities/utils'
 import { Button } from './ui/button'
 import * as Base from './ui/dialog'
 import { Input } from './ui/input'
+import { Label } from './ui/label'
 
 interface WaitlistData {
   amount_referred: 0
@@ -49,10 +50,7 @@ const WaitlistContextProvider = (props: WaitlistContextProps) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const email = formData.get('email')
-    if (!email) {
-      setError('Please enter your email')
-      return
-    }
+    const techStack = formData.get('tech-stack')
 
     setLoading(true)
 
@@ -60,9 +58,9 @@ const WaitlistContextProvider = (props: WaitlistContextProps) => {
       const response = await fetch('https://api.getwaitlist.com/api/v1/signup', {
         body: JSON.stringify({
           email,
-          metadata: deviceDetails,
+          metadata: { ...deviceDetails, techStack },
           referral_link: document.URL,
-          waitlist_id: 17826,
+          waitlist_id: process.env.NODE_ENV !== 'production' ? 17826 : 17823,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -144,15 +142,26 @@ const WaitlistForm = (props: WaitlistFormProps) => {
       </div>
     </div>
   ) : (
-    <form className={className} onSubmit={onSubmitWaitlist}>
-      <div className="flex flex-grow items-center space-x-2">
-        <div className="flex flex-1 gap-2 flex-grow">
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className="sr-only" htmlFor="email">
-            Email
-          </label>
-          <Input className="flex-grow" id="email" name="email" />
-        </div>
+    <form className={twMerge(className, 'flex flex-col gap-4')} onSubmit={onSubmitWaitlist}>
+      <div className="flex flex-col flex-1 gap-2 flex-grow">
+        <Label htmlFor="email">Your email</Label>
+        <Input
+          className="flex-grow"
+          id="email"
+          name="email"
+          placeholder="you@company.com"
+          required
+        />
+      </div>
+      <div className="flex flex-col flex-1 gap-2 flex-grow">
+        <Label htmlFor="tech-stack">Your tech stack</Label>
+        <Input
+          className="flex-grow"
+          id="tech-stack"
+          name="tech-stack"
+          placeholder="e.g.: Rust, C++, React..."
+          required
+        />
       </div>
       {children}
     </form>

@@ -14,7 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import { DialogTrigger } from './waitlistDialog'
+import { DialogTrigger } from './waitlist'
 
 interface HeaderProps {
   logoSuffix?: {
