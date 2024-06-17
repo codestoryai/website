@@ -1,16 +1,5 @@
 'use client'
 
-import { Button } from '@/app/_components/ui/button'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/app/_components/ui/dialog'
 import {
   ListItem,
   NavigationMenu,
@@ -25,71 +14,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import { DeviceDetails } from '../_utilities/ua'
-import { metadata } from '../layout'
-import { Input } from './ui/input'
+import { DialogTrigger } from './waitlistDialog'
 
 interface HeaderProps {
-  deviceDetails?: DeviceDetails
   logoSuffix?: {
     path?: string
     text: string
   }
 }
 
-interface WaitlistData {
-  amount_referred: 0
-  created_at: string
-  email: string
-  referral_link: string
-  referral_token: string
-  removed_date: string
-  uuid: string
-  verified: boolean
-  waitlist_api_key: string
-  waitlist_id: number
-}
-
-export default function Header({ deviceDetails, logoSuffix }: HeaderProps) {
-  const [waitlistData, setWaitlistData] = React.useState<WaitlistData>()
-  const [error, setError] = React.useState<string>()
-  const [loading, setLoading] = React.useState(false)
-
-  // Function to submit Waitlist data
-
-  const onSubmitWaitlist: React.FormEventHandler<HTMLFormElement> = event => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-
-    if (!data.get('email')) {
-      setError('Please enter your email')
-      return
-    }
-
-    setLoading(true)
-
-    fetch('https://api.getwaitlist.com/api/v1/signup', {
-      body: JSON.stringify({
-        email: data.get('email'),
-        metadata: deviceDetails,
-        referral_link: document.URL,
-        waitlist_id: 17826,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-      .then(response => response.json())
-      .then(data => {
-        setWaitlistData(data)
-        setLoading(false)
-      })
-      .catch(() => {
-        setLoading(false)
-      })
-  }
-
+export default function Header({ logoSuffix }: HeaderProps) {
   return (
     <div className="absolute w-screen">
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
@@ -129,9 +63,9 @@ export default function Header({ deviceDetails, logoSuffix }: HeaderProps) {
                       href="https://github.com/codestoryai/binaries/releases"
                       rel="noopener noreferrer"
                       target="_blank"
-                      title="Releases"
+                      title="Previous releases"
                     >
-                      Stay up-to-date on new changes to Aide.
+                      See previous releases of Aide.
                     </ListItem>
                     <ListItem href="/blog" title="Blog">
                       Read our thoughts and challenges behind building Aide.
@@ -206,43 +140,11 @@ export default function Header({ deviceDetails, logoSuffix }: HeaderProps) {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
-                      Join waitlist
-                    </NavigationMenuLink>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Join waitlist</DialogTitle>
-                      <DialogDescription>
-                        Thank you for your interest in Aide! Please enter your email to join our
-                        waitlist.
-                      </DialogDescription>
-                    </DialogHeader>
-                    <form onSubmit={onSubmitWaitlist}>
-                      <div className="flex items-center space-x-2">
-                        <div className="grid flex-1 gap-2">
-                          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                          <label className="sr-only" htmlFor="email">
-                            Email
-                          </label>
-                          <Input id="email" name="email" />
-                        </div>
-                      </div>
-                      <DialogFooter className="sm:justify-end mt-3">
-                        <DialogClose asChild>
-                          <Button type="button" variant="ghost">
-                            Close
-                          </Button>
-                        </DialogClose>
-                        <Button className="px-3" size="sm" type="submit" variant="default">
-                          Sign up
-                        </Button>
-                      </DialogFooter>
-                    </form>
-                  </DialogContent>
-                </Dialog>
+                <DialogTrigger asChild>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
+                    Join waitlist
+                  </NavigationMenuLink>
+                </DialogTrigger>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
