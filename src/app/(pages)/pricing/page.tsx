@@ -1,34 +1,41 @@
-import Footer from "@/app/_components/footer";
-import Header from "@/app/_components/header";
-import { Button } from "@/app/_components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/_components/ui/card";
-import { fetchLatestRelease } from "@/app/_utilities/github";
-import { DeviceDetails, cleanDeviceDetails } from "@/app/_utilities/ua";
-import { Check, Download } from "lucide-react";
-import React from "react";
+import Footer from '@/app/_components/footer'
+import Header from '@/app/_components/header'
+import { Button } from '@/app/_components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/app/_components/ui/card'
+import { WaitlistContextProvider } from '@/app/_components/waitlist'
+import { fetchLatestRelease } from '@/app/_utilities/github'
+import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
+import { Check, Download } from 'lucide-react'
+import React from 'react'
 
 export default async function Pricing() {
-  const latestRelease = await fetchLatestRelease();
-  let deviceDetails: DeviceDetails | undefined;
+  const latestRelease = await fetchLatestRelease()
+  let deviceDetails: DeviceDetails | undefined
   if (latestRelease.current) {
-    // eslint-disable-next-line @typescript-eslint/await-thenable
-    deviceDetails = await cleanDeviceDetails(latestRelease.current);
+    deviceDetails = cleanDeviceDetails(latestRelease.current)
   }
 
   return (
-    <React.Fragment>
+    <WaitlistContextProvider deviceDetails={deviceDetails}>
       <Header />
       <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
         <div className="max-w-screen-xl m-auto">
           <div className="my-24 flex flex-col items-center">
             <h3 className="text-xl text-primary text-center">Pricing</h3>
-            <h2 className="pt-4 text-3xl md:text-5xl font-bold text-center">Aide works for you and your team.</h2>
+            <h2 className="pt-4 text-3xl md:text-5xl font-bold text-center">
+              Aide works for you and your team.
+            </h2>
             <div className="pt-16 md:pt-32 grid grid-cols-12 gap-2">
               <Card className="col-span-full md:col-span-4 rounded-2xl p-6 pb-8 md:pr-16">
                 <CardHeader>
-                  <CardTitle className="font-semibold text-2xl md:text-3xl">
-                    Starter
-                  </CardTitle>
+                  <CardTitle className="font-semibold text-2xl md:text-3xl">Starter</CardTitle>
                   <CardDescription className="md:text-lg">
                     The essentials to provide your best work for clients.
                   </CardDescription>
@@ -41,15 +48,21 @@ export default async function Pricing() {
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Unlimited access to Claude Sonnet for chat</div>
+                    <div className="col-span-11 pl-2">
+                      Unlimited access to Claude Sonnet for chat
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Unlimited access to CodeLllama 7B for tab-autocomplete</div>
+                    <div className="col-span-11 pl-2">
+                      Unlimited access to CodeLllama 7B for tab-autocomplete
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Bring your own API key and connect to any provider</div>
+                    <div className="col-span-11 pl-2">
+                      Bring your own API key and connect to any provider
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
@@ -57,8 +70,7 @@ export default async function Pricing() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  {deviceDetails
-                    ?
+                  {deviceDetails ? (
                     <div className="mt-8 flex flex-col items-center w-fit">
                       <Button size="default" variant="outline">
                         <a href={deviceDetails.url}>
@@ -72,16 +84,14 @@ export default async function Pricing() {
                         </a>
                       </Button>
                     </div>
-                    :
+                  ) : (
                     <div />
-                  }
+                  )}
                 </CardFooter>
               </Card>
               <Card className="col-span-full md:col-span-4 rounded-2xl p-6 md:transform md:scale-125">
                 <CardHeader>
-                  <CardTitle className="font-semibold text-2xl">
-                    Professional
-                  </CardTitle>
+                  <CardTitle className="font-semibold text-2xl">Professional</CardTitle>
                   <CardDescription>
                     The essentials to provide your best work for clients.
                   </CardDescription>
@@ -98,19 +108,27 @@ export default async function Pricing() {
                     <div className="col-span-1">
                       <Check className="pr-2 md:pr-1 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Access Claude Opus for chat (500 queries/month)</div>
+                    <div className="col-span-11 pl-2">
+                      Access Claude Opus for chat (500 queries/month)
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 md:pr-1 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Unlimited access to DeepSeek Coder 33B for tab-autocomplete</div>
+                    <div className="col-span-11 pl-2">
+                      Unlimited access to DeepSeek Coder 33B for tab-autocomplete
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 md:pr-1 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Free, no fuss upgrades to new state-of-the-art models</div>
+                    <div className="col-span-11 pl-2">
+                      Free, no fuss upgrades to new state-of-the-art models
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 md:pr-1 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Weekly office hours with the engineering team</div>
+                    <div className="col-span-11 pl-2">
+                      Weekly office hours with the engineering team
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 md:pr-1 stroke-green-600" size={28} />
                     </div>
@@ -119,16 +137,23 @@ export default async function Pricing() {
                 </CardContent>
                 <CardFooter className="mt-4 flex flex-col justify-center">
                   <p className="text-xs text-center">
-                    We&apos;re in the process of integrating with our payment partner.
-                    In the meanwhile, if you&apos;re interested, we&apos;d love to personally onboard you and understand your workflows & feature requests.
+                    We&apos;re in the process of integrating with our payment partner. In the
+                    meanwhile, if you&apos;re interested, we&apos;d love to personally onboard you
+                    and understand your workflows & feature requests.
                   </p>
                   <Button className="mt-4" size="default" variant="outline">
                     <a
                       href="https://calendly.com/founders-codestory/onboarding-to-aide-for-professional"
-                      rel="noopener noreferrer" target="_blank"
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       <div className="flex items-center">
-                        <p className="text-2xl">Speak with us <span aria-label="waving hand" aria-labelledby="waving hand" role="img">👋</span></p>
+                        <p className="text-2xl">
+                          Speak with us{' '}
+                          <span aria-label="waving hand" aria-labelledby="waving hand" role="img">
+                            👋
+                          </span>
+                        </p>
                       </div>
                     </a>
                   </Button>
@@ -136,9 +161,7 @@ export default async function Pricing() {
               </Card>
               <Card className="col-span-full md:col-span-4 rounded-2xl p-6 pb-8 md:pl-16">
                 <CardHeader>
-                  <CardTitle className="font-semibold text-2xl md:text-3xl">
-                    Enterprise
-                  </CardTitle>
+                  <CardTitle className="font-semibold text-2xl md:text-3xl">Enterprise</CardTitle>
                   <CardDescription className="md:text-lg">
                     The essentials to provide your best work for clients.
                   </CardDescription>
@@ -159,7 +182,9 @@ export default async function Pricing() {
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
-                    <div className="col-span-11 pl-2">Fine-tuned on your codebases for best performance</div>
+                    <div className="col-span-11 pl-2">
+                      Fine-tuned on your codebases for best performance
+                    </div>
                     <div className="col-span-1">
                       <Check className="pr-2 stroke-green-600" size={28} />
                     </div>
@@ -170,10 +195,16 @@ export default async function Pricing() {
                   <Button className="mt-4" size="lg" variant="outline">
                     <a
                       href="https://calendly.com/founders-codestory/onboarding-to-aide-for-enterprise"
-                      rel="noopener noreferrer" target="_blank"
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       <div className="flex items-center">
-                        <p className="text-2xl">Speak with us <span aria-label="waving hand" aria-labelledby="waving hand" role="img">👋</span></p>
+                        <p className="text-2xl">
+                          Speak with us{' '}
+                          <span aria-label="waving hand" aria-labelledby="waving hand" role="img">
+                            👋
+                          </span>
+                        </p>
                       </div>
                     </a>
                   </Button>
@@ -184,6 +215,6 @@ export default async function Pricing() {
         </div>
       </div>
       <Footer />
-    </React.Fragment>
+    </WaitlistContextProvider>
   )
 }

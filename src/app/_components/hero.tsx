@@ -1,34 +1,30 @@
-"use client";
+'use client'
 
-import { Button } from "@/app/_components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/app/_components/ui/tooltip";
-import { DeviceDetails } from "@/app/_utilities/ua";
-import { scrollToBottom } from "@/app/_utilities/utils";
-import AideDesktopSS from "@/public/aide-desktop.png";
-import { Download } from "lucide-react";
-import Image from "next/image";
-import React from "react";
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/app/_components/ui/tooltip'
+import AideDesktopSS from '@/public/aide-desktop.png'
+import Image from 'next/image'
+import React from 'react'
 
-interface HeroProps {
-  deviceDetails: DeviceDetails | undefined;
-}
-
-export default function Hero({ deviceDetails }: HeroProps) {
+export default function Hero() {
   return (
     <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
       <div className="max-w-screen-xl m-auto my-6 md:my-12 flex flex-col">
         <p className="text-4xl md:text-5xl font-semibold text-foreground">
-          Code with the <span className="text-primary">speed</span> and <span className="text-primary">knowledge</span> of the best programmer you know.{" "}
+          Code with the <span className="text-primary">speed</span> and{' '}
+          <span className="text-primary">knowledge</span> of the best programmer you know.{' '}
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">Aide</span>
+              <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">
+                Aide
+              </span>
             </TooltipTrigger>
             <TooltipContent side="bottom">
               <span className="text-xl">AI + IDE</span>
             </TooltipContent>
-          </Tooltip> is by your side.
+          </Tooltip>{' '}
+          is by your side.
         </p>
-        {deviceDetails
+        {/*deviceDetails
           ?
           <div className="my-8 hidden md:flex flex-col items-center w-fit">
             <Button size="lg" variant="outline">
@@ -48,7 +44,7 @@ export default function Hero({ deviceDetails }: HeroProps) {
           </div>
           :
           <div />
-        }
+        */}
         <Image
           alt="Aide screenshot"
           className="mt-8 rounded-lg border shadow-xl"

@@ -1,15 +1,25 @@
-"use client";
+'use client'
 
-import { ListItem, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/app/_components/ui/navigation-menu";
-import { scrollToBottom } from "@/app/_utilities/utils";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import {
+  ListItem,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/app/_components/ui/navigation-menu'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+
+import { DialogTrigger } from './waitlist'
 
 interface HeaderProps {
   logoSuffix?: {
-    path?: string;
-    text: string;
+    path?: string
+    text: string
   }
 }
 
@@ -19,26 +29,20 @@ export default function Header({ logoSuffix }: HeaderProps) {
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
           <Link className="flex items-center" href="/">
-            <Image
-              alt="CodeStory Logo"
-              height={32}
-              priority
-              src="/aide-white.svg"
-              width={48}
-            />
-            <p className="pl-2 text-foreground font-bold">
-              Aide
-            </p>
+            <Image alt="CodeStory Logo" height={32} priority src="/aide-white.svg" width={48} />
+            <p className="pl-2 text-foreground font-bold">Aide</p>
           </Link>
-          {
-            logoSuffix
-              ?
-              <p className="pl-2 text-foreground font-bold">
-                {logoSuffix.path ? <Link href={logoSuffix.path}>{logoSuffix.text}</Link> : logoSuffix.text}
-              </p>
-              :
-              <React.Fragment />
-          }
+          {logoSuffix ? (
+            <p className="pl-2 text-foreground font-bold">
+              {logoSuffix.path ? (
+                <Link href={logoSuffix.path}>{logoSuffix.text}</Link>
+              ) : (
+                logoSuffix.text
+              )}
+            </p>
+          ) : (
+            <React.Fragment />
+          )}
         </div>
         <div className="fixed bottom-4 left-0 hidden md:flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
           <NavigationMenu className="cursor-pointer">
@@ -59,9 +63,9 @@ export default function Header({ logoSuffix }: HeaderProps) {
                       href="https://github.com/codestoryai/binaries/releases"
                       rel="noopener noreferrer"
                       target="_blank"
-                      title="Releases"
+                      title="Previous releases"
                     >
-                      Stay up-to-date on new changes to Aide.
+                      See previous releases of Aide.
                     </ListItem>
                     <ListItem href="/blog" title="Blog">
                       Read our thoughts and challenges behind building Aide.
@@ -81,26 +85,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <NavigationMenuTrigger>Enterprise</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid grid-cols-1 w-[200px] gap-3 p-4 lg:w-[300px]">
-                    <ListItem
-                      href="/enterprise"
-                      title="Overview"
-                    >
+                    <ListItem href="/enterprise" title="Overview">
                       Understand Aide&apos;s Enterprise offering.
                     </ListItem>
-                    <ListItem
-                      href="mailto:founders@codestory.ai"
-                      title="Contact Sales"
-                    >
+                    <ListItem href="mailto:founders@codestory.ai" title="Contact Sales">
                       Want to learn more, or ready to onboard? Speak with us!
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle()}
-                  href="/pricing"
-                >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/pricing">
                   Pricing
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -123,9 +118,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                               src="/cs-logomark.svg"
                               width={72}
                             />
-                            <div className="m-2 text-xl font-bold">
-                              CodeStory
-                            </div>
+                            <div className="m-2 text-xl font-bold">CodeStory</div>
                             <p className="m-2 mt-0 text-base leading-tight text-muted-foreground">
                               Get to know the company behind Aide.
                             </p>
@@ -147,10 +140,11 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={`${navigationMenuTriggerStyle()} font-semibold`}
-                  onClick={scrollToBottom}
-                >Download</NavigationMenuLink>
+                <DialogTrigger asChild>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
+                    Join waitlist
+                  </NavigationMenuLink>
+                </DialogTrigger>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink

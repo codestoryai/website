@@ -5,8 +5,11 @@ import { fetchDocs } from '@/app/_api/fetchDocs'
 import { Blocks } from '@/app/_components/blog/blocks'
 import Footer from '@/app/_components/footer'
 import Header from '@/app/_components/header'
+import { WaitlistContextProvider } from '@/app/_components/waitlist'
 import { formatDateTime } from '@/app/_utilities/formatDateTime'
 import { generateMeta } from '@/app/_utilities/generateMeta'
+import { fetchLatestRelease } from '@/app/_utilities/github'
+import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
@@ -14,6 +17,12 @@ import React from 'react'
 
 export default async function Post({ params: { slug } }) {
   const { isEnabled: isDraftMode } = draftMode()
+
+  const latestRelease = await fetchLatestRelease()
+  let deviceDetails: DeviceDetails | undefined
+  if (latestRelease.current) {
+    deviceDetails = cleanDeviceDetails(latestRelease.current)
+  }
 
   let post: Post | null = null
 
@@ -31,22 +40,21 @@ export default async function Post({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, populatedAuthors, publishedAt, title } = post;
+  const { layout, populatedAuthors, publishedAt, title } = post
 
   return (
-    <React.Fragment>
-      <Header logoSuffix={{ path: "/blog", text: "| Blog" }} />
+    <WaitlistContextProvider deviceDetails={deviceDetails}>
+      <Header logoSuffix={{ path: '/blog', text: '| Blog' }} />
       <div className="pt-80 bg-noise bg-background flex flex-col items-center">
         <div className="px-8 w-full bg-white">
-          <div className='max-w-screen-md m-auto'>
-            <div className='max-w-screen-sm m-auto -translate-y-44 md:-translate-y-[6rem]'>
-              <h3 className='text-xl uppercase'>
-                {publishedAt ? `${formatDateTime(publishedAt)}, ` : ''}{populatedAuthors?.map((author) => author.name).join(', ')}
+          <div className="max-w-screen-md m-auto">
+            <div className="max-w-screen-sm m-auto -translate-y-44 md:-translate-y-[6rem]">
+              <h3 className="text-xl uppercase">
+                {publishedAt ? `${formatDateTime(publishedAt)}, ` : ''}
+                {populatedAuthors?.map(author => author.name).join(', ')}
               </h3>
-              <h1 className='mt-4 text-4xl md:text-6xl font-bold tracking-wide'>
-                {title}
-              </h1>
-              <div className='max-w-screen-md m-auto mt-16'>
+              <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-wide">{title}</h1>
+              <div className="max-w-screen-md m-auto mt-16">
                 {/* @ts-expect-error */}
                 <Blocks blocks={layout} />
               </div>
@@ -55,7 +63,7 @@ export default async function Post({ params: { slug } }) {
         </div>
       </div>
       <Footer />
-    </React.Fragment>
+    </WaitlistContextProvider>
   )
 }
 
@@ -79,7 +87,9 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata> 
       collection: 'posts',
       draft: isDraftMode,
     })
-  } catch (error) { /* empty */ }
+  } catch (error) {
+    /* empty */
+  }
 
   // @ts-expect-error
   return generateMeta({ doc: post })
