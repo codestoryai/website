@@ -6,10 +6,10 @@ import * as React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import { DeviceDetails } from '../_utilities/ua'
+import { cn } from '../_utilities/utils'
 import { Button } from './ui/button'
 import * as Base from './ui/dialog'
 import { Input } from './ui/input'
-import { cn } from '../_utilities/utils'
 
 interface WaitlistData {
   amount_referred: 0
