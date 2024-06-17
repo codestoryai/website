@@ -50,6 +50,7 @@ const WaitlistContextProvider = (props: WaitlistContextProps) => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const email = formData.get('email')
+    const teamSize = formData.get('team-size')
     const techStack = formData.get('tech-stack')
 
     setLoading(true)
@@ -58,7 +59,7 @@ const WaitlistContextProvider = (props: WaitlistContextProps) => {
       const response = await fetch('https://api.getwaitlist.com/api/v1/signup', {
         body: JSON.stringify({
           email,
-          metadata: { ...deviceDetails, techStack },
+          metadata: { ...deviceDetails, teamSize, techStack },
           referral_link: document.URL,
           waitlist_id: process.env.NODE_ENV !== 'production' ? 17826 : 17823,
         }),
@@ -160,6 +161,16 @@ const WaitlistForm = (props: WaitlistFormProps) => {
           id="tech-stack"
           name="tech-stack"
           placeholder="e.g.: Rust, C++, React..."
+          required
+        />
+      </div>
+      <div className="flex flex-col flex-1 gap-2 flex-grow">
+        <Label htmlFor="team-size">Your team size</Label>
+        <Input
+          className="flex-grow"
+          id="team-size"
+          name="team-size"
+          placeholder="e.g.: 5 people"
           required
         />
       </div>
