@@ -1,24 +1,15 @@
 import type { Post } from '@/payload/payload-types'
 
 import { fetchDocs } from '@/app/_api/fetchDocs'
+import Header from '@/app/_components/blog-header'
 import Footer from '@/app/_components/footer'
-import Header from '@/app/_components/header'
 import { Card, CardFooter, CardHeader, CardTitle } from '@/app/_components/ui/card'
-import { WaitlistContextProvider } from '@/app/_components/waitlist'
 import { formatDateTime } from '@/app/_utilities/formatDateTime'
-import { fetchLatestRelease } from '@/app/_utilities/github'
-import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
 import { Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
 export default async function Post() {
-  const latestRelease = await fetchLatestRelease()
-  let deviceDetails: DeviceDetails | undefined
-  if (latestRelease.current) {
-    deviceDetails = cleanDeviceDetails(latestRelease.current)
-  }
-
   let posts: Post[] = []
   try {
     posts = await fetchDocs<Post>('posts')
@@ -32,7 +23,7 @@ export default async function Post() {
 
   if (posts.length === 0) {
     return (
-      <WaitlistContextProvider deviceDetails={deviceDetails}>
+      <React.Fragment>
         <Header logoSuffix={{ path: '/blog', text: 'blog' }} />
         <div className="p-8 md:p-12 pt-48 bg-noise bg-background flex flex-col items-center">
           <div className="w-full max-w-screen-lg m-auto">
@@ -40,7 +31,7 @@ export default async function Post() {
           </div>
         </div>
         <Footer />
-      </WaitlistContextProvider>
+      </React.Fragment>
     )
   }
 
@@ -54,7 +45,7 @@ export default async function Post() {
   const remainingPosts = sortedPosts.slice(1)
 
   return (
-    <WaitlistContextProvider deviceDetails={deviceDetails}>
+    <React.Fragment>
       <Header logoSuffix={{ path: '/blog', text: '| Blog' }} />
       <div className="p-8 md:p-12 pt-24 md:pt-40 bg-noise bg-background flex flex-col items-center">
         <div className="w-full max-w-screen-lg m-auto">
@@ -95,6 +86,6 @@ export default async function Post() {
         </div>
       </div>
       <Footer />
-    </WaitlistContextProvider>
+    </React.Fragment>
   )
 }
