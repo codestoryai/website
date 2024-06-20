@@ -16,6 +16,7 @@ export const getPosts = cache(async () => {
                 if (!metadata) {
                     return null
                 }
+
                 const metadataString = metadata.replace('export const metadata = ', '')
                 const metadataObject = eval(`(${metadataString})`) as PostMetadata
 
@@ -23,7 +24,9 @@ export const getPosts = cache(async () => {
 
                 return { slug: file.replace('.mdx', ''), content, ...metadataObject }
             })
-    )
+    ).then((meta) => meta
+        .filter((post) => post !== null)
+        .sort((a, b) => (new Date(a!.date) > new Date(b!.date) ? -1 : 1)))
 })
 
 export async function getPost(slug: string) {
