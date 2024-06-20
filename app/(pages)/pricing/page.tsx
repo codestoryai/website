@@ -1,4 +1,4 @@
-import { Button } from '@/app/_components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/app/_components/ui/card'
-import { fetchLatestRelease } from '@/app/_utilities/github'
-import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
+} from '@/components/ui/card'
+import { fetchLatestRelease } from '@/lib/github'
+import { DeviceDetails, cleanDeviceDetails } from '@/lib/ua'
 import { Check, Download } from 'lucide-react'
 import React from 'react'
 

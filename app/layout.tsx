@@ -3,13 +3,13 @@ import dynamic from 'next/dynamic'
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
 
-import { TooltipProvider } from "./_components/ui/tooltip";
-import Footer from "./_components/footer";
-import Header from "./_components/header";
-import { WaitlistContextProvider } from "./_components/waitlist";
+import { TooltipProvider } from "../components/ui/tooltip";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import { WaitlistContextProvider } from "../components/waitlist";
 import { PHProvider } from './providers'
-import { fetchLatestRelease } from "./_utilities/github";
-import { DeviceDetails, cleanDeviceDetails } from "./_utilities/ua";
+import { fetchLatestRelease } from "../lib/github";
+import { DeviceDetails, cleanDeviceDetails } from "../lib/ua";
 import "./globals.css";
 
 const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
