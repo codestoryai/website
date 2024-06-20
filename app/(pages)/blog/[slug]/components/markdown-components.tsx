@@ -1,3 +1,4 @@
+import { Code } from 'bright'
 import { MDXComponents } from 'mdx/types'
 import Link from 'next/link'
 import { MDXImage } from './mdx-image'
@@ -11,4 +12,5 @@ export const mdxComponents: MDXComponents = {
         )
     },
     img: MDXImage as any,
+    pre: Code,
 }
