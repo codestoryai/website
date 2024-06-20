@@ -1,9 +1,8 @@
 'use client'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import AideDesktopSS from '@/public/aide-desktop.png'
-import Image from 'next/image'
 import React from 'react'
+import { Video } from './video'
 
 export default function Hero() {
   return (
@@ -45,11 +44,10 @@ export default function Hero() {
           :
           <div />
         */}
-        <Image
-          alt="Aide screenshot"
+
+        <Video
           className="mt-8 rounded-lg border shadow-xl"
-          priority
-          src={AideDesktopSS}
+          src='/probe-walk-through.mp4'
         />
       </div>
     </div>
