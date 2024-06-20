@@ -252,7 +252,7 @@ export default function Sections() {
           </p>
         </div>
       </div>
-      <section className="px-8 md:px-12 bg-white border-t border-t-muted pb-14">
+      <section id="waitlist" className="px-8 md:px-12 bg-white border-t border-t-muted pb-14">
         <div className="max-w-screen-xl m-auto flex flex-col justify-center items-center">
           <p className="mt-16 text-3xl text-center font-extrabold">Join our waitlist.</p>
           <p className="text-xl text-center mt-8">Try out an AI-native editor experience.</p>
