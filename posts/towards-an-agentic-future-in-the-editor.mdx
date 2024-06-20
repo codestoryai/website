@@ -21,8 +21,6 @@ Today we are unveiling the future of Aide where agents act as first class citize
 
 Our agents freely use the editor features like go-to-definition, go-to-reference and more to help answer your questions.
 
-We are calling this iteration of Aide as Aide(r+), it's a coding editor designed to talk and direct agents and keep the developer in the loop.
-
 ## The different paradigms as they exist today: copilots and AI engineers
 
 We have already seen many iterations of AI helping out developers listing them out more broadly:
@@ -40,7 +38,6 @@ In the copilot version of the world, the human stays in complete control and dir
 
 Aide is designed to be smack dab in the middle of these extreme edges today. Yes, we support inline-autocomplete and talk to your codebase via chat but while using and interacting with agents, we make it possible for you to direct the agent and give feedback to its work, all while doing your own work in a shared workspace.
 
-This is different from creating a custom environment or a shadow-workspace, we put the agent's work in-front of you, so you can direct it and help the agents when they get stuck and vice-versa ;)
 
 ![collaboration-board.png](/assets/blog/agentic-future/collaboration-board.png)
 
@@ -92,14 +89,16 @@ We have 3 distinct “Code Symbols” here: `Something` and `SomethingElse` and 
 
 Inside Aide our level of granularity is on the level of a “Code Symbol” so in the case above we end up with 3 distinct agents each taking care of one of the code symbols.
 
-This level of granularity allows us to not only make precise edits and it also keep the scope of “responsibility” for each agent very clear: “You are responsible for the code symbol, take any necessary steps to help the user query”
+This level of granularity allows us to not only make precise edits and it keeps the scope of “responsibility” for each agent very clear: “You are responsible for the code symbol, take any necessary steps to help the user query”
 
 The driving principle for these agents now is:
 
 - You can ask questions to other code symbol (agent)
 - You can request edits from another code symbol (agent)
 
-A challenge for agents at this level of granularity is that they are too removed from the context of the codebase. When presented with a single function in the codebase, even as developers we can't really think of all the ways this function is being used in the codebase .. it's near impossible without the codebase context. To alleviate that issue the agents tap into the editor itself specially the LSP (language server protocol)
+A challenge for agents at this level of granularity is that they are too removed from the context of the codebase. When presented with a single function in the codebase, even as developers we can't really think of all the ways this function is being used in the codebase - it is nearly impossible without the codebase context.
+
+To alleviate that issue the agents tap into the editor itself specially the LSP (language server protocol)
 
 Tapping into the LSP allows the agent to ask other agents (code symbols) for more information. This is akin to how a swarm of agents can work together to accomplish a task, which allows us to create some magical experience, an example flow of questions looks like the flow below:
 
@@ -115,7 +114,7 @@ Tapping into the LSP allows the agent to ask other agents (code symbols) for mor
 
 We extensively used tree-sitter and LSP to help each agent recognise the code spans it is responsible for and to ask questions to other agents.
 
-A key insight here is that since each agent is responsible for its own code symbol content and knows and understands
+A key insight here is that since each agent is responsible for its own code symbol content and knows and understands.
 
 ## Not just 1 agent but N agents
 
@@ -136,7 +135,7 @@ The swarm of agents is not only a powerful idea but it also works in practice be
 
 Let's take the example explaining a complex workflow: How does the AI agent talk to the LLM?
 
-We start all the way from the `webserver.rs` to a file called agent.rs and then the `llm/broker.rs` where we have the LLMBroker the number of clicks it takes to find its way.. Its a bit non-trivial and also daunting to go through the whole process but keeping track of the details, but the agents are able to exchange information and find their way in the codebase.
+We start all the way from the `webserver.rs` to a file called `agent.rs` and then the `llm/broker.rs` where we have the LLMBroker the number of clicks it takes to find its way.. Its a bit non-trivial and also daunting to go through the whole process but keeping track of the details, but the agents are able to exchange information and find their way in the codebase.
 
 **In essence, the code editor becomes a game map with the agents being NPCs set on their tasks, all orchestrated by the developer in the loop inside the game engine which is the editor.**
 
