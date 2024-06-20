@@ -22,7 +22,7 @@ export const getDevice = async (): Promise<UserDevice | undefined> => {
   const ua = get('user-agent');
 
   const parser = new UAParser(ua || '');
-  const result = await parser.getResult().withClientHints();
+  const result = parser.getResult();
 
   const os = result.os.name as SupportedOS;
   if (!os || !supportedOS.includes(os)) {
