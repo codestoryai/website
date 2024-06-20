@@ -77,21 +77,25 @@ fn interesting_function() {
 ```
 
 We have 3 distinct “Code Symbols” here: `Something` and `SomethingElse` and `interesting_function`, an illustrated example of how the agents scope of work looks like is shown below:
+<figure>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/granularity.mp4"
+  />
+  <figcaption>
+    Different levels of granularity in todays' agents.
+  </figcaption>
+</figure>
 
-<video
-  autoPlay
-  preload="none"
-  playsInline
-  loop
-  muted
-  src="/assets/blog/agentic-future/granularity.mp4"
-/>
-
-Inside Aide our level of granularity is on the level of a “Code Symbol” so in the case above we end up with 3 distinct agents each taking care of one of the code symbols.
+Inside Aide our level of granularity is on the level of a **Code Symbol** so in the case above we end up with 3 distinct agents each taking care of one of the code symbols.
 
 This level of granularity allows us to not only make precise edits and it keeps the scope of “responsibility” for each agent very clear: “You are responsible for the code symbol, take any necessary steps to help the user query”
 
-The driving principle for these agents now is:
+The driving principle for these agents is:
 
 - You can ask questions to other code symbol (agent)
 - You can request edits from another code symbol (agent)
@@ -100,17 +104,33 @@ A challenge for agents at this level of granularity is that they are too removed
 
 To alleviate that issue the agents tap into the editor itself specially the LSP (language server protocol)
 
+<figure>
+  <video
+    autoPlay
+    controls
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/agent-clicking-around.mp4"
+  />
+  <figcaption>
+    The agent looks around in the symbol, finds other interesting symbols, and asks other agents about them by "clicking around", and going to their definitions.
+  </figcaption>
+</figure>
+
 Tapping into the LSP allows the agent to ask other agents (code symbols) for more information. This is akin to how a swarm of agents can work together to accomplish a task, which allows us to create some magical experience, an example flow of questions looks like the flow below:
 
-<video
-  autoPlay
-  controls
-  preload="none"
-  playsInline
-  loop
-  muted
-  src="/assets/blog/agentic-future/flow.mp4"
-/>
+
+  <video
+    autoPlay
+    controls
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/flow.mp4"
+  />
 
 We extensively used tree-sitter and LSP to help each agent recognise the code spans it is responsible for and to ask questions to other agents.
 
@@ -118,14 +138,19 @@ A key insight here is that since each agent is responsible for its own code symb
 
 ## Not just 1 agent but N agents
 
-<video
-  autoPlay
-  preload="none"
-  playsInline
-  loop
-  muted
-  src="/assets/blog/agentic-future/n-agents.mp4"
-/>
+<figure>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/n-agents.mp4"
+  />
+  <figcaption>
+    A very simplified version of how multiple agents traverse your code.
+  </figcaption>
+</figure>
 
 Inside the editor, we could have N agents instead of just a single agent. This not only allows for much better work to be performed in the editor but is hugely parallelised.
 
@@ -135,11 +160,26 @@ The swarm of agents is not only a powerful idea but it also works in practice be
 
 Let's take the example explaining a complex workflow: How does the AI agent talk to the LLM?
 
-We start all the way from the `webserver.rs` to a file called `agent.rs` and then the `llm/broker.rs` where we have the LLMBroker the number of clicks it takes to find its way.. Its a bit non-trivial and also daunting to go through the whole process but keeping track of the details, but the agents are able to exchange information and find their way in the codebase.
+We start all the way from the `webserver.rs` to a file called `agent.rs` and then the `llm/broker.rs` where we have the LLMBroker the number of clicks it takes to find its way. It's a bit non-trivial and also daunting to go through the whole process but keeping track of the details, but the agents are able to exchange information and find their way in the codebase.
 
 **In essence, the code editor becomes a game map with the agents being NPCs set on their tasks, all orchestrated by the developer in the loop inside the game engine which is the editor.**
 
 ## Eventual consistency powered by developer in the loop
+
+<figure>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/human-in-the-loop.mp4"
+  />
+  <figcaption>
+    The human is in the loop. It can see which symbols have been explored by the agents, and why.
+  </figcaption>
+</figure>
+
 
 The developer is not just sitting idle in this world and waiting for the agent swarm to wreak havoc on the codebase.
 

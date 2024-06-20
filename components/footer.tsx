@@ -1,3 +1,5 @@
+'use client'
+
 import CSLogo from "@/public/cs-logomark.svg";
 import TeamPhoto from "@/public/team.jpg";
 import Image from "next/image";
@@ -5,12 +7,19 @@ import Link from "next/link";
 import React from "react";
 
 import { Card, CardContent } from "./ui/card";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Footer() {
+  
+
+  const pathname = usePathname()
+  const isBlogPost = pathname.startsWith('/blog/')
+
   return (
     <footer className="p-8 md:p-12 bg-white text-sm">
       <div className="max-w-screen-xl m-auto grid grid-cols-8 gap-6">
-        <Card className="p-4 md:p-8 col-span-full md:col-span-4 row-span-1 border-0 bg-zinc-100">
+        <Card className={cn(isBlogPost ? "row-span-2" : "row-span-1", "p-4 md:p-8 col-span-full md:col-span-4 border-0 bg-zinc-100")}>
           <CardContent className="pt-0 pb-0">
             <div className="grid grid-cols-2 gap-4 md:text-lg">
               <div className="col-span-1 flex flex-col font-semibold gap-2">
@@ -30,11 +39,13 @@ export default function Footer() {
             </div>
           </CardContent>
         </Card>
-        <Image
-          alt="Team"
-          className="rounded-lg col-span-full md:col-span-4 row-span-1 row-start-2"
-          src={TeamPhoto}
-        />
+        {!isBlogPost && (
+            <Image
+            alt="Team"
+            className="rounded-lg col-span-full md:col-span-4 row-span-1 row-start-2"
+            src={TeamPhoto}
+          />
+        )}
         <Link className="col-span-full md:col-span-4 row-span-2" href="https://codestory.ai" target="_blank">
           <Card className="p-8 w-full h-full border-0 bg-zinc-100 flex flex-col items-center justify-center hover:bg-secondary/20">
             <Image
