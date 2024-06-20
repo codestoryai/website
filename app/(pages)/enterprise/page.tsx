@@ -1,7 +1,4 @@
-import Footer from '@/app/_components/footer'
-import Header from '@/app/_components/header'
 import { Button } from '@/app/_components/ui/button'
-import { WaitlistContextProvider } from '@/app/_components/waitlist'
 import { fetchLatestRelease } from '@/app/_utilities/github'
 import { DeviceDetails, cleanDeviceDetails } from '@/app/_utilities/ua'
 import AideDesktopSS from '@/public/aide-desktop.png'
@@ -17,8 +14,7 @@ export default async function Enterprise() {
   }
 
   return (
-    <WaitlistContextProvider deviceDetails={deviceDetails}>
-      <Header />
+    <>
       <div className="bg-noise bg-background">
         <div className="pt-24 md:pt-36 pl-8 md:pl-12 pb-0 md:pb-0 pr-0 md:pr-0 w-full max-w-screen-xl m-auto">
           <div className="overflow-clip">
@@ -93,7 +89,6 @@ export default async function Enterprise() {
           </div>
         </div>
       </div>
-      <Footer />
-    </WaitlistContextProvider>
+    </>
   )
 }

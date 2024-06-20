@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-
 import dynamic from 'next/dynamic'
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
 
 import { TooltipProvider } from "./_components/ui/tooltip";
-import "./globals.css";
+import Footer from "./_components/footer";
+import Header from "./_components/header";
+import { WaitlistContextProvider } from "./_components/waitlist";
 import { PHProvider } from './providers'
+import { fetchLatestRelease } from "./_utilities/github";
+import { DeviceDetails, cleanDeviceDetails } from "./_utilities/ua";
+import "./globals.css";
 
 const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
   ssr: false,
@@ -23,20 +27,32 @@ export const metadata: Metadata = {
   title: "Aide",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const latestRelease = await fetchLatestRelease()
+
+  let currentDevice: DeviceDetails | undefined
+
+  if (latestRelease.current) {
+    currentDevice = cleanDeviceDetails(latestRelease.current)
+  }
+
   return (
     <html className={`${firaSans.className}`} lang="en">
       <PHProvider>
-        <body>
-          <PostHogPageView />
-          <TooltipProvider delayDuration={0}>
-            {children}
-          </TooltipProvider>
-        </body>
+        <WaitlistContextProvider deviceDetails={currentDevice}>
+          <body>
+            <PostHogPageView />
+            <TooltipProvider delayDuration={0}>
+              <Header />
+              {children}
+              <Footer />
+            </TooltipProvider>
+          </body>
+        </WaitlistContextProvider>
       </PHProvider>
     </html>
   );

@@ -5,9 +5,7 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
   const downloads: DeepPartial<Downloads> = {}
   try {
     const releases = (await (
-      await fetch('https://api.github.com/repos/codestoryai/binaries/releases', {
-        cache: 'no-store',
-      })
+      await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
     ).json()) as GithubRelease[]
 
     if (releases) {
