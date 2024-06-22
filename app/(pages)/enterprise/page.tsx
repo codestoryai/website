@@ -1,18 +1,10 @@
 import { Button } from '@/components/ui/button'
-import { fetchLatestRelease } from '@/lib/github'
-import { DeviceDetails, cleanDeviceDetails } from '@/lib/ua'
 import AideDesktopSS from '@/public/aide-desktop.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 export default async function Enterprise() {
-  const latestRelease = await fetchLatestRelease()
-  let deviceDetails: DeviceDetails | undefined
-  if (latestRelease.current) {
-    deviceDetails = cleanDeviceDetails(latestRelease.current)
-  }
-
   return (
     <>
       <div className="bg-noise bg-background">

@@ -7,18 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { fetchLatestRelease } from '@/lib/github'
-import { DeviceDetails, cleanDeviceDetails } from '@/lib/ua'
-import { Check, Download } from 'lucide-react'
+import { DialogTrigger } from '@/components/waitlist'
+import { Check } from 'lucide-react'
 import React from 'react'
 
 export default async function Pricing() {
-  const latestRelease = await fetchLatestRelease()
-  let deviceDetails: DeviceDetails | undefined
-  if (latestRelease.current) {
-    deviceDetails = cleanDeviceDetails(latestRelease.current)
-  }
-
   return (
     <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
       <div className="max-w-screen-xl m-auto">
@@ -64,24 +57,21 @@ export default async function Pricing() {
                   <div className="col-span-11 pl-2">Up-to-date with VSCode releases</div>
                 </div>
               </CardContent>
-              <CardFooter>
-                {deviceDetails ? (
-                  <div className="mt-8 flex flex-col items-center w-fit">
+              <CardFooter className='justify-center'>
+                <div className="mt-8 flex flex-col items-center w-fit">
+                  <DialogTrigger asChild>
                     <Button size="default" variant="outline">
-                      <a href={deviceDetails.url}>
-                        <div className="flex items-center">
-                          <div className="flex flex-col">
-                            <p className="text-2xl">Download for {deviceDetails.os}</p>
-                            <p>{deviceDetails.arch}</p>
-                          </div>
-                          <Download className="ml-4" />
-                        </div>
-                      </a>
+                      <div className="flex items-center">
+                        <p className="text-2xl">
+                          Join waitlist{' '}
+                          <span aria-label="waving hand" aria-labelledby="waving hand" role="img">
+                            🚀
+                          </span>
+                        </p>
+                      </div>
                     </Button>
-                  </div>
-                ) : (
-                  <div />
-                )}
+                  </DialogTrigger>
+                </div>
               </CardFooter>
             </Card>
             <Card className="col-span-full md:col-span-4 rounded-2xl p-6 md:transform md:scale-125">

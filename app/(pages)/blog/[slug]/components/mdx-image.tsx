@@ -22,12 +22,16 @@ export function MDXImage({
         heightFromSrc = parseInt(heightParam)
     }
 
+    // Check if the image is a gif
+    const isGif = src.endsWith('.gif');
+
     const imageProps = {
         src,
         alt,
         // tweak these to your liking
         height: heightFromSrc || 450,
         width: widthFromSrc || 800,
+        ...(isGif && { unoptimized: true }), // Add unoptimized property if image is a gif
     }
 
     return <NextImage {...imageProps} />
