@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from 'next/dynamic'
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { TooltipProvider } from "../components/ui/tooltip";
 import Footer from "../components/footer";
@@ -42,18 +43,19 @@ export default async function RootLayout({
 
   return (
     <html className={`${firaSans.className}`} lang="en">
-      <PHProvider>
-        <WaitlistContextProvider deviceDetails={currentDevice}>
-          <body>
+      <body>
+        <PHProvider>
+          <WaitlistContextProvider deviceDetails={currentDevice}>
             <PostHogPageView />
             <TooltipProvider delayDuration={0}>
               <Header />
               {children}
               <Footer />
             </TooltipProvider>
-          </body>
-        </WaitlistContextProvider>
-      </PHProvider>
+          </WaitlistContextProvider>
+        </PHProvider>
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
