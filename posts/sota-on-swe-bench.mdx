@@ -1,0 +1,131 @@
+export const metadata = {
+    title: 'Our SOTA multi-agent coding framework',
+    excerpt: 'New multi-agent architecture to hit 40.3% on SWE-Bench-Lite.',
+    coverImage: '/assets/blog/sota-on-swe-bench/swe-bench.png',
+    date: '2024-06-28T11:12:00.000Z',
+    author: {
+        name: 'Sandeep Kumar Pani',
+        picture: '/assets/blog/authors/sandeep.jpg',
+        twitter: 'https://twitter.com/skc42',
+        linkedin: 'https://www.linkedin.com/in/sandeep-kumar-pani',
+        github: 'https://github.com/theskcd',
+    },
+    ogImage: {
+        url: '/assets/blog/sota-on-swe-bench/swe-bench.png'
+    }
+}
+
+![SOTA on SWE-bench-lite](/assets/blog/sota-on-swe-bench/swe-bench.png)
+
+TLDR: Using a multi-agent architecture, **we were able to solve 40.3% on SWE-Bench-Lite beating the previous SOTA implementations and marching past the +40% boundary**. We relied on Sonnet3.5 and GPT-4o together to reach this score. You can find the eval logs and the model patches [here](https://github.com/codestoryai/swe_bench_traces/tree/main)!
+
+The agentic framework here is an evolution of the system we built for probing, and builds up on the idea of “Code Symbols” being the central identity for agents. Through collaboration, this swarm of agents can freely explore the codebase and make edits without making mistakes and solving real problems.
+
+Our agents will be working in the editor in a very tight loop along with the developer. Our mission is not to create an AI engineer, but rather amplify the impact of a single developer by giving them as many agents the task requires. **We'll be rolling out this feature in the coming weeks — you can sign up for our waitlist at [https://aide.dev/#waitlist](https://aide.dev/#waitlist)**.
+
+
+### Why swe-bench-lite benchmark?
+
+Benchmarks are an easy way to bring shadow-traffic into an agentic system and test out different gotchas and situations the system should work for. The agent swarm should also be able to make a lot of progress on any given task without human intervention, and swe-bench is an easy way to test out the intelligence of the agent system.
+
+swe-bench-lite sits in the sweet spot of having various questions, but solving swe-bench tasks is a good indicator of the drift such a system would experience, since LLMs are probabilistic by nature and tend to get things wrong.
+
+
+### Benchmark setup
+
+Our benchmark setup is peculiar since inside the editor, the agent has access to many of the tools an editor provides: go-to-definition, go-to-references, go-to-implementations, run-tests etc.
+
+But starting up an editor and running tests on it significantly slows down the iteration cycle (you would rather not load 10 VSCode-like instances with full-blown LSP and not expect your machine to come to a grinding halt at some point), so we had to be creative.
+
+Instead of spinning up a new editor, we run an editor harness which matches the capability of a real editor using:
+
+- Jinja for LSP features
+- Pyright for LSP diagnostics
+- The test framework which the editor users (this is just an endpoint which allows the agent to run tests at any point)
+- SWE-bench-docker, which took away a lot of the headache of creating a clean test environment (we were not looking forward to fighting python library version issues)
+
+![Mock Editor](/assets/blog/sota-on-swe-bench/mock-editor.png)
+
+Our mock editor which the agent interacts with for the benchmark
+
+On top of this, our agents did not have access to the hint-tests, the tests-patch or the golden-files. The only information to the agents was the Problem Statement and the repository. This allowed us to not only test, but also understand how these agents would work in a newish (all the repos are in the LLM weights, so not a fair comparison) repository and catch any drifts and weak prompts/assumptions in our setup.
+
+
+### What are our agents?
+
+In Aide, we are not working with a single agent at any moment, but N agents as required for the task. We previously touched on this in our [blog post](https://aide.dev/blog/towards-an-agentic-future-in-the-editor) about code exploration with agents. Our agents work in the context of a Code Symbol: A class or a function in python is an example of a code symbol which a single agent will be responsible for.
+
+This allows us to ground the agent to a very specific unit of work while avoiding conflict of work between agents.
+
+We use tree-sitter to scope these code symbols and give the responsibility to a single agent. This previously proved to work in a code exploration world, and translates really well to code editing too.
+
+![Tree-sitter](/assets/blog/sota-on-swe-bench/tree-sitter.png)
+
+
+### The Inference Machine
+
+![Inference](/assets/blog/sota-on-swe-bench/inference.png)
+
+Our agentic architecture does not use any kind of vector search, we rely on **Repo Map** and **Keyword search,** both of which work really well to hone in on the initial starting point. What we discovered was that in 78% of the cases, we were able to find the golden files either in the same directory or it was a cmd+click (think go-to-definition or go-to-reference) operation away.
+
+The agent swarm does not have a core planning stage, but rather we allow each agent (every agent corresponds to and is responsible for a code-symbol) to ping other agents and gather information. You can consider it to be a ping-pong protocol, where information is exchanged between different members of a system, and it gets propagated.
+
+Anytime an agent wants to make a change, they ask the user (another agent acting as a human in this case) for approval and present proof of why the change is the best way to go about solving the problem. Since in our final architecture, these agents could also be talking to the user, this proxy user fits perfectly into our overall system.
+
+If an agent gets approval to edit code, there are many steps which happen before an edit is finally accepted. We gather context about other code symbols (which seemingly was not so relevant for swe-bench tasks) and make our edits.
+
+We then run the tests after each edit, providing feedback for the change and doing error correction. Along with test execution, we use Pyright to grab diagnostics about any missing imports or details which the agent might have missed. This tight feedback and code edit loop allows for excellent code correctness and instant feedback for the agents' work.
+
+Since our agents are working on code-symbol level, we always rewrite entire functions or class definitions, this is a different approach compared to search/replace block-based edits, and we found this to perform better in practice
+
+Note: We had to use some really clever hacks with prompting and engineering to make sure that symbols > 4096 tokens could be generated in full. Bonus points for anyone who can recommend a better way to do this using frontier models.
+
+
+### Learnings from the benchmark
+
+This benchmark was a way for us to have faith in our intuition of building an agent swarm and watch it in practice.
+
+The agent swarm takes around 5 minutes on average to complete tasks. For harder questions, it took close to 15 minutes with a majority spent on context gathering, not code editing.
+
+One of the most surprising things here was how much more agentic some tasks looked like. We could see traces where the agents would go out of their way to fix TODOs or fix comments, lint out code even when not instructed explicitly to do that (all of this without breaking the code in any way since they have to pass the test hammer).
+
+When we started this benchmark exploration, we were aiming for 51% (which we expect will happen in a few weeks), but realised a few limitations of the system itself. **One key insight from using the agent swarm is that the more time and compute the agents are given to explore a problem space, the better the outcome is**. But even then, there is institutional knowledge in these codebases which the agent is unable to grasp and work with. Similarly, some code changes can blow up in the test environment if the agent did not come up with a good enough test plan.
+
+
+### Surprises along the way
+
+Sonnet 3.5 was promised to be agentic, and we could clearly see those tendencies from the model. We used Sonnet 3.5 (claude-3-5-sonnet-20240620) for the code exploration and planning aspects of the problem, and we were surprised by how often:
+
+- Sonnet would suggest creating a private method in the class instead of adding to the code complexity of a current function.
+- Would know how to reason with a base class if the current class extends it.
+- Stay on track with follow-ups if the function signature changes.
+
+For code editing itself, we used GPT-4o (gpt-4o-2024-05-13) and Sonnet 3.5 (claude-3-5-sonnet-20240620) together to come up with the best edits. In our test cases, we found GPT-4o was preferred over Sonnet 3.5 around 65% of the times (these are individual code edit operations and not representative of how many problems were solved with any of these models)
+
+- GPT-4o’s edits had less code complexity when it came to the changes (they were often smaller and fit right into the codebase)
+- GPT-4o also showed superior library knowledge and would often, unprompted, remember a random fact about the library which could be used to solve the problem
+- In terms of pure algorithm-driven code editing, we found GPT-4o to be better than Sonnet 3.5
+
+Using a mix of these 2 models, allowed us to have the best of code planning, context gathering, code editing and test correctness.
+
+
+### Takeaways from the benchmark
+
+Our main goal with this benchmark was to really “believe” and “feel” if agents are ready for their prime time. Having concrete proof and learning from this behaviour has not only helped us take a peek at the future that is coming fast, but also realise the shortcomings of the system as it exists today.
+
+We also designed our system with the 3 major assumptions:
+
+- The cost of intelligence will keep dropping
+- Inference speeds are only going to get better
+- Agentic behaviour is coming, it's still a bit rough around the edges and needs many guardrails (read as COT + Search) but the potential is real
+
+We are going to take a few weeks to integrate this agentic framework with our editor and ship it. There are some open challenges which make this not trivial:
+
+- How do the user and agent edit code at the same time in a file
+- What if the agent breaks the code for the user?
+- How would the user nudge these agents towards the right path if its direction is incorrect
+- Unlike swe-bench, where we had a docker container to run tests, since our agents will be working in a shared space with the user, actions like running tests can have other side effects. As an example, running tests in a compiled language like rust has longer build times and brief LSP breakages.
+
+These are all challenges we are excited to work on, we will keep testing the benchmark as we improve the performance of our swarm, stay tuned because the future is exciting, and it's coming in hot!
+
+You can find us on [Discord](https://discord.gg/katMeywUWr) or on [Twitter](https://x.com/codestoryAI).
