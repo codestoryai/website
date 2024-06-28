@@ -24,7 +24,8 @@ const firaSans = Fira_Sans({
 })
 
 export const metadata: Metadata = {
-  description: "The AI-powered mod of VSCode",
+  metadataBase: new URL('https://aide.dev'),
+  description: "Code with the speed and knowledge of the best programmer you know. Aide is by your side.",
   title: "Aide",
 };
 

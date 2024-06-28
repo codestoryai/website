@@ -1,6 +1,24 @@
+import { Metadata, ResolvingMetadata } from "next";
+
 import { formatDateTime } from "@/lib/formatDateTime";
 import { getPost } from "@/lib/posts";
 import { PostBody } from "./components/post-body";
+
+export async function generateMetadata(
+    { params }: { params: { slug: string } },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const post = await getPost(params.slug);
+    const previousImages = (await parent).openGraph?.images || []
+
+    return {
+        title: post?.title,
+        description: post?.excerpt,
+        openGraph: {
+            images: post?.ogImage ? [post.ogImage, ...previousImages] : previousImages
+        },
+    }
+}
 
 export default async function BlogPost({
     params
