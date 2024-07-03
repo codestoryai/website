@@ -1,0 +1,102 @@
+export const metadata = {
+    title: 'SWE Bench Lite Analysis',
+    excerpt: 'SWE Bench Lite Analysis',
+    coverImage: '/assets/blog/swe-bench-lite-analysis/bar-chart.jpg',
+    date: '2024-07-03T14:22:00.000Z',
+    author: {
+        name: 'Sandeep Kumar Pani',
+        picture: '/assets/blog/authors/sandeep.jpg',
+        twitter: 'https://twitter.com/skc42',
+        linkedin: 'https://www.linkedin.com/in/sandeep-kumar-pani',
+        github: 'https://github.com/theskcd',
+    },
+    ogImage: {
+        url: '/assets/blog/swe-bench-lite-analysis/bar-chart.jpg'
+    }
+}
+
+We wanted to share our analysis of the swe-bench-lite dataset, providing more context to the kind of questions swe-bench-lite analyses and how Aide's agentic framework performs autonomously.
+Our agentic framework works in the context of a code editor, and we today power an `agent 444` functionality with read only access to these agents.
+
+We score 42% on the benchmark establishing the new State-of-the-Art for agentic coding with some gotchas. We believe it is important to recognise the problems we missed and understand the reason behind it.
+
+## Repo divide
+Swe-bench-lite consists of 300 questions divided amongst repos as shown below:
+
+![Pie chart showing questions per repository](/assets/blog/swe-bench-lite-analysis/pie-chart.png)
+
+Out of this our performance looks like this:
+
+![Bar chart showing our performance per repository](/assets/blog/swe-bench-lite-analysis/bar-chart.jpg)
+
+We do not perform as good on `sympy` with the framework not starting a single `code-edit`
+After looking more closely in the initial search here, we could see that the framework needed to spend more time thinking (2+ COT calls), and it would have discovered the correct code symbols.
+
+## Going the extra mile
+
+Since the agents are free to talk to each other and ask for edits, we noticed cases where the framework would go the extra mile and add comments in functions which were not really required for solving the problems. Once such example is `django__django-13230` where the framework added docstrings like shown below:
+
+```python
+     def add_item_elements(self, handler, item):
++        """
++        Add elements for an RSS feed item.
++
++        Handles various item elements including title, link, description,
++        author information, publication date, comments URL, unique ID,
++        enclosures, and categories.
++
++        The 'comments' field should be a URL pointing to the comments page
++        for the item.
++        """
+         handler.addQuickElement("title", item['title'])
+         handler.addQuickElement("link", item['link'])
+         if item['description'] is not None:
+
+```
+
+Since we are using Sonnet3.5 another challenge here is that agents work in parallel, this leads to some cases where a helper function gets created in another code location, but is not used as part of the final solution. In particular if you look at our submission for `django__django-16379` , we create a helper function called: `_open_and_lock` but do not use it for the final git-patch in `has_key`
+
+## LLMs can AC test
+Given their extensive world knowledge, LLMs can sometimes pick up on world knowledge and resolve a bug using “hacks”. An example of this is `matplotlib__matplotlib-24970` where the agent decided to convert the value to int32 while working in a uint8 space
+
+LLMs can also learn from patterns present in the code, in `django__django-14580` we saw the LLM add a very peculiar looking import at a code location:
+
+```
+         special_cases = [
+             (models.Model, "models.Model", []),
++            # Add models import if models are referenced
++            (models.Model, "models.Model", ['from django.db import models']),
+             (type(None), 'type(None)', []),
+         ]
+```
+
+The added line was already present in the codebase (in adjacent files) which shows that LLMs are able to follow patterns in already present code really well.
+
+## Removing comments
+
+There were cases when comments would get removed from adjacent code snippets.
+After looking at the route taken by the agent, we realised that in these cases the agent wakes up because it was asked for some information and decided to perform an edit. The edit request by itself was not clear but since an edit implies that the code needs to change, the agent decides to just remove comments instead. We are working on making this better and have some interesting ideas to play with.
+The wider problem here is with letting the swarm stop and not do too many things if it's not required.
+
+## Impossible questions
+
+There are a set of impossible questions which cannot be solved by any framework or human. These involve questions where the error needs to be formatted exactly as the test.
+The part of the error message which is in english can be written in many ways, so it's really impossible to solve these without looking at the tests (we fail to solve these problems as well)
+These questions can(?) be solved if we have a pass(1+n) plan, that's not the case here so it really is luck if one of the runs gets it correct.
+
+## Further Improvements
+
+A quick reason why gpt4-o and sonnet3.5 perform so well on this benchmark (even better than Opus) is because these models are trained on new world knowledge which implies they would know about all of these issues we are trying to solve (it's not really a secret at this point)
+
+Even after this fact, no framework is at 100% success rate yet, this still shows the gap in making an agent driven framework work perfectly.
+
+As per the latest stack overflow report, python is used by over 45% of professional developers out there, which still leaves the question of how such a framework would work in other languages (our codebases are in rust and typescript).
+
+![Bar chart showing language usage](/assets/blog/swe-bench-lite-analysis/stack-overflow.jpg)
+
+To combat this issue, we are working on our own dataset of a variety of languages and also use-cases where the agent could ask for external information.
+
+If you would like to discuss ideas or just follow us along as we build this, [you can find us on our discord server](https://discord.gg/mtgrhXM5Xf). We believe there is lots to do for developers and agents to work together in the editor and we are excited to hear from everyone!
+
+[You can also sign-up for our waitlist over here](https://aide.dev/#waitlist). We are making swift progress on the editor side of things and have something interesting to show you!
+
