@@ -18,7 +18,6 @@ import signOut from "@/lib/signout";
 import { DialogTrigger } from "./waitlist";
 
 interface HeaderProps {
-  authorizationUrl: string;
   user: User | null;
   logoSuffix?: {
     path?: string;
@@ -26,11 +25,7 @@ interface HeaderProps {
   };
 }
 
-export default function Header({
-  authorizationUrl,
-  user,
-  logoSuffix,
-}: HeaderProps) {
+export default function Header({ user, logoSuffix }: HeaderProps) {
   return (
     <div className="absolute w-screen">
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
@@ -165,41 +160,31 @@ export default function Header({
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="/account"
+                >
+                  Account
+                </NavigationMenuLink>
+              </NavigationMenuItem>
               {user ? (
-                <>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      href="/account"
-                    >
-                      Account
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      onClick={() => signOut()}
-                    >
-                      Sign out
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                </>
-              ) : (
-                <>
-                  <NavigationMenuItem>
-                    <DialogTrigger asChild>
-                      <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
-                        Join waitlist
-                      </NavigationMenuLink>
-                    </DialogTrigger>
-                  </NavigationMenuItem>
+                <NavigationMenuItem>
                   <NavigationMenuLink
                     className={navigationMenuTriggerStyle()}
-                    href={authorizationUrl}
+                    onClick={() => signOut()}
                   >
-                    Sign in
+                    Sign out
                   </NavigationMenuLink>
-                </>
+                </NavigationMenuItem>
+              ) : (
+                <NavigationMenuItem>
+                  <DialogTrigger asChild>
+                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
+                      Join waitlist
+                    </NavigationMenuLink>
+                  </DialogTrigger>
+                </NavigationMenuItem>
               )}
               <NavigationMenuItem>
                 <NavigationMenuLink

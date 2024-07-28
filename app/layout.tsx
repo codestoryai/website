@@ -1,16 +1,17 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { getSignInUrl, getUser, Impersonation } from "@workos-inc/authkit-nextjs";
+import { getUser, Impersonation } from "@workos-inc/authkit-nextjs";
 import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
 import { Fira_Sans } from 'next/font/google';
 import React from "react";
 
-import Footer from "../components/footer";
-import Header from "../components/header";
-import { TooltipProvider } from "../components/ui/tooltip";
-import { WaitlistContextProvider } from "../components/waitlist";
-import { fetchLatestRelease } from "../lib/github";
-import { cleanDeviceDetails, DeviceDetails } from "../lib/ua";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { WaitlistContextProvider } from "@/components/waitlist";
+import { fetchLatestRelease } from "@/lib/github";
+import { cleanDeviceDetails, DeviceDetails } from "@/lib/ua";
+
 import "./globals.css";
 import { PHProvider } from './providers';
 
@@ -35,7 +36,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const authorizationUrl = await getSignInUrl();
   const { user } = await getUser();
 
   const latestRelease = await fetchLatestRelease()
@@ -54,7 +54,7 @@ export default async function RootLayout({
             <PostHogPageView />
             <TooltipProvider delayDuration={0}>
               <Impersonation />
-              <Header authorizationUrl={authorizationUrl} user={user} />
+              <Header user={user} />
               {children}
               <Footer />
             </TooltipProvider>
