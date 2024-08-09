@@ -13,7 +13,7 @@ export const GET = async (request: Request) => {
 
     const authorizationUrl = workos.userManagement.getAuthorizationUrl({
         clientId,
-        redirectUri: `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/redirect`,
+        redirectUri: `${request.headers.get('host')}/redirect`,
         state,
         provider: 'authkit'
     });
