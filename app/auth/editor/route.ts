@@ -13,7 +13,7 @@ export const GET = async (request: Request) => {
 
     const authorizationUrl = workos.userManagement.getAuthorizationUrl({
         clientId,
-        redirectUri: `${request.headers.get('host')}/redirect`,
+        redirectUri: `${request.headers.get('x-forwarded-proto')}://${request.headers.get('host')}/redirect`,
         state,
         provider: 'authkit'
     });
