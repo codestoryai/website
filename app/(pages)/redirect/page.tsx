@@ -17,7 +17,7 @@ export default function RedirectPage() {
     useEffect(() => {
         if (stateId === state && authorizationCode && window.location) {
             removeStateId();
-            fetch(`http://localhost:3333/v1/auth/editor?code=${authorizationCode}`).then(async (res) => {
+            fetch(`${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/auth/editor?code=${authorizationCode}`).then(async (res) => {
                 if (res.ok) {
                     const { redirectURL } = await res.json();
                     window.location.assign(redirectURL);

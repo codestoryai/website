@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     try {
         // Make a request to the backend to create the user
         const createUserResponse = await fetch(
-            'http://localhost:3333/v1/users',
+            `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/users`,
             {
                 method: 'POST',
                 headers: {
