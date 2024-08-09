@@ -1,4 +1,8 @@
-'use client'
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 import {
   ListItem,
@@ -9,27 +13,31 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-
-import { DialogTrigger } from './waitlist'
+} from "@/components/ui/navigation-menu";
+import signOut from "@/lib/signout";
+import { DialogTrigger } from "./waitlist";
 
 interface HeaderProps {
+  user: User | null;
   logoSuffix?: {
-    path?: string
-    text: string
-  }
+    path?: string;
+    text: string;
+  };
 }
 
-export default function Header({ logoSuffix }: HeaderProps) {
+export default function Header({ user, logoSuffix }: HeaderProps) {
   return (
     <div className="absolute w-screen">
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
           <Link className="flex items-center" href="/">
-            <Image alt="CodeStory Logo" height={32} priority src="/aide-white.svg" width={48} />
+            <Image
+              alt="CodeStory Logo"
+              height={32}
+              priority
+              src="/aide-white.svg"
+              width={48}
+            />
             <p className="pl-2 text-foreground font-bold">Aide</p>
           </Link>
           {logoSuffix ? (
@@ -88,14 +96,20 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     <ListItem href="/enterprise" title="Overview">
                       Understand Aide&apos;s Enterprise offering.
                     </ListItem>
-                    <ListItem href="mailto:founders@codestory.ai" title="Contact Sales">
+                    <ListItem
+                      href="mailto:founders@codestory.ai"
+                      title="Contact Sales"
+                    >
                       Want to learn more, or ready to onboard? Speak with us!
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/pricing">
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="/pricing"
+                >
                   Pricing
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -118,7 +132,9 @@ export default function Header({ logoSuffix }: HeaderProps) {
                               src="/cs-logomark.svg"
                               width={72}
                             />
-                            <div className="m-2 text-xl font-bold">CodeStory</div>
+                            <div className="m-2 text-xl font-bold">
+                              CodeStory
+                            </div>
                             <p className="m-2 mt-0 text-base leading-tight text-muted-foreground">
                               Get to know the company behind Aide.
                             </p>
@@ -128,24 +144,48 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     </li>
                     <Link href="https://codestory.ai" target="_blank">
                       <ListItem title="Team">
-                        Aide is built by a team of three based in London, United Kingdom.
+                        Aide is built by a team of three based in London, United
+                        Kingdom.
                       </ListItem>
                     </Link>
-                    <Link href="https://www.workatastartup.com/companies/codestory" target="_blank">
+                    <Link
+                      href="https://www.workatastartup.com/companies/codestory"
+                      target="_blank"
+                    >
                       <ListItem title="Careers">
-                        Work with us to re-imagine software engineering for the coming decade.
+                        Work with us to re-imagine software engineering for the
+                        coming decade.
                       </ListItem>
                     </Link>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <DialogTrigger asChild>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
-                    Join waitlist
-                  </NavigationMenuLink>
-                </DialogTrigger>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="/account"
+                >
+                  Account
+                </NavigationMenuLink>
               </NavigationMenuItem>
+              {user ? (
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    className={navigationMenuTriggerStyle()}
+                    onClick={() => signOut()}
+                  >
+                    Sign out
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ) : (
+                <NavigationMenuItem>
+                  <DialogTrigger asChild>
+                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
+                      Join waitlist
+                    </NavigationMenuLink>
+                  </DialogTrigger>
+                </NavigationMenuItem>
+              )}
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
@@ -167,5 +207,5 @@ export default function Header({ logoSuffix }: HeaderProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
