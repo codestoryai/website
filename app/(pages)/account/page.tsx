@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getUser } from "@workos-inc/authkit-nextjs";
-import { Button } from "@/components/ui/button";
 
 export default async function AccountPage() {
     const { user } = await getUser({ ensureSignedIn: true });
