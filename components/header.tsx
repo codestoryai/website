@@ -144,7 +144,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                     </li>
                     <Link href="https://codestory.ai" target="_blank">
                       <ListItem title="Team">
-                        Aide is built by a team of three based in London, United
+                        Aide is built by a team of four based in London, United
                         Kingdom.
                       </ListItem>
                     </Link>
