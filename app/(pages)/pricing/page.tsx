@@ -13,7 +13,7 @@ import React from 'react'
 
 export default async function Pricing() {
   return (
-    <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
+    <div className="min-h-screen flex justify-center p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
       <div className="max-w-screen-xl m-auto">
         <div className="my-24 flex flex-col items-center">
           <h3 className="text-xl text-primary text-center">Pricing</h3>
