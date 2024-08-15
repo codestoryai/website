@@ -8,7 +8,6 @@ import React from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { WaitlistContextProvider } from "@/components/waitlist";
 import { fetchLatestRelease } from "@/lib/github";
 import { cleanDeviceDetails, DeviceDetails } from "@/lib/ua";
 
@@ -50,15 +49,13 @@ export default async function RootLayout({
     <html className={`${firaSans.className}`} lang="en">
       <body>
         <PHProvider>
-          <WaitlistContextProvider deviceDetails={currentDevice}>
-            <PostHogPageView />
-            <TooltipProvider delayDuration={0}>
-              <Impersonation />
-              <Header user={user} />
-              {children}
-              <Footer />
-            </TooltipProvider>
-          </WaitlistContextProvider>
+          <PostHogPageView />
+          <TooltipProvider delayDuration={0}>
+            <Impersonation />
+            <Header user={user} />
+            {children}
+            <Footer />
+          </TooltipProvider>
         </PHProvider>
         <SpeedInsights />
       </body>

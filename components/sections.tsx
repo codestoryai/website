@@ -18,8 +18,6 @@ import { ArrowRight, ArrowRightFromLine, Braces, LockKeyhole, MessagesSquare } f
 import Image from 'next/image'
 import React from 'react'
 
-import { WaitlistForm } from './waitlist'
-
 const lspSupportedLanguages = [
   {
     logo: '/languages/ts-logo-128.svg',
@@ -48,7 +46,11 @@ const lspSupportedLanguages = [
   },
 ]
 
-export default function Sections() {
+interface SectionProps {
+  user: User | null
+}
+
+export default function Sections({ user }: SectionProps) {
   return (
     <div>
       <div className="p-8 md:p-12 pt-24 bg-yellow-200 overflow-hidden border-t border-t-muted">
@@ -252,17 +254,6 @@ export default function Sections() {
           </p>
         </div>
       </div>
-      <section id="waitlist" className="px-8 md:px-12 bg-white border-t border-t-muted pb-14">
-        <div className="max-w-screen-xl m-auto flex flex-col justify-center items-center">
-          <p className="mt-16 text-3xl text-center font-extrabold">Join our waitlist.</p>
-          <p className="text-xl text-center mt-8">Try out an AI-native editor experience.</p>
-          <WaitlistForm className="flex gap-3 mt-8 max-w-96 w-full">
-            <Button className="px-3" size="sm" type="submit" variant="default">
-              Sign up
-            </Button>
-          </WaitlistForm>
-        </div>
-      </section>
       {/*
       <div className="px-8 md:px-12 bg-white border-t border-t-muted">
         <div className="max-w-screen-xl m-auto flex flex-col justify-center items-center">

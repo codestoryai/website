@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { DialogTrigger } from '@/components/waitlist'
 import { Check } from 'lucide-react'
 import React from 'react'
 
@@ -57,22 +56,6 @@ export default async function Pricing() {
                   <div className="col-span-11 pl-2">Up-to-date with VSCode releases</div>
                 </div>
               </CardContent>
-              <CardFooter className='justify-center'>
-                <div className="mt-8 flex flex-col items-center w-fit">
-                  <DialogTrigger asChild>
-                    <Button size="default" variant="outline">
-                      <div className="flex items-center">
-                        <p className="text-2xl">
-                          Join waitlist{' '}
-                          <span aria-label="waving hand" aria-labelledby="waving hand" role="img">
-                            🚀
-                          </span>
-                        </p>
-                      </div>
-                    </Button>
-                  </DialogTrigger>
-                </div>
-              </CardFooter>
             </Card>
             <Card className="col-span-full md:col-span-4 rounded-2xl p-6 md:transform md:scale-125">
               <CardHeader>
@@ -144,57 +127,7 @@ export default async function Pricing() {
                 </Button>
               </CardFooter>
             </Card>
-            <Card className="col-span-full md:col-span-4 rounded-2xl p-6 pb-8 md:pl-16">
-              <CardHeader>
-                <CardTitle className="font-semibold text-2xl md:text-3xl">Enterprise</CardTitle>
-                <CardDescription className="md:text-lg">
-                  The essentials to provide your best work for clients.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-end">
-                  <span className="text-3xl font-bold">Contact us</span>
-                </div>
-                <div className="pt-6 grid grid-cols-12 gap-2 md:text-lg">
-                  <div className="col-span-1">
-                    <Check className="pr-2 stroke-green-600" size={28} />
-                  </div>
-                  <div className="col-span-11 pl-2">Everything included in Professional</div>
-                  <div className="col-span-1">
-                    <Check className="pr-2 stroke-green-600" size={28} />
-                  </div>
-                  <div className="col-span-11 pl-2">Self-hosted models for complete privacy</div>
-                  <div className="col-span-1">
-                    <Check className="pr-2 stroke-green-600" size={28} />
-                  </div>
-                  <div className="col-span-11 pl-2">
-                    Fine-tuned on your codebases for best performance
-                  </div>
-                  <div className="col-span-1">
-                    <Check className="pr-2 stroke-green-600" size={28} />
-                  </div>
-                  <div className="col-span-11 pl-2">24/7 personal customer support</div>
-                </div>
-              </CardContent>
-              <CardFooter className="mt-4 flex flex-col justify-center">
-                <Button className="mt-4" size="lg" variant="outline">
-                  <a
-                    href="https://calendly.com/founders-codestory/onboarding-to-aide-for-enterprise"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <div className="flex items-center">
-                      <p className="text-2xl">
-                        Speak with us{' '}
-                        <span aria-label="waving hand" aria-labelledby="waving hand" role="img">
-                          👋
-                        </span>
-                      </p>
-                    </div>
-                  </a>
-                </Button>
-              </CardFooter>
-            </Card>
+
           </div>
         </div>
       </div>

@@ -1,15 +1,16 @@
 import React from 'react';
+import { getUser } from '@workos-inc/authkit-nextjs';
 
 import Hero from '@/components/hero';
 import Sections from '@/components/sections';
-import { WaitlistButton } from '@/components/waitlist';
 
 export default async function Home() {
+  const { user } = await getUser();
+
   return (
     <main className="antialiased">
-      <WaitlistButton />
       <Hero />
-      <Sections />
+      <Sections user={user} />
     </main>
   )
 }

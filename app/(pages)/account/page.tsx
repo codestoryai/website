@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getUser } from "@workos-inc/authkit-nextjs";
+import SignOut from "@/components/signout";
 
 export default async function AccountPage() {
     const { user } = await getUser({ ensureSignedIn: true });
@@ -30,13 +31,7 @@ export default async function AccountPage() {
                                 <p className="text-gray-500">{user.email}</p>
                             </div>
                         </div>
-                        {/* <Button className="self-center" size="sm" variant="default">
-                            <div className="flex items-center">
-                                <p className="text-xl">
-                                    Manage subscription
-                                </p>
-                            </div>
-                        </Button> */}
+                        <SignOut />
                     </div>
                 </div>
             </div>
