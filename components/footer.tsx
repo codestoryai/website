@@ -26,10 +26,8 @@ export default function Footer() {
                 <Link className="hover:text-primary" href="https://docs.codestory.ai" rel="noopener noreferrer" target="_blank">Docs</Link>
                 <Link className="hover:text-primary" href="https://github.com/codestoryai/binaries/releases" rel="noopener noreferrer" target="_blank">Releases</Link>
                 <Link className="hover:text-primary" href="/blog">Blog</Link>
-                <Link className="hover:text-primary" href="/pricing">Pricing</Link>
               </div>
               <div className="col-span-1 flex flex-col font-semibold gap-2">
-                <Link className="hover:text-primary" href="mailto:founders@codestory.ai">Contact</Link>
                 <Link className="hover:text-primary" href="https://discord.gg/mtgrhXM5Xf" rel="noopener noreferrer" target="_blank">Discord</Link>
                 <Link className="hover:text-primary" href="https://twitter.com/codestoryai" rel="noopener noreferrer" target="_blank">Twitter</Link>
                 <Link className="hover:text-primary" href="https://www.linkedin.com/company/codestory-ai/" rel="noopener noreferrer" target="_blank">LinkedIn</Link>

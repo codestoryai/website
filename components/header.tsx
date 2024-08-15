@@ -72,14 +72,6 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle()}
-                  href="/pricing"
-                >
-                  Pricing
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
