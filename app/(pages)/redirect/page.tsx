@@ -15,7 +15,7 @@ export default function RedirectPage() {
     router.push(pathname);
 
     useEffect(() => {
-        if (stateId === state && authorizationCode && window.location) {
+        if (stateId === state && authorizationCode && typeof window !== 'undefined') {
             removeStateId();
             fetch(`${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/auth/editor?code=${authorizationCode}`).then(async (res) => {
                 if (res.ok) {
