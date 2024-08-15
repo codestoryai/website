@@ -128,7 +128,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              {/* <NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
                   href="/account"
@@ -137,7 +137,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                     {user ? "Account" : "Join waitlist"}
                   </span>
                 </NavigationMenuLink>
-              </NavigationMenuItem> */}
+              </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
