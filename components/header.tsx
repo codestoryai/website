@@ -14,8 +14,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import signOut from "@/lib/signout";
-import { DialogTrigger } from "./waitlist";
 
 interface HeaderProps {
   user: User | null;
@@ -56,61 +54,31 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
           <NavigationMenu className="cursor-pointer">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    <ListItem
-                      href="https://docs.codestory.ai"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Docs"
-                    >
-                      Latest user documentation for Aide.
-                    </ListItem>
-                    <ListItem
-                      href="https://github.com/codestoryai/binaries/releases"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Previous releases"
-                    >
-                      See previous releases of Aide.
-                    </ListItem>
-                    <ListItem href="/blog" title="Blog">
-                      Read our thoughts and challenges behind building Aide.
-                    </ListItem>
-                    <ListItem
-                      href="https://github.com/codestoryai"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                      title="Open Source"
-                    >
-                      Look under-the-hood at our Open Source projects.
-                    </ListItem>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Enterprise</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid grid-cols-1 w-[200px] gap-3 p-4 lg:w-[300px]">
-                    <ListItem href="/enterprise" title="Overview">
-                      Understand Aide&apos;s Enterprise offering.
-                    </ListItem>
-                    <ListItem
-                      href="mailto:founders@codestory.ai"
-                      title="Contact Sales"
-                    >
-                      Want to learn more, or ready to onboard? Speak with us!
-                    </ListItem>
-                  </ul>
-                </NavigationMenuContent>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="/blog"
+                >
+                  Blog
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
-                  href="/pricing"
+                  href="https://github.com/codestoryai/binaries/releases"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  Pricing
+                  Releases
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={navigationMenuTriggerStyle()}
+                  href="https://docs.codestory.ai"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Docs
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
@@ -165,27 +133,11 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                   className={navigationMenuTriggerStyle()}
                   href="/account"
                 >
-                  Account
+                  <span className="font-bold">
+                    {user ? "Account" : "Join waitlist"}
+                  </span>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              {user ? (
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle()}
-                    onClick={() => signOut()}
-                  >
-                    Sign out
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ) : (
-                <NavigationMenuItem>
-                  <DialogTrigger asChild>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-semibold`}>
-                      Join waitlist
-                    </NavigationMenuLink>
-                  </DialogTrigger>
-                </NavigationMenuItem>
-              )}
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle()}
