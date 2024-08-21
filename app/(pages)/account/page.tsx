@@ -6,7 +6,9 @@ import { redirect } from "next/navigation";
 
 import SignOut from "@/components/signout";
 import { UserProfileResponse } from "@/types/api";
+import { Button } from "@/components/ui/button";
 
+const freeUsage = 5000;
 const cookieName = 'wos-session';
 export default async function AccountPage() {
     const { user } = await getUser({ ensureSignedIn: true });
@@ -78,6 +80,45 @@ export default async function AccountPage() {
                                 We are rapidly opening up access to users on our waitlist, and will be hitting GA pretty soon.<br />
                                 Having a waitlist is currently the best way for us to manage the growth of our platform and fixing the main issues before we go live.<br />
                                 We appreciate your patience and can&apos;t wait to have you onboard!
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {userData?.upcomingInvoice && (
+                    <div className="flex justify-center">
+                        <div className="bg-white w-full max-w-screen-xl rounded p-6 flex flex-col gap-4">
+                            <div className="flex gap-4 items-center">
+                                <h3 className="text-2xl font-bold">Billing information</h3>
+                                <p className="text-gray-500">
+                                    Your first {freeUsage.toLocaleString()} lines are free!
+                                </p>
+                            </div>
+                            <div className="flex justify-between gap-4">
+                                <div className="flex flex-1 flex-col gap-2">
+                                    <div className="text-6xl">
+                                        {(userData.upcomingInvoice.freeUsage + userData.upcomingInvoice.overageUsage).toLocaleString()}
+                                    </div>
+                                    <p className="text-lg text-gray-500">
+                                        lines of code written with AI
+                                    </p>
+                                </div>
+                                <div className="flex flex-1 flex-col gap-2">
+                                    <div className="text-6xl">
+                                        ${userData.upcomingInvoice.amountDue.toLocaleString()}
+                                    </div>
+                                    <p className="text-lg text-gray-500">
+                                        bill for the month
+                                    </p>
+                                </div>
+                                <div className="flex flex-1 justify-end align-bottom">
+                                    <Button className="self-end" size="sm" variant="default">
+                                        <a className="flex items-center" href={userData.billingPortal}>
+                                            <p className="text-xl">
+                                                Manage billing
+                                            </p>
+                                        </a>
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
