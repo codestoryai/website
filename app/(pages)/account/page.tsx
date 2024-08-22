@@ -1,6 +1,4 @@
 import { getUser } from "@workos-inc/authkit-nextjs";
-import { unsealData } from "iron-session";
-import { cookies } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -9,19 +7,8 @@ import { UserProfileResponse } from "@/types/api";
 import { Button } from "@/components/ui/button";
 
 const freeUsage = 5000;
-const cookieName = 'wos-session';
 export default async function AccountPage() {
-    const { user } = await getUser({ ensureSignedIn: true });
-    const cookie = cookies().get(cookieName);
-    const cookiePassword = process.env.WORKOS_COOKIE_PASSWORD;
-    if (!cookie || !cookiePassword) {
-        redirect("/")
-    }
-
-    const cookieData = await unsealData<Session>(cookie.value, {
-        password: cookiePassword
-    });
-
+    const { user, accessToken } = await getUser({ ensureSignedIn: true });
     let userData: UserProfileResponse | null = null;
     try {
         const userDetails = await fetch(
@@ -29,7 +16,7 @@ export default async function AccountPage() {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${cookieData.accessToken}`
+                    'Authorization': `Bearer ${accessToken}`
                 }
             }
         );
