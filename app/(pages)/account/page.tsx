@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import SignOut from "@/components/signout";
 import { UserProfileResponse } from "@/types/api";
 import { Button } from "@/components/ui/button";
+import { Usage } from "@/components/usage";
 
 const freeUsage = 5000;
 export default async function AccountPage() {
@@ -80,6 +81,14 @@ export default async function AccountPage() {
                                     Your first {freeUsage.toLocaleString()} lines are free!
                                 </p>
                             </div>
+                            <div className="flex gap-4 w-full">
+                                <Usage
+                                    date="Today"
+                                    freeUsage={userData.upcomingInvoice.freeUsage}
+                                    overageUsage={userData.upcomingInvoice.overageUsage}
+                                    estimatedUsage={userData.upcomingInvoice.estimatedUsage}
+                                />
+                            </div>
                             <div className="flex justify-between gap-4">
                                 <div className="flex flex-1 flex-col gap-2">
                                     <div className="text-6xl">
@@ -89,13 +98,23 @@ export default async function AccountPage() {
                                         lines of code written with AI
                                     </p>
                                 </div>
-                                <div className="flex flex-1 flex-col gap-2">
-                                    <div className="text-6xl">
-                                        ${userData.upcomingInvoice.amountDue.toLocaleString()}
+                                <div className="flex flex-1 gap-8">
+                                    <div className="flex flex-col justify-end gap-2">
+                                        <div className="text-6xl">
+                                            ${userData.upcomingInvoice.amountDue.toLocaleString()}
+                                        </div>
+                                        <p className="text-lg text-gray-500">
+                                            Month-to-date
+                                        </p>
                                     </div>
-                                    <p className="text-lg text-gray-500">
-                                        bill for the month
-                                    </p>
+                                    <div className="flex flex-col justify-end gap-2">
+                                        <div className="text-4xl text-gray-500">
+                                            ${userData.upcomingInvoice.projectedAmount.toLocaleString()}
+                                        </div>
+                                        <p className="text-lg text-gray-500">
+                                            Projected
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="flex flex-1 justify-end align-bottom">
                                     <Button className="self-end" size="sm" variant="default">
