@@ -12,7 +12,7 @@ import { Usage } from "@/components/usage";
 import { SubscriptionStatus, SubscriptionStatuses, UserProfileResponse } from "@/types/api";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
-const freeUsage = 2000;
+const freeUsage = 1000;
 export default async function AccountPage() {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
     let userData: UserProfileResponse | null = null;
@@ -112,7 +112,7 @@ export default async function AccountPage() {
                     <div className={`flex justify-center ${!!userData.waitlistPosition ? 'opacity-40 pointer-events-none' : ''}`}>
                         <div className="bg-white w-full max-w-screen-xl rounded p-6 flex flex-col gap-4">
                             <div className="flex gap-4 items-center justify-between">
-                                <h3 className="text-2xl font-bold">Billing information</h3>
+                                <h3 className="text-2xl font-bold">Usage & billing</h3>
                                 <p className="text-gray-500">
                                     Next payment: <b>1st August, 2024</b>
                                 </p>

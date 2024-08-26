@@ -41,9 +41,20 @@ const CheckItem = ({ text }: { text: string }) => (
 )
 
 export function PricingWidget() {
-    const [value, setValue] = useState(10000);
+    const [value, setValue] = useState(4000);
     const [isYearly, setIsYearly] = useState(false)
     const togglePricingPeriod = (value: string) => setIsYearly(parseInt(value) === 1)
+
+    const calculatePrice = () => {
+        const monthlyBasePrice = 20;
+        const additionalLines = Math.max(0, value - 4000);
+        const additionalCost = Math.ceil(additionalLines / 500) * 5;
+        const totalCost = monthlyBasePrice + additionalCost;
+        const discountedCost = isYearly ? totalCost * 12 * 0.8 : totalCost;
+        const savings = isYearly ? totalCost * 12 * 0.2 : 0;
+
+        return { price: discountedCost, savings };
+    }
 
     return (
         <div>
@@ -63,10 +74,10 @@ export function PricingWidget() {
                             <Separator />
                             <div className="py-[15px]">
                                 <CardDescription className="pt-1.5 text-base">
-                                    Upto 2,000 lines of code / mo
+                                    Upto 1,000 lines of code/month
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Upto 10 chat conversations / mo
+                                    Upto 10 chat conversations/month
                                 </CardDescription>
                             </div>
                             <div className="pt-[2px]" />
@@ -83,13 +94,13 @@ export function PricingWidget() {
                             {isYearly ? (
                                 <div className="flex justify-between">
                                     <CardTitle className="text-zinc-700 text-xl">Pro</CardTitle>
-                                    <Badge className="bg-green-100 text-green-800">Save $40</Badge>
+                                    <Badge className="bg-green-100 text-green-800">Save ${calculatePrice().savings}</Badge>
                                 </div>
                             ) : (
                                 <CardTitle className="text-zinc-700 text-xl">Pro</CardTitle>
                             )}
                             <div className="flex gap-0.5 pb-4">
-                                <h3 className="text-4xl font-bold">{isYearly ? "$200" : "$20"}</h3>
+                                <h3 className="text-4xl font-bold">${calculatePrice().price}</h3>
                                 <span className="flex flex-col justify-end mb-1">{isYearly ? "/year" : "/month"}</span>
                             </div>
                             <Separator />
@@ -97,13 +108,13 @@ export function PricingWidget() {
                                 className="pt-4"
                                 value={[value]}
                                 onValueChange={(value) => setValue(value[0])}
-                                min={5000}
-                                max={100000}
-                                step={5000}
+                                min={2000}
+                                max={20000}
+                                step={500}
                             />
                             <div>
                                 <CardDescription className="pt-1.5 text-base">
-                                    {value.toLocaleString()} lines of code / mo
+                                    {value.toLocaleString()} lines of code / month
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
                                     Unlimited chat conversations
@@ -118,7 +129,7 @@ export function PricingWidget() {
                     </div>
                     <CardFooter className="mt-2">
                         <Button size="sm" className="w-full">
-                            Change plan to {isYearly ? "$200/year" : "$20/mo"}
+                            Change plan to ${calculatePrice().price}{isYearly ? "/year" : "/month"}
                         </Button>
                     </CardFooter>
                 </Card>
