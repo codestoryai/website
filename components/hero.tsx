@@ -1,29 +1,34 @@
-'use client'
+"use client";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import React from 'react'
-import { Video } from './video'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
+import React from "react";
+import { Video } from "./video";
 
 export default function Hero() {
-  return (
-    <div className="p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
-      <div className="max-w-screen-xl m-auto my-6 md:my-12 flex flex-col">
-        <p className="text-4xl md:text-5xl font-semibold text-foreground">
-          Code with the <span className="text-primary">speed</span> and{' '}
-          <span className="text-primary">knowledge</span> of the best programmer you know.{' '}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="underline underline-offset-4 md:underline-offset-8 decoration-2">
-                Aide
-              </span>
-            </TooltipTrigger>
-            <TooltipContent side="bottom">
-              <span className="text-xl">AI + IDE</span>
-            </TooltipContent>
-          </Tooltip>{' '}
-          is by your side.
-        </p>
-        {/*deviceDetails
+    return (
+        <div className="bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
+            <div className="m-auto my-6 flex max-w-screen-xl flex-col md:my-12">
+                <p className="text-4xl font-semibold text-foreground md:text-5xl">
+                    Code with the <span className="text-primary">speed</span>{" "}
+                    and <span className="text-primary">knowledge</span> of the
+                    best programmer you know.{" "}
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <span className="underline decoration-2 underline-offset-4 md:underline-offset-8">
+                                Aide
+                            </span>
+                        </TooltipTrigger>
+                        <TooltipContent side="bottom">
+                            <span className="text-xl">AI + IDE</span>
+                        </TooltipContent>
+                    </Tooltip>{" "}
+                    is by your side.
+                </p>
+                {/*deviceDetails
           ?
           <div className="my-8 hidden md:flex flex-col items-center w-fit">
             <Button size="lg" variant="outline">
@@ -45,11 +50,11 @@ export default function Hero() {
           <div />
         */}
 
-        <Video
-          className="mt-8 rounded-lg border shadow-xl"
-          src='/probe-walk-through.mp4'
-        />
-      </div>
-    </div>
-  )
+                <Video
+                    className="mt-8 rounded-lg border shadow-xl"
+                    src="/probe-walk-through.mp4"
+                />
+            </div>
+        </div>
+    );
 }
