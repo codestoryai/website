@@ -6,10 +6,11 @@ import { PricingWidget } from "@/components/pricing";
 import SignOut from "@/components/signout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Usage } from "@/components/usage";
 import { SubscriptionStatus, SubscriptionStatuses, UserProfileResponse } from "@/types/api";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const freeUsage = 2000;
 export default async function AccountPage() {
@@ -47,6 +48,10 @@ export default async function AccountPage() {
                 {children}
             </DialogTrigger>
             <DialogContent className="w-fit max-w-screen-md">
+                <VisuallyHidden>
+                    <DialogTitle>Pricing widget</DialogTitle>
+                    <DialogDescription>Choose the pricing configuration</DialogDescription>
+                </VisuallyHidden>
                 <PricingWidget />
             </DialogContent>
         </Dialog>
@@ -122,11 +127,9 @@ export default async function AccountPage() {
                                         The first {freeUsage.toLocaleString()} lines are free each month.
                                     </p>
                                     <UpgradeTrigger className="self-start">
-                                        <Button>
-                                            <p className="text-xl">
-                                                Upgrade
-                                            </p>
-                                        </Button>
+                                        <p className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:shadow-inner active:translate-y-[0.1rem] bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-md text-xl px-4 py-2">
+                                            Upgrade
+                                        </p>
                                     </UpgradeTrigger>
                                 </div>
                                 <div className="flex flex-col gap-4">
@@ -143,10 +146,8 @@ export default async function AccountPage() {
                                                 <TableCell className="font-medium text-base">Lines of code</TableCell>
                                                 <TableCell className="text-right text-base tracking-wide">{userData.upcomingInvoice.freeUsage.toLocaleString()}/60,000</TableCell>
                                                 <TableCell>
-                                                    <UpgradeTrigger>
-                                                        <Button variant="outline" className="px-2 py-0 border-0 bg-transparent shadow-none hover:bg-background">
-                                                            &#8943;
-                                                        </Button>
+                                                    <UpgradeTrigger className="px-2 py-0 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:shadow-inner active:translate-y-[0.1rem] border-0 bg-transparent hover:bg-background shadow-none hover:shadow-md">
+                                                        &#8943;
                                                     </UpgradeTrigger>
                                                 </TableCell>
                                             </TableRow>
@@ -158,10 +159,8 @@ export default async function AccountPage() {
                                                     </div>
                                                 </TableCell>
                                                 <TableCell>
-                                                    <UpgradeTrigger>
-                                                        <Button variant="outline" className="px-2 py-0 border-0 bg-transparent shadow-none hover:bg-background">
-                                                            &#8943;
-                                                        </Button>
+                                                    <UpgradeTrigger className="px-2 py-0 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:shadow-inner active:translate-y-[0.1rem] border-0 bg-transparent hover:bg-background shadow-none hover:shadow-md">
+                                                        &#8943;
                                                     </UpgradeTrigger>
                                                 </TableCell>
                                             </TableRow>

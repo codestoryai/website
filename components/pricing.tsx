@@ -3,6 +3,7 @@
 import { CheckCircle2 } from "lucide-react"
 import React, { useState } from "react"
 
+import SparklesText from "@/components/magicui/sparkles-text"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,17 +12,22 @@ import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 type PricingSwitchProps = {
+    isYearly: boolean
     onSwitch: (value: string) => void
 }
 
-const PricingSwitch = ({ onSwitch }: PricingSwitchProps) => (
+const PricingSwitch = ({ isYearly, onSwitch }: PricingSwitchProps) => (
     <Tabs defaultValue="0" className="w-40 mx-auto my-6" onValueChange={onSwitch}>
         <TabsList className="py-6 px-2 bg-muted/40">
             <TabsTrigger value="0" className="text-base">
                 Monthly
             </TabsTrigger>
             <TabsTrigger value="1" className="text-base">
-                Yearly
+                {
+                    isYearly
+                        ? "Yearly"
+                        : <SparklesText text="Yearly" className="text-base" sparklesCount={5} />
+                }
             </TabsTrigger>
         </TabsList>
     </Tabs>
@@ -30,7 +36,7 @@ const PricingSwitch = ({ onSwitch }: PricingSwitchProps) => (
 const CheckItem = ({ text }: { text: string }) => (
     <div className="flex items-center gap-2 mb-2">
         <CheckCircle2 size={20} className="text-green-500" />
-        <p className="text-zinc-700 dark:text-zinc-300 font-medium">{text}</p>
+        <p className="text-zinc-700 font-medium">{text}</p>
     </div>
 )
 
@@ -44,12 +50,12 @@ export function PricingWidget() {
             <section className="text-center">
                 <h2 className="text-3xl font-bold">Plans</h2>
             </section>
-            <PricingSwitch onSwitch={togglePricingPeriod} />
+            <PricingSwitch isYearly={isYearly} onSwitch={togglePricingPeriod} />
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <Card className="w-72 flex flex-col justify-between mx-auto sm:mx-0">
                     <div>
-                        <CardHeader className="pb-4 pt-4">
-                            <CardTitle className="text-zinc-700 dark:text-zinc-300 text-xl">Free</CardTitle>
+                        <CardHeader className="pb-4">
+                            <CardTitle className="text-zinc-700 text-xl">Free</CardTitle>
                             <div className="flex gap-0.5 pb-4">
                                 <h3 className="text-4xl font-bold">$0</h3>
                                 <span className="flex flex-col justify-end mb-1">{isYearly ? "/year" : "/month"}</span>
@@ -73,14 +79,14 @@ export function PricingWidget() {
                 </Card>
                 <Card className="w-72 flex flex-col justify-between mx-auto sm:mx-0">
                     <div>
-                        <CardHeader className="pb-4 pt-4">
+                        <CardHeader className="pb-4">
                             {isYearly ? (
                                 <div className="flex justify-between">
-                                    <CardTitle className="text-zinc-700 dark:text-zinc-300 text-xl">Pro</CardTitle>
+                                    <CardTitle className="text-zinc-700 text-xl">Pro</CardTitle>
                                     <Badge className="bg-green-100 text-green-800">Save $40</Badge>
                                 </div>
                             ) : (
-                                <CardTitle className="text-zinc-700 dark:text-zinc-300 text-xl">Pro</CardTitle>
+                                <CardTitle className="text-zinc-700 text-xl">Pro</CardTitle>
                             )}
                             <div className="flex gap-0.5 pb-4">
                                 <h3 className="text-4xl font-bold">{isYearly ? "$200" : "$20"}</h3>
