@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
     ChartConfig,
@@ -23,6 +23,10 @@ const chartConfig = {
         label: "Estimated",
         color: "hsl(var(--chart-3))",
     },
+    limit: {
+        label: "Limit",
+        color: "hsl(var(--chart-4))",
+    },
 } satisfies ChartConfig
 
 type UsageProps = {
@@ -32,7 +36,13 @@ type UsageProps = {
 export function Usage({ upcomingInvoice }: UsageProps) {
     const { freeUsage, overageUsage, estimatedUsage } = upcomingInvoice;
     const chartData = [
-        { date: "Lines of code", freeTier: freeUsage, overage: overageUsage, estimated: estimatedUsage },
+        {
+            date: "Lines of code",
+            freeTier: freeUsage,
+            overage: overageUsage,
+            estimated: estimatedUsage,
+            limit: 3000,
+        },
     ];
 
     return (
@@ -43,10 +53,10 @@ export function Usage({ upcomingInvoice }: UsageProps) {
                 layout="vertical"
                 barSize={24}
             >
-                <CartesianGrid horizontal={false} />
                 <XAxis
                     type="number"
                     axisLine={false}
+                    ticks={[5000, 60000, 656385]}
                     tickFormatter={value => value.toLocaleString()}
                 />
                 <YAxis
@@ -71,6 +81,11 @@ export function Usage({ upcomingInvoice }: UsageProps) {
                     dataKey="estimated"
                     stackId="a"
                     fill="var(--color-estimated)"
+                />
+                <Bar
+                    dataKey="limit"
+                    stackId="a"
+                    fill="var(--color-limit)"
                 />
                 <ChartTooltip
                     content={

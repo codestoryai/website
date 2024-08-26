@@ -30,8 +30,11 @@ export const InvoiceStatuses: Record<InvoiceStatus, string> = {
 export type UserProfileResponse = {
     user: User;
     waitlistPosition: number;
-    subscriptionStatus: SubscriptionStatus;
+};
+
+export type SubscriptionResponse = {
+    status: SubscriptionStatus;
     invoiceStatus: InvoiceStatus;
     upcomingInvoice: UpcomingInvoice;
     billingPortal: string;
-};
+}
