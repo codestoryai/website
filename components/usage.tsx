@@ -8,6 +8,7 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
+import { UpcomingInvoice } from "@/types/api"
 
 const chartConfig = {
     freeTier: {
@@ -25,19 +26,13 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type UsageProps = {
-    date: string;
-    freeUsage: number;
-    overageUsage: number;
-    estimatedUsage?: number;
+    upcomingInvoice: UpcomingInvoice;
 }
 
-export function Usage({ date, freeUsage, overageUsage, estimatedUsage }: UsageProps) {
-    if (!estimatedUsage) {
-        estimatedUsage = 10000;
-    }
-
+export function Usage({ upcomingInvoice }: UsageProps) {
+    const { freeUsage, overageUsage, estimatedUsage } = upcomingInvoice;
     const chartData = [
-        { date, freeTier: freeUsage, overage: overageUsage, estimated: estimatedUsage },
+        { date: "Lines of code", freeTier: freeUsage, overage: overageUsage, estimated: estimatedUsage },
     ];
 
     return (
@@ -78,9 +73,12 @@ export function Usage({ date, freeUsage, overageUsage, estimatedUsage }: UsagePr
                     fill="var(--color-estimated)"
                 />
                 <ChartTooltip
-                    content={<ChartTooltipContent />}
+                    content={
+                        <ChartTooltipContent
+                            indicator="line"
+                            className="w-[180px] bg-white border border-gray-200"
+                        />}
                     cursor={false}
-                    defaultIndex={0}
                 />
             </BarChart>
         </ChartContainer>

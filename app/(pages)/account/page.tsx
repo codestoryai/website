@@ -3,9 +3,10 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import SignOut from "@/components/signout";
-import { UserProfileResponse } from "@/types/api";
+import { SubscriptionStatus, SubscriptionStatuses, UserProfileResponse } from "@/types/api";
 import { Button } from "@/components/ui/button";
 import { Usage } from "@/components/usage";
+import { Badge } from "@/components/ui/badge";
 
 const freeUsage = 5000;
 export default async function AccountPage() {
@@ -31,6 +32,12 @@ export default async function AccountPage() {
         redirect("/");
     }
 
+    const SubscriptionStatusStyles: Record<SubscriptionStatus, string> = {
+        "free": "text-sm bg-green-100 text-green-800",
+        "active": "text-sm bg-purple-100 text-purple-800",
+        "cancelled": "text-sm bg-red-100 text-red-800",
+    };
+
     return (
         <div className="min-h-screen p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background">
             <div className="max-w-screen-xl m-auto">
@@ -53,7 +60,17 @@ export default async function AccountPage() {
                                 )}
                             </div>
                             <div className="flex flex-col justify-center">
-                                <h3 className="text-2xl font-bold">{user.firstName ?? "" + user.lastName ?? ""}</h3>
+                                <div className="flex gap-2 items-center">
+                                    <h3 className="text-2xl font-bold">{user.firstName ?? "" + user.lastName ?? ""}</h3>
+                                    {userData &&
+                                        <Badge
+                                            variant="none"
+                                            className={`${SubscriptionStatusStyles[userData.subscriptionStatus]}`}
+                                        >
+                                            {SubscriptionStatuses[userData.subscriptionStatus]}
+                                        </Badge>
+                                    }
+                                </div>
                                 <p className="text-lg text-gray-500">{user.email}</p>
                             </div>
                         </div>
@@ -73,21 +90,16 @@ export default async function AccountPage() {
                     </div>
                 )}
                 {userData?.upcomingInvoice && (
-                    <div className="flex justify-center">
+                    <div className={`flex justify-center ${!!userData.waitlistPosition ? 'opacity-40 pointer-events-none' : ''}`}>
                         <div className="bg-white w-full max-w-screen-xl rounded p-6 flex flex-col gap-4">
                             <div className="flex gap-4 items-center">
                                 <h3 className="text-2xl font-bold">Billing information</h3>
                                 <p className="text-gray-500">
-                                    Your first {freeUsage.toLocaleString()} lines are free!
+                                    The first {freeUsage.toLocaleString()} lines written by AI are free each month. After that, you pay $0.0001 per line.
                                 </p>
                             </div>
                             <div className="flex gap-4 w-full">
-                                <Usage
-                                    date="Today"
-                                    freeUsage={userData.upcomingInvoice.freeUsage}
-                                    overageUsage={userData.upcomingInvoice.overageUsage}
-                                    estimatedUsage={userData.upcomingInvoice.estimatedUsage}
-                                />
+                                <Usage upcomingInvoice={userData.upcomingInvoice} />
                             </div>
                             <div className="flex justify-between gap-4">
                                 <div className="flex flex-1 flex-col gap-2">
@@ -98,7 +110,7 @@ export default async function AccountPage() {
                                         lines of code written with AI
                                     </p>
                                 </div>
-                                <div className="flex flex-1 gap-8">
+                                <div className="flex flex-1 gap-16">
                                     <div className="flex flex-col justify-end gap-2">
                                         <div className="text-6xl">
                                             ${userData.upcomingInvoice.amountDue.toLocaleString()}
