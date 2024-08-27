@@ -93,7 +93,7 @@ export default async function AccountPage() {
                         Choose the pricing configuration
                     </DialogDescription>
                 </VisuallyHidden>
-                <PricingWidget />
+                <PricingWidget accessToken={accessToken} />
             </DialogContent>
         </Dialog>
     );
@@ -178,7 +178,7 @@ export default async function AccountPage() {
                         </div>
                     </div>
                 )}
-                {subscriptionData?.upcomingInvoice && (
+                {subscriptionData.usage && (
                     <div
                         className={`flex justify-center ${!!userData.waitlistPosition ? "pointer-events-none opacity-40" : ""}`}
                     >
@@ -192,11 +192,7 @@ export default async function AccountPage() {
                                 </p>
                             </div>
                             <div className="flex w-full gap-4">
-                                <Usage
-                                    upcomingInvoice={
-                                        subscriptionData.upcomingInvoice
-                                    }
-                                />
+                                <Usage usage={subscriptionData.usage} />
                             </div>
                             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                                 <div className="flex flex-col gap-4">
@@ -232,14 +228,12 @@ export default async function AccountPage() {
                                                 </TableCell>
                                                 <TableCell className="text-right text-sm tracking-wide md:text-base">
                                                     {(
-                                                        subscriptionData
-                                                            .upcomingInvoice
+                                                        subscriptionData.usage
                                                             .freeUsage +
-                                                        subscriptionData
-                                                            .upcomingInvoice
+                                                        subscriptionData.usage
                                                             .overageUsage
                                                     ).toLocaleString()}
-                                                    /20,000
+                                                    /1,000
                                                 </TableCell>
                                                 <TableCell>
                                                     <UpgradeTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md border-0 bg-transparent px-2 py-0 font-medium shadow-none ring-offset-background transition-colors hover:bg-background hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50">
