@@ -17,6 +17,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { onSubscribe } from "@/lib/subscribe";
 
 type PricingSwitchProps = {
     isYearly: boolean;
@@ -55,7 +56,11 @@ const CheckItem = ({ text }: { text: string }) => (
     </div>
 );
 
-export function PricingWidget() {
+type PricingWidgetProps = {
+    accessToken: string;
+};
+
+export function PricingWidget({ accessToken }: PricingWidgetProps) {
     const [value, setValue] = useState(4000);
     const [isYearly, setIsYearly] = useState(false);
     const togglePricingPeriod = (value: string) =>
@@ -64,12 +69,13 @@ export function PricingWidget() {
     const calculatePrice = () => {
         const monthlyBasePrice = 20;
         const additionalLines = Math.max(0, value - 4000);
-        const additionalCost = Math.ceil(additionalLines / 500) * 5;
+        const additionalCost = Math.ceil(additionalLines / 2000) * 20;
         const totalCost = monthlyBasePrice + additionalCost;
         const discountedCost = isYearly ? totalCost * 12 * 0.8 : totalCost;
         const savings = isYearly ? totalCost * 12 * 0.2 : 0;
+        const units = (Math.max(value, 4000) - 2000) / 2000;
 
-        return { price: discountedCost, savings };
+        return { price: discountedCost, savings, units };
     };
 
     return (
@@ -140,7 +146,7 @@ export function PricingWidget() {
                                 onValueChange={(value) => setValue(value[0])}
                                 min={2000}
                                 max={20000}
-                                step={500}
+                                step={2000}
                             />
                             <div>
                                 <CardDescription className="pt-1.5 text-base">
@@ -159,7 +165,13 @@ export function PricingWidget() {
                         </CardContent>
                     </div>
                     <CardFooter className="mt-2">
-                        <Button size="sm" className="w-full">
+                        <Button
+                            size="sm"
+                            className="w-full"
+                            onClick={() =>
+                                onSubscribe(accessToken, calculatePrice().units)
+                            }
+                        >
                             Change plan to ${calculatePrice().price}
                             {isYearly ? "/year" : "/month"}
                         </Button>

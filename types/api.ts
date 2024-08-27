@@ -10,10 +10,8 @@ type InvoiceStatus =
     | "paused"
     | "trialing"
     | "unpaid";
+
 export type UpcomingInvoice = {
-    freeUsage: number;
-    overageUsage: number;
-    estimatedUsage: number;
     amountDue: number;
     projectedAmount: number;
 };
@@ -40,9 +38,21 @@ export type UserProfileResponse = {
     waitlistPosition: number;
 };
 
+export type CurrentUsage = {
+    freeUsage: number;
+    overageUsage: number;
+    estimatedUsage: number;
+    limit: number;
+};
+
 export type SubscriptionResponse = {
     status: SubscriptionStatus;
-    invoiceStatus: InvoiceStatus;
-    upcomingInvoice: UpcomingInvoice;
-    billingPortal: string;
+    usage: CurrentUsage;
+    invoiceStatus?: InvoiceStatus;
+    upcomingInvoice?: UpcomingInvoice;
+    billingPortal?: string;
+};
+
+export type CreateSubscriptionResponse = {
+    checkoutSessionURL: string;
 };
