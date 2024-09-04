@@ -28,6 +28,7 @@ import {
     SubscriptionStatuses,
     UserProfileResponse,
 } from "@/types/api";
+import { Button } from "@/components/ui/button";
 
 const freeUsage = 1000;
 export default async function AccountPage() {
@@ -191,19 +192,33 @@ export default async function AccountPage() {
                             <div className="flex w-full gap-4">
                                 <Usage usage={subscriptionData.usage} />
                             </div>
-                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
                                 <div className="flex flex-col gap-4">
                                     <p className="text-base text-gray-800 md:text-lg">
-                                        You are only charged for the code
-                                        changes by AI that you keep. The first{" "}
+                                        Only the code changes by AI that you
+                                        apply to your codebase are counted
+                                        towards your usage. The first{" "}
                                         {freeUsage.toLocaleString()} lines are
                                         free each month.
                                     </p>
-                                    <UpgradeTrigger className="self-start">
-                                        <p className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-base font-medium text-primary-foreground shadow-lg ring-offset-background transition-colors hover:bg-primary/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50 md:text-xl">
-                                            Upgrade
-                                        </p>
-                                    </UpgradeTrigger>
+                                    {subscriptionData.status === "free" ? (
+                                        <UpgradeTrigger className="self-start">
+                                            <p className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-base font-medium text-primary-foreground shadow-lg ring-offset-background transition-colors hover:bg-primary/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50 md:text-xl">
+                                                Upgrade
+                                            </p>
+                                        </UpgradeTrigger>
+                                    ) : (
+                                        <Button className="self-start">
+                                            <a
+                                                href={
+                                                    subscriptionData.billingPortal
+                                                }
+                                            >
+                                                View card details and past
+                                                invoices
+                                            </a>
+                                        </Button>
+                                    )}
                                 </div>
                                 <div className="flex flex-col gap-4">
                                     <Table>
@@ -213,7 +228,10 @@ export default async function AccountPage() {
                                                     Usage
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
-                                                    $0/mo
+                                                    {subscriptionData.status ===
+                                                    "free"
+                                                        ? "$0/mo"
+                                                        : `$${subscriptionData.upcomingInvoice?.amountDue.toLocaleString()}/mo`}
                                                 </TableHead>
                                                 <TableHead></TableHead>
                                             </TableRow>
@@ -243,9 +261,16 @@ export default async function AccountPage() {
                                                     Number of chat conversations
                                                 </TableCell>
                                                 <TableCell className="text-right text-sm md:text-base">
-                                                    <div className="inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-                                                        unlimited
-                                                    </div>
+                                                    {subscriptionData.status ===
+                                                    "free" ? (
+                                                        <div className="tracking-wide">
+                                                            0/10
+                                                        </div>
+                                                    ) : (
+                                                        <div className="inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
+                                                            unlimited
+                                                        </div>
+                                                    )}
                                                 </TableCell>
                                                 <TableCell>
                                                     <UpgradeTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md border-0 bg-transparent px-2 py-0 font-medium shadow-none ring-offset-background transition-colors hover:bg-background hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50">
