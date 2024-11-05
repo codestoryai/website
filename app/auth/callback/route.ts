@@ -52,7 +52,6 @@ export async function GET(request: NextRequest) {
         }
 
         const createUserData = await createUserResponse.json();
-        console.log('User created successfully:', createUserData);
     } catch (error) {
         console.error('Error creating user:', error);
         return NextResponse.json(
