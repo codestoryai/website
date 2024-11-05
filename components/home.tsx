@@ -153,9 +153,9 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24 lg:py-32">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12">
                                     <div className="space-y-4">
-                                        <h2 className="mb-8 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                                        <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             Agentic. Aware.{" "}
                                             <span className="relative inline-block">
                                                 Steerable.
@@ -187,7 +187,7 @@ export default function Component({
                                             , like you would while pair
                                             programming.
                                         </p>
-                                        <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
+                                        <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
                                             &ldquo;Insanity is doing the same
                                             thing over and over again and
                                             expecting different results&rdquo;
@@ -196,7 +196,7 @@ export default function Component({
                                             guiding agents to make large-scale
                                             edits with today&apos;s tools.
                                         </blockquote>
-                                        <div className="flex items-center space-x-4 2xl:-ml-14">
+                                        <div className="flex items-center justify-start space-x-4 2xl:-ml-14">
                                             <Image
                                                 className="rounded-full"
                                                 height="40"
@@ -214,19 +214,17 @@ export default function Component({
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="relative">
+                                    <div className="relative max-w-[600px] lg:max-w-none">
                                         <Card className="p-6">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                                 <Image
                                                     alt="Placeholder"
-                                                    className="object-cover"
-                                                    height="300"
+                                                    className="object-cover w-full h-full"
                                                     src="/placeholder.svg"
                                                     style={{
-                                                        aspectRatio: "533/300",
                                                         objectFit: "cover",
                                                     }}
-                                                    width="533"
+                                                    fill
                                                 />
                                             </div>
                                         </Card>
@@ -238,27 +236,25 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24 lg:py-32">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
-                                    <div className="relative">
+                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12">
+                                    <div className="relative max-w-[600px] lg:max-w-none">
                                         <Card className="p-6">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                                 <Image
                                                     alt="Placeholder"
                                                     className="object-cover"
-                                                    height="300"
                                                     src="/placeholder.svg"
                                                     style={{
-                                                        aspectRatio: "533/300",
                                                         objectFit: "cover",
                                                     }}
-                                                    width="533"
+                                                    fill
                                                 />
                                             </div>
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-pink-300" />
                                     </div>
                                     <div className="space-y-4">
-                                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                                        <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             <span className="relative inline-block">
                                                 Editor
                                                 <svg
@@ -279,7 +275,7 @@ export default function Component({
                                                 tooling for all
                                             </span>
                                         </h2>
-                                        <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                        <p className="text-left mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                                             Being in the editor not only keeps
                                             you in control, but gives Aide
                                             access to{" "}
@@ -290,7 +286,7 @@ export default function Component({
                                             just wreak havoc on your code and
                                             leave you to clean up the mess.
                                         </p>
-                                        <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
+                                        <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
                                             What if LLMs could make edits across
                                             multiple files without breaking the
                                             logic? After a month of hacking, we
@@ -304,7 +300,7 @@ export default function Component({
                                             and (kinda shockingly) became the
                                             SOTA, resolving 43% of the issues.
                                         </blockquote>
-                                        <div className="flex items-center justify-end space-x-4 2xl:-mr-14">
+                                        <div className="flex items-center space-x-4 justify-end 2xl:-mr-14">
                                             <div className="text-gray-500">
                                                 Sandeep, CEO @ CodeStory
                                             </div>
