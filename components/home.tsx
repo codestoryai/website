@@ -401,14 +401,15 @@ export default function Component({
                                         </p>
                                     </div>
                                     <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="p-6">
-                                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                        <Card className="border-0 rounded-[9px] overflow-hidden">
+                                            <div className="relative aspect-video overflow-hidden">
                                                 <Image
                                                     alt="Placeholder"
                                                     className="object-cover w-full h-full"
-                                                    src="/placeholder.svg"
+                                                    src="/sidecar-infographic.png"
                                                     style={{
                                                         objectFit: "cover",
+                                                        objectPosition: "bottom left",
                                                     }}
                                                     fill
                                                 />
