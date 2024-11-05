@@ -42,7 +42,7 @@ export default function Component({
                             </p>
                             <div className="flex space-x-4">
                                 {deviceDetails ? (
-                                    <Button className="w-48 bg-green-600 hover:bg-green-700">
+                                    <Button className="w-72 bg-green-600 hover:bg-green-700">
                                         <a href={deviceDetails.url}>
                                             <div className="flex items-center">
                                                 <div className="flex flex-col">
@@ -57,11 +57,11 @@ export default function Component({
                                         </a>
                                     </Button>
                                 ) : (
-                                    <div className="w-48" />
+                                    <div className="w-72" />
                                 )}
                                 <Button
                                     variant="outline"
-                                    className="text-md w-48"
+                                    className="text-xl w-72"
                                 >
                                     <div className="flex items-center">
                                         <p>View on GitHub</p>
