@@ -52,7 +52,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
         </div>
         <div className="flex md:hidden items-center">
           <Link href="/account" className="font-bold">
-            {user ? "Account" : "Join waitlist"}
+            Account
           </Link>
         </div>
         <div className="fixed bottom-4 left-0 hidden md:flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
@@ -139,7 +139,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                   href="/account"
                 >
                   <span className="font-bold">
-                    {user ? "Account" : "Join waitlist"}
+                    Account
                   </span>
                 </NavigationMenuLink>
               </NavigationMenuItem>

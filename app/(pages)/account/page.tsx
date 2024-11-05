@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 
 import SignOut from "@/components/signout";
 import { UserProfileResponse } from "@/types/api";
+import Link from "next/link";
 
 const cookieName = "wos-session";
 export default async function AccountPage() {
@@ -84,18 +85,20 @@ export default async function AccountPage() {
           <div className="flex justify-center">
             <div className="bg-white w-full max-w-screen-xl rounded p-6 flex flex-col gap-4">
               <div className="text-2xl">
-                You are <b>#{userData.waitlistPosition}</b> on the waitlist!
+                You are on the waitlist! But you shouldn&apos;t be here.
               </div>
               <div className="text-lg text-gray-500">
-                We are rapidly opening up access to users on our waitlist, and
-                will be hitting GA pretty soon.
-                <br />
-                Having a waitlist is currently the best way for us to manage the
-                growth of our platform and fixing the main issues before we go
-                live.
-                <br />
-                We appreciate your patience and can&apos;t wait to have you
-                onboard!
+                  We used to have a waitlist, but we removed it.
+                  Please let us know on{" "}
+                  <Link
+                      href="https://discord.gg/mtgrhXM5Xf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
+                  >
+                      Discord
+                  </Link>{" "}
+                  if you&apos;re seeing this.
               </div>
             </div>
           </div>
