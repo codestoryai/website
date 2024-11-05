@@ -65,9 +65,9 @@ export default function Component() {
           </div>
         </section>
         <div className="relative">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="absolute container -mx-5 left-1/2 -translate-x-1/2 text-gray-300 hidden 2xl:block h-full">
-            <line x1="0" y1="0" x2="0" y2="100%" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
-            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="visible" className="absolute max-w-[1376px] left-1/2 -translate-x-1/2 text-gray-300 hidden 2xl:block h-full top-0">
+            <line x1="0" y1="0" x2="0" y2="100" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
+            <line x1="100" y1="0" x2="100" y2="100" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
           </svg>
 
           <section className="relative w-full py-12 md:py-24 lg:py-32">
@@ -182,10 +182,10 @@ export default function Component() {
                 <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
                     What if LLMs could make edits across multiple files without breaking the logic? After a month of hacking, we tested our framework against <Link className="underline underline-offset-2 font-bold" href="https://www.swebench.com">SWE-Bench Lite</Link> and (kinda shockingly) became the SOTA, resolving 43% of the issues.
                 </blockquote>
-                <div className="flex items-center justify-end gap-4">
+                <div className="flex items-center justify-end space-x-4 2xl:-mr-14">
                   <div className="text-gray-500">Sandeep, CEO @ CodeStory</div>
                   <Image
-                    className="rounded-full 2xl:-mr-4"
+                    className="rounded-full"
                     height="40"
                     src="/team/sandeep.jpeg"
                     style={{
