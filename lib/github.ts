@@ -4,7 +4,6 @@ import { getDevice } from './ua'
 export const fetchLatestRelease = async (): Promise<Downloads> => {
   const downloads: DeepPartial<Downloads> = {}
   try {
-    /*
     const releases = (await (
       await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
     ).json()) as GithubRelease[]
@@ -180,8 +179,8 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
         }
       }
     }
-    */
 
+    /*
     const downloads: Omit<Downloads, 'current'> = {
       macOS: {
         amd64: {
@@ -217,12 +216,13 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
         }
       }
     };
-
+    */
   } catch (err) {
     console.log(err)
   }
 
   const device = await getDevice()
+  console.log(device);
   if (device && device.os && device.arch) {
     let url: string | undefined
     if (device.os === 'macOS') {
