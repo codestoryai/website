@@ -207,17 +207,24 @@ export default function Component({
                                         </div>
                                     </div>
                                     <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="p-6">
+                                        <Card>
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <Image
-                                                    alt="Placeholder"
-                                                    className="object-cover w-full h-full"
-                                                    src="/placeholder.svg"
-                                                    style={{
-                                                        objectFit: "cover",
-                                                    }}
-                                                    fill
-                                                />
+                                                <div style={{ position: "relative", paddingTop: "49.815498154981555%" }}>
+                                                    <iframe
+                                                        src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/c77dac4339078b11fcc369d5544ac498/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fc77dac4339078b11fcc369d5544ac498%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                                                        loading="lazy"
+                                                        style={{
+                                                            border: "none",
+                                                            position: "absolute",
+                                                            top: "0",
+                                                            left: "0",
+                                                            height: "100%",
+                                                            width: "100%",
+                                                        }}
+                                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                                        allowFullScreen
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-yellow-300" />
@@ -230,17 +237,24 @@ export default function Component({
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="p-6">
+                                        <Card>
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <Image
-                                                    alt="Placeholder"
-                                                    className="object-cover"
-                                                    src="/placeholder.svg"
-                                                    style={{
-                                                        objectFit: "cover",
-                                                    }}
-                                                    fill
-                                                />
+                                                <div style={{ position: "relative", paddingTop: "59.471365638766514%" }}>
+                                                    <iframe
+                                                        src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/3bd2263a82733ba0eebb0dc8513653ad/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2F3bd2263a82733ba0eebb0dc8513653ad%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                                                        loading="lazy"
+                                                        style={{
+                                                            border: "none",
+                                                            position: "absolute",
+                                                            top: "0",
+                                                            left: "0",
+                                                            height: "100%",
+                                                            width: "100%",
+                                                        }}
+                                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                                        allowFullScreen
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-fuchsia-300" />
@@ -273,38 +287,6 @@ export default function Component({
                                             to {" "}<b>easily roll back</b> to previous states,
                                             in case the agent made any mistake.
                                         </p>
-                                        {/*
-                                        <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
-                                            What if LLMs could make edits across
-                                            multiple files without breaking the
-                                            logic? After a month of hacking, we
-                                            tested our framework against{" "}
-                                            <Link
-                                                className="font-bold underline underline-offset-2"
-                                                href="https://www.swebench.com"
-                                            >
-                                                SWE-Bench Lite
-                                            </Link>{" "}
-                                            and (kinda shockingly) became the
-                                            SOTA, resolving 43% of the issues.
-                                        </blockquote>
-                                        <div className="flex items-center space-x-4 justify-end 2xl:-mr-14">
-                                            <div className="text-gray-500">
-                                                Sandeep, CEO @ CodeStory
-                                            </div>
-                                            <Image
-                                                className="rounded-full"
-                                                height="40"
-                                                src="/team/sandeep.jpeg"
-                                                style={{
-                                                    aspectRatio: "40/40",
-                                                    objectFit: "cover",
-                                                }}
-                                                width="40"
-                                                alt="Sandeep"
-                                            />
-                                        </div>
-                                        */}
                                     </div>
                                 </div>
                             </div>
@@ -324,17 +306,24 @@ export default function Component({
                                         </p>
                                     </div>
                                     <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="p-6">
+                                        <Card>
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <Image
-                                                    alt="Placeholder"
-                                                    className="object-cover w-full h-full"
-                                                    src="/placeholder.svg"
-                                                    style={{
-                                                        objectFit: "cover",
-                                                    }}
-                                                    fill
-                                                />
+                                                <div className="relative" style={{ paddingTop: "59.471365638766514%" }}>
+                                                    <iframe
+                                                        src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/b163cf1e004375f5b3be057d862352ab/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fb163cf1e004375f5b3be057d862352ab%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                                                        loading="lazy"
+                                                        style={{
+                                                            border: "none",
+                                                            position: "absolute",
+                                                            top: "0",
+                                                            left: "0",
+                                                            height: "100%",
+                                                            width: "100%",
+                                                        }}
+                                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                                        allowFullScreen
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-green-300" />
@@ -347,17 +336,24 @@ export default function Component({
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="p-6">
+                                        <Card>
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <Image
-                                                    alt="Placeholder"
-                                                    className="object-cover"
-                                                    src="/placeholder.svg"
-                                                    style={{
-                                                        objectFit: "cover",
-                                                    }}
-                                                    fill
-                                                />
+                                                <div className="relative" style={{ paddingTop: "63.52941176470588%" }}>
+                                                    <iframe
+                                                        src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/62cb603a83e154a9677bdc9062589cd7/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2F62cb603a83e154a9677bdc9062589cd7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                                                        loading="lazy"
+                                                        style={{
+                                                            border: "none",
+                                                            position: "absolute",
+                                                            top: "0",
+                                                            left: "0",
+                                                            height: "100%",
+                                                            width: "100%",
+                                                        }}
+                                                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                                        allowFullScreen
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-yellow-300" />
@@ -464,58 +460,12 @@ export default function Component({
                                             and AI to keep a continuous context.
                                         </p>
                                     </Card>
-                                    {/*
-                                        <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
-                                            <Code className="h-8 w-8 text-amber-600" />
-                                        </div>
-                                        <h3 className="mb-2 text-xl font-bold">
-                                            Language features
-                                        </h3>
-                                        <p className="text-gray-500">
-                                            Aide gathers diagnostics from the
-                                            whole codebase using Language Server
-                                            APIs to quickly catch and propose
-                                            fixes for unintended breakages.
-                                        </p>
-                                        </Card>
-                                        <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
-                                            <Undo className="h-8 w-8 text-amber-600" />
-                                        </div>
-                                        <h3 className="mb-2 text-xl font-bold">
-                                            Rollbacks
-                                        </h3>
-                                        <p className="text-gray-500">
-                                            Aide has native support for
-                                            checkpoints and rollbacks to keep
-                                            track of file versions across AI
-                                            changes, while preserving the undo
-                                            stack.
-                                        </p>
-                                        </Card>
-                                        <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
-                                            <Lock className="h-8 w-8 text-amber-600" />
-                                        </div>
-                                        <h3 className="mb-2 text-xl font-bold">
-                                            Private by default
-                                        </h3>
-                                        <p className="text-gray-500">
-                                            All requests and responses are
-                                            stored on a SQLite DB on your
-                                            machine. You can use them to
-                                            fine-tune your models, which we
-                                            optionally support.
-                                        </p>
-                                        </Card>
-                                     */}
                                 </div>
                             </div>
                         </section>
                     </div>
 
-                    <section className="relative w-full px-4 py-12 md:py-24 lg:py-32">
+                    <section className="relative w-full px-4 pt-12 pb-12 md:pt-24">
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center justify-center space-y-4 text-center">
                                 <h2 className="text-2xl font-bold tracking-tighter sm:text-5xl">
@@ -593,11 +543,11 @@ export default function Component({
                             </div>
                         </div>
                         <div className="container px-4 md:px-6">
-                            <div className="m-auto flex max-w-screen-xl flex-col items-center justify-center">
+                            <div className="m-auto flex max-w-screen-xl flex-col items-center justify-center text-lg">
                                 <p className="mt-16 text-center text-2xl font-extrabold sm:text-3xl">
                                     Downloads
                                 </p>
-                                <div className="my-8 grid w-full gap-8 md:grid-cols-3">
+                                <div className="my-8 max-w-screen-lg grid w-full gap-8 md:grid-cols-3">
                                     <div className="flex flex-col items-center">
                                         <h4 className="mb-4 text-xl font-bold">
                                             MacOS

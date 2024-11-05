@@ -25,11 +25,11 @@ export default function Footer() {
               <Image
                 alt="CodeStory Logo"
                 className="-mt-1.5"
-                height={36}
+                height={48}
                 src={CSLogo}
-                width={36}
+                width={48}
               />
-              <p className="text-center font-semibold">
+              <p className="text-center font-semibold text-2xl">
                 CodeStory
               </p>
           </Link>
