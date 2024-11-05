@@ -14,7 +14,7 @@ export default function Component() {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Multi-file editing that works.
               </h1>
-              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl dark:text-gray-400">
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
                 Real-world software is built on pre-existing code.
                 Aide generates useful edits across vertical slices of your codebase.
               </p>
@@ -92,7 +92,7 @@ export default function Component() {
                     </svg>
                   </span>
                 </h2>
-                <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Aide not only understands your codebase, but keeps track of previous  editing sessions. It aligns more and more with your goals as you go along. <b>Effortlessly iterate, review and fill in possible gaps</b>, like you would while pair programming.
                 </p>
                 <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
@@ -110,7 +110,7 @@ export default function Component() {
                     width="40"
                     alt="Zi"
                   />
-                  <div className="text-gray-500 dark:text-gray-400">Zi, Software Engineer @ CodeStory</div>
+                  <div className="text-gray-500">Zi, Software Engineer @ CodeStory</div>
                 </div>
               </div>
               <div className="relative">
@@ -176,14 +176,14 @@ export default function Component() {
                   </span>
                   <span className="ml-2">tooling for all</span>
                 </h2>
-                <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Being in the editor not only keeps you in control, but gives Aide access to <b>the same tools developers use</b>. Our agents are aware of the side effects of their changes thanks to language features. We don&apos;t just wreak havoc on your code and leave you to clean up the mess.
                 </p>
                 <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
                     What if LLMs could make edits across multiple files without breaking the logic? After a month of hacking, we tested our framework against <Link className="underline underline-offset-2 font-bold" href="https://www.swebench.com">SWE-Bench Lite</Link> and (kinda shockingly) became the SOTA, resolving 43% of the issues.
                 </blockquote>
                 <div className="flex items-center justify-end gap-4">
-                  <div className="text-gray-500 dark:text-gray-400">Sandeep, CEO @ CodeStory</div>
+                  <div className="text-gray-500">Sandeep, CEO @ CodeStory</div>
                   <Image
                     className="rounded-full 2xl:-mr-4"
                     height="40"
