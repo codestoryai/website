@@ -14,7 +14,7 @@ export default function Component() {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Multi-file editing that works.
               </h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+              <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl dark:text-gray-400">
                 Real-world software is built on pre-existing code.
                 Aide generates useful edits across vertical slices of your codebase.
               </p>
@@ -64,9 +64,14 @@ export default function Component() {
             </div>
           </div>
         </section>
+        <div className="relative">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="absolute container -mx-5 left-1/2 -translate-x-1/2 text-gray-300 hidden 2xl:block h-full">
+            <line x1="0" y1="0" x2="0" y2="100%" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
+            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="currentColor" vectorEffect='non-scaling-stroke' strokeDasharray={8} />
+          </svg>
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <section className="relative w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6 2xl:px-12">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
               <div className="space-y-4">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
@@ -93,7 +98,7 @@ export default function Component() {
                 <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
                   &ldquo;Insanity is doing the same thing over and over again and expecting different results&rdquo; &mdash; Einstein probably never said that, but this quote rings true when guiding agents to make large-scale edits with today&apos;s tools.
                 </blockquote>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 2xl:-ml-14">
                   <Image
                     className="rounded-full"
                     height="40"
@@ -128,10 +133,10 @@ export default function Component() {
               </div>
             </div>
           </div>
-        </section>
-        
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          </section>
+                      
+          <section className="relative w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6 2xl:px-12">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
             <div className="relative">
                 <Card className="p-6">
@@ -177,9 +182,10 @@ export default function Component() {
                 <blockquote className="pt-8 text-lg leading-snug lg:leading-normal xl:text-lg">
                     What if LLMs could make edits across multiple files without breaking the logic? After a month of hacking, we tested our framework against <Link className="underline underline-offset-2 font-bold" href="https://www.swebench.com">SWE-Bench Lite</Link> and (kinda shockingly) became the SOTA, resolving 43% of the issues.
                 </blockquote>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-end gap-4">
+                  <div className="text-gray-500 dark:text-gray-400">Sandeep, CEO @ CodeStory</div>
                   <Image
-                    className="rounded-full"
+                    className="rounded-full 2xl:-mr-4"
                     height="40"
                     src="/team/sandeep.jpeg"
                     style={{
@@ -189,14 +195,13 @@ export default function Component() {
                     width="40"
                     alt="Zi"
                   />
-                  <div className="text-gray-500 dark:text-gray-400">Sandeep, CEO @ CodeStory</div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        
-        <section className="w-full py-12 md:py-24 lg:py-32">
+          </section>
+                    
+          <section className="relative w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
               Features
@@ -258,9 +263,9 @@ export default function Component() {
               </Card>
             </div>
           </div>
-        </section>
-        
-        <section className="w-full py-12 md:py-24 lg:py-32">
+          </section>
+       
+          <section className="relative w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -323,7 +328,8 @@ export default function Component() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </div>
       </main>
     </div>
   )
