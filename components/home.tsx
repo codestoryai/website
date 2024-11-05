@@ -35,7 +35,7 @@ export default function Component({
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center space-y-4 text-center">
                                 <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                                    The open-source AI-native IDE.
+                                    The open-source <span className="text-gray-700">AI</span>-native I<span className="text-gray-700">DE</span>.
                                 </h1>
                                 <p className="mx-auto max-w-[700px] text-gray-600 md:text-2xl">
                                     Powered by the state-of-the-art agentic framework on swebench-lite
@@ -208,7 +208,7 @@ export default function Component({
                                     </div>
                                     <div className="relative max-w-[600px] lg:max-w-none">
                                         <Card>
-                                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                            <div className="relative aspect-[2/1] overflow-hidden rounded-lg">
                                                 <div style={{ position: "relative", paddingTop: "49.815498154981555%" }}>
                                                     <iframe
                                                         src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/c77dac4339078b11fcc369d5544ac498/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fc77dac4339078b11fcc369d5544ac498%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
