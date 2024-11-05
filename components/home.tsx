@@ -31,14 +31,14 @@ export default function Component({
         <div className="bg-background bg-noise">
             <div className="flex min-h-screen flex-col">
                 <main className="flex-1">
-                    <section className="w-full bg-gray-50 px-2 py-32 xl:py-48">
+                    <section className="w-full bg-gray-100 px-2 pt-36 pb-16">
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center space-y-4 text-center">
-                                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                                    Aide, an open-source AI-native IDE.
+                                <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                                    The open-source AI-native IDE.
                                 </h1>
-                                <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                                    AI native editor built on top of the agentic framework which scores 43% on swebench-lite.
+                                <p className="mx-auto max-w-[700px] text-gray-600 md:text-2xl">
+                                    Powered by the state-of-the-art agentic framework on swebench-lite
                                 </p>
                                 <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     {deviceDetails ? (
@@ -73,27 +73,22 @@ export default function Component({
                                 </div>
                                 <DownloadScroll />
                             </div>
-
-                            <div className="relative mx-auto mt-16 max-w-[800px] px-4 sm:px-6">
-                                <Card className="p-4 sm:p-6">
-                                    <div className="relative aspect-video overflow-hidden rounded-lg">
-                                        <Image
-                                            alt="Placeholder"
-                                            className="object-cover"
-                                            height="300"
-                                            src="/placeholder.svg"
-                                            style={{
-                                                aspectRatio: "533/300",
-                                                objectFit: "cover",
-                                            }}
-                                            width="533"
-                                        />
+                            <div className="relative mx-auto mt-8 max-w-[1000px] px-4 sm:px-6">
+                                <Card className="overflow-hidden">
+                                    <div className="relative pt-[57.446808510638306%]">
+                                        <iframe
+                                            src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/e1ae149c3dcb77da9b82b379bb6fd194/iframe?autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fe1ae149c3dcb77da9b82b379bb6fd194%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+                                            loading="lazy"
+                                            style={{ border: "none", position: "absolute", top: "0", left: "0", height: "100%", width: "100%" }}
+                                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                            allowFullScreen
+                                        ></iframe>
                                     </div>
                                 </Card>
-                                <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-gray-300" />
+                                <div className="absolute -bottom-2 left-1/2 h-2 w-[90%] -translate-x-1/2 rounded-b-md bg-gray-300" />
                             </div>
 
-                            <div className="mx-auto mt-16 max-w-[800px] px-4 text-center sm:px-6">
+                            <div className="mx-auto mt-8 max-w-[800px] px-4 text-center sm:px-6">
                                 <p className="text-base sm:text-lg">
                                     Ever tried making <i>large</i> changes in a
                                     codebase using AI? If you are like me, you
@@ -150,7 +145,7 @@ export default function Component({
                             />
                         </svg>
 
-                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="space-y-4 mt-1">
@@ -231,7 +226,7 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="relative max-w-[600px] lg:max-w-none">
@@ -315,7 +310,7 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="space-y-4 mt-1">
@@ -348,7 +343,7 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="relative max-w-[600px] lg:max-w-none">
@@ -383,7 +378,7 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="space-y-4 mt-1">
@@ -421,7 +416,7 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full px-4 py-12 md:py-24 lg:py-32">
+                        <section className="relative w-full px-4 py-12 md:py-24">
                             <div className="container px-4 md:px-6">
                                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                                     Other features
