@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import {  Brain, Zap, GitBranch, Globe, Lock, Undo } from "lucide-react"
+import { Brain, Zap, Lock, Undo, Code, Layers3 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -21,6 +21,45 @@ export default function Component() {
               <div className="space-x-4">
                 <Button className="bg-green-600 hover:bg-green-700">Download Aide</Button>
                 <Button variant="outline">Github page</Button>
+              </div>
+            </div>
+
+            <div className="relative mt-16 max-w-[800px] mx-auto">
+                <Card className="p-6">
+                  <div className="aspect-video relative overflow-hidden rounded-lg">
+                    <Image
+                      alt="Placeholder"
+                      className="object-cover"
+                      height="300"
+                      src="/placeholder.svg"
+                      style={{
+                        aspectRatio: "533/300",
+                        objectFit: "cover",
+                      }}
+                      width="533"
+                    />
+                  </div>
+                </Card>
+                <div className="absolute -bottom-2 left-1/2 w-[95%] h-2 bg-gray-300 -translate-x-1/2 rounded-b-md" />
+            </div>
+
+            <div className="mt-16 max-w-[800px] mx-auto text-center">
+              <p className="text-lg">
+                Ever tried making <i>large</i> changes in a codebase using AI? If you are like me, you probably were very impressed – <b>at first</b>. The initial bliss quickly fades away when you realise the code will be very hard to maintain, or is flat out wrong.
+              </p>
+              <div className="mt-8 flex items-center justify-center gap-3">
+                <Image
+                  className="rounded-full"
+                  height="40"
+                  src="/team/naresh.jpeg"
+                  style={{
+                    aspectRatio: "40/40",
+                    objectFit: "cover",
+                  }}
+                  width="40"
+                  alt="Naresh"
+                />
+                <div className="text-gray-500">Naresh, CTO @ Codestory</div>
               </div>
             </div>
           </div>
@@ -164,45 +203,57 @@ export default function Component() {
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <Card className="p-6">
-                <Brain className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-green-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Brain className="w-8 h-8 text-green-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Deep reasoning</h3>
                 <p className="text-gray-500">
-                  Context propagation helps you make multi-location changes. Break down large tasks into smaller units of work that follow a logical flow.
+                    Enforce and expose deep reasoning behind complex changes. Break down large tasks into smaller units of work that follow a logical flow.
                 </p>
               </Card>
               <Card className="p-6">
-                <Zap className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-green-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-8 h-8 text-green-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Blazing-fast edits</h3>
                 <p className="text-gray-500">
-                  With our new file format, you can be multi-location editing you will be packed up how little time direct semantic editing while still retaining the changes.
+                    With prompt caching and multi-location editing, you will be amazed by how little time occurs between pressing enter and reviewing the changes.
                 </p>
               </Card>
               <Card className="p-6">
-                <GitBranch className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-green-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Layers3 className="w-8 h-8 text-green-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Context persistence</h3>
                 <p className="text-gray-500">
-                  Changes made by both the developer and AI to keep a continuous memory of the changes.
+                    The editor listens to all events and changes made by both the developer and AI to keep a continuous context.
                 </p>
               </Card>
               <Card className="p-6">
-                <Globe className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-amber-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Code className="w-8 h-8 text-amber-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Language features</h3>
                 <p className="text-gray-500">
-                  State-of-the-art language models combine Language Server APIs to quickly apply and propose fixes for immediate a mistakes.
+                    Aide gathers diagnostics from the whole codebase using Language Server APIs to quickly catch and propose fixes for unintended breakages.
                 </p>
               </Card>
               <Card className="p-6">
-                <Undo className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-amber-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Undo className="w-8 h-8 text-amber-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Rollbacks</h3>
                 <p className="text-gray-500">
-                  Just like git, we store the full snapshots and rollbacks to keep track of M3 versions across AI changes, while preserving the undo stack.
+                    Aide has native support for checkpoints and rollbacks to keep track of file versions across AI changes, while preserving the undo stack.
                 </p>
               </Card>
               <Card className="p-6">
-                <Lock className="w-12 h-12 mb-4 text-green-600" />
+                <div className="bg-amber-50 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <Lock className="w-8 h-8 text-amber-600" />
+                </div>
                 <h3 className="text-xl font-bold mb-2">Private by default</h3>
                 <p className="text-gray-500">
-                  Your code never leaves your machine. Try out up to 50 on your machine. You can opt-in to have base your models, which we specifically support.
+                    All requests and responses are stored on a SQLite DB on your machine. You can use them to fine-tune your models, which we optionally support.
                 </p>
               </Card>
             </div>
@@ -268,7 +319,7 @@ export default function Component() {
                 Talk directly to the developers at <a href="mailto:team@codestory.ai" className="underline underline-offset-2 font-bold">team@codestory.ai</a> or on <Link className="underline underline-offset-2 font-bold" href="https://discord.gg/mtgrhXM5Xf">Discord</Link>. Shape the future of the development of Aide with us.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button>Download Aide</Button>
+                <Button className="bg-green-600 hover:bg-green-700">Download Aide</Button>
               </div>
             </div>
           </div>
