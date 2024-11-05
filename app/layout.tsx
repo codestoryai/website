@@ -26,8 +26,27 @@ const firaSans = Fira_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aide.dev'),
-  description: "Code with the speed and knowledge of the best programmer you know. Aide is by your side.",
   title: "Aide",
+  description: "Code with the speed and knowledge of the best programmer you know. Aide is by your side.",
+  openGraph: {
+    title: "Aide - Your AI Programming Assistant",
+    description: "Code with the speed and knowledge of the best programmer you know. Aide is by your side.",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 388,
+        height: 216,
+        alt: "Aide - AI Programming Assistant"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aide - Your AI Programming Assistant",
+    description: "Code with the speed and knowledge of the best programmer you know. Aide is by your side.",
+    images: ["/og-image.png"]
+  }
 };
 
 export default async function RootLayout({
