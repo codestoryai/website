@@ -35,12 +35,10 @@ export default function Component({
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center space-y-4 text-center">
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                                    Multi-file editing that works.
+                                    Aide, an open-source AI-native IDE.
                                 </h1>
                                 <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl">
-                                    Real-world software is built on pre-existing
-                                    code. Aide generates useful edits across
-                                    vertical slices of your codebase.
+                                    AI native editor built on top of the agentic framework which scores 43% on swebench-lite.
                                 </p>
                                 <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     {deviceDetails ? (
