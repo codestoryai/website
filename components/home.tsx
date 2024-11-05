@@ -47,7 +47,7 @@ export default function Component() {
               <p className="text-lg">
                 Ever tried making <i>large</i> changes in a codebase using AI? If you are like me, you probably were very impressed – <b>at first</b>. The initial bliss quickly fades away when you realise the code will be very hard to maintain, or is flat out wrong.
               </p>
-              <div className="mt-8 flex items-center justify-center gap-3">
+              <div className="mt-4 flex items-center justify-center gap-3">
                 <Image
                   className="rounded-full"
                   height="40"
