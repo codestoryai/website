@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import DownloadScroll from "./downloadscroll";
+import { Kbd } from "./ui/kbd";
 
 interface ComponentProps {
     deviceDetails: DeviceDetails | undefined;
@@ -153,12 +154,12 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24 lg:py-32">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12">
-                                    <div className="space-y-4">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
+                                    <div className="space-y-4 mt-1">
                                         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
-                                            Agentic. Aware.{" "}
+                                            A{" "}
                                             <span className="relative inline-block">
-                                                Steerable.
+                                               proactive
                                                 <svg
                                                     className="absolute -bottom-2 left-0 -z-10 h-4 w-full"
                                                     viewBox="0 0 300 20"
@@ -172,46 +173,44 @@ export default function Component({
                                                         strokeLinecap="round"
                                                     />
                                                 </svg>
-                                            </span>
+                                            </span>{" "}
+                                            agent
                                         </h2>
                                         <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            Aide not only understands your
-                                            codebase, but keeps track of
-                                            previous editing sessions. It aligns
-                                            more and more with your goals as you
-                                            go along.{" "}
-                                            <b>
-                                                Effortlessly iterate, review and
-                                                fill in possible gaps
-                                            </b>
-                                            , like you would while pair
-                                            programming.
+                                            Aide proactively{" "}<b>proposes fixes</b> or asks to include
+                                            files that may be missing in the context. Our agent can do
+                                            so by{" "}<b>iterating on linter errors</b> and pulling in
+                                            relevant context{" "}<b>using LSP tools</b>, like “Go to references”.
                                         </p>
                                         <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
-                                            &ldquo;Insanity is doing the same
-                                            thing over and over again and
-                                            expecting different results&rdquo;
-                                            &mdash; Einstein probably never said
-                                            that, but this quote rings true when
-                                            guiding agents to make large-scale
-                                            edits with today&apos;s tools.
+                                            What if LLMs could make edits across
+                                            multiple files without breaking the
+                                            logic? After a month of hacking, we
+                                            tested our framework against{" "}
+                                            <Link
+                                                className="font-bold underline underline-offset-2"
+                                                href="https://www.swebench.com"
+                                            >
+                                                SWE-Bench Lite
+                                            </Link>{" "}
+                                            and (kinda shockingly) became the
+                                            SOTA, resolving 43% of the issues.
                                         </blockquote>
                                         <div className="flex items-center justify-start space-x-4 2xl:-ml-14">
                                             <Image
                                                 className="rounded-full"
                                                 height="40"
-                                                src="/team/zi.jpeg"
+                                                src="/team/sandeep.jpeg"
                                                 style={{
                                                     aspectRatio: "40/40",
                                                     objectFit: "cover",
                                                 }}
                                                 width="40"
-                                                alt="Zi"
+                                                alt="Sandeep"
                                             />
                                             <div className="text-gray-500">
-                                                Zi, Software Engineer @
-                                                CodeStory
-                                            </div>
+                                                Sandeep, CEO @ CodeStory
+                                            </div>                                           
                                         </div>
                                     </div>
                                     <div className="relative max-w-[600px] lg:max-w-none">
@@ -236,7 +235,7 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24 lg:py-32">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12">
+                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
                                     <div className="relative max-w-[600px] lg:max-w-none">
                                         <Card className="p-6">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
@@ -253,10 +252,10 @@ export default function Component({
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-pink-300" />
                                     </div>
-                                    <div className="space-y-4">
+                                    <div className="space-y-4 mt-1">
                                         <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
+                                            Developer
                                             <span className="relative inline-block">
-                                                Editor
                                                 <svg
                                                     className="absolute -bottom-2 left-0 -z-10 h-4 w-full"
                                                     viewBox="0 0 200 20"
@@ -272,20 +271,16 @@ export default function Component({
                                                 </svg>
                                             </span>
                                             <span className="ml-2">
-                                                tooling for all
+                                                control
                                             </span>
                                         </h2>
                                         <p className="text-left mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            Being in the editor not only keeps
-                                            you in control, but gives Aide
-                                            access to{" "}
-                                            <b>the same tools developers use</b>
-                                            . Our agents are aware of the side
-                                            effects of their changes thanks to
-                                            language features. We don&apos;t
-                                            just wreak havoc on your code and
-                                            leave you to clean up the mess.
+                                            Go ahead, do AI-edits on top of your coding session.
+                                            We keep slim, VS Code-native checkpoints (we don&rsquo;t use git)
+                                            to {" "}<b>easily roll back</b> to previous states,
+                                            in case the agent made any mistake.
                                         </p>
+                                        {/*
                                         <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
                                             What if LLMs could make edits across
                                             multiple files without breaking the
@@ -316,6 +311,112 @@ export default function Component({
                                                 alt="Sandeep"
                                             />
                                         </div>
+                                        */}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                            <div className="container px-4 md:px-6 2xl:px-12">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
+                                    <div className="space-y-4 mt-1">
+                                        <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
+                                            Brainstorm, then edit.<br />
+                                            Or the other way around.
+                                        </h2>
+                                        <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                            We try to make Aide feel like a real engineer to pair-program with.
+                                            Chat about a problem by @&rsquo;ting the file(s) and then jump into edits, or go from a smaller set of edits and discuss their side-effects.
+                                        </p>
+                                    </div>
+                                    <div className="relative max-w-[600px] lg:max-w-none">
+                                        <Card className="p-6">
+                                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                                <Image
+                                                    alt="Placeholder"
+                                                    className="object-cover w-full h-full"
+                                                    src="/placeholder.svg"
+                                                    style={{
+                                                        objectFit: "cover",
+                                                    }}
+                                                    fill
+                                                />
+                                            </div>
+                                        </Card>
+                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-green-300" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                            <div className="container px-4 md:px-6 2xl:px-12">
+                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
+                                    <div className="relative max-w-[600px] lg:max-w-none">
+                                        <Card className="p-6">
+                                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                                <Image
+                                                    alt="Placeholder"
+                                                    className="object-cover"
+                                                    src="/placeholder.svg"
+                                                    style={{
+                                                        objectFit: "cover",
+                                                    }}
+                                                    fill
+                                                />
+                                            </div>
+                                        </Card>
+                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-yellow-300" />
+                                    </div>
+                                    <div className="space-y-4 mt-1">
+                                        <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
+                                            Quick invoke
+                                        </h2>
+                                        <p className="text-left mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                            Taking inspiration from MacOS spotlight,
+                                            we created a floating widget you can
+                                            invoke with <Kbd>CMD + K</Kbd>.
+                                            If you have a text selection active,
+                                            you quickly prompt a change for it.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="relative w-full py-12 md:py-24 lg:py-32">
+                            <div className="container px-4 md:px-6 2xl:px-12">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
+                                    <div className="space-y-4 mt-1">
+                                        <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
+                                            Galaxy brain. Local-first.
+                                        </h2>
+                                        <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                            We ship a binary called{" "}<b>sidecar</b>{" "}
+                                            which takes care of preparing and sending
+                                            prompts to LLMs, as well as giving them
+                                            access to editor features. You get
+                                            {" "}<b>full control</b> over the prompts
+                                            and responses (unless you choose our
+                                            subscription, sharing some data with us).
+                                        </p>
+                                    </div>
+                                    <div className="relative max-w-[600px] lg:max-w-none">
+                                        <Card className="p-6">
+                                            <div className="relative aspect-video overflow-hidden rounded-lg">
+                                                <Image
+                                                    alt="Placeholder"
+                                                    className="object-cover w-full h-full"
+                                                    src="/placeholder.svg"
+                                                    style={{
+                                                        objectFit: "cover",
+                                                    }}
+                                                    fill
+                                                />
+                                            </div>
+                                        </Card>
+                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-pink-300" />
                                     </div>
                                 </div>
                             </div>
@@ -324,12 +425,12 @@ export default function Component({
                         <section className="relative w-full px-4 py-12 md:py-24 lg:py-32">
                             <div className="container px-4 md:px-6">
                                 <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                                    Features
+                                    Other features
                                 </h2>
                                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                                     <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-50">
-                                            <Brain className="h-8 w-8 text-green-600" />
+                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-yellow-50">
+                                            <Brain className="h-8 w-8 text-yellow-600" />
                                         </div>
                                         <h3 className="mb-2 text-xl font-bold">
                                             Deep reasoning
@@ -342,8 +443,8 @@ export default function Component({
                                         </p>
                                     </Card>
                                     <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-50">
-                                            <Zap className="h-8 w-8 text-green-600" />
+                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-pink-50">
+                                            <Zap className="h-8 w-8 text-pink-600" />
                                         </div>
                                         <h3 className="mb-2 text-xl font-bold">
                                             Blazing-fast edits
@@ -369,7 +470,8 @@ export default function Component({
                                             and AI to keep a continuous context.
                                         </p>
                                     </Card>
-                                    <Card className="p-6">
+                                    {/*
+                                        <Card className="p-6">
                                         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
                                             <Code className="h-8 w-8 text-amber-600" />
                                         </div>
@@ -382,8 +484,8 @@ export default function Component({
                                             APIs to quickly catch and propose
                                             fixes for unintended breakages.
                                         </p>
-                                    </Card>
-                                    <Card className="p-6">
+                                        </Card>
+                                        <Card className="p-6">
                                         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
                                             <Undo className="h-8 w-8 text-amber-600" />
                                         </div>
@@ -397,8 +499,8 @@ export default function Component({
                                             changes, while preserving the undo
                                             stack.
                                         </p>
-                                    </Card>
-                                    <Card className="p-6">
+                                        </Card>
+                                        <Card className="p-6">
                                         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-amber-50">
                                             <Lock className="h-8 w-8 text-amber-600" />
                                         </div>
@@ -412,7 +514,8 @@ export default function Component({
                                             fine-tune your models, which we
                                             optionally support.
                                         </p>
-                                    </Card>
+                                        </Card>
+                                     */}
                                 </div>
                             </div>
                         </section>
