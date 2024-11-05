@@ -65,10 +65,12 @@ export default function Component({
                                         variant="outline"
                                         className="w-full text-xl sm:w-72"
                                     >
-                                        <div className="flex items-center justify-center">
-                                            <p>View on GitHub</p>
-                                            <Github className="ml-4" />
-                                        </div>
+                                        <Link href="https://github.com/codestoryai/aide">
+                                            <div className="flex items-center justify-center">
+                                                <p>View on GitHub</p>
+                                                <Github className="ml-4" />
+                                            </div>
+                                        </Link>
                                     </Button>
                                 </div>
                                 <DownloadScroll />
