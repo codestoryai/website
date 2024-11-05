@@ -248,7 +248,7 @@ export default function Component({
                                                 />
                                             </div>
                                         </Card>
-                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-pink-300" />
+                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-fuchsia-300" />
                                     </div>
                                     <div className="space-y-4 mt-1">
                                         <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
@@ -415,7 +415,7 @@ export default function Component({
                                                 />
                                             </div>
                                         </Card>
-                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-pink-300" />
+                                        <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-fuchsia-300" />
                                     </div>
                                 </div>
                             </div>
@@ -428,8 +428,8 @@ export default function Component({
                                 </h2>
                                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                                     <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-yellow-50">
-                                            <Brain className="h-8 w-8 text-yellow-600" />
+                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-50">
+                                            <Brain className="h-8 w-8 text-green-600" />
                                         </div>
                                         <h3 className="mb-2 text-xl font-bold">
                                             Deep reasoning
@@ -442,8 +442,8 @@ export default function Component({
                                         </p>
                                     </Card>
                                     <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-pink-50">
-                                            <Zap className="h-8 w-8 text-pink-600" />
+                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-yellow-50">
+                                            <Zap className="h-8 w-8 text-yellow-600" />
                                         </div>
                                         <h3 className="mb-2 text-xl font-bold">
                                             Blazing-fast edits
@@ -457,8 +457,8 @@ export default function Component({
                                         </p>
                                     </Card>
                                     <Card className="p-6">
-                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-50">
-                                            <Layers3 className="h-8 w-8 text-green-600" />
+                                        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-fuchsia-50">
+                                            <Layers3 className="h-8 w-8 text-fuchsia-600" />
                                         </div>
                                         <h3 className="mb-2 text-xl font-bold">
                                             Context persistence
