@@ -180,45 +180,43 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
       }
     }
 
-    /*
-    const downloads: Omit<Downloads, 'current'> = {
-      macOS: {
+  } catch (err) {
+    console.log(err)
+    return {
+      'macOS': {
         amd64: {
-          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.x64.1.88.1.24119.dmg',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-x64-1.88.1.24119.zip'
+          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.x64.1.94.2.24311.dmg',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-x64-1.94.2.24311.zip'
         },
         arm64: {
-          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.arm64.1.88.1.24119.dmg',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-arm64-1.88.1.24119.zip'
+          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.arm64.1.94.2.24311.dmg',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-arm64-1.94.2.24311.zip'
         }
       },
-      Windows: {
+      'Windows': {
         amd64: {
-          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-x64-1.88.1.24119.exe',
-          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-x64-1.88.1.24119.exe',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-x64-1.88.1.24119.zip'
+          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-x64-1.94.2.24311.exe',
+          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-x64-1.94.2.24311.exe',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-x64-1.94.2.24311.zip'
         },
         arm64: {
-          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-arm64-1.88.1.24119.exe',
-          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-arm64-1.88.1.24119.exe',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-arm64-1.88.1.24119.zip'
+          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-arm64-1.94.2.24311.exe',
+          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-arm64-1.94.2.24311.exe',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-arm64-1.94.2.24311.zip'
         }
       },
-      Linux: {
+      'Linux': {
         amd64: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-x64-1.88.1.24119.tar.gz'
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-x64-1.94.2.24311.tar.gz'
         },
         armhf: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-armhf-1.88.1.24119.tar.gz'
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-armhf-1.94.2.24311.tar.gz'
         },
         arm64: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-arm64-1.88.1.24119.tar.gz'
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-arm64-1.94.2.24311.tar.gz'
         }
       }
     };
-    */
-  } catch (err) {
-    console.log(err)
   }
 
   const device = await getDevice()
