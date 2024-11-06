@@ -1,4 +1,4 @@
-import NextImage from 'next/image'
+import NextImage from "next/image";
 
 export function MDXImage({
     src,
@@ -7,23 +7,24 @@ export function MDXImage({
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
 > & {
-    src: string
-    alt: string
+    src: string;
+    alt: string;
 }) {
-    let widthFromSrc, heightFromSrc
-    const url = new URL(src, 'https://aide.dev')
-    const widthParam = url.searchParams.get('w') || url.searchParams.get('width')
+    let widthFromSrc, heightFromSrc;
+    const url = new URL(src, "https://aide.dev");
+    const widthParam =
+        url.searchParams.get("w") || url.searchParams.get("width");
     const heightParam =
-        url.searchParams.get('h') || url.searchParams.get('height')
+        url.searchParams.get("h") || url.searchParams.get("height");
     if (widthParam) {
-        widthFromSrc = parseInt(widthParam)
+        widthFromSrc = parseInt(widthParam);
     }
     if (heightParam) {
-        heightFromSrc = parseInt(heightParam)
+        heightFromSrc = parseInt(heightParam);
     }
 
     // Check if the image is a gif
-    const isGif = src.endsWith('.gif');
+    const isGif = src.endsWith(".gif");
 
     const imageProps = {
         src,
@@ -32,7 +33,7 @@ export function MDXImage({
         height: heightFromSrc || 450,
         width: widthFromSrc || 800,
         ...(isGif && { unoptimized: true }), // Add unoptimized property if image is a gif
-    }
+    };
 
-    return <NextImage {...imageProps} />
+    return <NextImage {...imageProps} />;
 }

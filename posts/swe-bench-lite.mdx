@@ -1,19 +1,19 @@
 export const metadata = {
-    title: 'SWE Bench Lite Analysis',
-    excerpt: 'SWE Bench Lite Analysis',
-    coverImage: '/assets/blog/swe-bench-lite-analysis/bar-chart.jpg',
-    date: '2024-07-03T14:22:00.000Z',
+    title: "SWE Bench Lite Analysis",
+    excerpt: "SWE Bench Lite Analysis",
+    coverImage: "/assets/blog/swe-bench-lite-analysis/bar-chart.jpg",
+    date: "2024-07-03T14:22:00.000Z",
     author: {
-        name: 'Sandeep Kumar Pani',
-        picture: '/assets/blog/authors/sandeep.jpg',
-        twitter: 'https://twitter.com/skc42',
-        linkedin: 'https://www.linkedin.com/in/sandeep-kumar-pani',
-        github: 'https://github.com/theskcd',
+        name: "Sandeep Kumar Pani",
+        picture: "/assets/blog/authors/sandeep.jpg",
+        twitter: "https://twitter.com/skc42",
+        linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani",
+        github: "https://github.com/theskcd",
     },
     ogImage: {
-        url: '/assets/blog/swe-bench-lite-analysis/bar-chart.jpg'
-    }
-}
+        url: "/assets/blog/swe-bench-lite-analysis/bar-chart.jpg",
+    },
+};
 
 We wanted to share our analysis of the swe-bench-lite dataset, providing more context to the kind of questions swe-bench-lite analyses and how Aide's agentic framework performs autonomously.
 Our agentic framework works in the context of a code editor, and we today power an `agent 444` functionality with read only access to these agents.
@@ -21,6 +21,7 @@ Our agentic framework works in the context of a code editor, and we today power 
 We score 42% on the benchmark establishing the new State-of-the-Art for agentic coding with some gotchas. We believe it is important to recognise the problems we missed and understand the reason behind it.
 
 ## Repo divide
+
 Swe-bench-lite consists of 300 questions divided amongst repos as shown below:
 
 ![Pie chart showing questions per repository](/assets/blog/swe-bench-lite-analysis/pie-chart.png)
@@ -57,6 +58,7 @@ Since the agents are free to talk to each other and ask for edits, we noticed ca
 Since we are using Sonnet3.5 another challenge here is that agents work in parallel, this leads to some cases where a helper function gets created in another code location, but is not used as part of the final solution. In particular if you look at our submission for `django__django-16379` , we create a helper function called: `_open_and_lock` but do not use it for the final git-patch in `has_key`
 
 ## LLMs can AC test
+
 Given their extensive world knowledge, LLMs can sometimes pick up on world knowledge and resolve a bug using “hacks”. An example of this is `matplotlib__matplotlib-24970` where the agent decided to convert the value to int32 while working in a uint8 space
 
 LLMs can also learn from patterns present in the code, in `django__django-14580` we saw the LLM add a very peculiar looking import at a code location:
@@ -99,4 +101,3 @@ To combat this issue, we are working on our own dataset of a variety of language
 If you would like to discuss ideas or just follow us along as we build this, [you can find us on our discord server](https://discord.gg/mtgrhXM5Xf). We believe there is lots to do for developers and agents to work together in the editor and we are excited to hear from everyone!
 
 [You can also sign-up for our waitlist over here](https://aide.dev/#waitlist). We are making swift progress on the editor side of things and have something interesting to show you!
-

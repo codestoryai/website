@@ -3,7 +3,7 @@ import { handleAuth } from "@workos-inc/authkit-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-const cookieName = 'wos-session';
+const cookieName = "wos-session";
 export async function GET(request: NextRequest) {
     // Let the WorkOS SDK handle the callback
     const response = await handleAuth({ returnPathname: "/account" })(request);
@@ -15,15 +15,16 @@ export async function GET(request: NextRequest) {
         return NextResponse.json(
             {
                 error: {
-                    message: 'Something went wrong',
-                    description: 'Couldn’t sign in. If you are not sure what happened, please contact your organization admin.',
-                }
+                    message: "Something went wrong",
+                    description:
+                        "Couldn’t sign in. If you are not sure what happened, please contact your organization admin.",
+                },
             },
             { status: 500 }
-        )
+        );
     }
     const data = await unsealData<Session>(cookie.value, {
-        password: cookiePassword
+        password: cookiePassword,
     });
 
     try {
@@ -31,11 +32,11 @@ export async function GET(request: NextRequest) {
         const createUserResponse = await fetch(
             `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/users`,
             {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${data.accessToken}`
-                }
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${data.accessToken}`,
+                },
             }
         );
 
@@ -43,9 +44,10 @@ export async function GET(request: NextRequest) {
             return NextResponse.json(
                 {
                     error: {
-                        message: 'Failed to create user',
-                        description: 'The user could not be created. Please try again.'
-                    }
+                        message: "Failed to create user",
+                        description:
+                            "The user could not be created. Please try again.",
+                    },
                 },
                 { status: 500 }
             );
@@ -53,13 +55,13 @@ export async function GET(request: NextRequest) {
 
         const createUserData = await createUserResponse.json();
     } catch (error) {
-        console.error('Error creating user:', error);
+        console.error("Error creating user:", error);
         return NextResponse.json(
             {
                 error: {
-                    message: 'Failed to create user',
-                    description: error
-                }
+                    message: "Failed to create user",
+                    description: error,
+                },
             },
             { status: 500 }
         );

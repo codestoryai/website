@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { scrollToBottom } from '@/lib/utils'
+import { Button } from "@/components/ui/button";
+import { scrollToBottom } from "@/lib/utils";
 
 export default function DownloadScroll() {
     return (
@@ -12,5 +12,5 @@ export default function DownloadScroll() {
         >
             Looking for a different platform?
         </Button>
-    )
+    );
 }
