@@ -38,11 +38,11 @@ const fallbackDownloads = {
 }
 
 export const fetchLatestRelease = async (): Promise<Downloads> => {
-  const downloads: DeepPartial<Downloads> = {}
+  let downloads: DeepPartial<Downloads> = {}
   try {
     const response = await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
     if (!response.ok) {
-      return fallbackDownloads
+      downloads = fallbackDownloads
     }
     const releases = await response.json() as GithubRelease[]
 
@@ -217,12 +217,12 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
         }
       }
     } else {
-      return fallbackDownloads
+      downloads = fallbackDownloads
     }
 
   } catch (err) {
     console.log(err)
-    return fallbackDownloads;
+    downloads = fallbackDownloads;
   }
 
   const device = await getDevice()
