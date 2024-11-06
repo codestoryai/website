@@ -25,7 +25,7 @@ interface HeaderProps {
 
 export default function Header({ user, logoSuffix }: HeaderProps) {
   return (
-    <div className="absolute w-screen">
+    <div className="absolute w-screen retro-navbar">
       <div className="max-w-screen-2xl m-auto p-8 md:p-12 flex items-center justify-between text-2xl">
         <div className="flex items-center">
           <Link className="flex items-center" href="/">

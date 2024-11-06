@@ -49,3 +49,20 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* Retro styling for navbar */
+.retro-navbar {
+  background-color: #f4f4f4;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid #000;
+}
+
+.retro-navbar a {
+  color: #000;
+  text-decoration: none;
+}
+
+.retro-navbar a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
