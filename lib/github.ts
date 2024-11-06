@@ -1,12 +1,50 @@
 import { Asset, Downloads, GithubRelease } from './types'
 import { getDevice } from './ua'
 
+const fallbackDownloads = {
+  'macOS': {
+    amd64: {
+      dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.x64.1.94.2.24311.dmg',
+      zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-x64-1.94.2.24311.zip'
+    },
+    arm64: {
+      dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.arm64.1.94.2.24311.dmg',
+      zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-arm64-1.94.2.24311.zip'
+    }
+  },
+  'Windows': {
+    amd64: {
+      systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-x64-1.94.2.24311.exe',
+      userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-x64-1.94.2.24311.exe',
+      zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-x64-1.94.2.24311.zip'
+    },
+    arm64: {
+      systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-arm64-1.94.2.24311.exe',
+      userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-arm64-1.94.2.24311.exe',
+      zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-arm64-1.94.2.24311.zip'
+    }
+  },
+  'Linux': {
+    amd64: {
+      tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-x64-1.94.2.24311.tar.gz'
+    },
+    armhf: {
+      tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-armhf-1.94.2.24311.tar.gz'
+    },
+    arm64: {
+      tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-arm64-1.94.2.24311.tar.gz'
+    }
+  }
+}
+
 export const fetchLatestRelease = async (): Promise<Downloads> => {
   const downloads: DeepPartial<Downloads> = {}
   try {
-    const releases = (await (
-      await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
-    ).json()) as GithubRelease[]
+    const response = await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
+    if (!response.ok) {
+      return fallbackDownloads
+    }
+    const releases = await response.json() as GithubRelease[]
 
     if (releases) {
       if ('message' in releases) {
@@ -178,45 +216,13 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
           break
         }
       }
+    } else {
+      return fallbackDownloads
     }
 
   } catch (err) {
     console.log(err)
-    return {
-      'macOS': {
-        amd64: {
-          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.x64.1.94.2.24311.dmg',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-x64-1.94.2.24311.zip'
-        },
-        arm64: {
-          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide.arm64.1.94.2.24311.dmg',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-darwin-arm64-1.94.2.24311.zip'
-        }
-      },
-      'Windows': {
-        amd64: {
-          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-x64-1.94.2.24311.exe',
-          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-x64-1.94.2.24311.exe',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-x64-1.94.2.24311.zip'
-        },
-        arm64: {
-          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideSetup-arm64-1.94.2.24311.exe',
-          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/AideUserSetup-arm64-1.94.2.24311.exe',
-          zip: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-win32-arm64-1.94.2.24311.zip'
-        }
-      },
-      'Linux': {
-        amd64: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-x64-1.94.2.24311.tar.gz'
-        },
-        armhf: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-armhf-1.94.2.24311.tar.gz'
-        },
-        arm64: {
-          tar: 'https://github.com/codestoryai/binaries/releases/download/1.94.2.24311/Aide-linux-arm64-1.94.2.24311.tar.gz'
-        }
-      }
-    };
+    return fallbackDownloads;
   }
 
   const device = await getDevice()
