@@ -208,8 +208,8 @@ export default function Component({
                                             </div>                                           
                                         </div>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card>
+                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                        <Card className="w-full">
                                             <div className="relative aspect-[2/1] overflow-hidden rounded-lg">
                                                 <div style={{ position: "relative", paddingTop: "49.815498154981555%" }}>
                                                     <iframe
@@ -238,8 +238,8 @@ export default function Component({
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card>
+                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                        <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                                 <div style={{ position: "relative", paddingTop: "59.471365638766514%" }}>
                                                     <iframe
@@ -307,8 +307,8 @@ export default function Component({
                                             Chat about a problem by @&rsquo;ting the file(s) and then jump into edits, or go from a smaller set of edits and discuss their side-effects.
                                         </p>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card>
+                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                        <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                                 <div className="relative" style={{ paddingTop: "59.471365638766514%" }}>
                                                     <iframe
@@ -337,8 +337,8 @@ export default function Component({
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
                                 <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card>
+                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                        <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
                                                 <div className="relative" style={{ paddingTop: "63.52941176470588%" }}>
                                                     <iframe
@@ -393,8 +393,8 @@ export default function Component({
                                             subscription, sharing some data with us).
                                         </p>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none">
-                                        <Card className="border-0 rounded-[9px] overflow-hidden">
+                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                        <Card className="border-0 rounded-[9px] overflow-hidden w-full">
                                             <div className="relative aspect-video overflow-hidden">
                                                 <Image
                                                     alt="Placeholder"
