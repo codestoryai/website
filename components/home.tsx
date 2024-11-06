@@ -31,29 +31,45 @@ export default function Component({
         <div className="bg-background bg-noise">
             <div className="flex min-h-screen flex-col">
                 <main className="flex-1">
-                    <section className="w-full bg-gray-100 px-2 pt-36 pb-16">
+                    <section className="w-full bg-gray-100 px-2 pb-16 pt-36">
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center space-y-4 text-center">
                                 <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                                    The open-source <span className="text-gray-700">AI</span>-native I<span className="text-gray-700">DE</span>.
+                                    The open-source{" "}
+                                    <span className="text-gray-700">AI</span>
+                                    -native I
+                                    <span className="text-gray-700">DE</span>.
                                 </h1>
                                 <p className="mx-auto max-w-[700px] text-gray-600 md:text-2xl">
-                                    Powered by the state-of-the-art agentic framework on swebench-lite
+                                    Powered by the state-of-the-art agentic
+                                    framework on swebench-lite
                                 </p>
                                 <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     {deviceDetails ? (
                                         <React.Fragment>
                                             {deviceDetails.os === "Linux" && (
                                                 <CopyText textToCopy="curl -sL https://raw.githubusercontent.com/codestoryai/binaries/main/linux/linux_install.sh | bash">
-                                                    <CopyTextButton className={cn(buttonVariants({ className: "w-full bg-green-600 hover:bg-green-700 sm:w-72" }))}>
+                                                    <CopyTextButton
+                                                        className={cn(
+                                                            buttonVariants({
+                                                                className:
+                                                                    "w-full bg-green-600 hover:bg-green-700 sm:w-72",
+                                                            })
+                                                        )}
+                                                    >
                                                         <div className="flex items-center justify-center">
                                                             <div className="flex flex-col">
                                                                 <p className="text-xl">
-                                                                    Copy curl for{" "}
-                                                                    {deviceDetails.os}
+                                                                    Copy curl
+                                                                    for{" "}
+                                                                    {
+                                                                        deviceDetails.os
+                                                                    }
                                                                 </p>
                                                                 <p>
-                                                                    {deviceDetails.arch}
+                                                                    {
+                                                                        deviceDetails.arch
+                                                                    }
                                                                 </p>
                                                             </div>
                                                             <ClipboardCopy className="ml-4" />
@@ -68,10 +84,14 @@ export default function Component({
                                                             <div className="flex flex-col">
                                                                 <p className="text-xl">
                                                                     Download for{" "}
-                                                                    {deviceDetails.os}
+                                                                    {
+                                                                        deviceDetails.os
+                                                                    }
                                                                 </p>
                                                                 <p>
-                                                                    {deviceDetails.arch}
+                                                                    {
+                                                                        deviceDetails.arch
+                                                                    }
                                                                 </p>
                                                             </div>
                                                             <Download className="ml-4" />
@@ -85,13 +105,14 @@ export default function Component({
                                     )}
                                     <Button
                                         variant="outline"
-                                        className="w-full text-xl sm:w-72"
+                                        className="w-full p-0 text-xl sm:w-72"
                                     >
-                                        <Link href="https://github.com/codestoryai/aide">
-                                            <div className="flex items-center justify-center">
-                                                <p>View on GitHub</p>
-                                                <Github className="ml-4" />
-                                            </div>
+                                        <Link
+                                            href="https://github.com/codestoryai/aide"
+                                            className="flex h-full w-full items-center justify-center"
+                                        >
+                                            <p>View on GitHub</p>
+                                            <Github className="ml-4" />
                                         </Link>
                                     </Button>
                                 </div>
@@ -103,7 +124,14 @@ export default function Component({
                                         <iframe
                                             src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/e1ae149c3dcb77da9b82b379bb6fd194/iframe?autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fe1ae149c3dcb77da9b82b379bb6fd194%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
                                             loading="lazy"
-                                            style={{ border: "none", position: "absolute", top: "0", left: "0", height: "100%", width: "100%" }}
+                                            style={{
+                                                border: "none",
+                                                position: "absolute",
+                                                top: "0",
+                                                left: "0",
+                                                height: "100%",
+                                                width: "100%",
+                                            }}
                                             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                                             allowFullScreen
                                         ></iframe>
@@ -171,12 +199,12 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="space-y-4 mt-1">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="mt-1 space-y-4">
                                         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             A{" "}
                                             <span className="relative inline-block">
-                                               proactive
+                                                proactive
                                                 <svg
                                                     className="absolute -bottom-2 left-0 -z-10 h-4 w-full"
                                                     viewBox="0 0 300 20"
@@ -194,10 +222,14 @@ export default function Component({
                                             agent
                                         </h2>
                                         <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            Aide proactively{" "}<b>proposes fixes</b> or asks to include
-                                            files that may be missing in the context. Our agent can do
-                                            so by{" "}<b>iterating on linter errors</b> and pulling in
-                                            relevant context{" "}<b>using LSP tools</b>, like “Go to references”.
+                                            Aide proactively{" "}
+                                            <b>proposes fixes</b> or asks to
+                                            include files that may be missing in
+                                            the context. Our agent can do so by{" "}
+                                            <b>iterating on linter errors</b>{" "}
+                                            and pulling in relevant context{" "}
+                                            <b>using LSP tools</b>, like “Go to
+                                            references”.
                                         </p>
                                         <blockquote className="pt-8 text-base leading-snug lg:leading-normal xl:text-lg">
                                             What if LLMs could make edits across
@@ -227,19 +259,26 @@ export default function Component({
                                             />
                                             <div className="text-gray-500">
                                                 Sandeep, CEO @ CodeStory
-                                            </div>                                           
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                    <div className="relative w-full max-w-[600px] lg:max-w-none">
                                         <Card className="w-full">
                                             <div className="relative aspect-[2/1] overflow-hidden rounded-lg">
-                                                <div style={{ position: "relative", paddingTop: "49.815498154981555%" }}>
+                                                <div
+                                                    style={{
+                                                        position: "relative",
+                                                        paddingTop:
+                                                            "49.815498154981555%",
+                                                    }}
+                                                >
                                                     <iframe
                                                         src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/c77dac4339078b11fcc369d5544ac498/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fc77dac4339078b11fcc369d5544ac498%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
                                                         loading="lazy"
                                                         style={{
                                                             border: "none",
-                                                            position: "absolute",
+                                                            position:
+                                                                "absolute",
                                                             top: "0",
                                                             left: "0",
                                                             height: "100%",
@@ -259,17 +298,24 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="relative w-full max-w-[600px] lg:max-w-none">
                                         <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <div style={{ position: "relative", paddingTop: "59.471365638766514%" }}>
+                                                <div
+                                                    style={{
+                                                        position: "relative",
+                                                        paddingTop:
+                                                            "59.471365638766514%",
+                                                    }}
+                                                >
                                                     <iframe
                                                         src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/3bd2263a82733ba0eebb0dc8513653ad/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2F3bd2263a82733ba0eebb0dc8513653ad%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
                                                         loading="lazy"
                                                         style={{
                                                             border: "none",
-                                                            position: "absolute",
+                                                            position:
+                                                                "absolute",
                                                             top: "0",
                                                             left: "0",
                                                             height: "100%",
@@ -283,7 +329,7 @@ export default function Component({
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-fuchsia-300" />
                                     </div>
-                                    <div className="space-y-4 mt-1">
+                                    <div className="mt-1 space-y-4">
                                         <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             Developer
                                             <span className="relative inline-block">
@@ -305,11 +351,14 @@ export default function Component({
                                                 control
                                             </span>
                                         </h2>
-                                        <p className="text-left mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            Go ahead, do AI-edits on top of your coding session.
-                                            We keep slim, VS Code-native checkpoints (we don&rsquo;t use git)
-                                            to {" "}<b>easily roll back</b> to previous states,
-                                            in case the agent made any mistake.
+                                        <p className="mx-auto max-w-[700px] text-left md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                            Go ahead, do AI-edits on top of your
+                                            coding session. We keep slim, VS
+                                            Code-native checkpoints (we
+                                            don&rsquo;t use git) to{" "}
+                                            <b>easily roll back</b> to previous
+                                            states, in case the agent made any
+                                            mistake.
                                         </p>
                                     </div>
                                 </div>
@@ -318,27 +367,39 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="space-y-4 mt-1">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="mt-1 space-y-4">
                                         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
-                                            Brainstorm, then edit.<br />
+                                            Brainstorm, then edit.
+                                            <br />
                                             Or the other way around.
                                         </h2>
                                         <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            We try to make Aide feel like a real engineer to pair-program with.
-                                            Chat about a problem by @&rsquo;ting the file(s) and then jump into edits, or go from a smaller set of edits and discuss their side-effects.
+                                            We try to make Aide feel like a real
+                                            engineer to pair-program with. Chat
+                                            about a problem by @&rsquo;ting the
+                                            file(s) and then jump into edits, or
+                                            go from a smaller set of edits and
+                                            discuss their side-effects.
                                         </p>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                    <div className="relative w-full max-w-[600px] lg:max-w-none">
                                         <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <div className="relative" style={{ paddingTop: "59.471365638766514%" }}>
+                                                <div
+                                                    className="relative"
+                                                    style={{
+                                                        paddingTop:
+                                                            "59.471365638766514%",
+                                                    }}
+                                                >
                                                     <iframe
                                                         src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/b163cf1e004375f5b3be057d862352ab/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fb163cf1e004375f5b3be057d862352ab%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
                                                         loading="lazy"
                                                         style={{
                                                             border: "none",
-                                                            position: "absolute",
+                                                            position:
+                                                                "absolute",
                                                             top: "0",
                                                             left: "0",
                                                             height: "100%",
@@ -358,17 +419,24 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
+                                <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="relative w-full max-w-[600px] lg:max-w-none">
                                         <Card className="w-full">
                                             <div className="relative aspect-video overflow-hidden rounded-lg">
-                                                <div className="relative" style={{ paddingTop: "63.52941176470588%" }}>
+                                                <div
+                                                    className="relative"
+                                                    style={{
+                                                        paddingTop:
+                                                            "63.52941176470588%",
+                                                    }}
+                                                >
                                                     <iframe
                                                         src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/62cb603a83e154a9677bdc9062589cd7/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2F62cb603a83e154a9677bdc9062589cd7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
                                                         loading="lazy"
                                                         style={{
                                                             border: "none",
-                                                            position: "absolute",
+                                                            position:
+                                                                "absolute",
                                                             top: "0",
                                                             left: "0",
                                                             height: "100%",
@@ -382,16 +450,17 @@ export default function Component({
                                         </Card>
                                         <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-yellow-300" />
                                     </div>
-                                    <div className="space-y-4 mt-1">
+                                    <div className="mt-1 space-y-4">
                                         <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             Quick invoke
                                         </h2>
-                                        <p className="text-left mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            Taking inspiration from MacOS spotlight,
-                                            we created a floating widget you can
-                                            invoke with <Kbd>CMD + K</Kbd>.
-                                            If you have a text selection active,
-                                            you quickly prompt a change for it.
+                                        <p className="mx-auto max-w-[700px] text-left md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                                            Taking inspiration from MacOS
+                                            spotlight, we created a floating
+                                            widget you can invoke with{" "}
+                                            <Kbd>CMD + K</Kbd>. If you have a
+                                            text selection active, you quickly
+                                            prompt a change for it.
                                         </p>
                                     </div>
                                 </div>
@@ -400,31 +469,34 @@ export default function Component({
 
                         <section className="relative w-full py-12 md:py-24">
                             <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-                                    <div className="space-y-4 mt-1">
+                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="mt-1 space-y-4">
                                         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             Galaxy brain. Local-first.
                                         </h2>
                                         <p className="mx-auto max-w-[700px] md:text-lg/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                            We ship a binary called{" "}<b>sidecar</b>{" "}
-                                            which takes care of preparing and sending
-                                            prompts to LLMs, as well as giving them
-                                            access to editor features. You get
-                                            {" "}<b>full control</b> over the prompts
+                                            We ship a binary called{" "}
+                                            <b>sidecar</b> which takes care of
+                                            preparing and sending prompts to
+                                            LLMs, as well as giving them access
+                                            to editor features. You get{" "}
+                                            <b>full control</b> over the prompts
                                             and responses (unless you choose our
-                                            subscription, sharing some data with us).
+                                            subscription, sharing some data with
+                                            us).
                                         </p>
                                     </div>
-                                    <div className="relative max-w-[600px] lg:max-w-none w-full">
-                                        <Card className="border-0 rounded-[9px] overflow-hidden w-full">
+                                    <div className="relative w-full max-w-[600px] lg:max-w-none">
+                                        <Card className="w-full overflow-hidden rounded-[9px] border-0">
                                             <div className="relative aspect-video overflow-hidden">
                                                 <Image
                                                     alt="Placeholder"
-                                                    className="object-cover w-full h-full"
+                                                    className="h-full w-full object-cover"
                                                     src="/sidecar-infographic.png"
                                                     style={{
                                                         objectFit: "cover",
-                                                        objectPosition: "bottom left",
+                                                        objectPosition:
+                                                            "bottom left",
                                                     }}
                                                     fill
                                                 />
@@ -489,7 +561,7 @@ export default function Component({
                         </section>
                     </div>
 
-                    <section className="relative w-full px-4 pt-12 pb-12 md:pt-24">
+                    <section className="relative w-full px-4 pb-12 pt-12 md:pt-24">
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center justify-center space-y-4 text-center">
                                 <h2 className="text-2xl font-bold tracking-tighter sm:text-5xl">
@@ -547,23 +619,23 @@ export default function Component({
                                     love.
                                 </p>
                                 <p className="max-w-[720px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                Talk directly to the developers at{" "}
-                                <a
-                                    href="mailto:team@codestory.ai"
-                                    className="font-bold underline underline-offset-2"
-                                >
-                                    team@codestory.ai
-                                </a>{" "}
-                                or on{" "}
-                                <Link
-                                    className="font-bold underline underline-offset-2"
-                                    href="https://discord.gg/mtgrhXM5Xf"
-                                >
-                                    Discord
-                                </Link>
-                                . Shape the future of the development of Aide
-                                with us.
-                            </p>
+                                    Talk directly to the developers at{" "}
+                                    <a
+                                        href="mailto:team@codestory.ai"
+                                        className="font-bold underline underline-offset-2"
+                                    >
+                                        team@codestory.ai
+                                    </a>{" "}
+                                    or on{" "}
+                                    <Link
+                                        className="font-bold underline underline-offset-2"
+                                        href="https://discord.gg/mtgrhXM5Xf"
+                                    >
+                                        Discord
+                                    </Link>
+                                    . Shape the future of the development of
+                                    Aide with us.
+                                </p>
                             </div>
                         </div>
                         <div className="container px-4 md:px-6">
@@ -571,7 +643,7 @@ export default function Component({
                                 <p className="mt-16 text-center text-2xl font-extrabold sm:text-3xl">
                                     Downloads
                                 </p>
-                                <div className="my-8 max-w-screen-lg grid w-full gap-8 md:grid-cols-3">
+                                <div className="my-8 grid w-full max-w-screen-lg gap-8 md:grid-cols-3">
                                     <div className="flex flex-col items-center">
                                         <h4 className="mb-4 text-xl font-bold">
                                             MacOS
