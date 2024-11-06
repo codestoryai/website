@@ -4,6 +4,7 @@ import { Downloads } from "@/lib/types";
 import { DeviceDetails } from "@/lib/ua";
 import {
     Brain,
+    ClipboardCopy,
     Code,
     Download,
     Github,
@@ -17,6 +18,7 @@ import Link from "next/link";
 import React from "react";
 import DownloadScroll from "./downloadscroll";
 import { Kbd } from "./ui/kbd";
+import CopyText from "./ui/copy-text";
 
 interface ComponentProps {
     deviceDetails: DeviceDetails | undefined;
@@ -42,21 +44,40 @@ export default function Component({
                                 </p>
                                 <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     {deviceDetails ? (
+                                        
                                         <Button className="w-full bg-green-600 hover:bg-green-700 sm:w-72">
-                                            <a href={deviceDetails.url}>
-                                                <div className="flex items-center justify-center">
-                                                    <div className="flex flex-col">
-                                                        <p className="text-xl">
-                                                            Download for{" "}
-                                                            {deviceDetails.os}
-                                                        </p>
-                                                        <p>
-                                                            {deviceDetails.arch}
-                                                        </p>
+                                            {deviceDetails.os === "Linux" && (
+                                                <CopyText textToCopy="curl -sL https://raw.githubusercontent.com/codestoryai/binaries/main/linux/linux_install.sh | bash">
+                                                    <div className="flex items-center justify-center">
+                                                        <div className="flex flex-col">
+                                                            <p className="text-xl">
+                                                                Copy curl for{" "}
+                                                                {deviceDetails.os}
+                                                            </p>
+                                                            <p>
+                                                                {deviceDetails.arch}
+                                                            </p>
+                                                        </div>
+                                                        <ClipboardCopy className="ml-4" />
                                                     </div>
-                                                    <Download className="ml-4" />
-                                                </div>
-                                            </a>
+                                                </CopyText>
+                                            )}
+                                            {deviceDetails.os !== "Linux" && (
+                                                <a href={deviceDetails.url}>
+                                                    <div className="flex items-center justify-center">
+                                                        <div className="flex flex-col">
+                                                            <p className="text-xl">
+                                                                Download for{" "}
+                                                                {deviceDetails.os}
+                                                            </p>
+                                                            <p>
+                                                                {deviceDetails.arch}
+                                                            </p>
+                                                        </div>
+                                                        <Download className="ml-4" />
+                                                    </div>
+                                                </a>
+                                            )}
                                         </Button>
                                     ) : (
                                         <div className="w-full sm:w-72" />
