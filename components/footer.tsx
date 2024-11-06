@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export default function Footer() {
-  
+
 
   const pathname = usePathname()
   const isBlogPost = pathname.startsWith('/blog/')
@@ -40,7 +40,7 @@ export default function Footer() {
             <Link className="hover:text-primary font-medium" href="/blog">Blog</Link>
           </div>
           <div className="flex gap-8 justify-center md:justify-start items-center md:ml-auto">
-            <Link className="hover:text-primary" href="https://twitter.com/codestoryai" rel="noopener noreferrer" target="_blank">
+            <Link className="hover:text-primary" href="https://twitter.com/aide_dev" rel="noopener noreferrer" target="_blank">
               <Image
                   alt="X (previously Twitter) Link"
                   height={20}
