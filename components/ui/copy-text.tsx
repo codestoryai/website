@@ -18,7 +18,8 @@ function useCopyText(): CopyTextContent {
   return contextValue
 }
 
-function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+
+export function CopyTextButton(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const { children, ...rest } = props
   const { handleCopy } = useCopyText()
 
@@ -31,7 +32,7 @@ function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
 
 type ReactChildrenOrFunction<T> = React.ReactNode | string | ((T: any) => React.ReactNode | string)
 
-function Message(props: { children: ReactChildrenOrFunction<boolean>}) {
+export function CopyTextMessage(props: { children: ReactChildrenOrFunction<boolean>}) {
   const { children } = props
   const { showMessage } = useCopyText()
   const isFunction = typeof children === 'function'
@@ -48,7 +49,7 @@ type CopyTextProps = React.ButtonHTMLAttributes<HTMLElement> & {
   delay?: number,
 }
 
-export default function CopyText(props: CopyTextProps) {
+export function CopyText(props: CopyTextProps) {
   const {
     as = 'span',
     textToCopy: providedText,
@@ -72,6 +73,7 @@ export default function CopyText(props: CopyTextProps) {
   }, [showMessage, delay])
 
   function handleCopy(event: React.MouseEvent<HTMLButtonElement>) {
+    console.log('copying', textToCopy);
     event.preventDefault()
     navigator.clipboard.writeText(textToCopy)
     setShowMessage(true)
@@ -89,6 +91,3 @@ export default function CopyText(props: CopyTextProps) {
     </CopyTextContext.Provider>
   )
 }
-
-CopyText.Message = Message
-CopyText.Button = Button
