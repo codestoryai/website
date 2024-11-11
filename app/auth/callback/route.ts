@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
             );
         }
 
-        const createUserData = await createUserResponse.json();
+        await createUserResponse.json();
     } catch (error) {
         console.error("Error creating user:", error);
         return NextResponse.json(
