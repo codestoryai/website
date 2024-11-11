@@ -22,7 +22,7 @@ export default function RedirectPage() {
         ) {
             removeStateId();
             fetch(
-                `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/auth/editor?code=${authorizationCode}`
+                `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/auth/editor?code=${authorizationCode}&state=${stateId}`
             ).then(async (res) => {
                 if (res.ok) {
                     const { redirectURL } = await res.json();
