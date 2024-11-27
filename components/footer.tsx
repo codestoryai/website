@@ -39,14 +39,6 @@ export default function Footer() {
                     <div className="flex justify-center gap-8 translate-y-[3px]">
                         <Link
                             className="font-medium hover:text-primary"
-                            href="https://docs.codestory.ai"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            Docs
-                        </Link>
-                        <Link
-                            className="font-medium hover:text-primary"
                             href="https://github.com/codestoryai/binaries/releases"
                             rel="noopener noreferrer"
                             target="_blank"

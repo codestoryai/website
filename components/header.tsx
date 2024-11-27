@@ -79,16 +79,6 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink
-                                    className={navigationMenuTriggerStyle()}
-                                    href="https://docs.codestory.ai"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    Docs
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
                                 <NavigationMenuTrigger>
                                     About
                                 </NavigationMenuTrigger>
