@@ -13,7 +13,7 @@ export const getPosts = cache(async () => {
                 const filePath = `./posts/${file}`;
                 const postContent = await fs.readFile(filePath, "utf8");
                 const metadata = postContent.match(
-                    /export const metadata = {([\s\S]*?)^}/m
+                    /export const metadata = {([\s\S]*?)^};/m
                 )?.[0];
                 if (!metadata) {
                     return null;
@@ -22,12 +22,13 @@ export const getPosts = cache(async () => {
                 const metadataString = metadata.replace(
                     "export const metadata = ",
                     ""
-                );
+                ).replace(/;$/, ""); // Remove trailing semicolon for eval
                 const metadataObject = eval(
                     `(${metadataString})`
                 ) as PostMetadata;
 
-                const content = postContent.replace(metadata, "");
+                const content = postContent.replace(metadata, "").trim();
+
 
                 return {
                     slug: file.replace(".mdx", ""),
