@@ -37,6 +37,55 @@ html {
         --ring: 240 10% 3.9%;
 
         --radius: 0.5rem;
+
+        /* Typography Scale */
+        --font-sans: 'Fira Sans', system-ui, -apple-system, sans-serif;
+        --font-mono: ui-monospace, 'SF Mono', monospace;
+
+        /* Font Sizes */
+        --text-xs: 0.75rem;
+        --text-sm: 0.875rem;
+        --text-base: 1rem;
+        --text-lg: 1.125rem;
+        --text-xl: 1.25rem;
+        --text-2xl: 1.5rem;
+        --text-3xl: 1.875rem;
+        --text-4xl: 2.25rem;
+        --text-5xl: 3rem;
+        --text-6xl: 3.75rem;
+
+        /* Line Heights */
+        --leading-none: 1;
+        --leading-tight: 1.25;
+        --leading-snug: 1.375;
+        --leading-normal: 1.5;
+        --leading-relaxed: 1.625;
+        --leading-loose: 2;
+
+        /* Letter Spacing */
+        --tracking-tighter: -0.05em;
+        --tracking-tight: -0.025em;
+        --tracking-normal: 0em;
+        --tracking-wide: 0.025em;
+        --tracking-wider: 0.05em;
+
+        /* Spacing Scale */
+        --spacing-0: 0;
+        --spacing-1: 0.25rem;
+        --spacing-2: 0.5rem;
+        --spacing-3: 0.75rem;
+        --spacing-4: 1rem;
+        --spacing-6: 1.5rem;
+        --spacing-8: 2rem;
+        --spacing-12: 3rem;
+        --spacing-16: 4rem;
+        --spacing-24: 6rem;
+        --spacing-32: 8rem;
+
+        /* Border Radius */
+        --radius-sm: 0.25rem;
+        --radius-lg: 0.75rem;
+        --radius-full: 9999px;
     }
 }
 
@@ -46,6 +95,16 @@ html {
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground font-sans;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
     }
 }

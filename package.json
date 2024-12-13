@@ -23,6 +23,7 @@
         "@workos-inc/node": "^7.13.0",
         "bright": "^0.8.5",
         "class-variance-authority": "^0.7.0",
+        "framer-motion": "^11.14.4",
         "lucide-react": "^0.395.0",
         "next": "14.2.5",
         "next-mdx-remote": "^5.0.0",
@@ -40,8 +41,8 @@
     },
     "devDependencies": {
         "@types/node": "^20",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
+        "@types/react": "^18.3.16",
+        "@types/react-dom": "^18.3.5",
         "@types/uuid": "^10.0.0",
         "eslint": "^8",
         "eslint-config-next": "14.2.4",

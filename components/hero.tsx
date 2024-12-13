@@ -7,53 +7,58 @@ import {
 } from "@/components/ui/tooltip";
 import React from "react";
 import { Video } from "./video";
+import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <div className="bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
-            <div className="m-auto my-6 flex max-w-screen-xl flex-col md:my-12">
-                <p className="text-4xl font-semibold text-foreground md:text-5xl">
-                    Code with the <span className="text-primary">speed</span>{" "}
-                    and <span className="text-primary">knowledge</span> of the
-                    best programmer you know.{" "}
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <span className="underline decoration-2 underline-offset-4 md:underline-offset-8">
-                                Aide
-                            </span>
-                        </TooltipTrigger>
-                        <TooltipContent side="bottom">
-                            <span className="text-xl">AI + IDE</span>
-                        </TooltipContent>
-                    </Tooltip>{" "}
-                    is by your side.
-                </p>
-                {/*deviceDetails
-          ?
-          <div className="my-8 hidden md:flex flex-col items-center w-fit">
-            <Button size="lg" variant="outline">
-              <a href={deviceDetails.url}>
-                <div className="flex items-center">
-                  <div className="flex flex-col">
-                    <p className="text-3xl">Download for {deviceDetails.os}</p>
-                    <p className="text-lg">{deviceDetails.arch}</p>
-                  </div>
-                  <Download className="ml-4" />
-                </div>
-              </a>
-            </Button>
-            <Button className="text-md text-foreground" onClick={scrollToBottom} variant="link">
-              Looking for a different platform?
-            </Button>
-          </div>
-          :
-          <div />
-        */}
+        <div className="relative bg-background bg-noise">
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
 
-                <Video
-                    className="mt-8 rounded-lg border shadow-xl"
-                    src="/probe-walk-through.mp4"
-                />
+            <div className="relative px-6 pt-24 md:px-12 md:pt-32 lg:pt-40">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="mx-auto max-w-screen-xl"
+                >
+                    <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:leading-tight">
+                        Code with the{" "}
+                        <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                            speed
+                        </span>{" "}
+                        and{" "}
+                        <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                            knowledge
+                        </span>{" "}
+                        of the best programmer you know.{" "}
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <span className="cursor-pointer bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent underline decoration-secondary decoration-2 underline-offset-4 transition-all hover:decoration-4 md:underline-offset-8">
+                                    Aide
+                                </span>
+                            </TooltipTrigger>
+                            <TooltipContent
+                                side="bottom"
+                                className="animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
+                            >
+                                <span className="text-xl font-semibold">AI + IDE</span>
+                            </TooltipContent>
+                        </Tooltip>{" "}
+                        is by your side.
+                    </h1>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mt-12 md:mt-16"
+                    >
+                        <Video
+                            className="rounded-xl border shadow-2xl transition-transform duration-300 hover:scale-[1.02]"
+                            src="/probe-walk-through.mp4"
+                        />
+                    </motion.div>
+                </motion.div>
             </div>
         </div>
     );
