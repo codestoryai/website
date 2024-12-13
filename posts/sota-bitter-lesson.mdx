@@ -1,0 +1,100 @@
+export const metadata = {
+    title: "swebench-verified SOTA: The Bitter Lesson",
+    excerpt:
+        "Searching code is an important part of every developer's workflow. We're trying to make it better.",
+    coverImage: "/assets/blog/sota-bitter-lesson/Frame_23.png",
+    date: "2024-12-13T11:42:00.000Z",
+    author: {
+        name: "Sandeep Kumar Pani",
+        picture: "/assets/blog/authors/sandeep.jpg",
+        twitter: "https://x.com/skcd42",
+        linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani/",
+        github: "https://github.com/theskcd",
+    },
+    ogImage: {
+        url: "/assets/blog/sota-bitter-lesson/Frame_23.png",
+    },
+};
+
+# SOTA on swebench-verified: (re)learning the bitter lesson
+
+Aide is now the SOTA on swebench-verified, resolving 62% of the issues on the benchmark. We did this by scaling our agent on test time inference and re-learning the [**bitter lesson**](https://web.archive.org/web/20241209013151/http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
+
+\> The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.
+
+In the midst of this exploration, we also developed an [MCTS](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) framework for general software engineering challenges, which we later *dropped* in favour of test-time scaling. We used Sonnet 3.5 as the only LLM in our testing and were able to improve its performance from 26%\!
+
+## Agent setup
+
+To kick-start the agentic setup, we selected a few basic tools which our agent had access to. Instead of engineering too much on the tools, we decided on picking the simplest of the tools and used that to power our agent. We ended up giving the agent access to the following tools:
+
+- List Files  
+- Open File  
+- Str\_replace\_editor (Sonnet is pre-trained on this tool)  
+- Attempt Completion  
+- RipGrep search  
+- Terminal Access
+
+The only prior setup we had made at our end was to ensure the prerequisite set of python packages were available as part of the docker container which swebench-verified uses, thus eliminating the need for the agent to spend cycles just to fix environment problems.
+
+We also used Sonnet 3.5 to give itself a reward for the tool it was going to use. The reward scaling here is based on how effectively Sonnet 3.5 was able to leverage a tool in a given trajectory to move towards the final goal of solving the GitHub Issue.
+
+On top of this after each step the agent was free to generate an observation and an alternative action it could have taken. We wanted to give the LLM freedom to explore other approaches, even if it was on a deep trajectory.
+
+Towards the end of the whole trajectory of the agent, we take the mean score of the reward for each step the agent took and create a final score for the trajectory. This gave us a good idea of the effectiveness of the agent. The mean score here also made sure that if the trajectory was super long (≥ 20 steps) or very short (≤ 10 steps), we give them equal preference when selecting the final trajectory for the GitHub issue without over fitting on a particular style of trajectory.
+
+One of the most important learnings here was that Sonnet 3.5 is a serious workhorse. With our reward scaling in place, it would push through bad steps and still find ways to solve the problems. We were honestly surprised how effective Sonnet 3.5 was at solving these problems, despite not having test execution capability and being forced to write its own repro scripts.
+
+Below is a diagram which shows the number of steps Sonnet 3.5 took to solve a given problem in swebench-verified, with the highest being around **\<insert\_number\>**.
+
+## Midwit agent x3
+
+We implore you to read the bitter lesson, the TL;DR, for which is: *scale beats everything*.
+
+Instead of focussing on developing the best framework and being smart, we invested heavily in our infra setup (2 beefy VMs and 2 MacBook Pro M2 Max’s), all churning out tokens within the docker containers for solving swe-bench. The key driving principle, which Google also hinted at with their Gemini 2.0 Flash, AlphaGo, AlphaChess, and AlphaMaths releases, is that with scale, you can absolutely crush any problem.
+
+We noticed similar behaviour when running the agent multiple times in our testing on user queries. Given enough compute and no interaction from the user, a sufficiently smart LLM would find the answer. Our goal here is to give as much control over to the Language Model and let it dictate the trajectory instead of the framework itself. The framework in question was set to scale the Language Model and not constrain it.
+
+Our insight from running test time scaling is that the non-deterministic nature of LLMs requires a framework which exploits this nature via scaling and exhausting the solution space the LLM has access to instead of constraining it.
+
+We allowed the framework to run and generate at most **3 trajectories (which was within the token budget we were working with).**
+
+Having said that, we had various challenges as a small team in scaling the test time compute.
+
+## Challenges as a small team
+
+Scaling in a compute rich environment is more straightforward, not if you are a small startup who is token starved.
+
+We created multiple Anthropic accounts (hush…) and multiple VMs to scale out inference. This allowed us to extract the maximum tokens per second from Anthropic without running into significant errors while running the benchmark, and helped us iterate faster on the benchmark.
+
+PS: We also brought down the network from the office space we were working on while running the experiment, this was not fun for everyone involved but supremely satisfying.
+
+Sadly, even after putting ourselves in a token rich environment, we still got the occasional rate limits which lead to lower scores than what we would have ideally got.
+
+## MCTS
+
+When we originally planned on battle testing our agent, we were looking into MCTS as a framework to make our agent more robust. We quickly realized that even though MCTS sounds great in practice and worked really well, it would take too long to finish the task (1 hour vs 10 minutes of 3 Sonnet 3.5 runs happening in parallel).
+
+In light of this discovery, we decided to stop pursuing MCTS as a framework but kept the good parts, which are feedback generation and reward scaling from MCTS in our super simple framework which scaled with more compute.
+
+## Test Time Compute
+
+With o1 models and many providers doing native inference time scaling, the writing is on the wall that spending more compute on inference leads to better results on any given task. Alpha (Go|Code|Maths|Chess) have already proved that for their respective domain. With our SOTA submission, we want to further highlight this aspect.
+
+An interesting insight in software engineering is that once the developer environment is set up, we can run as many agents as the user would want (we call it industrialization of intelligence), and you can brute force your way to the solution.
+
+We at CodeStory are surprised and amazed at this learning. The surprise comes from the fact that for the better half of this year, we figured algorithmic smartness would yield better results. And we were left amazed at the learning that scaling inference could and does yield results which are SOTA.
+
+## Parting thoughts
+
+With the bitter lesson ringing true in our minds, now is as good a time to think about how software engineering will change with the coming of AI agents.
+
+I, personally, remember at times at Facebook when a SEV would require the whole team of engineers to take different strands to debug the issue, all of this feels trivial now that we can have 1000X the agents running in the cloud trying out different solutions to solve the problem.
+
+The idea that the dev environment can be duplicated so simply also implies that enterprises with a unified build and test environment like Buck2/Bazel/uv/cargo/yarn/npm would benefit immensely since a developer environment replication can be done in under a second. On the other hand, for the “real” real world, VM snapshotting and just having another checkout locally is an option as well, allowing you to enjoy the industrialization of intelligence and software engineering which is coming in hot.
+
+As a team who are heads down building an editor and deploying agents running locally, we are supremely excited by the learning. The 5-minute range of tasks are real and done everyday by developers, the question of where and how it will be solved is an interesting aspect which we want to further explore.
+
+For now, you can enjoy the same agent in our extension offering and very soon in our editor\!
+
+I hope this post and the experiment inspires you to look back at the exponential intelligence growth we have and tackle the domain-specific problems in the dumbest possible way with scale working in your favour.
