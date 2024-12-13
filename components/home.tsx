@@ -31,14 +31,14 @@ export default function Component({
         <div className="bg-background bg-noise">
             <div className="flex min-h-screen flex-col">
                 <main className="flex-1">
-                    <section className="w-full bg-gray-100 px-2 pb-16 pt-36">
-                        <div className="container px-4 md:px-6">
-                            <div className="flex flex-col items-center space-y-4 text-center">
-                                <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                    <section className="relative w-full bg-gradient-to-b from-gray-50 to-background px-4 pb-24 pt-36 sm:px-6 lg:px-8">
+                        <div className="mx-auto max-w-screen-xl">
+                            <div className="flex flex-col items-center space-y-6 text-center">
+                                <h1 className="text-balance text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none">
                                     The open-source{" "}
-                                    <span className="text-gray-700">AI</span>
+                                    <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">AI</span>
                                     -native I
-                                    <span className="text-gray-700">DE</span>.
+                                    <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">DE</span>.
                                 </h1>
                                 <p className="mx-auto max-w-[700px] text-gray-600 md:text-2xl">
                                     Powered by the state-of-the-art agentic
@@ -118,8 +118,8 @@ export default function Component({
                                 </div>
                                 <DownloadScroll />
                             </div>
-                            <div className="relative mx-auto mt-8 max-w-[1000px] px-4 sm:px-6">
-                                <Card className="overflow-hidden">
+                            <div className="relative mx-auto mt-12 max-w-[1000px] px-4 sm:px-6 lg:px-8">
+                                <Card className="overflow-hidden shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                                     <div className="relative pt-[57.446808510638306%]">
                                         <iframe
                                             src="https://customer-usdtusoutmmf2q7n.cloudflarestream.com/e1ae149c3dcb77da9b82b379bb6fd194/iframe?autoplay=true&poster=https%3A%2F%2Fcustomer-usdtusoutmmf2q7n.cloudflarestream.com%2Fe1ae149c3dcb77da9b82b379bb6fd194%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
@@ -137,7 +137,7 @@ export default function Component({
                                         ></iframe>
                                     </div>
                                 </Card>
-                                <div className="absolute -bottom-2 left-1/2 h-2 w-[90%] -translate-x-1/2 rounded-b-md bg-gray-300" />
+                                <div className="absolute -bottom-2 left-1/2 h-2 w-[95%] -translate-x-1/2 rounded-b-md bg-primary/20" />
                             </div>
 
                             <div className="mx-auto mt-8 max-w-[800px] px-4 text-center sm:px-6">
@@ -197,10 +197,10 @@ export default function Component({
                             />
                         </svg>
 
-                        <section className="relative w-full py-12 md:py-24">
-                            <div className="container px-4 md:px-6 2xl:px-12">
-                                <div className="flex flex-col-reverse items-center gap-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
-                                    <div className="mt-1 space-y-4">
+                        <section className="relative w-full py-16 sm:py-24 lg:py-32">
+                            <div className="container mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                                <div className="flex flex-col-reverse items-center gap-8 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12">
+                                    <div className="mt-1 space-y-6">
                                         <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-left">
                                             A{" "}
                                             <span className="relative inline-block">
@@ -508,12 +508,12 @@ export default function Component({
                             </div>
                         </section>
 
-                        <section className="relative w-full px-4 py-12 md:py-24">
-                            <div className="container px-4 md:px-6">
-                                <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                        <section className="relative w-full bg-gradient-to-b from-background to-gray-50/50 px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+                            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                                <h2 className="mb-16 text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                                     Other features
                                 </h2>
-                                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                <div className="mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
                                     <Card className="p-6">
                                         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-green-50">
                                             <Brain className="h-8 w-8 text-green-600" />
@@ -561,16 +561,17 @@ export default function Component({
                         </section>
                     </div>
 
-                    <section className="relative w-full px-4 pb-12 pt-12 md:pt-24">
-                        <div className="container px-4 md:px-6">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                                <h2 className="text-2xl font-bold tracking-tighter sm:text-5xl">
+                    <section className="relative w-full bg-gradient-to-b from-gray-50/50 to-background px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+                        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex flex-col items-center justify-center space-y-6 text-center">
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                                     We want to hear from you
                                 </h2>
-                                <div className="flex flex-wrap justify-center gap-4 py-4">
+                                <div className="flex flex-wrap justify-center gap-6 py-8">
                                     <Image
+                                        priority
                                         alt="Sandeep"
-                                        className="h-12 w-12 rounded-full border-2 sm:h-16 sm:w-16"
+                                        className="h-12 w-12 rounded-full border-2 border-primary/20 shadow-sm transition-transform hover:scale-110 sm:h-16 sm:w-16"
                                         src="/team/sandeep.jpeg"
                                         style={{
                                             aspectRatio: "64/64",
@@ -580,8 +581,9 @@ export default function Component({
                                         width={64}
                                     />
                                     <Image
+                                        priority
                                         alt="Naresh"
-                                        className="h-12 w-12 rounded-full border-2 sm:h-16 sm:w-16"
+                                        className="h-12 w-12 rounded-full border-2 border-primary/20 shadow-sm transition-transform hover:scale-110 sm:h-16 sm:w-16"
                                         src="/team/naresh.jpeg"
                                         style={{
                                             aspectRatio: "64/64",
@@ -591,8 +593,9 @@ export default function Component({
                                         width={64}
                                     />
                                     <Image
+                                        priority
                                         alt="Guglielmo"
-                                        className="h-12 w-12 rounded-full border-2 sm:h-16 sm:w-16"
+                                        className="h-12 w-12 rounded-full border-2 border-primary/20 shadow-sm transition-transform hover:scale-110 sm:h-16 sm:w-16"
                                         src="/team/guglielmo.jpeg"
                                         style={{
                                             aspectRatio: "64/64",
@@ -602,8 +605,9 @@ export default function Component({
                                         width={64}
                                     />
                                     <Image
+                                        priority
                                         alt="Zi"
-                                        className="h-12 w-12 rounded-full border-2 sm:h-16 sm:w-16"
+                                        className="h-12 w-12 rounded-full border-2 border-primary/20 shadow-sm transition-transform hover:scale-110 sm:h-16 sm:w-16"
                                         src="/team/zi.jpeg"
                                         style={{
                                             aspectRatio: "64/64",
@@ -638,14 +642,14 @@ export default function Component({
                                 </p>
                             </div>
                         </div>
-                        <div className="container px-4 md:px-6">
+                        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="m-auto flex max-w-screen-xl flex-col items-center justify-center text-lg">
                                 <p className="mt-16 text-center text-2xl font-extrabold sm:text-3xl">
                                     Downloads
                                 </p>
-                                <div className="my-8 grid w-full max-w-screen-lg gap-8 md:grid-cols-3">
-                                    <div className="flex flex-col items-center">
-                                        <h4 className="mb-4 text-xl font-bold">
+                                <div className="my-16 grid w-full max-w-screen-lg gap-8 md:grid-cols-3">
+                                    <div className="flex flex-col items-center rounded-lg bg-gray-50/50 p-6 shadow-sm transition-all hover:shadow-md">
+                                        <h4 className="mb-6 text-xl font-bold">
                                             MacOS
                                         </h4>
                                         {latestRelease.macOS ? (
@@ -768,8 +772,8 @@ export default function Component({
                                             </div>
                                         )}
                                     </div>
-                                    <div className="flex flex-col items-center">
-                                        <h4 className="mb-4 text-xl font-bold">
+                                    <div className="flex flex-col items-center rounded-lg bg-gray-50/50 p-6 shadow-sm transition-all hover:shadow-md">
+                                        <h4 className="mb-6 text-xl font-bold">
                                             Windows
                                         </h4>
                                         {latestRelease.Windows ? (
@@ -946,8 +950,8 @@ export default function Component({
                                             </div>
                                         )}
                                     </div>
-                                    <div className="flex flex-col items-center">
-                                        <h4 className="mb-4 text-xl font-bold">
+                                    <div className="flex flex-col items-center rounded-lg bg-gray-50/50 p-6 shadow-sm transition-all hover:shadow-md">
+                                        <h4 className="mb-6 text-xl font-bold">
                                             Linux
                                         </h4>
                                         {latestRelease.Linux ? (
