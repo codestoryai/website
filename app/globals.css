@@ -95,7 +95,24 @@ html {
     }
 
     body {
-        @apply bg-background text-foreground font-sans;
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+
+    h2 {
+        @apply relative mb-8;
+    }
+
+    h2::after {
+        content: '';
+        @apply absolute -bottom-4 left-0 w-24 h-1 bg-gradient-to-r from-current to-transparent rounded-full opacity-20;
+    }
+
+    h4 {
+        @apply text-lg font-bold tracking-wider mb-4;
+    }
+
+    p {
+        @apply leading-relaxed text-muted-foreground max-w-prose;
     }
 }
 
