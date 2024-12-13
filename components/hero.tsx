@@ -58,6 +58,33 @@ export default function Hero() {
                     </motion.div>
 
                     <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="mt-8 flex justify-center space-x-4 sm:justify-start"
+                    >
+                        <a
+                            href="https://github.com/codestoryai/binaries/releases/latest"
+                            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-goat-primary via-goat-accent to-goat-secondary px-6 py-3 text-lg font-semibold text-background shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+                        >
+                            <span>Download SOTA-SWE Agent</span>
+                            <svg
+                                className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                />
+                            </svg>
+                        </a>
+                    </motion.div>
+
+                    <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
