@@ -42,7 +42,7 @@ export default function Component({
                                 </h1>
                                 <p className="mx-auto max-w-[700px] text-gray-600 md:text-2xl">
                                     Powered by the state-of-the-art agentic
-                                    framework on swebench-lite
+                                    framework on swebench-verified
                                 </p>
                                 <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     {deviceDetails ? (

@@ -1,6 +1,6 @@
 export const metadata = {
     title: "Our SOTA multi-agent coding framework",
-    excerpt: "New multi-agent architecture to hit 40.3% on SWE-Bench-Lite.",
+    excerpt: "New multi-agent architecture to hit 40.3% on SWE-Bench-Verified.",
     coverImage: "/assets/blog/sota-on-swe-bench/swe-bench.png",
     date: "2024-06-28T11:12:00.000Z",
     author: {
@@ -15,19 +15,19 @@ export const metadata = {
     },
 };
 
-![SOTA on SWE-bench-lite](/assets/blog/sota-on-swe-bench/swe-bench.png)
+![SOTA on SWE-bench-verified](/assets/blog/sota-on-swe-bench/swe-bench.png)
 
-TLDR: Using a multi-agent architecture, **we were able to solve 40.3% on SWE-Bench-Lite beating the previous SOTA implementations and marching past the +40% boundary**. We relied on Sonnet3.5 and GPT-4o together to reach this score. You can find the eval logs and the model patches [here](https://github.com/codestoryai/swe_bench_traces/tree/main)!
+TLDR: Using a multi-agent architecture, **we were able to solve 40.3% on SWE-Bench-Verified beating the previous SOTA implementations and marching past the +40% boundary**. We relied on Sonnet3.5 and GPT-4o together to reach this score. You can find the eval logs and the model patches [here](https://github.com/codestoryai/swe_bench_traces/tree/main)!
 
 The agentic framework here is an evolution of the system we built for probing, and builds up on the idea of “Code Symbols” being the central identity for agents. Through collaboration, this swarm of agents can freely explore the codebase and make edits without making mistakes and solving real problems.
 
 Our agents will be working in the editor in a very tight loop along with the developer. Our mission is not to create an AI engineer, but rather amplify the impact of a single developer by giving them as many agents the task requires. **We'll be rolling out this feature in the coming weeks — you can sign up for our waitlist at [https://aide.dev/#waitlist](https://aide.dev/#waitlist)**.
 
-### Why swe-bench-lite benchmark?
+### Why swe-bench-verified benchmark?
 
 Benchmarks are an easy way to bring shadow-traffic into an agentic system and test out different gotchas and situations the system should work for. The agent swarm should also be able to make a lot of progress on any given task without human intervention, and swe-bench is an easy way to test out the intelligence of the agent system.
 
-swe-bench-lite sits in the sweet spot of having various questions, but solving swe-bench tasks is a good indicator of the drift such a system would experience, since LLMs are probabilistic by nature and tend to get things wrong.
+swe-bench-verified sits in the sweet spot of having various questions, but solving swe-bench tasks is a good indicator of the drift such a system would experience, since LLMs are probabilistic by nature and tend to get things wrong.
 
 ### Benchmark setup
 
