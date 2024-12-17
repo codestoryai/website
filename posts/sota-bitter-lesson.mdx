@@ -76,11 +76,13 @@ PS: We also brought down the network from the office space we were working on wh
 
 Sadly, even after putting ourselves in a token rich environment, we still got the occasional rate limits which lead to lower scores than what we would have ideally got.
 
-## MCTS
+## MCTS and SWE-search
 
 Originally, we used MCTS as a framework for our agent to conduct structured exploration of the solution space for a problem. We quickly realized that while MCTS sounded great and discovered novel solutions, it would take too long to finish the task (often more than 1 hour). It wasn’t clear that MCTS was delivering greater net accuracy per unit time compared to parallel, single-trajectory runs. So, we compared the two approaches, and the latter was consistently stronger.
 
 In light of this discovery, we decided to stop pursuing MCTS as a framework but kept the good parts, the feedback generation and reward scaling, to build our super simple framework whose performance seemed to scale consistently with more compute.
+
+[SWE-search](https://arxiv.org/abs/2410.20285) clearly demonstrates the power of MCTS and using a reward function along with the feedback for exploring and exploiting the solution space. The key research here shows that by any basic framework can gain 20%+ improvement by guiding the framewok through MCTS. This is of paramout importance and shows that there is a lot to be gained by focussing on exploring the search space in a constructive manner and orchestrating the effort.
 
 ## Test Time Compute
 
