@@ -16,7 +16,7 @@ export const metadata = {
     },
 };
 
-Aide is now the SOTA on swebench-verified, resolving 62% of the issues on the benchmark. We did this by scaling our agent on test time inference and re-learning the [**bitter lesson**](https://web.archive.org/web/20241209013151/http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
+Aide is now the SOTA on swebench-verified, resolving 62.2% of the issues on the benchmark. We did this by scaling our agent on test time inference and re-learning the [**bitter lesson**](https://web.archive.org/web/20241209013151/http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
 
 \> The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.
 
@@ -35,7 +35,7 @@ To kick-start the agentic setup, we selected a few basic tools which our agent h
 
 The only prior setup we had made at our end was to ensure the prerequisite set of python packages were available as part of the docker container which swebench-verified uses, thus eliminating the need for the agent to spend cycles just to fix environment problems.
 
-We also used Sonnet 3.5 to assign a reward to the agent’s tool-use output. The reward rubric is tool-specific, and represents how effective the step was to solving the GitHub issue. For example, if the agent chooses to read a file that turns out to be irrelevant to solving the problem, that step is given a low reward. However, if the next file it chooses to read contains a critical clue, that step would be assigned a higher reward.
+We also used Sonnet 3.5 to assign a reward to the agent’s tool-use output. **The reward scaling was heavily inspired by the work done by SWE-search team to get the LLM to generate reward for each action taken.** The reward rubric is tool-specific, and represents how effective the step was to solving the GitHub issue. For example, if the agent chooses to read a file that turns out to be irrelevant to solving the problem, that step is given a low reward. However, if the next file it chooses to read contains a critical clue, that step would be assigned a higher reward.
 
 On top of this, after each step, the agent generates 1\) an observation, and 2\) an alternative action it could have taken. This gives the LLM the freedom to explore other promising approaches based on what it has seen, even if it were already deep within a trajectory.
 
@@ -76,13 +76,13 @@ PS: We also brought down the network from the office space we were working on wh
 
 Sadly, even after putting ourselves in a token rich environment, we still got the occasional rate limits which lead to lower scores than what we would have ideally got.
 
-## MCTS and SWE-search
+## SWE-search and MCTS
+
+The research paper "SWE-Search: Enhancing Software Agents with Monte Carlo Tree Search and Iterative Refinement"[1] illustrates the efficacy of integrating MCTS with a reward function and feedback mechanisms for navigating the solution space. Their study reports a 23% relative performance improvement across five models when applying MCTS-guided strategies, underscoring the significance of structured exploration and strategic orchestration in search processes.
 
 Originally, we used MCTS as a framework for our agent to conduct structured exploration of the solution space for a problem. We quickly realized that while MCTS sounded great and discovered novel solutions, it would take too long to finish the task (often more than 1 hour). It wasn’t clear that MCTS was delivering greater net accuracy per unit time compared to parallel, single-trajectory runs. So, we compared the two approaches, and the latter was consistently stronger.
 
 In light of this discovery, we decided to stop pursuing MCTS as a framework but kept the good parts, the feedback generation and reward scaling, to build our super simple framework whose performance seemed to scale consistently with more compute.
-
-[SWE-search](https://arxiv.org/abs/2410.20285) clearly demonstrates the power of MCTS and using a reward function along with the feedback for exploring and exploiting the solution space. The key research here shows that by any basic framework can gain 20%+ improvement by guiding the framewok through MCTS. This is of paramout importance and shows that there is a lot to be gained by focussing on exploring the search space in a constructive manner and orchestrating the effort.
 
 ## Test Time Compute
 
@@ -105,3 +105,8 @@ As a team who are heads down building an editor and deploying agents running loc
 For now, you can enjoy the same agent in our extension offering and very soon in our editor\!
 
 I hope this post and the experiment inspires you to look back at the exponential intelligence growth we have and tackle the domain-specific problems in the dumbest possible way with scale working in your favour.
+
+
+## Citations
+
+[1]: Antonides, A., Örwall, A., Zhang, K., Xie, Y., Goyal, A., & Wang, W. (2024). SWE-Search: Enhancing software agents with Monte Carlo tree search and iterative refinement. arXiv. https://arxiv.org/abs/2410.20285
