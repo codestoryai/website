@@ -1,10 +1,10 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXRemote } from "next-mdx-remote/rsc";
 
-import remarkGfm from 'remark-gfm'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkA11yEmoji from '@fec/remark-a11y-emoji'
-import { mdxComponents } from './markdown-components'
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkA11yEmoji from "@fec/remark-a11y-emoji";
+import { mdxComponents } from "./markdown-components";
 
 export function PostBody({ children }: { children: string }) {
     return (
@@ -24,5 +24,5 @@ export function PostBody({ children }: { children: string }) {
             }}
             components={mdxComponents}
         />
-    )
+    );
 }

@@ -1,29 +1,54 @@
 export const metadata = {
-    title: 'Why the IDE needs to be reimagined',
-    excerpt: 'We\'re building Aide by CodeStory, an AI-powered mod of VSCode. Here\'s why.',
-    coverImage: '/assets/blog/code-reviews/cover.png',
-    date: '2023-08-19T13:11:00.000Z',
+    title: "Why the IDE needs to be reimagined",
+    excerpt:
+        "We're building Aide by CodeStory, an AI-powered mod of VSCode. Here's why.",
+    coverImage: "/assets/blog/code-reviews/cover.png",
+    date: "2023-08-19T13:11:00.000Z",
     author: {
-        name: 'Naresh Ramesh',
-        picture: '/assets/blog/authors/naresh.jpg',
-        twitter: 'https://twitter.com/ghostwriternr',
-        linkedin: 'https://www.linkedin.com/in/naresh-ramesh',
-        github: 'https://github.com/ghostwriternr',
+        name: "Naresh Ramesh",
+        picture: "/assets/blog/authors/naresh.jpg",
+        twitter: "https://twitter.com/ghostwriternr",
+        linkedin: "https://www.linkedin.com/in/naresh-ramesh",
+        github: "https://github.com/ghostwriternr",
     },
     ogImage: {
-        url: '/assets/blog/code-reviews/cover.png'
-    }
-}
+        url: "/assets/blog/code-reviews/cover.png",
+    },
+};
 
 How many times have you switched IDEs as a programmer? I've done so only thrice in 10 years. I started with Sublime Text at uni and briefly tried Atom before running back to Sublime due to its far superior performance. And then came VSCode. I'd be remiss if I also didn't mention IntelliJ and GoLand, which I used for specific projects when my employer gave licenses to the JetBrains suite of IDEs. And of course, vim—but it's too much work to make it do all the things I get from an IDE—so my usage there is limited to quick edits (and instead use vim keybindings in all my IDEs).
 
-<div className="flex flex-row flex-wrap items-center justify-center mb-6">
-    <img src="/assets/blog/why-an-ide/emacs.svg" alt="Emacs" style={{height: "72px", width: "auto", marginRight: "6px"}} />
-    <img src="/assets/blog/why-an-ide/vim.svg" alt="Vim" style={{height: "72px", width: "auto", marginRight: "6px"}} />
-    <img src="/assets/blog/why-an-ide/sublime_text.svg" alt="Sublime Text" style={{height: "72px", width: "auto", marginRight: "6px"}} />
-    <img src="/assets/blog/why-an-ide/atom.svg" alt="Atom" style={{height: "72px", width: "auto", marginRight: "6px"}} />
-    <img src="/assets/blog/why-an-ide/jb_square.svg" alt="Jetbrains" style={{height: "72px", width: "auto", marginRight: "6px"}} />
-    <img src="/assets/blog/why-an-ide/vscode.svg" alt="VSCode" style={{height: "72px", width: "auto"}} />
+<div className="mb-6 flex flex-row flex-wrap items-center justify-center">
+    <img
+        src="/assets/blog/why-an-ide/emacs.svg"
+        alt="Emacs"
+        style={{ height: "72px", width: "auto", marginRight: "6px" }}
+    />
+    <img
+        src="/assets/blog/why-an-ide/vim.svg"
+        alt="Vim"
+        style={{ height: "72px", width: "auto", marginRight: "6px" }}
+    />
+    <img
+        src="/assets/blog/why-an-ide/sublime_text.svg"
+        alt="Sublime Text"
+        style={{ height: "72px", width: "auto", marginRight: "6px" }}
+    />
+    <img
+        src="/assets/blog/why-an-ide/atom.svg"
+        alt="Atom"
+        style={{ height: "72px", width: "auto", marginRight: "6px" }}
+    />
+    <img
+        src="/assets/blog/why-an-ide/jb_square.svg"
+        alt="Jetbrains"
+        style={{ height: "72px", width: "auto", marginRight: "6px" }}
+    />
+    <img
+        src="/assets/blog/why-an-ide/vscode.svg"
+        alt="VSCode"
+        style={{ height: "72px", width: "auto" }}
+    />
 </div>
 
 Fundamentally, **IDEs are designed to help developers with their core workflows: searching, navigating and writing code, using static analysis tools, debugging, refactoring, running tests and dev tools, and probably version control**. Each IDE has a different take on how to approach this. JetBrains is famous for its language-first IDEs with rich framework support, whereas VSCode is closer to a general-purpose editor with a huge glut of extensions.
@@ -57,14 +82,18 @@ For example, why does the source control need to be ordered by file and folder n
 
 <figure className="flex flex-col items-center">
     <img src="/images/home/nlp-search.png" alt="Search" className="w-full" />
-    <figcaption className="text-center pt-2 font-semibold">An early iteration that we tried</figcaption>
+    <figcaption className="pt-2 text-center font-semibold">
+        An early iteration that we tried
+    </figcaption>
 </figure>
 
 Looking further, IDEs in the future could also bring in unstructured information from the external world (company internal documentation, ticketing systems, monitoring alerts, design goals and best practices) to feed to AI agents. And developers primarily interact with multiple AI agents within the IDE to build software. Have an API specification ready? Have 3 agents ready to go pecking on different parts of the codebase. Have an issue and need to find the root cause? Task an agent to help you find it.
 
 <figure className="flex flex-col items-center">
     <img src="/assets/blog/why-an-ide/debugging.gif" alt="AI Agent" />
-    <figcaption className="text-center pt-2 font-semibold">AI agents in the IDE</figcaption>
+    <figcaption className="pt-2 text-center font-semibold">
+        AI agents in the IDE
+    </figcaption>
 </figure>
 
 ## What are we doing today?
@@ -75,7 +104,7 @@ Unlike an extension, this gives us a lot more flexibility and control, while als
 
 This approach is not without its problems. The VSCode Marketplace for instance is under a custom license preventing non-Microsoft products from using it—perhaps the [Open VSX Registry](https://open-vsx.org) is the answer. That still leaves some great proprietary extensions built by Microsoft out—to which we need an answer that builds on top of Open Source, but with a model that is net positive to the dev community as a whole (suggestions welcome!). With full access to the source code and help from projects like [VSCodium](https://vscodium.com), disabling telemetry should be very much possible—hopefully without treading in grey areas.
 
-In the next few months, we want to build towards this vision and find answers to the missing pieces. Our [Changelog](/changelog) and [social media](https://twitter.com/codestoryai) will be the best place to follow along.
+In the next few months, we want to build towards this vision and find answers to the missing pieces. Our [Changelog](/changelog) and [social media](https://twitter.com/aide_dev) will be the best place to follow along.
 
 If you're interested, try out Aide✨ and give us feedback! We're still in the very early stages.
 

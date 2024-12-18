@@ -6,12 +6,12 @@ import { useLocalStorage } from "usehooks-ts";
 
 export default function AuthenticationPage() {
     const searchParams = useSearchParams();
-    const state = searchParams.get('state');
+    const state = searchParams.get("state");
     if (!state) {
-        redirect('/');
+        redirect("/");
     }
 
-    const [_, setValue] = useLocalStorage('stateId', '');
+    const [_, setValue] = useLocalStorage("stateId", "");
     const stateRef = useRef<string | null>(null);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function AuthenticationPage() {
                     const data = await res.json();
                     window.location.assign(data.authorizationUrl);
                 } else {
-                    redirect('/');
+                    redirect("/");
                 }
             });
         }
@@ -32,9 +32,9 @@ export default function AuthenticationPage() {
 
     return (
         <>
-            <div className="min-h-screen p-8 md:p-12 pt-20 md:pt-24 bg-noise bg-background flex flex-col">
-                <div className="max-w-screen-xl m-auto flex flex-1 justify-center items-center">
-                    <h2 className="pt-4 text-3xl md:text-5xl font-bold text-center">
+            <div className="flex min-h-screen flex-col bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
+                <div className="m-auto flex max-w-screen-xl flex-1 items-center justify-center">
+                    <h2 className="pt-4 text-center text-3xl font-bold md:text-5xl">
                         Signing in to the editor
                     </h2>
                 </div>
