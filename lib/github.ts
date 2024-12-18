@@ -1,10 +1,10 @@
-import { Asset, Downloads, GithubRelease } from "./types";
-import { getDevice } from "./ua";
+import { Asset, Downloads, GithubRelease } from './types'
+import { getDevice } from './ua'
 
 export const fetchLatestRelease = async (): Promise<Downloads> => {
-    const downloads: DeepPartial<Downloads> = {};
-    try {
-        /*
+  const downloads: DeepPartial<Downloads> = {}
+  try {
+    /*
     const releases = (await (
       await fetch('https://api.github.com/repos/codestoryai/binaries/releases')
     ).json()) as GithubRelease[]
@@ -182,64 +182,61 @@ export const fetchLatestRelease = async (): Promise<Downloads> => {
     }
     */
 
-        const downloads: Omit<Downloads, "current"> = {
-            macOS: {
-                amd64: {
-                    dmg: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.x64.1.88.1.24119.dmg",
-                    zip: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-x64-1.88.1.24119.zip",
-                },
-                arm64: {
-                    dmg: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.arm64.1.88.1.24119.dmg",
-                    zip: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-arm64-1.88.1.24119.zip",
-                },
-            },
-            Windows: {
-                amd64: {
-                    systemInstaller:
-                        "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-x64-1.88.1.24119.exe",
-                    userInstaller:
-                        "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-x64-1.88.1.24119.exe",
-                    zip: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-x64-1.88.1.24119.zip",
-                },
-                arm64: {
-                    systemInstaller:
-                        "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-arm64-1.88.1.24119.exe",
-                    userInstaller:
-                        "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-arm64-1.88.1.24119.exe",
-                    zip: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-arm64-1.88.1.24119.zip",
-                },
-            },
-            Linux: {
-                amd64: {
-                    tar: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-x64-1.88.1.24119.tar.gz",
-                },
-                armhf: {
-                    tar: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-armhf-1.88.1.24119.tar.gz",
-                },
-                arm64: {
-                    tar: "https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-arm64-1.88.1.24119.tar.gz",
-                },
-            },
-        };
-    } catch (err) {
-        console.log(err);
+    const downloads: Omit<Downloads, 'current'> = {
+      macOS: {
+        amd64: {
+          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.x64.1.88.1.24119.dmg',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-x64-1.88.1.24119.zip'
+        },
+        arm64: {
+          dmg: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide.arm64.1.88.1.24119.dmg',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-darwin-arm64-1.88.1.24119.zip'
+        }
+      },
+      Windows: {
+        amd64: {
+          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-x64-1.88.1.24119.exe',
+          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-x64-1.88.1.24119.exe',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-x64-1.88.1.24119.zip'
+        },
+        arm64: {
+          systemInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideSetup-arm64-1.88.1.24119.exe',
+          userInstaller: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/AideUserSetup-arm64-1.88.1.24119.exe',
+          zip: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-win32-arm64-1.88.1.24119.zip'
+        }
+      },
+      Linux: {
+        amd64: {
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-x64-1.88.1.24119.tar.gz'
+        },
+        armhf: {
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-armhf-1.88.1.24119.tar.gz'
+        },
+        arm64: {
+          tar: 'https://github.com/codestoryai/binaries/releases/download/1.88.1.24119/Aide-linux-arm64-1.88.1.24119.tar.gz'
+        }
+      }
+    };
+
+  } catch (err) {
+    console.log(err)
+  }
+
+  const device = await getDevice()
+  if (device && device.os && device.arch) {
+    let url: string | undefined
+    if (device.os === 'macOS') {
+      url = downloads.macOS?.[device.arch]?.dmg
+    } else if (device.os === 'Windows') {
+      url = downloads.Windows?.[device.arch]?.userInstaller
+    } else if (device.os === 'Linux') {
+      url = downloads.Linux?.[device.arch]?.tar
     }
 
-    const device = await getDevice();
-    if (device && device.os && device.arch) {
-        let url: string | undefined;
-        if (device.os === "macOS") {
-            url = downloads.macOS?.[device.arch]?.dmg;
-        } else if (device.os === "Windows") {
-            url = downloads.Windows?.[device.arch]?.userInstaller;
-        } else if (device.os === "Linux") {
-            url = downloads.Linux?.[device.arch]?.tar;
-        }
-
-        if (url) {
-            downloads.current = { ...device, url };
-        }
+    if (url) {
+      downloads.current = { ...device, url }
     }
+  }
 
-    return downloads as Downloads;
-};
+  return downloads as Downloads
+}

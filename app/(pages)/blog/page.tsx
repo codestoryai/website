@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import Link from 'next/link';
+import { Sparkles } from 'lucide-react'
 
-import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { formatDateTime } from "@/lib/formatDateTime";
-import getPosts from "@/lib/posts";
+import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { formatDateTime } from '@/lib/formatDateTime';
+import getPosts from '@/lib/posts';
 
 export default async function Posts() {
     const posts = await getPosts();
@@ -13,52 +13,44 @@ export default async function Posts() {
     const remainingPosts = posts.slice(1);
 
     return (
-        <div className="flex min-h-screen flex-col items-center bg-background bg-noise p-8 pt-24 md:p-12 md:pt-40">
-            <div className="m-auto w-full max-w-screen-lg">
+        <div className="min-h-screen p-8 md:p-12 pt-24 md:pt-40 bg-noise bg-background flex flex-col items-center">
+            <div className="w-full max-w-screen-lg m-auto">
                 <Link href={`/blog/${latestPost.slug}`}>
-                    <Card className="flex min-h-80 flex-col justify-between rounded-3xl p-4">
+                    <Card className="rounded-3xl p-4 min-h-80 flex flex-col justify-between">
                         <CardHeader>
                             <CardTitle className="text-lg font-medium">
-                                <p className="flex size-fit items-center rounded-3xl bg-zinc-200 px-5 py-2">
+                                <p className="bg-zinc-200 rounded-3xl size-fit py-2 px-5 flex items-center">
                                     <Sparkles className="mr-1" size={20} />
                                     LATEST
                                 </p>
                             </CardTitle>
                         </CardHeader>
                         <CardFooter className="flex flex-col items-start">
-                            <h1 className="text-2xl font-bold md:text-4xl">
-                                {latestPost.title}
-                            </h1>
-                            <p className="pt-2 text-lg uppercase text-zinc-500">
-                                {latestPost.date
-                                    ? `${formatDateTime(latestPost.date)}, `
-                                    : ""}
+                            <h1 className="text-2xl md:text-4xl font-bold">{latestPost.title}</h1>
+                            <p className="uppercase text-zinc-500 text-lg pt-2">
+                                {latestPost.date ? `${formatDateTime(latestPost.date)}, ` : ''}
                                 {latestPost.author.name}
                             </p>
                         </CardFooter>
                     </Card>
                 </Link>
-                <div className="mx-8 mt-16">
-                    {remainingPosts.map((post) => {
+                <div className="mt-16 mx-8">
+                    {remainingPosts.map(post => {
                         const blogPost = post!;
                         return (
                             <div className="mb-6" key={blogPost.slug}>
                                 <Link href={`/blog/${blogPost.slug}`}>
-                                    <h1 className="text-2xl font-bold md:text-4xl">
-                                        {blogPost.title}
-                                    </h1>
+                                    <h1 className="text-2xl md:text-4xl font-bold">{blogPost.title}</h1>
                                 </Link>
-                                <p className="py-2 text-lg uppercase text-zinc-500">
-                                    {blogPost.date
-                                        ? `${formatDateTime(blogPost.date)}, `
-                                        : ""}
+                                <p className="text-zinc-500 text-lg py-2 uppercase">
+                                    {blogPost.date ? `${formatDateTime(blogPost.date)}, ` : ''}
                                     {blogPost.author.name}
                                 </p>
                             </div>
-                        );
+                        )
                     })}
                 </div>
             </div>
         </div>
-    );
+    )
 }

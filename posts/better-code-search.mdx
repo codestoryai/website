@@ -1,34 +1,33 @@
 export const metadata = {
-    title: "Building a better code search experience",
-    excerpt:
-        "Searching code is an important part of every developer's workflow. We're trying to make it better.",
-    coverImage: "/assets/blog/code-reviews/cover.png",
-    date: "2023-08-26T14:22:00.000Z",
+    title: 'Building a better code search experience',
+    excerpt: 'Searching code is an important part of every developer\'s workflow. We\'re trying to make it better.',
+    coverImage: '/assets/blog/code-reviews/cover.png',
+    date: '2023-08-26T14:22:00.000Z',
     author: {
-        name: "Naresh Ramesh",
-        picture: "/assets/blog/authors/naresh.jpg",
-        twitter: "https://twitter.com/ghostwriternr",
-        linkedin: "https://www.linkedin.com/in/naresh-ramesh",
-        github: "https://github.com/ghostwriternr",
+        name: 'Naresh Ramesh',
+        picture: '/assets/blog/authors/naresh.jpg',
+        twitter: 'https://twitter.com/ghostwriternr',
+        linkedin: 'https://www.linkedin.com/in/naresh-ramesh',
+        github: 'https://github.com/ghostwriternr',
     },
     ogImage: {
-        url: "/assets/blog/code-reviews/cover.png",
-    },
-};
+        url: '/assets/blog/code-reviews/cover.png'
+    }
+}
 
 A key part of every developer's workflow is to search code. Code search today surfaces in the form of file-level/global lookup, or by ⌘/Ctrl clicking our way within an IDE. We search code to:
 
--   Find code that can be extended or re-used for the feature we're building.
--   Identifying the root cause for issues by narrowing down through code symbols found in the stack trace or error logs.
--   Build a deep understanding of how things work by navigating, especially when new to the codebase.
--   Find all occurences and replace them through an exact match, regex patterns or more powerful tools like ripgrep.
--   Identify the impact of changes during code reviews.
+- Find code that can be extended or re-used for the feature we're building.
+- Identifying the root cause for issues by narrowing down through code symbols found in the stack trace or error logs.
+- Build a deep understanding of how things work by navigating, especially when new to the codebase.
+- Find all occurences and replace them through an exact match, regex patterns or more powerful tools like ripgrep.
+- Identify the impact of changes during code reviews.
 
 And perhaps a few more.
 
-|                            &nbsp;                            |                              &nbsp;                              |
-| :----------------------------------------------------------: | :--------------------------------------------------------------: |
-| ![VSCode search](/assets/blog/better-code-search/vscode.png) | ![IntelliJ search](/assets/blog/better-code-search/intellij.png) |
+&nbsp;|&nbsp;
+:-------------------------:|:-------------------------:
+![VSCode search](/assets/blog/better-code-search/vscode.png)  |  ![IntelliJ search](/assets/blog/better-code-search/intellij.png)
 
 ## Diving deeper
 
@@ -73,13 +72,11 @@ We started by trying to break down the problem into a few facets.
 ## Solution space
 
 ### I know the exact code symbols I'm looking for
-
 Great! Lexical search (as it exists in IDEs today) is the answer. In conjunction with the **modifiers** offered by the IDE, like _match case_, _match word_, _regex pattern_ and **filters** like _glob patterns to include_ and _glob patterns to exclude_, this gets you straight to the code symbol. Pairing this with tools for replacing code using the matching patterns, this solves the simplest use-cases that we have.
 
 ![Lexical search](/assets/blog/better-code-search/lexical_search.gif)
 
 ### I'm looking for something specific, but don't know where
-
 The way I'd imagine looking for something specific would just be to ask for "cosine similarity" to find the cosine similarity implementation, or "async payment processor" to find the worker implementation that processes payments. We're pretty used to this type of search (aka Semantic search) from Google for so many years — but why can't we have this for searching code? So... we built it!
 
 While this sounds trivial (_“just pass every file through an LLM and query, yea?”_), we can improve it in big ways with some small observations. Code, unlike natural language text like books or articles, is modular (in the form of being divided into packages, files and functions, for example) and has a lot of structure (in the form of being connected through imports, function calls, etc). Without leveraging this structure, a file in isolation might not know how the dependencies/dependents are written or can have unrelated functions that are all being used elsewhere. This addititional context can be quite critical to tokenizing correctly and generating better embeddings.
@@ -89,13 +86,11 @@ While this sounds trivial (_“just pass every file through an LLM and query, ye
 Pairing this experience with the IDE's search UI, we can now search for code as _concepts_, and get back a list of results that are sorted by relevance. This is a big step forward in leveraging semantic search for code and we're excited about improving this further!
 
 ### I want to explore broadly and don't have a place to start
-
-I'm going to use our experience of building the previous feature to explain this one. In order to augment VSCode's built-in search implementation, we needed to find answers to so many questions: **_Where does the UI implementation start? How are the classes composed and what are their responsibilities? Is it all in one module? Where is the search logic and how does the hand-off happen from the UI? How are results populated and kept updated?_**
+I'm going to use our experience of building the previous feature to explain this one. In order to augment VSCode's built-in search implementation, we needed to find answers to so many questions: ***Where does the UI implementation start? How are the classes composed and what are their responsibilities? Is it all in one module? Where is the search logic and how does the hand-off happen from the UI? How are results populated and kept updated?***
 
 Clearly, this is not a simple, static search query that a list of file paths can answer. And honestly, what you do if you were in this situation? Ask a senior engineer who knows this well to give you some pointers, right? Well — we didn't have one. So, we built one!
 
 This is where our AI agent comes in. An ideal AI agent should be able to guide you through the codebase, answer questions about the codebase and help you find the right place to start. Well, we want our AI agent to be able to complete end-to-end tasks, but let's start here for now. In order to perform these actions, we need to provide the agent with a few things:
-
 1. An index of the codebase that can be queried. Oh, hey, we just built that earlier! Sweet, we just need to give the agent access to the index.
 2. The ability to breakdown a query into smaller chunks and extract this information from the index.
 3. Most importantly, use these smaller parts to go deeper into the codebase. Today, we structurally navigate code by clicking around in the IDE (powered by the LSP) or just how a particular file is structured (syntax trees). Integrating these tools with the agent allows autonomous navigation of the code to understand how different pieces are linked together. "How the code flows", really.

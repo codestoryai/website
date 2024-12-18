@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { Bar, BarChart, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart";
-import { UpcomingInvoice } from "@/types/api";
+} from "@/components/ui/chart"
+import { UpcomingInvoice } from "@/types/api"
 
 const chartConfig = {
     freeTier: {
@@ -27,11 +27,11 @@ const chartConfig = {
         label: "Limit",
         color: "hsl(var(--chart-4))",
     },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 type UsageProps = {
     upcomingInvoice: UpcomingInvoice;
-};
+}
 
 export function Usage({ upcomingInvoice }: UsageProps) {
     const { freeUsage, overageUsage, estimatedUsage } = upcomingInvoice;
@@ -57,7 +57,7 @@ export function Usage({ upcomingInvoice }: UsageProps) {
                     type="number"
                     axisLine={false}
                     ticks={[5000, 60000, 656385]}
-                    tickFormatter={(value) => value.toLocaleString()}
+                    tickFormatter={value => value.toLocaleString()}
                 />
                 <YAxis
                     dataKey="date"
@@ -82,17 +82,20 @@ export function Usage({ upcomingInvoice }: UsageProps) {
                     stackId="a"
                     fill="var(--color-estimated)"
                 />
-                <Bar dataKey="limit" stackId="a" fill="var(--color-limit)" />
+                <Bar
+                    dataKey="limit"
+                    stackId="a"
+                    fill="var(--color-limit)"
+                />
                 <ChartTooltip
                     content={
                         <ChartTooltipContent
                             indicator="line"
-                            className="w-[180px] border border-gray-200 bg-white"
-                        />
-                    }
+                            className="w-[180px] bg-white border border-gray-200"
+                        />}
                     cursor={false}
                 />
             </BarChart>
         </ChartContainer>
-    );
+    )
 }

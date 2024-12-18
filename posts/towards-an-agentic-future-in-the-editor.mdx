@@ -1,20 +1,19 @@
 export const metadata = {
-    title: "Towards an agentic future in the editor",
-    excerpt:
-        "Unveiling the future of Aide where agents act as first class citizens in the editor.",
-    coverImage: "/assets/blog/agentic-future/flow-diagram.png",
-    date: "2024-06-20T00:00:00Z",
-    author: {
-        name: "Sandeep Kumar Pani",
-        picture: "/assets/blog/authors/sandeep.jpg",
-        twitter: "https://twitter.com/skc42",
-        linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani",
-        github: "https://github.com/theskcd",
-    },
-    ogImage: {
-        url: "/assets/blog/agentic-future/flow-diagram.png",
-    },
-};
+  title: "Towards an agentic future in the editor",
+  excerpt: "Unveiling the future of Aide where agents act as first class citizens in the editor.",
+  coverImage: "/assets/blog/agentic-future/flow-diagram.png",
+  date: "2024-06-20T00:00:00Z",
+  author: {
+    name: "Sandeep Kumar Pani",
+    picture: "/assets/blog/authors/sandeep.jpg",
+    twitter: "https://twitter.com/skc42",
+    linkedin: "https://www.linkedin.com/in/sandeep-kumar-pani",
+    github: "https://github.com/theskcd",
+  },
+  ogImage: {
+    url: "/assets/blog/agentic-future/flow-diagram.png",
+  },
+}
 
 We are increasingly moving towards a world where agents take actions on our behalf and help us achieve the daily goals we have much faster.
 
@@ -28,16 +27,17 @@ We have already seen many iterations of AI helping out developers listing them o
 
 Copilot with narrow in-flow workflows and prompt-first
 
--   We have the copilots of the world (Github Copilot, Cursor's Copilot++)
--   We have the chat with your codebase and bring in external documentation and get work done (the famous chat box)
+- We have the copilots of the world (Github Copilot, Cursor's Copilot++)
+- We have the chat with your codebase and bring in external documentation and get work done (the famous chat box)
 
 The other edge of this spectrum is the fabled AI engineer
 
--   Copilot workspace and Devin are shining example of this workflow
+- Copilot workspace and Devin are shining example of this workflow
 
 In the copilot version of the world, the human stays in complete control and directs the copilots, while in the AI engineer world the human has very little agency (other than a text box)
 
 Aide is designed to be smack dab in the middle of these extreme edges today. Yes, we support inline-autocomplete and talk to your codebase via chat but while using and interacting with agents, we make it possible for you to direct the agent and give feedback to its work, all while doing your own work in a shared workspace.
+
 
 ![collaboration-board.png](/assets/blog/agentic-future/collaboration-board.png)
 
@@ -77,17 +77,18 @@ fn interesting_function() {
 ```
 
 We have 3 distinct “Code Symbols” here: `Something` and `SomethingElse` and `interesting_function`, an illustrated example of how the agents scope of work looks like is shown below:
-
 <figure>
-    <video
-        autoPlay
-        preload="none"
-        playsInline
-        loop
-        muted
-        src="/assets/blog/agentic-future/granularity.mp4"
-    />
-    <figcaption>Different levels of granularity in todays' agents.</figcaption>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/granularity.mp4"
+  />
+  <figcaption>
+    Different levels of granularity in todays' agents.
+  </figcaption>
 </figure>
 
 Inside Aide our level of granularity is on the level of a **Code Symbol** so in the case above we end up with 3 distinct agents each taking care of one of the code symbols.
@@ -96,34 +97,32 @@ This level of granularity allows us to not only make precise edits and it keeps 
 
 The driving principle for these agents is:
 
--   You can ask questions to other code symbol (agent)
--   You can request edits from another code symbol (agent)
+- You can ask questions to other code symbol (agent)
+- You can request edits from another code symbol (agent)
 
 A challenge for agents at this level of granularity is that they are too removed from the context of the codebase. When presented with a single function in the codebase, even as developers we can't really think of all the ways this function is being used in the codebase - it is nearly impossible without the codebase context.
 
 To alleviate that issue the agents tap into the editor itself specially the LSP (language server protocol)
 
 <figure>
-    <video
-        autoPlay
-        controls
-        preload="none"
-        playsInline
-        loop
-        muted
-        src="/assets/blog/agentic-future/agent-clicking-around.mp4"
-    />
-    <figcaption>
-        The agent looks around in the symbol, finds other interesting symbols,
-        and asks other agents about them by "clicking around", and going to
-        their definitions.
-    </figcaption>
+  <video
+    autoPlay
+    controls
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/agent-clicking-around.mp4"
+  />
+  <figcaption>
+    The agent looks around in the symbol, finds other interesting symbols, and asks other agents about them by "clicking around", and going to their definitions.
+  </figcaption>
 </figure>
 
 Tapping into the LSP allows the agent to ask other agents (code symbols) for more information. This is akin to how a swarm of agents can work together to accomplish a task, which allows us to create some magical experience, an example flow of questions looks like the flow below:
 
-{" "}
-<video
+
+  <video
     autoPlay
     controls
     preload="none"
@@ -131,7 +130,7 @@ Tapping into the LSP allows the agent to ask other agents (code symbols) for mor
     loop
     muted
     src="/assets/blog/agentic-future/flow.mp4"
-/>
+  />
 
 We extensively used tree-sitter and LSP to help each agent recognise the code spans it is responsible for and to ask questions to other agents.
 
@@ -140,17 +139,17 @@ A key insight here is that since each agent is responsible for its own code symb
 ## Not just 1 agent but N agents
 
 <figure>
-    <video
-        autoPlay
-        preload="none"
-        playsInline
-        loop
-        muted
-        src="/assets/blog/agentic-future/n-agents.mp4"
-    />
-    <figcaption>
-        A very simplified version of how multiple agents traverse your code.
-    </figcaption>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/n-agents.mp4"
+  />
+  <figcaption>
+    A very simplified version of how multiple agents traverse your code.
+  </figcaption>
 </figure>
 
 Inside the editor, we could have N agents instead of just a single agent. This not only allows for much better work to be performed in the editor but is hugely parallelised.
@@ -168,19 +167,19 @@ We start all the way from the `webserver.rs` to a file called `agent.rs` and the
 ## Eventual consistency powered by developer in the loop
 
 <figure>
-    <video
-        autoPlay
-        preload="none"
-        playsInline
-        loop
-        muted
-        src="/assets/blog/agentic-future/human-in-the-loop.mp4"
-    />
-    <figcaption>
-        The human is in the loop. It can see which symbols have been explored by
-        the agents, and why.
-    </figcaption>
+  <video
+    autoPlay
+    preload="none"
+    playsInline
+    loop
+    muted
+    src="/assets/blog/agentic-future/human-in-the-loop.mp4"
+  />
+  <figcaption>
+    The human is in the loop. It can see which symbols have been explored by the agents, and why.
+  </figcaption>
 </figure>
+
 
 The developer is not just sitting idle in this world and waiting for the agent swarm to wreak havoc on the codebase.
 

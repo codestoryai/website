@@ -1,50 +1,37 @@
-import { PostMetadata } from "./types";
-import path from "path";
-import fs from "fs/promises";
-import { cache } from "react";
+import { PostMetadata } from './types'
+import path from 'path'
+import fs from 'fs/promises'
+import { cache } from 'react'
 
 export const getPosts = cache(async () => {
-    const posts = await fs.readdir(path.join(process.cwd(), "posts"));
+    const posts = await fs.readdir(path.join(process.cwd(), 'posts'))
 
     return Promise.all(
         posts
-            .filter((file) => path.extname(file) === ".mdx")
+            .filter((file) => path.extname(file) === '.mdx')
             .map(async (file) => {
-                const filePath = `./posts/${file}`;
-                const postContent = await fs.readFile(filePath, "utf8");
-                const metadata = postContent.match(
-                    /export const metadata = {([\s\S]*?)^}/m
-                )?.[0];
+                const filePath = `./posts/${file}`
+                const postContent = await fs.readFile(filePath, 'utf8')
+                const metadata = postContent.match(/export const metadata = {([\s\S]*?)^}/m)?.[0]
                 if (!metadata) {
-                    return null;
+                    return null
                 }
 
-                const metadataString = metadata.replace(
-                    "export const metadata = ",
-                    ""
-                );
-                const metadataObject = eval(
-                    `(${metadataString})`
-                ) as PostMetadata;
+                const metadataString = metadata.replace('export const metadata = ', '')
+                const metadataObject = eval(`(${metadataString})`) as PostMetadata
 
-                const content = postContent.replace(metadata, "");
+                const content = postContent.replace(metadata, '')
 
-                return {
-                    slug: file.replace(".mdx", ""),
-                    content,
-                    ...metadataObject,
-                };
+                return { slug: file.replace('.mdx', ''), content, ...metadataObject }
             })
-    ).then((meta) =>
-        meta
-            .filter((post) => post !== null)
-            .sort((a, b) => (new Date(a!.date) > new Date(b!.date) ? -1 : 1))
-    );
-});
+    ).then((meta) => meta
+        .filter((post) => post !== null)
+        .sort((a, b) => (new Date(a!.date) > new Date(b!.date) ? -1 : 1)))
+})
 
 export async function getPost(slug: string) {
-    const posts = await getPosts();
-    return posts.find((post) => post?.slug === slug);
+    const posts = await getPosts()
+    return posts.find((post) => post?.slug === slug)
 }
 
-export default getPosts;
+export default getPosts
