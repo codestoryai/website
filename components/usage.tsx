@@ -8,7 +8,7 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart";
-import { CurrentUsage, UpcomingInvoice } from "@/types/api";
+import { UpcomingInvoice } from "@/types/api";
 
 const chartConfig = {
     freeTier: {
@@ -30,11 +30,11 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 type UsageProps = {
-    usage: CurrentUsage;
+    upcomingInvoice: UpcomingInvoice;
 };
 
-export function Usage({ usage }: UsageProps) {
-    const { freeUsage, overageUsage, estimatedUsage } = usage;
+export function Usage({ upcomingInvoice }: UsageProps) {
+    const { freeUsage, overageUsage, estimatedUsage } = upcomingInvoice;
     const chartData = [
         {
             date: "Lines of code",
