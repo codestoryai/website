@@ -18,7 +18,7 @@ export type UpcomingInvoice = {
 
 export const SubscriptionStatuses: Record<SubscriptionStatus, string> = {
     free: "Free tier",
-    active: "Pro",
+    active: "Active",
     cancelled: "Cancelled",
 };
 

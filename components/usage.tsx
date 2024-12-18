@@ -12,11 +12,11 @@ import { CurrentUsage, UpcomingInvoice } from "@/types/api";
 
 const chartConfig = {
     freeTier: {
-        label: "Free Tier Usage",
+        label: "Free Tier",
         color: "hsl(var(--chart-1))",
     },
     overage: {
-        label: "Current Usage",
+        label: "Current",
         color: "hsl(var(--chart-2))",
     },
     estimated: {
@@ -25,7 +25,7 @@ const chartConfig = {
     },
     limit: {
         label: "Limit",
-        color: "hsl(var(--chart-3))",
+        color: "hsl(var(--chart-4))",
     },
 } satisfies ChartConfig;
 
@@ -41,7 +41,7 @@ export function Usage({ usage }: UsageProps) {
             freeTier: freeUsage,
             overage: overageUsage,
             estimated: estimatedUsage,
-            limit: 4000,
+            limit: 3000,
         },
     ];
 
@@ -56,7 +56,7 @@ export function Usage({ usage }: UsageProps) {
                 <XAxis
                     type="number"
                     axisLine={false}
-                    ticks={[1000, 4000]}
+                    ticks={[5000, 60000, 656385]}
                     tickFormatter={(value) => value.toLocaleString()}
                 />
                 <YAxis
