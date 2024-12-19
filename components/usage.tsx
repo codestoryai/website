@@ -12,19 +12,15 @@ import { CurrentUsage } from "@/types/api";
 
 const chartConfig = {
     freeTier: {
-        label: "Free Tier Usage",
+        label: "Free Tier",
         color: "hsl(var(--chart-1))",
     },
     overage: {
-        label: "Current Usage",
+        label: "Current",
         color: "hsl(var(--chart-2))",
     },
     estimated: {
         label: "Estimated",
-        color: "hsl(var(--chart-3))",
-    },
-    limit: {
-        label: "Limit",
         color: "hsl(var(--chart-3))",
     },
 } satisfies ChartConfig;
@@ -37,11 +33,10 @@ export function Usage({ usage }: UsageProps) {
     const { freeUsage, overageUsage, estimatedUsage } = usage;
     const chartData = [
         {
-            date: "Lines of code",
+            date: "Invocations",
             freeTier: freeUsage,
             overage: overageUsage,
             estimated: estimatedUsage,
-            limit: 4000,
         },
     ];
 
@@ -56,7 +51,6 @@ export function Usage({ usage }: UsageProps) {
                 <XAxis
                     type="number"
                     axisLine={false}
-                    ticks={[1000, 4000]}
                     tickFormatter={(value) => value.toLocaleString()}
                 />
                 <YAxis

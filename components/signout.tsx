@@ -6,7 +6,7 @@ import signOut from "@/lib/signout";
 export default function SignOut() {
     return (
         <Button
-            className="self-center py-0"
+            className="self-center border border-border py-1"
             size="sm"
             variant="ghost"
             onClick={() => signOut()}

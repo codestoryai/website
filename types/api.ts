@@ -11,11 +11,6 @@ type InvoiceStatus =
     | "trialing"
     | "unpaid";
 
-export type UpcomingInvoice = {
-    amountDue: number;
-    projectedAmount: number;
-};
-
 export const SubscriptionStatuses: Record<SubscriptionStatus, string> = {
     free: "Free tier",
     active: "Pro",
@@ -49,7 +44,7 @@ export type SubscriptionResponse = {
     status: SubscriptionStatus;
     usage: CurrentUsage;
     invoiceStatus?: InvoiceStatus;
-    upcomingInvoice?: UpcomingInvoice;
+    subscriptionEnding?: number;
     billingPortal?: string;
 };
 

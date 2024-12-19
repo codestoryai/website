@@ -30,8 +30,8 @@ import {
     UserProfileResponse,
 } from "@/types/api";
 import { Button } from "@/components/ui/button";
+import { formatDateTime, formatUnixTimestamp } from "@/lib/formatDateTime";
 
-const freeUsage = 1000;
 export default async function AccountPage() {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
     let userData: UserProfileResponse | null = null;
@@ -189,7 +189,16 @@ export default async function AccountPage() {
                                     Usage & billing
                                 </h3>
                                 <p className="text-gray-500">
-                                    Next payment: <b>1st August, 2024</b>
+                                    {subscriptionData.subscriptionEnding && (
+                                        <>
+                                            <span>Next payment: </span>
+                                            <b>
+                                                {formatUnixTimestamp(
+                                                    subscriptionData.subscriptionEnding
+                                                )}
+                                            </b>
+                                        </>
+                                    )}
                                 </p>
                             </div>
                             <div className="flex w-full gap-4">
@@ -198,11 +207,9 @@ export default async function AccountPage() {
                             <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
                                 <div className="flex flex-col gap-4">
                                     <p className="text-base text-gray-800 md:text-lg">
-                                        Only the code changes by AI that you
-                                        apply to your codebase are counted
-                                        towards your usage. The first{" "}
-                                        {freeUsage.toLocaleString()} lines are
-                                        free each month.
+                                        Only the requests made using the
+                                        CodeStory provider count towards your
+                                        usage.
                                     </p>
                                     {subscriptionData.status === "free" ? (
                                         <UpgradeTrigger className="self-start">
@@ -217,8 +224,7 @@ export default async function AccountPage() {
                                                     subscriptionData.billingPortal
                                                 }
                                             >
-                                                View card details and past
-                                                invoices
+                                                Manage subscription and invoices
                                             </a>
                                         </Button>
                                     )}
@@ -234,15 +240,17 @@ export default async function AccountPage() {
                                                     {subscriptionData.status ===
                                                     "free"
                                                         ? "$0/mo"
-                                                        : `$${subscriptionData.upcomingInvoice?.amountDue.toLocaleString()}/mo`}
+                                                        : `$20/mo`}
+                                                    <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
+                                                        unlimited
+                                                    </div>
                                                 </TableHead>
-                                                <TableHead></TableHead>
                                             </TableRow>
                                         </TableHeader>
                                         <TableBody>
                                             <TableRow className="hover:bg-transparent">
                                                 <TableCell className="text-sm font-medium md:text-base">
-                                                    Lines of code
+                                                    Agent invocations
                                                 </TableCell>
                                                 <TableCell className="text-right text-sm tracking-wide md:text-base">
                                                     {(
@@ -251,34 +259,16 @@ export default async function AccountPage() {
                                                         subscriptionData.usage
                                                             .overageUsage
                                                     ).toLocaleString()}
-                                                    /1,000
-                                                </TableCell>
-                                                <TableCell>
-                                                    <UpgradeTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md border-0 bg-transparent px-2 py-0 font-medium shadow-none ring-offset-background transition-colors hover:bg-background hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50">
-                                                        &#8943;
-                                                    </UpgradeTrigger>
                                                 </TableCell>
                                             </TableRow>
                                             <TableRow className="hover:bg-transparent">
                                                 <TableCell className="text-sm font-medium md:text-base">
-                                                    Number of chat conversations
+                                                    Chat invocations
                                                 </TableCell>
                                                 <TableCell className="text-right text-sm md:text-base">
-                                                    {subscriptionData.status ===
-                                                    "free" ? (
-                                                        <div className="tracking-wide">
-                                                            0/10
-                                                        </div>
-                                                    ) : (
-                                                        <div className="inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-                                                            unlimited
-                                                        </div>
-                                                    )}
-                                                </TableCell>
-                                                <TableCell>
-                                                    <UpgradeTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md border-0 bg-transparent px-2 py-0 font-medium shadow-none ring-offset-background transition-colors hover:bg-background hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50">
-                                                        &#8943;
-                                                    </UpgradeTrigger>
+                                                    <div className="tracking-wide">
+                                                        0
+                                                    </div>
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>

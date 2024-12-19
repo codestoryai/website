@@ -98,12 +98,12 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                 </span>
                             </div>
                             <Separator />
-                            <div className="py-[15px]">
+                            <div>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Upto 1,000 lines of code/month
+                                    Upto 50 chat & agentic invocations/month
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Upto 10 chat conversations/month
+                                    Use your own API keys and providers
                                 </CardDescription>
                             </div>
                             <div className="pt-[2px]" />
@@ -123,7 +123,7 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                         Pro
                                     </CardTitle>
                                     <Badge className="bg-green-100 text-green-800">
-                                        Save ${calculatePrice().savings}
+                                        Save ${calculatePrice().savings}/year
                                     </Badge>
                                 </div>
                             ) : (
@@ -133,28 +133,30 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             )}
                             <div className="flex gap-0.5 pb-4">
                                 <h3 className="text-4xl font-bold">
-                                    ${calculatePrice().price}
+                                    $
+                                    {calculatePrice().price /
+                                        (isYearly ? 12 : 1)}
                                 </h3>
                                 <span className="mb-1 flex flex-col justify-end">
-                                    {isYearly ? "/year" : "/month"}
+                                    /month
                                 </span>
                             </div>
                             <Separator />
-                            <Slider
+                            {/* <Slider
                                 className="pt-4"
                                 value={[value]}
                                 onValueChange={(value) => setValue(value[0])}
                                 min={2000}
                                 max={20000}
                                 step={2000}
-                            />
+                            /> */}
                             <div>
                                 <CardDescription className="pt-1.5 text-base">
-                                    {value.toLocaleString()} lines of code /
-                                    month
+                                    Unlimited Claude Sonnet and 30 OpenAI o1
+                                    invocations
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Unlimited chat conversations
+                                    Use your own API keys and providers
                                 </CardDescription>
                             </div>
                             <div className="pt-[2px]" />
