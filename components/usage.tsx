@@ -16,7 +16,7 @@ const chartConfig = {
         color: "hsl(var(--chart-1))",
     },
     overage: {
-        label: "Pro usage",
+        label: "Pro Tier",
         color: "hsl(var(--chart-2))",
     },
     estimated: {
@@ -51,7 +51,7 @@ export function Usage({ usage }: UsageProps) {
                 <XAxis
                     type="number"
                     axisLine={false}
-                    ticks={[50, 200]}
+                    ticks={[50]}
                     tickFormatter={(value) => value.toLocaleString()}
                 />
                 <YAxis

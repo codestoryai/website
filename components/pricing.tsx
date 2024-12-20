@@ -170,7 +170,11 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             size="sm"
                             className="w-full"
                             onClick={() =>
-                                onSubscribe(accessToken, calculatePrice().units)
+                                onSubscribe(
+                                    accessToken,
+                                    calculatePrice().units,
+                                    isYearly
+                                )
                             }
                         >
                             Change plan to ${calculatePrice().price}

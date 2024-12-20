@@ -30,7 +30,7 @@ import {
     UserProfileResponse,
 } from "@/types/api";
 import { Button } from "@/components/ui/button";
-import { formatUnixTimestamp } from "@/lib/formatDateTime";
+import { formatUnixTimestamp, getCurrentMonthYear } from "@/lib/formatDateTime";
 
 export default async function AccountPage() {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
@@ -206,10 +206,11 @@ export default async function AccountPage() {
                             </div>
                             <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
                                 <div className="flex flex-col gap-4">
-                                    <p className="text-base text-gray-800 md:text-lg">
-                                        Only the requests made using the
-                                        CodeStory provider count towards your
-                                        usage.
+                                    <p className="pt-[9px] text-base text-gray-800 md:text-lg">
+                                        Every time you message the assistant and
+                                        get a complete response, it counts as an
+                                        invocation. 50 invocations are free
+                                        every month.
                                     </p>
                                     {subscriptionData.status === "free" ? (
                                         <UpgradeTrigger className="self-start">
@@ -234,19 +235,16 @@ export default async function AccountPage() {
                                         <TableHeader>
                                             <TableRow className="hover:bg-transparent">
                                                 <TableHead className="text-base font-bold md:text-lg">
-                                                    Usage
+                                                    {getCurrentMonthYear()}{" "}
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
                                                     {subscriptionData.status ===
                                                     "free" ? (
                                                         "Free tier"
                                                     ) : (
-                                                        <>
-                                                            <span>$20/mo</span>
-                                                            <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-                                                                unlimited
-                                                            </div>
-                                                        </>
+                                                        <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
+                                                            unlimited
+                                                        </div>
                                                     )}
                                                 </TableHead>
                                             </TableRow>
