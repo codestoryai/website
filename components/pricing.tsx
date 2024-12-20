@@ -15,7 +15,6 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { onSubscribe } from "@/lib/subscribe";
 
@@ -61,7 +60,7 @@ type PricingWidgetProps = {
 };
 
 export function PricingWidget({ accessToken }: PricingWidgetProps) {
-    const [value, setValue] = useState(4000);
+    const [value] = useState(4000);
     const [isYearly, setIsYearly] = useState(false);
     const togglePricingPeriod = (value: string) =>
         setIsYearly(parseInt(value) === 1);

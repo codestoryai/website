@@ -37,7 +37,7 @@ export type CurrentUsage = {
     freeUsage: number;
     overageUsage: number;
     estimatedUsage: number;
-    limit: number;
+    breakdown: Record<string, number>;
 };
 
 export type SubscriptionResponse = {

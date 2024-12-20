@@ -30,7 +30,7 @@ import {
     UserProfileResponse,
 } from "@/types/api";
 import { Button } from "@/components/ui/button";
-import { formatDateTime, formatUnixTimestamp } from "@/lib/formatDateTime";
+import { formatUnixTimestamp } from "@/lib/formatDateTime";
 
 export default async function AccountPage() {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
@@ -238,12 +238,16 @@ export default async function AccountPage() {
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
                                                     {subscriptionData.status ===
-                                                    "free"
-                                                        ? "$0/mo"
-                                                        : `$20/mo`}
-                                                    <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-                                                        unlimited
-                                                    </div>
+                                                    "free" ? (
+                                                        "Free tier"
+                                                    ) : (
+                                                        <>
+                                                            <span>$20/mo</span>
+                                                            <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
+                                                                unlimited
+                                                            </div>
+                                                        </>
+                                                    )}
                                                 </TableHead>
                                             </TableRow>
                                         </TableHeader>
@@ -255,9 +259,9 @@ export default async function AccountPage() {
                                                 <TableCell className="text-right text-sm tracking-wide md:text-base">
                                                     {(
                                                         subscriptionData.usage
-                                                            .freeUsage +
-                                                        subscriptionData.usage
-                                                            .overageUsage
+                                                            .breakdown[
+                                                            "AgenticRequest"
+                                                        ] ?? 0
                                                     ).toLocaleString()}
                                                 </TableCell>
                                             </TableRow>
@@ -267,7 +271,13 @@ export default async function AccountPage() {
                                                 </TableCell>
                                                 <TableCell className="text-right text-sm md:text-base">
                                                     <div className="tracking-wide">
-                                                        0
+                                                        {(
+                                                            subscriptionData
+                                                                .usage
+                                                                .breakdown[
+                                                                "ChatRequest"
+                                                            ] ?? 0
+                                                        ).toLocaleString()}
                                                     </div>
                                                 </TableCell>
                                             </TableRow>
