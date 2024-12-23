@@ -31,6 +31,7 @@ import {
 } from "@/types/api";
 import { Button } from "@/components/ui/button";
 import { formatUnixTimestamp, getCurrentMonthYear } from "@/lib/formatDateTime";
+import { BillingPortalButton } from "@/components/billingPortal";
 
 export default async function AccountPage() {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
@@ -74,6 +75,7 @@ export default async function AccountPage() {
 
     const SubscriptionStatusStyles: Record<SubscriptionStatus, string> = {
         free: "text-sm bg-green-100 text-green-800",
+        pending_activation: "text-sm bg-yellow-100 text-yellow-800",
         active: "text-sm bg-purple-100 text-purple-800",
         cancelled: "text-sm bg-red-100 text-red-800",
     };
@@ -212,22 +214,16 @@ export default async function AccountPage() {
                                         invocation. 50 invocations are free
                                         every month.
                                     </p>
-                                    {subscriptionData.status === "free" ? (
+                                    {subscriptionData.status === "active" ? (
+                                        <BillingPortalButton
+                                            accessToken={accessToken}
+                                        />
+                                    ) : (
                                         <UpgradeTrigger className="self-start">
                                             <p className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-base font-medium text-primary-foreground shadow-lg ring-offset-background transition-colors hover:bg-primary/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:translate-y-[0.1rem] active:shadow-inner disabled:pointer-events-none disabled:opacity-50 md:text-xl">
                                                 Upgrade
                                             </p>
                                         </UpgradeTrigger>
-                                    ) : (
-                                        <Button className="self-start">
-                                            <a
-                                                href={
-                                                    subscriptionData.billingPortal
-                                                }
-                                            >
-                                                Manage subscription and invoices
-                                            </a>
-                                        </Button>
                                     )}
                                 </div>
                                 <div className="flex flex-col gap-4">
@@ -239,12 +235,12 @@ export default async function AccountPage() {
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
                                                     {subscriptionData.status ===
-                                                    "free" ? (
-                                                        "Free tier"
-                                                    ) : (
+                                                    "active" ? (
                                                         <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
                                                             unlimited
                                                         </div>
+                                                    ) : (
+                                                        "Free tier"
                                                     )}
                                                 </TableHead>
                                             </TableRow>

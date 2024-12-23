@@ -1,6 +1,10 @@
 import { User } from "@workos-inc/node";
 
-export type SubscriptionStatus = "free" | "active" | "cancelled";
+export type SubscriptionStatus =
+    | "free"
+    | "pending_activation"
+    | "active"
+    | "cancelled";
 type InvoiceStatus =
     | "active"
     | "canceled"
@@ -13,6 +17,7 @@ type InvoiceStatus =
 
 export const SubscriptionStatuses: Record<SubscriptionStatus, string> = {
     free: "Free tier",
+    pending_activation: "Exhausted free tier",
     active: "Pro",
     cancelled: "Cancelled",
 };
@@ -45,7 +50,6 @@ export type SubscriptionResponse = {
     usage: CurrentUsage;
     invoiceStatus?: InvoiceStatus;
     subscriptionEnding?: number;
-    billingPortal?: string;
 };
 
 export type CreateSubscriptionResponse = {
