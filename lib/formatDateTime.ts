@@ -7,3 +7,20 @@ export const formatDateTime = (timestamp: string): string => {
         year: "numeric",
     });
 };
+
+export const formatUnixTimestamp = (timestamp: number): string => {
+    const date = new Date(timestamp * 1000); // Convert Unix timestamp to milliseconds
+    return new Intl.DateTimeFormat("en-US", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+    }).format(date);
+};
+
+export const getCurrentMonthYear = (): string => {
+    const date = new Date();
+    return new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        year: "numeric",
+    }).format(date);
+};
