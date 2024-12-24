@@ -4,6 +4,7 @@ export type SubscriptionStatus =
     | "free"
     | "pending_activation"
     | "active"
+    | "pending_cancellation"
     | "cancelled";
 type InvoiceStatus =
     | "active"
@@ -19,7 +20,12 @@ export const SubscriptionStatuses: Record<SubscriptionStatus, string> = {
     free: "Free tier",
     pending_activation: "Exhausted free tier",
     active: "Pro",
+    pending_cancellation: "Pro",
     cancelled: "Cancelled",
+};
+
+export const isCurrentlySubscribed = (status: SubscriptionStatus): boolean => {
+    return status === "active" || status === "pending_cancellation";
 };
 
 export const InvoiceStatuses: Record<InvoiceStatus, string> = {

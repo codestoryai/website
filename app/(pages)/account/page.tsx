@@ -24,12 +24,12 @@ import {
 } from "@/components/ui/table";
 import { Usage } from "@/components/usage";
 import {
+    isCurrentlySubscribed,
     SubscriptionResponse,
     SubscriptionStatus,
     SubscriptionStatuses,
     UserProfileResponse,
 } from "@/types/api";
-import { Button } from "@/components/ui/button";
 import { formatUnixTimestamp, getCurrentMonthYear } from "@/lib/formatDateTime";
 import { BillingPortalButton } from "@/components/billingPortal";
 
@@ -77,6 +77,7 @@ export default async function AccountPage() {
         free: "text-sm bg-green-100 text-green-800",
         pending_activation: "text-sm bg-yellow-100 text-yellow-800",
         active: "text-sm bg-purple-100 text-purple-800",
+        pending_cancellation: "text-sm bg-purple-100 text-purple-800",
         cancelled: "text-sm bg-red-100 text-red-800",
     };
 
@@ -191,16 +192,24 @@ export default async function AccountPage() {
                                     Usage & billing
                                 </h3>
                                 <p className="text-gray-500">
-                                    {subscriptionData.subscriptionEnding && (
-                                        <>
-                                            <span>Next payment: </span>
-                                            <b>
-                                                {formatUnixTimestamp(
-                                                    subscriptionData.subscriptionEnding
-                                                )}
-                                            </b>
-                                        </>
-                                    )}
+                                    {subscriptionData.subscriptionEnding &&
+                                        isCurrentlySubscribed(
+                                            subscriptionData.status
+                                        ) && (
+                                            <>
+                                                <span>
+                                                    {subscriptionData.status ===
+                                                    "active"
+                                                        ? "Next payment: "
+                                                        : "Cancels on: "}
+                                                </span>
+                                                <b>
+                                                    {formatUnixTimestamp(
+                                                        subscriptionData.subscriptionEnding
+                                                    )}
+                                                </b>
+                                            </>
+                                        )}
                                 </p>
                             </div>
                             <div className="flex w-full gap-4">
@@ -214,7 +223,9 @@ export default async function AccountPage() {
                                         invocation. 50 invocations are free
                                         every month.
                                     </p>
-                                    {subscriptionData.status === "active" ? (
+                                    {isCurrentlySubscribed(
+                                        subscriptionData.status
+                                    ) ? (
                                         <BillingPortalButton
                                             accessToken={accessToken}
                                         />
@@ -234,8 +245,9 @@ export default async function AccountPage() {
                                                     {getCurrentMonthYear()}{" "}
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
-                                                    {subscriptionData.status ===
-                                                    "active" ? (
+                                                    {isCurrentlySubscribed(
+                                                        subscriptionData.status
+                                                    ) ? (
                                                         <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
                                                             unlimited
                                                         </div>
