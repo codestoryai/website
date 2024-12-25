@@ -68,7 +68,11 @@ export default async function RootLayout({
     }
 
     return (
-        <html className={`${firaSans.className}`} lang="en">
+        <html
+            className={`${firaSans.className}`}
+            lang="en"
+            suppressHydrationWarning={true}
+        >
             <body>
                 <PHProvider>
                     <PostHogPageView />
