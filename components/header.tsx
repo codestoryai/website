@@ -25,7 +25,7 @@ interface HeaderProps {
 
 export default function Header({ user, logoSuffix }: HeaderProps) {
     return (
-        <div className="absolute w-screen">
+        <div className="absolute w-full">
             <div className="m-auto flex max-w-screen-2xl items-center justify-between p-8 text-2xl md:p-12">
                 <div className="flex items-center">
                     <Link className="flex items-center" href="/">
@@ -66,6 +66,14 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                                     href="/blog"
                                 >
                                     Blog
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
+                                <NavigationMenuLink
+                                    className={navigationMenuTriggerStyle()}
+                                    href="/pricing"
+                                >
+                                    Pricing
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>

@@ -33,10 +33,17 @@ import {
 import { formatUnixTimestamp, getCurrentMonthYear } from "@/lib/formatDateTime";
 import { BillingPortalButton } from "@/components/billingPortal";
 
-export default async function AccountPage() {
+export default async function AccountPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined };
+}) {
     const { user, accessToken } = await getUser({ ensureSignedIn: true });
     let userData: UserProfileResponse | null = null;
     let subscriptionData: SubscriptionResponse | null = null;
+
+    // Show upgrade dialog if URL has upgrade parameter
+    const showUpgradeDialog = 'upgrade' in searchParams;
     try {
         const [userDetails, subscriptionDetails] = await Promise.all([
             fetch(
@@ -104,6 +111,19 @@ export default async function AccountPage() {
 
     return (
         <div className="min-h-screen bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
+            {showUpgradeDialog && (
+                <Dialog defaultOpen>
+                    <DialogContent className="w-full max-w-screen-md md:w-fit">
+                        <VisuallyHidden>
+                            <DialogTitle>Pricing widget</DialogTitle>
+                            <DialogDescription>
+                                Choose the pricing configuration
+                            </DialogDescription>
+                        </VisuallyHidden>
+                        <PricingWidget accessToken={accessToken} />
+                    </DialogContent>
+                </Dialog>
+            )}
             <div className="m-auto max-w-screen-xl">
                 <div className="my-12 flex flex-col items-center">
                     <h2 className="pt-4 text-center text-3xl font-bold md:text-5xl">
