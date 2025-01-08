@@ -14,18 +14,18 @@ export interface Downloads {
     macOS: Record<NonNullable<ICPU["architecture"]>, MacFormats>;
 }
 
-interface MacFormats {
+export interface MacFormats {
     dmg: string;
     zip: string;
 }
 
-interface WindowsFormats {
+export interface WindowsFormats {
     systemInstaller: string;
     userInstaller: string;
     zip: string;
 }
 
-interface LinuxFormats {
+export interface LinuxFormats {
     tar: string;
 }
 
