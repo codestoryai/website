@@ -14,13 +14,14 @@ const PricingPage = () => {
 			description: "Perfect for getting started",
 			price: "Free",
 			features: [
-				"50 invocations per month",
+
+				"Upto 50 chat & agentic invocations/month",
 				"1 agent",
-				"Support from developers",
+				"Discord community support",
 			],
 			period: "forever",
 			cta: "Sign up",
-			ctaLink: "/authenticate",
+			ctaLink: "/account",
 			highlight: false
 		},
 		{
@@ -31,10 +32,10 @@ const PricingPage = () => {
 			features: [
 				"Infinite invocations",
 				"1 agent",
-				"Priority support"
+				"Priority Slack/email support"
 			],
 			cta: "Get Creator",
-			ctaLink: "/authenticate",
+			ctaLink: "/account?upgrade",
 			highlight: true
 		},
 		{
@@ -42,7 +43,7 @@ const PricingPage = () => {
 			description: "For creators of the futre",
 			price: "Coming soon",
 			features: [
-				"Infinite invocations",
+				"Unlimited Claude Sonnet and 30 OpenAI o1 invocations",
 				"N agents",
 				"Early access and VIP treatment"
 			],
@@ -60,7 +61,7 @@ const PricingPage = () => {
 						Simple, transparent pricing
 					</h2>
 					<p className="mt-4 text-lg text-gray-600">
-						Choose the plan that's right for you
+						Choose the plan that&apos;s right for you
 					</p>
 				</div>
 
@@ -92,7 +93,7 @@ const PricingPage = () => {
 					{pricingTiers.map((tier) => (
 						<div
 							key={tier.name}
-							className={`rounded-lg bg-white p-8 shadow-lg ring-1 ring-gray-200 ${
+							className={`rounded-lg bg-white p-8 shadow-lg ring-1 ring-gray-200 flex flex-col ${
 								tier.highlight
 									? "relative ring-2 ring-primary"
 									: ""
@@ -132,7 +133,7 @@ const PricingPage = () => {
 							</ul>
 							<Link
 								href={tier.ctaLink}
-								className={`block w-full rounded-lg px-4 py-2 -mb-1 text-center text-sm font-semibold transition-all ${
+								className={`block w-full rounded px-4 py-2 -mb-1 text-center text-sm font-semibold transition-all mt-auto ${
 									tier.highlight
 										? "bg-primary text-white hover:bg-primary/90"
 										: "bg-gray-50 text-gray-700 hover:bg-gray-100"
