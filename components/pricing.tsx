@@ -150,9 +150,11 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                 step={2000}
                             /> */}
                             <div>
-                                <CardDescription className="pt-1.5 text-base">
-                                    Unlimited Claude Sonnet and 30 OpenAI o1
-                                    invocations
+                                <CardDescription className="pt-1.5 text-base font-semibold text-green-700">
+                                    Unlimited access to pro models:
+                                </CardDescription>
+                                <CardDescription className="pt-1.5 text-base text-zinc-700">
+                                    deepseekv3, gpt4o, sonnet3.5, haiku3.5, gemini-1.5-pro, o1-mini
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
                                     Use your own API keys and providers
@@ -162,6 +164,12 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             <Separator />
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
+                            <CheckItem text="Unlimited access to deepseekv3" />
+                            <CheckItem text="Unlimited access to gpt4o" />
+                            <CheckItem text="Unlimited access to sonnet3.5" />
+                            <CheckItem text="Unlimited access to haiku3.5" />
+                            <CheckItem text="Unlimited access to gemini-1.5-pro" />
+                            <CheckItem text="Unlimited access to o1-mini" />
                             <CheckItem text="Priority Slack/email support" />
                         </CardContent>
                     </div>
