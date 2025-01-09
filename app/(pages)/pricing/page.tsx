@@ -26,10 +26,17 @@ const PricingPage = () => {
 		},
 		{
 			name: "Creator",
-			description: "Unlock infinite work",
+			description: "Unlock infinite work with pro models",
 			price: isAnnual ? "$16" : "$20",
 			period: isAnnual ? "/month (billed annually)" : "/month",
 			features: [
+				"Unlimited access to pro models:",
+				"• deepseekv3",
+				"• gpt4o",
+				"• sonnet3.5",
+				"• haiku3.5",
+				"• gemini-1.5-pro",
+				"• o1-mini",
 				"Infinite invocations",
 				"1 agent",
 				"Priority Slack/email support"
