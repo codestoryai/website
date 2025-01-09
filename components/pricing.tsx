@@ -151,8 +151,7 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             /> */}
                             <div>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Unlimited Claude Sonnet and 30 OpenAI o1
-                                    invocations
+                                    Unlimited access to models
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
                                     Use your own API keys and providers
@@ -162,6 +161,7 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             <Separator />
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
+
                             <CheckItem text="Priority Slack/email support" />
                         </CardContent>
                     </div>
