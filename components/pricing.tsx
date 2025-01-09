@@ -151,7 +151,7 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                             /> */}
                             <div>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Unlimited access to pro models
+                                    Unlimited access to models
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
                                     Use your own API keys and providers
