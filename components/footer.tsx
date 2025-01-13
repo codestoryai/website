@@ -36,7 +36,21 @@ export default function Footer() {
                             </p>
                         </Link>
                     </div>
-                    <div className="flex justify-center gap-8 translate-y-[3px]">
+                    <div className="flex justify-center gap-8 translate-y-[3px]">       
+                        <Link
+                            className="font-medium hover:text-primary"
+                            href="/blog"
+                        >
+                            Blog
+                        </Link>
+                        <Link
+                            className="font-medium hover:text-primary"
+                            href="https://docs.aide.dev/welcome/setting-up"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Docs
+                        </Link>
                         <Link
                             className="font-medium hover:text-primary"
                             href="https://github.com/codestoryai/binaries/releases"
@@ -47,10 +61,21 @@ export default function Footer() {
                         </Link>
                         <Link
                             className="font-medium hover:text-primary"
-                            href="/blog"
+                            href="https://codestory.ai"
+                            rel="noopener noreferrer"
+                            target="_blank"
                         >
-                            Blog
+                            Company
                         </Link>
+                        <Link
+                            className="font-medium hover:text-primary"
+                            href="https://www.workatastartup.com/companies/codestory"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Careers
+                        </Link>
+                       
                     </div>
                     <div className="flex items-center justify-center gap-8 md:ml-auto md:justify-start">
                         <Link

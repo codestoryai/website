@@ -25,7 +25,7 @@ interface HeaderProps {
 
 export default function Header({ user, logoSuffix }: HeaderProps) {
     return (
-        <div className="absolute w-full">
+        <div className="absolute w-full z-10">
             <div className="m-auto flex max-w-screen-2xl items-center justify-between p-8 text-2xl md:p-12">
                 <div className="flex items-center">
                     <Link className="flex items-center" href="/">
@@ -52,12 +52,12 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                         <React.Fragment />
                     )}
                 </div>
-                <div className="flex items-center md:hidden">
+                <div className="flex items-center hidden">
                     <Link href="/account" className="font-bold">
                         Account
                     </Link>
                 </div>
-                <div className="fixed bottom-4 left-0 hidden h-48 w-full items-end justify-center md:flex lg:static lg:h-auto lg:w-auto lg:bg-none">
+                <div className="fixed bottom-4 left-0 right-0 w-fit mx-auto md:w-full items-end justify-center flex lg:static lg:h-auto lg:w-auto lg:bg-none">
                     <NavigationMenu className="cursor-pointer">
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -79,6 +79,16 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                             <NavigationMenuItem>
                                 <NavigationMenuLink
                                     className={navigationMenuTriggerStyle()}
+                                    href="https://docs.aide.dev/welcome/setting-up"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    Docs
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem className="hidden md:inline-flex">
+                                <NavigationMenuLink
+                                    className={navigationMenuTriggerStyle()}
                                     href="https://github.com/codestoryai/binaries/releases"
                                     rel="noopener noreferrer"
                                     target="_blank"
@@ -86,7 +96,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                                     Releases
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
-                            <NavigationMenuItem>
+                            <NavigationMenuItem className="hidden md:inline-flex">
                                 <NavigationMenuTrigger>
                                     About
                                 </NavigationMenuTrigger>
