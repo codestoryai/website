@@ -30,6 +30,7 @@ const PricingPage = () => {
 			price: isAnnual ? "$16" : "$20",
 			period: isAnnual ? "/month (billed annually)" : "/month",
 			features: [
+				"Unlimited access to pro models",
 				"Infinite invocations",
 				"1 agent",
 				"Priority Slack/email support"
@@ -155,6 +156,27 @@ const PricingPage = () => {
 							Get in touch
 						</Link>
 					</p>
+				</div>
+
+				<div className="mt-16 text-center">
+					<h3 className="text-2xl font-bold mb-6">Models with Unlimited Access</h3>
+					<div className="bg-white rounded-lg p-8 shadow-lg mx-auto max-w-3xl">
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+							{[
+								"deepseekv3",
+								"gpt4o",
+								"sonnet3.5",
+								"haiku3.5",
+								"gemini-1.5-pro",
+								"o1-mini"
+							].map((model) => (
+								<div key={model} className="flex items-center gap-3 p-4 rounded-lg border border-gray-100 bg-gray-50/50 hover:bg-gray-50 transition-colors">
+									<Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+									<span className="text-zinc-700 font-medium">{model}</span>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
