@@ -57,7 +57,7 @@ export default function Header({ user, logoSuffix }: HeaderProps) {
                         Account
                     </Link>
                 </div>
-                <div className="fixed bottom-4 left-0 right-0 w-fit mx-auto md:w-full items-end justify-center flex lg:static lg:h-auto lg:w-auto lg:bg-none">
+                <div className="fixed bottom-4 left-0 right-0 w-fit md:mx-auto md:w-full items-end justify-center flex lg:static lg:h-auto lg:w-auto lg:bg-none">
                     <NavigationMenu className="cursor-pointer">
                         <NavigationMenuList>
                             <NavigationMenuItem>
