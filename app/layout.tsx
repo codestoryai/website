@@ -78,7 +78,7 @@ export default async function RootLayout({
                     <PostHogPageView />
                     <TooltipProvider delayDuration={0}>
                         <Impersonation />
-                        <Header user={user} />
+                        <Header />
                         {children}
                         <Footer />
                     </TooltipProvider>
