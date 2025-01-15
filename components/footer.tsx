@@ -45,7 +45,7 @@ export default function Footer() {
                         </Link>
                         <Link
                             className="font-medium hover:text-primary"
-                            href="https://docs.aide.dev/welcome/setting-up"
+                            href="https://docs.aide.dev"
                             rel="noopener noreferrer"
                             target="_blank"
                         >

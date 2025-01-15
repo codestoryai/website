@@ -135,7 +135,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             navigationMenuTriggerStyle(),
                                             "w-full md:w-auto justify-start md:justify-center"
                                         )}
-                                        href="https://docs.aide.dev/welcome/setting-up"
+                                        href="https://docs.aide.dev"
                                         rel="noopener noreferrer"
                                         target="_blank"
                                     >
