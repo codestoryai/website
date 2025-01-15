@@ -10,7 +10,7 @@ const NavigationMenu = React.forwardRef<
 >(({ children, className, ...props }, ref) => (
     <NavigationMenuPrimitive.Root
         className={cn(
-            "relative z-10 flex max-w-max flex-1 items-center justify-center rounded-lg border border-ring bg-background",
+            "relative z-10 flex max-w-max flex-1 items-center rounded-lg",
             className
         )}
         ref={ref}
@@ -28,7 +28,7 @@ const NavigationMenuList = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <NavigationMenuPrimitive.List
         className={cn(
-            "group flex flex-1 list-none items-center justify-center space-x-1",
+            "group flex flex-1 list-none items-center space-x-1",
             className
         )}
         ref={ref}
