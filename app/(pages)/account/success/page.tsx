@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 
 export default async function SuccessPage() {
     const { accessToken } = await getUser({ ensureSignedIn: true });
+
+    console.log('[subscription] Success page init')
     
     const stripeCustomerIdRequest = await fetch(
         `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/subscriptions/customer`,
@@ -15,14 +17,18 @@ export default async function SuccessPage() {
         }
     )
 
-    const { customerId } = await stripeCustomerIdRequest.json()
+    const data = await stripeCustomerIdRequest.json()
+
+    const { customerId } = data
+
+    console.log('[subscription] Got customer id', data);
 
     if (!customerId) {
-        return redirect("/");
+        return redirect("/account");
     }
 
     // Sync Stripe data to DB
-    await fetch(
+    const syncRequest = await fetch(
         `${process.env.NEXT_PUBLIC_SUBSCRIPTION_SERVICE_URL}/v1/subscriptions/sync-stripe-data`,
         {
             headers: {
@@ -34,5 +40,7 @@ export default async function SuccessPage() {
         }
     )
 
-    return redirect("/");
+    console.log('[subscription] Synced', syncRequest.ok)
+
+    return redirect("/account");
 }
