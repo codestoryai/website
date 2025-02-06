@@ -15,6 +15,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { onSubscribe } from "@/lib/subscribe";
 
@@ -60,19 +61,19 @@ type PricingWidgetProps = {
 };
 
 export function PricingWidget({ accessToken }: PricingWidgetProps) {
-    const [value] = useState(4000);
+    const [value, setValue] = useState(500);
     const [isYearly, setIsYearly] = useState(false);
     const togglePricingPeriod = (value: string) =>
         setIsYearly(parseInt(value) === 1);
 
     const calculatePrice = () => {
         const monthlyBasePrice = 20;
-        const additionalLines = Math.max(0, value - 4000);
-        const additionalCost = Math.ceil(additionalLines / 2000) * 20;
+        const additionalInvocations = Math.max(0, value - 500);
+        const additionalCost = Math.ceil(additionalInvocations / 1000) * 20;
         const totalCost = monthlyBasePrice + additionalCost;
         const discountedCost = isYearly ? totalCost * 12 * 0.8 : totalCost;
         const savings = isYearly ? totalCost * 12 * 0.2 : 0;
-        const units = (Math.max(value, 4000) - 2000) / 2000;
+        const units = (value + 500) / 1000;
 
         return { price: discountedCost, savings, units };
     };
@@ -96,17 +97,17 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                     {isYearly ? "/year" : "/month"}
                                 </span>
                             </div>
-                            <Separator />
-                            <div>
-                                <CardDescription className="pt-1.5 text-base">
+                            <Separator className="mb-4" />
+                            <div className="space-y-2">
+                                <CardDescription className="text-base">
                                     Upto 50 chat & agentic invocations/month
                                 </CardDescription>
-                                <CardDescription className="pt-1.5 text-base">
-                                    Use your own API keys and providers
+                                <CardDescription className="text-base">
+                                    Unlimited use with your own API keys or
+                                    local models
                                 </CardDescription>
                             </div>
-                            <div className="pt-[2px]" />
-                            <Separator />
+                            <Separator className="mt-4" />
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
                             <CheckItem text="Discord community support" />
@@ -126,9 +127,14 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                     </Badge>
                                 </div>
                             ) : (
-                                <CardTitle className="text-xl text-zinc-700">
-                                    Pro
-                                </CardTitle>
+                                <div className="flex items-center justify-between">
+                                    <CardTitle className="text-xl text-zinc-700">
+                                        Pro
+                                    </CardTitle>
+                                    <span className="text-sm text-zinc-500">
+                                        includes free plan benefits
+                                    </span>
+                                </div>
                             )}
                             <div className="flex gap-0.5 pb-4">
                                 <h3 className="text-4xl font-bold">
@@ -141,27 +147,26 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                                 </span>
                             </div>
                             <Separator />
-                            {/* <Slider
-                                className="pt-4"
+                            <Slider
+                                className="pt-[0.4rem]"
                                 value={[value]}
                                 onValueChange={(value) => setValue(value[0])}
-                                min={2000}
-                                max={20000}
-                                step={2000}
-                            /> */}
-                            <div>
-                                <CardDescription className="pt-1.5 text-base">
-                                    Unlimited access to models
+                                min={500}
+                                max={4500}
+                                step={1000}
+                            />
+                            <div className="pb-4">
+                                <CardDescription className="pt-[0.350rem] text-base">
+                                    {value.toLocaleString()} invocations/month
                                 </CardDescription>
                                 <CardDescription className="pt-1.5 text-base">
-                                    Use your own API keys and providers
+                                    Includes free plan benefits
                                 </CardDescription>
                             </div>
                             <div className="pt-[2px]" />
                             <Separator />
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
-
                             <CheckItem text="Priority Slack/email support" />
                         </CardContent>
                     </div>

@@ -43,7 +43,7 @@ export default async function AccountPage({
     let subscriptionData: SubscriptionResponse | null = null;
 
     // Show upgrade dialog if URL has upgrade parameter
-    const showUpgradeDialog = 'upgrade' in searchParams;
+    const showUpgradeDialog = "upgrade" in searchParams;
     try {
         const [userDetails, subscriptionDetails] = await Promise.all([
             fetch(
@@ -238,10 +238,11 @@ export default async function AccountPage({
                             <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
                                 <div className="flex flex-col gap-4">
                                     <p className="pt-[9px] text-base text-gray-800 md:text-lg">
-                                        Every time you message the assistant and
-                                        get a complete response, it counts as an
-                                        invocation. 50 invocations are free
-                                        every month.
+                                        Every time you send a message on the
+                                        assistant panel with one of pre-packaged
+                                        models and get a complete response, it
+                                        counts as an invocation. 50 invocations
+                                        are free every month.
                                     </p>
                                     {isCurrentlySubscribed(
                                         subscriptionData.status
@@ -260,20 +261,16 @@ export default async function AccountPage({
                                 <div className="flex flex-col gap-4">
                                     <Table>
                                         <TableHeader>
-                                            <TableRow className="hover:bg-transparent">
+                                            <TableRow className="bg-gray-50 hover:bg-gray-50">
                                                 <TableHead className="text-base font-bold md:text-lg">
                                                     {getCurrentMonthYear()}{" "}
                                                 </TableHead>
                                                 <TableHead className="text-right text-base font-bold tracking-wide md:text-lg">
                                                     {isCurrentlySubscribed(
                                                         subscriptionData.status
-                                                    ) ? (
-                                                        <div className="ml-4 inline-flex items-center border border-transparent bg-primary/80 px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-                                                            unlimited
-                                                        </div>
-                                                    ) : (
-                                                        "Free tier"
-                                                    )}
+                                                    )
+                                                        ? "Pro"
+                                                        : "Free tier"}
                                                 </TableHead>
                                             </TableRow>
                                         </TableHeader>
@@ -304,6 +301,27 @@ export default async function AccountPage({
                                                                 "ChatRequest"
                                                             ] ?? 0
                                                         ).toLocaleString()}
+                                                    </div>
+                                                </TableCell>
+                                            </TableRow>
+                                            <TableRow className="border-t-2 bg-gray-50 hover:bg-gray-50">
+                                                <TableCell className="text-sm font-bold text-primary md:text-base">
+                                                    Total invocations
+                                                </TableCell>
+                                                <TableCell className="text-right text-sm font-bold md:text-lg">
+                                                    <div className="tracking-wide text-primary">
+                                                        {`${(
+                                                            (subscriptionData
+                                                                .usage
+                                                                .breakdown[
+                                                                "AgenticRequest"
+                                                            ] ?? 0) +
+                                                            (subscriptionData
+                                                                .usage
+                                                                .breakdown[
+                                                                "ChatRequest"
+                                                            ] ?? 0)
+                                                        ).toLocaleString()}/50`}
                                                     </div>
                                                 </TableCell>
                                             </TableRow>
