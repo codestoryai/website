@@ -67,7 +67,7 @@ export default async function AccountPage({
         ]);
 
         if (!userDetails.ok || !subscriptionDetails.ok) {
-            redirect("/");
+            redirect("/success");
         }
 
         userData = await userDetails.json();
