@@ -49,7 +49,7 @@ const PricingPage = () => {
 				"Early access and VIP treatment"
 			],
 			cta: "Request access",
-			ctaLink: "founders@codestory.ai",
+			ctaLink: "mailto:founders@codestory.ai",
 			highlight: false
 		}
 	];
