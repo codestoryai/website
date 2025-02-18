@@ -116,8 +116,10 @@ export default function Component({
                             <div className="flex items-center justify-center space-x-6">
                                 <button
                                     onClick={() =>
-                                        (window.location.href =
-                                            "https://calendar.app.google/CWtwXjZF1s8rrkui6")
+                                        window.open(
+                                            "https://calendar.app.google/CWtwXjZF1s8rrkui6",
+                                            "_blank"
+                                        )
                                     }
                                     className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
                                 >
