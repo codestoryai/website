@@ -125,7 +125,7 @@ export default function Component({
                                 <div className="text-2xl font-bold text-indigo-400">
                                     100%
                                 </div>
-                                Toilet Uptime
+                                Async Uptime
                             </div>
                         </div>
                     </div>
