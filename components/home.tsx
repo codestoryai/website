@@ -111,7 +111,7 @@ export default function Component({
                                 Spawn self-managing AI Agents on your codebase,
                                 iterate on GitHub PRs, and get reliable
                                 updates—all without the overhead of
-                                man-management.
+                                engineering management.
                             </p>
                             <div className="flex items-center justify-center space-x-6">
                                 <button
