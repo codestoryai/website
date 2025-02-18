@@ -75,7 +75,6 @@ export default async function RootLayout({
             suppressHydrationWarning={true}
         >
             <body className="min-h-screen flex flex-col">
-                {/* Google tag (gtag.js) */}
                 <Script 
                     strategy="afterInteractive" 
                     src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338"
@@ -85,11 +84,11 @@ export default async function RootLayout({
                     strategy="afterInteractive"
                 >
                     {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'AW-16881199338');
-                    `}
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'AW-16881199338');
+                `}
                 </Script>
                 <PHProvider>
                     <PostHogPageView />
