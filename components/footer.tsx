@@ -15,7 +15,7 @@ export default function Footer() {
     const isBlogPost = pathname.startsWith("/blog/");
 
     return (
-        <footer className="absolute bottom-0 left-0 right-0 bg-[#0F1729] p-8 text-sm md:p-12">
+        <footer className="bg-[#0F1729] p-8 text-sm md:p-12">
             <div className="m-auto flex max-w-screen-xl flex-col gap-5">
                 <div className="grid justify-center gap-8 md:grid-cols-3 md:justify-normal md:text-lg">
                     <div className="flex justify-center gap-8 md:justify-start">

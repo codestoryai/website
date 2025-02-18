@@ -73,13 +73,15 @@ export default async function RootLayout({
             lang="en"
             suppressHydrationWarning={true}
         >
-            <body>
+            <body className="min-h-screen flex flex-col">
                 <PHProvider>
                     <PostHogPageView />
                     <TooltipProvider delayDuration={0}>
                         <Impersonation />
                         <Header />
-                        {children}
+                        <main className="flex-grow">
+                            {children}
+                        </main>
                         <Footer />
                     </TooltipProvider>
                 </PHProvider>
