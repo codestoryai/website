@@ -47,25 +47,25 @@ function FeatureCard({
 }: FeatureCardProps) {
     return (
         <div className="relative">
-            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
+            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
                 <div
                     className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-10`}
                 ></div>
                 <div className="relative space-y-6">
                     <div className="text-indigo-400">{icon}</div>
-                    <div>
-                        <h3 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
                             {title}
                         </h3>
-                        <p className="mb-4 text-gray-400">{description}</p>
+                        <p className="text-gray-400">{description}</p>
                     </div>
-                    <div className="space-y-3 border-t border-gray-700/50 pt-4">
+                    <div className="space-y-4 border-t border-gray-700/50 pt-4">
                         {details.map((detail, index) => (
                             <div
                                 key={index}
-                                className="flex items-center space-x-2 text-gray-300"
+                                className="flex items-start space-x-3 text-gray-300"
                             >
-                                <div className="text-indigo-400">
+                                <div className="mt-1 flex-shrink-0 text-indigo-400">
                                     {detail.icon}
                                 </div>
                                 <span>{detail.text}</span>
@@ -83,7 +83,7 @@ export default function Component({
     latestRelease,
 }: ComponentProps) {
     return (
-        <div className="relative h-screen overflow-hidden bg-black">
+        <div className="relative overflow-hidden bg-black min-h-screen">
             {/* Animated background elements */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e5,#0ea5e9)] opacity-20"></div>
@@ -95,9 +95,9 @@ export default function Component({
             </div>
 
             {/* Main content */}
-            <div className="container relative mx-auto flex h-screen max-w-7xl flex-col px-6">
+            <div className="container relative mx-auto flex max-w-7xl flex-col px-6 py-24">
                 {/* Center content section */}
-                <div className="flex flex-1 flex-col items-center justify-center space-y-24">
+                <div className="flex flex-col items-center justify-center space-y-24">
                     {/* Hero Section */}
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="space-y-8">
@@ -137,8 +137,8 @@ export default function Component({
                     </div>
 
                     {/* Feature Cards */}
-                    <div className="relative w-full">
-                        <div className="grid gap-6 md:grid-cols-3">
+                    <div className="relative w-full pb-16">
+                        <div className="grid gap-8 md:grid-cols-3">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Spawn Agents on Your Codebase"
