@@ -135,8 +135,11 @@ export default function Component({
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </button>
                                 <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
-                                    <div className="text-2xl font-bold text-indigo-400">
-                                        100%
+                                    <div className="flex items-center space-x-2">
+                                        <div className="text-2xl font-bold text-indigo-400">
+                                            100%
+                                        </div>
+                                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
                                     </div>
                                     Async Uptime
                                 </div>
