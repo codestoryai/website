@@ -4,17 +4,13 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { Bot, Sprout } from "lucide-react";
+import { Bot, Sprout, ArrowRight } from "lucide-react";
 
 import {
-    ListItem,
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 interface HeaderProps {
@@ -86,7 +82,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 </div>
 
                 {/* Navigation Menu Container */}
-                <div className="relative">
+                <div className="relative flex items-center space-x-4">
                     {/* Hamburger Button */}
                     <button
                         className="fixed right-8 top-8 z-[100] rounded-lg p-2 hover:bg-gray-800/50 md:hidden"
@@ -128,98 +124,6 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
                                             "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
-                                        href="/pricing"
-                                    >
-                                        Pricing
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
-                                        )}
-                                        href="https://docs.aide.dev"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        Docs
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem className="hidden md:inline-flex">
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
-                                        )}
-                                        href="https://github.com/codestoryai/binaries/releases"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        Releases
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem className="hidden md:inline-flex">
-                                    <NavigationMenuTrigger className="text-gray-300 hover:bg-gray-800/50 hover:text-indigo-300 data-[state=open]:bg-gray-800/50 data-[state=open]:text-indigo-300">
-                                        About
-                                    </NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid gap-3 bg-gray-900/95 p-6 backdrop-blur-sm md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
-                                            <li className="row-span-3">
-                                                <NavigationMenuLink asChild>
-                                                    <Link
-                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-indigo-500/20 to-indigo-500/5 p-6 no-underline outline-none focus:shadow-md"
-                                                        href="https://codestory.ai"
-                                                        target="_blank"
-                                                    >
-                                                        <div className="mb-2 mt-4 text-lg font-medium text-white">
-                                                            AgentFarm
-                                                        </div>
-                                                        <p className="text-sm leading-tight text-gray-400">
-                                                            Spawn self-managing
-                                                            AI Agents on your
-                                                            codebase
-                                                        </p>
-                                                    </Link>
-                                                </NavigationMenuLink>
-                                            </li>
-                                            <Link
-                                                href="https://codestory.ai"
-                                                target="_blank"
-                                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800/50"
-                                            >
-                                                <div className="text-lg font-medium text-white">
-                                                    Team
-                                                </div>
-                                                <p className="text-sm text-gray-400">
-                                                    Built by a team of four
-                                                    based in London, United
-                                                    Kingdom.
-                                                </p>
-                                            </Link>
-                                            <Link
-                                                href="https://www.workatastartup.com/companies/codestory"
-                                                target="_blank"
-                                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800/50"
-                                            >
-                                                <div className="text-lg font-medium text-white">
-                                                    Careers
-                                                </div>
-                                                <p className="text-sm text-gray-400">
-                                                    Work with us to re-imagine
-                                                    software engineering for the
-                                                    coming decade.
-                                                </p>
-                                            </Link>
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
-                                        )}
                                         href="/account"
                                     >
                                         <span className="font-bold">
@@ -227,28 +131,21 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                         </span>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink
-                                        className={cn(
-                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
-                                        )}
-                                        href="https://discord.gg/mtgrhXM5Xf"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        <Image
-                                            alt="Discord Link"
-                                            height={20}
-                                            priority
-                                            src="/discord-mark.svg"
-                                            width={20}
-                                        />
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
                             </NavigationMenuList>
                         </NavigationMenu>
                     </div>
+
+                    {/* CTA Button */}
+                    <button
+                        onClick={() =>
+                            (window.location.href =
+                                "https://calendar.app.google/CWtwXjZF1s8rrkui6")
+                        }
+                        className="group hidden items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:flex"
+                    >
+                        <span>Schedule a Demo</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
                 </div>
             </div>
         </div>
