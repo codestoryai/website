@@ -83,7 +83,7 @@ export default function Component({
     latestRelease,
 }: ComponentProps) {
     return (
-        <div className="relative min-h-screen overflow-hidden bg-black">
+        <div className="relative h-screen overflow-hidden bg-black">
             {/* Animated background elements */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e5,#0ea5e9)] opacity-20"></div>
@@ -95,7 +95,7 @@ export default function Component({
             </div>
 
             {/* Main content */}
-            <div className="container relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center space-y-24 px-6 py-12">
+            <div className="container relative mx-auto flex h-[calc(100vh-theme(spacing.32))] max-w-7xl flex-col justify-center px-6">
                 {/* Hero Section */}
                 <div className="mx-auto max-w-4xl text-center">
                     <div className="space-y-8">
