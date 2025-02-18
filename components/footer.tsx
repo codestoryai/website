@@ -15,7 +15,7 @@ export default function Footer() {
     const isBlogPost = pathname.startsWith("/blog/");
 
     return (
-        <footer className="bg-gray-200/10 p-8 text-sm md:p-12">
+        <footer className="bg-[#0F1729] p-8 text-sm md:p-12">
             <div className="m-auto flex max-w-screen-xl flex-col gap-5">
                 <div className="grid justify-center gap-8 md:grid-cols-3 md:justify-normal md:text-lg">
                     <div className="flex justify-center gap-8 md:justify-start">
@@ -31,61 +31,29 @@ export default function Footer() {
                                 src={CSLogo}
                                 width={48}
                             />
-                            <p className="text-center text-2xl font-semibold">
+                            <p className="text-center text-2xl font-semibold text-white">
                                 CodeStory
                             </p>
                         </Link>
                     </div>
-                    <div className="flex justify-center gap-8 translate-y-[3px]">       
+                    <div className="flex translate-y-[3px] justify-center gap-8">
                         <Link
-                            className="font-medium hover:text-primary"
+                            className="font-medium text-gray-300 hover:text-indigo-400"
                             href="/blog"
                         >
                             Blog
                         </Link>
-                        <Link
-                            className="font-medium hover:text-primary"
-                            href="https://docs.aide.dev"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            Docs
-                        </Link>
-                        <Link
-                            className="font-medium hover:text-primary"
-                            href="https://github.com/codestoryai/binaries/releases"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            Releases
-                        </Link>
-                        <Link
-                            className="font-medium hover:text-primary"
-                            href="https://codestory.ai"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            Company
-                        </Link>
-                        <Link
-                            className="font-medium hover:text-primary"
-                            href="https://www.workatastartup.com/companies/codestory"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            Careers
-                        </Link>
-                       
                     </div>
                     <div className="flex items-center justify-center gap-8 md:ml-auto md:justify-start">
                         <Link
-                            className="hover:text-primary"
+                            className="text-gray-300 hover:text-indigo-400"
                             href="https://twitter.com/aide_dev"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Image
                                 alt="X (previously Twitter) Link"
+                                className="invert"
                                 height={20}
                                 priority
                                 src="/x-mark.svg"
@@ -93,13 +61,14 @@ export default function Footer() {
                             />
                         </Link>
                         <Link
-                            className="hover:text-primary"
+                            className="text-gray-300 hover:text-indigo-400"
                             href="https://discord.gg/mtgrhXM5Xf"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Image
                                 alt="Discord Link"
+                                className="invert"
                                 height={20}
                                 priority
                                 src="/discord-mark.svg"
@@ -107,13 +76,14 @@ export default function Footer() {
                             />
                         </Link>
                         <Link
-                            className="hover:text-primary"
+                            className="text-gray-300 hover:text-indigo-400"
                             href="https://www.linkedin.com/company/codestory-ai/"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Image
                                 alt="Linkedin Link"
+                                className="invert"
                                 height={20}
                                 priority
                                 src="/linkedin-logo.svg"
@@ -122,8 +92,8 @@ export default function Footer() {
                         </Link>
                     </div>
                 </div>
-                <div className="h-px w-full bg-gray-200" />
-                <span className="self-center font-normal text-gray-500">
+                <div className="h-px w-full bg-gray-700/50" />
+                <span className="self-center font-normal text-gray-400">
                     © Codestory {new Date().getFullYear()}
                 </span>
             </div>
