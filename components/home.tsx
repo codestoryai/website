@@ -95,133 +95,115 @@ export default function Component({
             </div>
 
             {/* Main content */}
-            <div className="container relative mx-auto flex h-[calc(100vh-theme(spacing.32))] max-w-7xl flex-col justify-center px-6">
-                {/* Hero Section */}
-                <div className="mx-auto max-w-4xl text-center">
-                    <div className="space-y-8">
-                        <h1 className="text-6xl font-bold leading-tight text-white">
-                            Take Control <br />
-                            <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-                                Ship Your Vision
-                            </span>
-                        </h1>
-                        <p className="text-xl text-gray-300">
-                            Spawn self-managing AI Agents on your codebase,
-                            iterate on GitHub PRs, and get reliable updates—all
-                            without the overhead of man-management.
-                        </p>
-                        <div className="flex items-center justify-center space-x-6">
-                            <button
-                                onClick={() =>
-                                    (window.location.href =
-                                        "https://calendar.app.google/CWtwXjZF1s8rrkui6")
-                                }
-                                className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
-                            >
-                                <span>Schedule a Demo</span>
-                                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                            </button>
-                            <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
-                                <div className="text-2xl font-bold text-indigo-400">
-                                    100%
+            <div className="container relative mx-auto flex h-screen max-w-7xl flex-col px-6">
+                {/* Center content section */}
+                <div className="flex flex-1 flex-col items-center justify-center space-y-24">
+                    {/* Hero Section */}
+                    <div className="mx-auto max-w-4xl text-center">
+                        <div className="space-y-8">
+                            <h1 className="text-6xl font-bold leading-tight text-white">
+                                Take Control <br />
+                                <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                                    Ship Your Vision
+                                </span>
+                            </h1>
+                            <p className="text-xl text-gray-300">
+                                Spawn self-managing AI Agents on your codebase,
+                                iterate on GitHub PRs, and get reliable
+                                updates—all without the overhead of
+                                man-management.
+                            </p>
+                            <div className="flex items-center justify-center space-x-6">
+                                <button
+                                    onClick={() =>
+                                        (window.location.href =
+                                            "https://calendar.app.google/CWtwXjZF1s8rrkui6")
+                                    }
+                                    className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
+                                >
+                                    <span>Schedule a Demo</span>
+                                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                                </button>
+                                <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
+                                    <div className="text-2xl font-bold text-indigo-400">
+                                        100%
+                                    </div>
+                                    Async Uptime
                                 </div>
-                                Async Uptime
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Feature Cards */}
-                <div className="relative">
-                    <div className="grid gap-6 md:grid-cols-3">
-                        <FeatureCard
-                            icon={<Brain className="h-8 w-8" />}
-                            title="Spawn Agents on Your Codebase"
-                            description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
-                            gradient="from-indigo-500 to-purple-500"
-                            details={[
-                                {
-                                    icon: <Code className="h-5 w-5" />,
-                                    text: "Install via CLI or web UI in minutes",
-                                },
-                                {
-                                    icon: <Zap className="h-5 w-5" />,
-                                    text: "No specialized infrastructure needed",
-                                },
-                                {
-                                    icon: <CheckCircle2 className="h-5 w-5" />,
-                                    text: "Secure and controlled access",
-                                },
-                            ]}
-                        />
-                        <FeatureCard
-                            icon={<GitPullRequest className="h-8 w-8" />}
-                            title="Iterate via GitHub PRs"
-                            description="The agent opens, updates, and merges Pull Requests—no more waiting on back-and-forth reviews"
-                            gradient="from-cyan-500 to-blue-500"
-                            details={[
-                                {
-                                    icon: <Code className="h-5 w-5" />,
-                                    text: "Automated PR creation and updates",
-                                },
-                                {
-                                    icon: <Zap className="h-5 w-5" />,
-                                    text: "Quick sign-off process",
-                                },
-                                {
-                                    icon: <CheckCircle2 className="h-5 w-5" />,
-                                    text: "Native GitHub integration",
-                                },
-                            ]}
-                        />
-                        <FeatureCard
-                            icon={<Clock className="h-8 w-8" />}
-                            title="Set Time Budgets"
-                            description="Control how long the agent spends on each task, ensuring predictable and reliable output"
-                            gradient="from-purple-500 to-pink-500"
-                            details={[
-                                {
-                                    icon: <Code className="h-5 w-5" />,
-                                    text: "Define task complexity and timeframes",
-                                },
-                                {
-                                    icon: <Zap className="h-5 w-5" />,
-                                    text: "Consistent iteration cycles",
-                                },
-                                {
-                                    icon: <CheckCircle2 className="h-5 w-5" />,
-                                    text: "Predictable delivery schedules",
-                                },
-                            ]}
-                        />
-                        <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
-                    </div>
-                </div>
-
-                {/* Bottom Stats */}
-                <div className="absolute bottom-12 left-0 right-0 px-6">
-                    <div className="mx-auto flex max-w-2xl items-center justify-between rounded-2xl bg-gray-800/50 p-6 backdrop-blur-sm">
-                        <div className="px-4 text-center">
-                            <div className="mb-1 text-2xl font-bold text-indigo-400">
-                                10-15h
-                            </div>
-                            <p className="text-sm text-gray-400">
-                                Time Saved Weekly
-                            </p>
-                        </div>
-                        <div className="border-x border-gray-700 px-4 text-center">
-                            <div className="mb-1 text-2xl font-bold text-indigo-400">
-                                1h
-                            </div>
-                            <p className="text-sm text-gray-400">Setup Time</p>
-                        </div>
-                        <div className="px-4 text-center">
-                            <div className="mb-1 text-2xl font-bold text-indigo-400">
-                                24/7
-                            </div>
-                            <p className="text-sm text-gray-400">
-                                Agent Availability
-                            </p>
+                    {/* Feature Cards */}
+                    <div className="relative w-full">
+                        <div className="grid gap-6 md:grid-cols-3">
+                            <FeatureCard
+                                icon={<Brain className="h-8 w-8" />}
+                                title="Spawn Agents on Your Codebase"
+                                description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
+                                gradient="from-indigo-500 to-purple-500"
+                                details={[
+                                    {
+                                        icon: <Code className="h-5 w-5" />,
+                                        text: "Install via CLI or web UI in minutes",
+                                    },
+                                    {
+                                        icon: <Zap className="h-5 w-5" />,
+                                        text: "No specialized infrastructure needed",
+                                    },
+                                    {
+                                        icon: (
+                                            <CheckCircle2 className="h-5 w-5" />
+                                        ),
+                                        text: "Secure and controlled access",
+                                    },
+                                ]}
+                            />
+                            <FeatureCard
+                                icon={<GitPullRequest className="h-8 w-8" />}
+                                title="Iterate via GitHub PRs"
+                                description="The agent opens, updates, and merges Pull Requests—no more waiting on back-and-forth reviews"
+                                gradient="from-cyan-500 to-blue-500"
+                                details={[
+                                    {
+                                        icon: <Code className="h-5 w-5" />,
+                                        text: "Automated PR creation and updates",
+                                    },
+                                    {
+                                        icon: <Zap className="h-5 w-5" />,
+                                        text: "Quick sign-off process",
+                                    },
+                                    {
+                                        icon: (
+                                            <CheckCircle2 className="h-5 w-5" />
+                                        ),
+                                        text: "Native GitHub integration",
+                                    },
+                                ]}
+                            />
+                            <FeatureCard
+                                icon={<Clock className="h-8 w-8" />}
+                                title="Set Time Budgets"
+                                description="Control how long the agent spends on each task, ensuring predictable and reliable output"
+                                gradient="from-purple-500 to-pink-500"
+                                details={[
+                                    {
+                                        icon: <Code className="h-5 w-5" />,
+                                        text: "Define task complexity and timeframes",
+                                    },
+                                    {
+                                        icon: <Zap className="h-5 w-5" />,
+                                        text: "Consistent iteration cycles",
+                                    },
+                                    {
+                                        icon: (
+                                            <CheckCircle2 className="h-5 w-5" />
+                                        ),
+                                        text: "Predictable delivery schedules",
+                                    },
+                                ]}
+                            />
+                            <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
                         </div>
                     </div>
                 </div>
