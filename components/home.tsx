@@ -96,28 +96,6 @@ export default function Component({
 
             {/* Main content */}
             <div className="container relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center space-y-24 px-6 py-12">
-                {/* Header */}
-                <nav className="mb-16 flex items-center justify-between">
-                    <div className="group flex items-center space-x-2">
-                        <div className="relative">
-                            <Bot className="h-8 w-8 text-indigo-500 transition-colors group-hover:text-indigo-400" />
-                            <Sprout className="absolute -bottom-1 -right-1 h-4 w-4 text-green-400 transition-colors group-hover:text-green-300" />
-                        </div>
-                        <span className="text-xl font-bold text-white">
-                            AgentFarm
-                        </span>
-                    </div>
-                    <button
-                        onClick={() =>
-                            (window.location.href =
-                                "https://calendar.app.google/CWtwXjZF1s8rrkui6")
-                        }
-                        className="rounded-lg bg-indigo-600/90 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:scale-105 hover:bg-indigo-500"
-                    >
-                        Book Demo
-                    </button>
-                </nav>
-
                 {/* Hero Section */}
                 <div className="mx-auto max-w-4xl text-center">
                     <div className="space-y-8">

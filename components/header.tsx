@@ -114,8 +114,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/blog"
                                     >
@@ -125,8 +125,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/pricing"
                                     >
@@ -136,8 +136,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="https://docs.aide.dev"
                                         rel="noopener noreferrer"
@@ -149,8 +149,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem className="hidden md:inline-flex">
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="https://github.com/codestoryai/binaries/releases"
                                         rel="noopener noreferrer"
@@ -160,7 +160,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem className="hidden md:inline-flex">
-                                    <NavigationMenuTrigger className="text-white hover:bg-gray-800/50 hover:text-indigo-300">
+                                    <NavigationMenuTrigger className="text-gray-300 hover:bg-gray-800/50 hover:text-indigo-300 data-[state=open]:bg-gray-800/50 data-[state=open]:text-indigo-300">
                                         About
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
@@ -217,8 +217,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/account"
                                     >
@@ -230,8 +230,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
-                                            navigationMenuTriggerStyle(),
-                                            "w-full justify-start text-white hover:bg-gray-800/50 hover:text-indigo-300 md:w-auto md:justify-center"
+                                            "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="https://discord.gg/mtgrhXM5Xf"
                                         rel="noopener noreferrer"
