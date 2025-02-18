@@ -1,37 +1,192 @@
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Downloads } from "@/lib/types";
-import { DeviceDetails } from "@/lib/ua";
-import {
-    Brain,
-    ClipboardCopy,
-    Download,
-    Github,
-    Layers3,
-    Zap,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import DownloadScroll from "./downloadscroll";
-import { Kbd } from "./ui/kbd";
-import { CopyText, CopyTextButton } from "./ui/copy-text";
-import { cn } from "@/lib/utils";
+import {
+  Bot,
+  GitPullRequest,
+  Clock,
+  ArrowRight,
+  Brain,
+  Code,
+  Zap,
+  CheckCircle2,
+  Sprout,
+} from "lucide-react";
+import Header from "./header";
 
-interface ComponentProps {
-    deviceDetails: DeviceDetails | undefined;
-    latestRelease: Downloads;
+interface FeatureDetail {
+  icon: React.ReactNode;
+  text: string;
 }
 
-export default function Component({
-    deviceDetails,
-    latestRelease,
-}: ComponentProps) {
-    return (
-        <div className="bg-background bg-noise">
-            <div className="flex min-h-screen flex-col">
-                <main className="flex-1">
-                    <section className="w-full bg-gray-100 px-2 pb-16 pt-36">
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  gradient: string;
+  details: FeatureDetail[];
+}
+
+function FeatureCard({
+  icon,
+  title,
+  description,
+  gradient,
+  details,
+}: FeatureCardProps) {
+  return (
+    <div className="relative overflow-hidden rounded-lg border border-gray-800 bg-gray-900/50 p-8 backdrop-blur-sm transition-all hover:scale-[1.02] group">
+      <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-10 transition-opacity`} />
+      <div className="relative z-10">
+        <div className="mb-4 inline-block rounded-lg bg-gray-800/50 p-3 text-white">
+          {icon}
+        </div>
+        <h3 className="mb-2 text-xl font-bold text-white">{title}</h3>
+        <p className="mb-4 text-gray-400">{description}</p>
+        <div className="space-y-2">
+          {details.map((detail, index) => (
+            <div key={index} className="flex items-center space-x-2 text-gray-300">
+              <span className="text-indigo-400">{detail.icon}</span>
+              <span>{detail.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="relative min-h-screen bg-gray-950 text-white">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="animate-blob animation-delay-2000 absolute -left-4 top-0 h-72 w-72 rounded-full bg-indigo-500 opacity-10 blur-xl" />
+        <div className="animate-blob animation-delay-4000 absolute -right-4 top-0 h-72 w-72 rounded-full bg-cyan-500 opacity-10 blur-xl" />
+        <div className="animate-blob absolute right-1/2 top-1/2 h-72 w-72 rounded-full bg-purple-500 opacity-10 blur-xl" />
+      </div>
+
+      <Header />
+
+      {/* Main content */}
+      <div className="relative min-h-screen container mx-auto px-6 py-12 max-w-7xl flex flex-col justify-center space-y-24">
+        {/* Hero Section */}
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="space-y-8">
+            <h1 className="text-6xl font-bold text-white leading-tight">
+              Take Control <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                Ship Your Vision
+              </span>
+            </h1>
+            <p className="text-xl text-gray-300">
+              Spawn self-managing AI Agents on your codebase, iterate on GitHub
+              PRs, and get reliable updates—all without the overhead of
+              man-management.
+            </p>
+            <div className="flex items-center justify-center space-x-6">
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    "https://calendar.app.google/CWtwXjZF1s8rrkui6")
+                }
+                className="group flex items-center space-x-3 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-8 py-4 rounded-lg text-lg hover:from-indigo-500 hover:to-indigo-400 transition-all hover:scale-105 shadow-lg hover:shadow-indigo-500/25 font-semibold"
+              >
+                <span>Schedule a Demo</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <div className="text-gray-400 text-sm border-l border-gray-700 pl-6">
+                <div className="font-bold text-2xl text-indigo-400">100%</div>
+                Toilet Uptime
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="relative">
+          <div className="grid md:grid-cols-3 gap-6">
+            <FeatureCard
+              icon={<Brain className="w-8 h-8" />}
+              title="Spawn Agents on Your Codebase"
+              description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
+              gradient="from-indigo-500 to-purple-500"
+              details={[
+                {
+                  icon: <Code className="w-5 h-5" />,
+                  text: "Install via CLI or web UI in minutes",
+                },
+                {
+                  icon: <Zap className="w-5 h-5" />,
+                  text: "No specialized infrastructure needed",
+                },
+                {
+                  icon: <CheckCircle2 className="w-5 h-5" />,
+                  text: "Secure and controlled access",
+                },
+              ]}
+            />
+            <FeatureCard
+              icon={<GitPullRequest className="w-8 h-8" />}
+              title="Iterate via GitHub PRs"
+              description="The agent opens, updates, and merges Pull Requests—no more waiting on back-and-forth reviews"
+              gradient="from-cyan-500 to-blue-500"
+              details={[
+                {
+                  icon: <Code className="w-5 h-5" />,
+                  text: "Automated PR creation and updates",
+                },
+                {
+                  icon: <Zap className="w-5 h-5" />,
+                  text: "Quick sign-off process",
+                },
+                {
+                  icon: <CheckCircle2 className="w-5 h-5" />,
+                  text: "Native GitHub integration",
+                },
+              ]}
+            />
+            <FeatureCard
+              icon={<Clock className="w-8 h-8" />}
+              title="Set Time Budgets"
+              description="Control how long the agent spends on each task, ensuring predictable and reliable output"
+              gradient="from-purple-500 to-pink-500"
+              details={[
+                {
+                  icon: <Code className="w-5 h-5" />,
+                  text: "Define task complexity and timeframes",
+                },
+                {
+                  icon: <Zap className="w-5 h-5" />,
+                  text: "Consistent iteration cycles",
+                },
+                {
+                  icon: <CheckCircle2 className="w-5 h-5" />,
+                  text: "Predictable delivery schedules",
+                },
+              ]}
+            />
+            <div className="absolute -top-8 -right-8 w-64 h-64 bg-indigo-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+          </div>
+        </div>
+
+        {/* Bottom Stats */}
+        <div className="absolute bottom-12 left-0 right-0 px-6">
+          <div className="flex justify-between items-center max-w-2xl mx-auto bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+            <div className="text-center px-4">
+              <div className="text-2xl font-bold text-indigo-400 mb-1">10-15h</div>
+              <p className="text-gray-400 text-sm">Time Saved Weekly</p>
+            </div>
+            <div className="text-center px-4 border-x border-gray-700">
+              <div className="text-2xl font-bold text-indigo-400 mb-1">1h</div>
+              <p className="text-gray-400 text-sm">Setup Time</p>
+            </div>
+            <div className="text-center px-4">
+              <div className="text-2xl font-bold text-indigo-400 mb-1">24/7</div>
+              <p className="text-gray-400 text-sm">Agent Availability</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
                         <div className="container px-4 md:px-6">
                             <div className="flex flex-col items-center space-y-4 text-center">
                                 <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
