@@ -3,6 +3,7 @@ import { getUser, Impersonation } from "@workos-inc/authkit-nextjs";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Fira_Sans } from "next/font/google";
+import Script from "next/script";
 import React from "react";
 
 import Footer from "@/components/footer";
@@ -74,6 +75,21 @@ export default async function RootLayout({
             suppressHydrationWarning={true}
         >
             <body className="min-h-screen flex flex-col">
+                <Script 
+                    strategy="afterInteractive" 
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338"
+                />
+                <Script 
+                    id="google-analytics" 
+                    strategy="afterInteractive"
+                >
+                    {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'AW-16881199338');
+                `}
+                </Script>
                 <PHProvider>
                     <PostHogPageView />
                     <TooltipProvider delayDuration={0}>
