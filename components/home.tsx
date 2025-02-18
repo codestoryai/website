@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+    interface Window {
+        uetq: any[];
+    }
+}
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Downloads } from "@/lib/types";
@@ -115,12 +121,14 @@ export default function Component({
                             </p>
                             <div className="flex items-center justify-center space-x-6">
                                 <button
-                                    onClick={() =>
+                                    onClick={() => {
+                                        window.uetq = window.uetq || [];
+                                        window.uetq.push('event', 'cta_clicked', {});
                                         window.open(
                                             "https://calendar.app.google/CWtwXjZF1s8rrkui6",
                                             "_blank"
-                                        )
-                                    }
+                                        );
+                                    }}
                                     className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
                                 >
                                     <span>Schedule a Demo</span>
