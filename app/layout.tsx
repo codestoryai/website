@@ -76,13 +76,19 @@ export default async function RootLayout({
         >
             <body className="min-h-screen flex flex-col">
                 {/* Google tag (gtag.js) */}
-                <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338" />
-                <Script id="google-analytics">
+                <Script 
+                    strategy="afterInteractive" 
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338"
+                />
+                <Script 
+                    id="google-analytics" 
+                    strategy="afterInteractive"
+                >
                     {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'AW-16881199338');
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16881199338');
                     `}
                 </Script>
                 <PHProvider>
