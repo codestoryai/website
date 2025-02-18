@@ -143,12 +143,14 @@ export default function Header({ logoSuffix }: HeaderProps) {
 
                     {/* CTA Button */}
                     <button
-                        onClick={() =>
+                        onClick={() => {
+                            window.uetq = window.uetq || [];
+                            window.uetq.push('event', 'cta_clicked', {});
                             window.open(
                                 "https://calendar.app.google/CWtwXjZF1s8rrkui6",
                                 "_blank"
-                            )
-                        }
+                            );
+                        }}
                         className="group hidden items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:flex"
                     >
                         <span>Schedule a Demo</span>
