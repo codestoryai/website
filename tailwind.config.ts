@@ -93,6 +93,10 @@ const config = {
                     "0%, 100%": { opacity: "1" },
                     "50%": { opacity: "0.5" },
                 },
+                float: {
+                    "0%, 100%": { transform: "translateY(0) translateX(-50%)" },
+                    "50%": { transform: "translateY(-20px) translateX(-50%)" },
+                },
             },
         },
     },

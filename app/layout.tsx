@@ -101,7 +101,7 @@ export default async function RootLayout({
                     <TooltipProvider delayDuration={0}>
                         <Impersonation />
                         <Header />
-                        <main className="flex-grow">
+                        <main className="flex-grow relative">
                             {children}
                         </main>
                         <Footer />
