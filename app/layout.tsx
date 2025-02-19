@@ -70,11 +70,11 @@ export default async function RootLayout({
 
     return (
         <html
-            className={`${firaSans.className}`}
+            className={`${firaSans.className} dark`}
             lang="en"
             suppressHydrationWarning={true}
         >
-            <body className="min-h-screen flex flex-col">
+            <body className="min-h-screen flex flex-col bg-slate-950 antialiased">
                 <Script 
                     strategy="afterInteractive" 
                     src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338"
