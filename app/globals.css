@@ -115,3 +115,14 @@ html {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
+
+@layer utilities {
+    .bg-noise {
+        background-image: url('/noise-min.png');
+        background-repeat: repeat;
+    }
+    
+    .backdrop-blur-sm {
+        backdrop-filter: blur(8px);
+    }
+}
