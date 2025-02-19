@@ -152,7 +152,7 @@ export default function Component({
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Spawn Agents on Your Codebase"
-                                description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
+                                description="Automate tasks, fix bugs, and implement new features while keeping your team lean and efficient"
                                 gradient="from-indigo-500 to-purple-500"
                                 details={[
                                     {
