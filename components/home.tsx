@@ -101,24 +101,31 @@ export default function Component({
             </div>
 
             {/* Main content */}
+            {/* Floating Badge */}
+            <div className="absolute top-24 md:top-32 left-1/2 -translate-x-1/2 animate-float">
+                <div className="flex items-center space-x-2 rounded-full bg-indigo-500/10 px-4 py-2 text-sm text-indigo-400">
+                    <Sparkles className="h-4 w-4" />
+                    <span>AI-Powered Development</span>
+                </div>
+            </div>
+
+            {/* Main content */}
             <div className="container relative mx-auto max-w-7xl px-6">
                 <div className="flex flex-col items-center justify-center space-y-24 py-24">
                     {/* Hero Section */}
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="space-y-8">
-                            <h1 className="text-6xl font-bold leading-tight text-white">
-                                Take Control <br />
-                                <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-4">
+                                Take Control
+                                <span className="block text-4xl md:text-5xl font-semibold text-indigo-400 mt-4">
                                     Ship Your Vision
                                 </span>
                             </h1>
-                            <p className="text-xl text-gray-300">
-                                Spawn self-managing AI Agents on your codebase,
-                                iterate on GitHub PRs, and get reliable
-                                updates—all without the overhead of
-                                engineering management.
+                            <p className="max-w-2xl mx-auto text-lg text-slate-300 leading-relaxed">
+                                Experience the future of development with AI-powered tools that enhance your workflow. 
+                                Build faster, smarter, and with more confidence than ever before.
                             </p>
-                            <div className="flex items-center justify-center space-x-6">
+                            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
@@ -128,22 +135,32 @@ export default function Component({
                                             "_blank"
                                         );
                                     }}
-                                    className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
+                                    className="group flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
                                 >
                                     <span>Schedule a Demo</span>
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </button>
-                                <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
+
+                                <div className="flex items-center space-x-4 text-slate-300">
                                     <div className="flex items-center space-x-2">
-                                        <div className="text-2xl font-bold text-indigo-400">
-                                            100%
-                                        </div>
-                                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                                        <Shield className="h-5 w-5 text-green-400" />
+                                        <span>99.9% Uptime</span>
                                     </div>
-                                    Async Uptime
+                                    <div className="relative flex items-center space-x-2">
+                                        <Zap className="h-5 w-5 text-yellow-400" />
+                                        <span>Real-time Processing</span>
+                                        <div className="absolute -right-2 -top-2 h-3 w-3">
+                                            <div className="absolute h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></div>
+                                            <div className="h-full w-full rounded-full bg-green-500"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <Video
+                            className="mt-16 rounded-lg border shadow-xl"
+                            src="/probe-walk-through.mp4"
+                        />
                     </div>
 
                     {/* Feature Cards */}

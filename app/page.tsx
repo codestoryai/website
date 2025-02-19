@@ -15,8 +15,6 @@ export default async function Home() {
 
     return (
         <main className="antialiased">
-            {/* <Hero />
-            <Sections user={user} /> */}
             <HomePage
                 deviceDetails={currentDevice}
                 latestRelease={latestRelease}
