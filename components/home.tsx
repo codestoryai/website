@@ -89,7 +89,7 @@ export default function Component({
     latestRelease,
 }: ComponentProps) {
     return (
-        <div className="relative overflow-hidden bg-black min-h-screen flex items-center justify-center">
+        <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
             {/* Animated background elements */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e5,#0ea5e9)] opacity-20"></div>
@@ -107,22 +107,23 @@ export default function Component({
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="space-y-8">
                             <h1 className="text-6xl font-bold leading-tight text-white">
-                                Take Control <br />
+                                Stop Managing. <br />
                                 <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-                                    Ship Your Vision
+                                    Start Commanding.
                                 </span>
                             </h1>
                             <p className="text-xl text-gray-300">
-                                Spawn self-managing AI Agents on your codebase,
-                                iterate on GitHub PRs, and get reliable
-                                updates—all without the overhead of
-                                engineering management.
+                                Parallel Agents on Your Codebase.
                             </p>
                             <div className="flex items-center justify-center space-x-6">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
-                                        window.uetq.push('event', 'cta_clicked', {});
+                                        window.uetq.push(
+                                            "event",
+                                            "cta_clicked",
+                                            {}
+                                        );
                                         window.open(
                                             "https://calendar.app.google/CWtwXjZF1s8rrkui6",
                                             "_blank"
@@ -135,12 +136,12 @@ export default function Component({
                                 </button>
                                 <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
                                     <div className="flex items-center space-x-2">
-                                        <div className="text-2xl font-bold text-indigo-400">
-                                            100%
+                                        <div className="text-2xl font-bold text-white">
+                                            $99
                                         </div>
-                                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                                        <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
                                     </div>
-                                    Async Uptime
+                                    per month
                                 </div>
                             </div>
                         </div>
@@ -151,67 +152,67 @@ export default function Component({
                         <div className="grid gap-8 md:grid-cols-3">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
-                                title="Spawn Agents on Your Codebase"
-                                description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
+                                title="Zero Setup"
+                                description="GitHub native integration, no CLI or web UI"
                                 gradient="from-indigo-500 to-purple-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Install via CLI or web UI in minutes",
+                                        text: "One-Click Setup",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "No specialized infrastructure needed",
+                                        text: "10-second task creation",
                                     },
                                     {
                                         icon: (
                                             <CheckCircle2 className="h-5 w-5" />
                                         ),
-                                        text: "Secure and controlled access",
+                                        text: "Parallel Execution",
                                     },
                                 ]}
                             />
                             <FeatureCard
                                 icon={<GitPullRequest className="h-8 w-8" />}
-                                title="Iterate via GitHub PRs"
-                                description="The agent opens, updates, and merges Pull Requests—no more waiting on back-and-forth reviews"
+                                title="Iterate on PR"
+                                description="Automated PR workflow"
                                 gradient="from-cyan-500 to-blue-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Automated PR creation and updates",
+                                        text: "Smart PR suggestions",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "Quick sign-off process",
+                                        text: "Automatic code reviews",
                                     },
                                     {
                                         icon: (
                                             <CheckCircle2 className="h-5 w-5" />
                                         ),
-                                        text: "Native GitHub integration",
+                                        text: "Continuous improvements",
                                     },
                                 ]}
                             />
                             <FeatureCard
                                 icon={<Clock className="h-8 w-8" />}
-                                title="Set Time Budgets"
-                                description="Control how long the agent spends on each task, ensuring predictable and reliable output"
+                                title="Parallel Execution"
+                                description="Run multiple agents in parallel"
                                 gradient="from-purple-500 to-pink-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Define task complexity and timeframes",
+                                        text: "Multiple agents working simultaneously",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "Consistent iteration cycles",
+                                        text: "Efficient task distribution",
                                     },
                                     {
                                         icon: (
                                             <CheckCircle2 className="h-5 w-5" />
                                         ),
-                                        text: "Predictable delivery schedules",
+                                        text: "Real-time progress tracking",
                                     },
                                 ]}
                             />
