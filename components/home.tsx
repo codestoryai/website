@@ -78,6 +78,52 @@ function FeatureCard({
                             </div>
                         ))}
                     </div>
+
+                    {/* How it Works Section */}
+                    <div className="w-full">
+                        <h2 className="text-4xl font-bold text-white text-center mb-12">How It Works</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {[
+                                {
+                                    icon: <Sprout className="h-8 w-8" />,
+                                    title: "1. Spawn Your Agent",
+                                    description: "Quick setup via CLI or web interface"
+                                },
+                                {
+                                    icon: <Bot className="h-8 w-8" />,
+                                    title: "2. Define Tasks",
+                                    description: "Set objectives and time budgets"
+                                },
+                                {
+                                    icon: <GitPullRequest className="h-8 w-8" />,
+                                    title: "3. Review & Deploy",
+                                    description: "Approve PRs and ship code"
+                                }
+                            ].map((step, index) => (
+                                <div key={index} className="text-center space-y-4">
+                                    <div className="text-indigo-400 flex justify-center">{step.icon}</div>
+                                    <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                                    <p className="text-gray-400">{step.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Testimonials Section */}
+                    <div className="w-full">
+                        <h2 className="text-4xl font-bold text-white text-center mb-12">What Teams Say</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {testimonials.map((testimonial, index) => (
+                                <TestimonialCard key={index} {...testimonial} />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* FAQ Section */}
+                    <div className="w-full max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+                        <FAQSection faqs={faqs} />
+                    </div>
                 </div>
             </div>
         </div>
@@ -104,8 +150,8 @@ export default function Component({
             <div className="container relative mx-auto max-w-7xl px-6">
                 <div className="flex flex-col items-center justify-center space-y-24 py-24">
                     {/* Hero Section */}
-                    <div className="mx-auto max-w-4xl text-center">
-                        <div className="space-y-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div className={`space-y-8 ${fadeInAnimation}`}>
                             <h1 className="text-6xl font-bold leading-tight text-white">
                                 Take Control <br />
                                 <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
@@ -113,12 +159,10 @@ export default function Component({
                                 </span>
                             </h1>
                             <p className="text-xl text-gray-300">
-                                Spawn self-managing AI Agents on your codebase,
-                                iterate on GitHub PRs, and get reliable
-                                updates—all without the overhead of
-                                engineering management.
+                                Spawn self-managing AI Agents on your codebase, iterate on GitHub PRs, and get reliable
+                                updates—all without the overhead of engineering management.
                             </p>
-                            <div className="flex items-center justify-center space-x-6">
+                            <div className="flex items-center space-x-6">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
@@ -135,13 +179,23 @@ export default function Component({
                                 </button>
                                 <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
                                     <div className="flex items-center space-x-2">
-                                        <div className="text-2xl font-bold text-indigo-400">
-                                            100%
-                                        </div>
+                                        <div className="text-2xl font-bold text-indigo-400">100%</div>
                                         <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
                                     </div>
                                     Async Uptime
                                 </div>
+                            </div>
+                        </div>
+                        <div className={`relative hidden lg:block ${slideUpAnimation}`}>
+                            <div className="relative rounded-lg overflow-hidden shadow-2xl">
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 mix-blend-overlay"></div>
+                                <Image
+                                    src="/images/home/agent.png"
+                                    alt="AI Agent Interface"
+                                    width={600}
+                                    height={400}
+                                    className="object-cover transform hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </div>
                     </div>
