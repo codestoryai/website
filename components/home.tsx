@@ -146,8 +146,8 @@ export default function Component({
                         </div>
                     </div>
 
-                    {/* Feature Cards */}
-                    <div className="relative w-full pb-16">
+                    {/* Feature Cards Section */}
+                    <div className="relative w-full">
                         <div className="grid gap-8 md:grid-cols-3">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
@@ -164,9 +164,7 @@ export default function Component({
                                         text: "No specialized infrastructure needed",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
                                         text: "Secure and controlled access",
                                     },
                                 ]}
@@ -186,9 +184,7 @@ export default function Component({
                                         text: "Quick sign-off process",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
                                         text: "Native GitHub integration",
                                     },
                                 ]}
@@ -208,14 +204,43 @@ export default function Component({
                                         text: "Consistent iteration cycles",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
                                         text: "Predictable delivery schedules",
                                     },
                                 ]}
                             />
-                            <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
+                        </div>
+                    </div>
+
+                    {/* AI Models/Capabilities Section */}
+                    <div className="relative w-full pb-24 animate-fade-in [animation-delay:1000ms]">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl font-bold text-white mb-4">AI Capabilities</h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto animate-slide-up [animation-delay:200ms]">
+                                Powered by state-of-the-art AI models and advanced algorithms to handle complex development tasks
+                            </p>
+                        </div>
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                            <AICapabilityCard
+                                icon={<Cpu className="h-6 w-6" />}
+                                title="Code Generation"
+                                description="Generate high-quality, contextually aware code across multiple languages"
+                            />
+                            <AICapabilityCard
+                                icon={<Search className="h-6 w-6" />}
+                                title="Code Analysis"
+                                description="Deep understanding of code structure and potential improvements"
+                            />
+                            <AICapabilityCard
+                                icon={<Terminal className="h-6 w-6" />}
+                                title="Automated Testing"
+                                description="Generate and execute comprehensive test suites"
+                            />
+                            <AICapabilityCard
+                                icon={<Network className="h-6 w-6" />}
+                                title="System Design"
+                                description="Architectural recommendations and optimization strategies"
+                            />
                         </div>
                     </div>
                 </div>
