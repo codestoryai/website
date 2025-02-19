@@ -56,7 +56,7 @@ function FeatureCard({
 }: FeatureCardProps) {
     return (
         <div className="relative">
-            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
+            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
                 <div
                     className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-10`}
                 ></div>
@@ -168,7 +168,7 @@ export default function Component({
 
                     {/* Feature Cards */}
                     <div className="relative w-full pb-16">
-                        <div className="grid gap-8 md:grid-cols-3">
+                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Spawn Agents on Your Codebase"
