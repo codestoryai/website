@@ -1,3 +1,7 @@
+type DeepPartial<T> = {
+    [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
 import { Asset, Downloads, GithubRelease } from "./types";
 import { getDevice } from "./ua";
 

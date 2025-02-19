@@ -1,7 +1,7 @@
 import { getUser } from "@workos-inc/authkit-nextjs";
 import React from "react";
 
-import HomePage from "@/components/home";
+import Component from "@/components/home";
 import { fetchLatestRelease } from "@/lib/github";
 import { cleanDeviceDetails, DeviceDetails } from "@/lib/ua";
 
@@ -17,7 +17,7 @@ export default async function Home() {
         <main className="antialiased">
             {/* <Hero />
             <Sections user={user} /> */}
-            <HomePage
+            <Component
                 deviceDetails={currentDevice}
                 latestRelease={latestRelease}
             />

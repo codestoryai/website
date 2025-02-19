@@ -47,10 +47,13 @@
         "uuid": "^10.0.0"
     },
     "devDependencies": {
+        "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "@types/uuid": "^10.0.0",
+        "autoprefixer": "^10.4.20",
+        "cssnano": "^7.0.6",
         "eslint": "^8",
         "eslint-config-next": "14.2.4",
         "eslint-config-prettier": "^9.1.0",

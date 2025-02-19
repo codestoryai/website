@@ -13,15 +13,15 @@ import { CurrentUsage } from "@/types/api";
 const chartConfig = {
     freeTier: {
         label: "Free Tier",
-        color: "hsl(var(--chart-1))",
+        color: "#4f46e5",
     },
     overage: {
         label: "Pro Tier",
-        color: "hsl(var(--chart-2))",
+        color: "#6366f1",
     },
     estimated: {
         label: "Estimated",
-        color: "hsl(var(--chart-3))",
+        color: "#818cf8",
     },
 } satisfies ChartConfig;
 
@@ -65,19 +65,19 @@ export function Usage({ usage }: UsageProps) {
                 <Bar
                     dataKey="freeTier"
                     stackId="a"
-                    fill="var(--color-freeTier)"
+                    fill="#4f46e5"
                 />
                 <Bar
                     dataKey="overage"
                     stackId="a"
-                    fill="var(--color-overage)"
+                    fill="#6366f1"
                 />
                 <Bar
                     dataKey="estimated"
                     stackId="a"
-                    fill="var(--color-estimated)"
+                    fill="#818cf8"
                 />
-                <Bar dataKey="limit" stackId="a" fill="var(--color-limit)" />
+                <Bar dataKey="limit" stackId="a" fill="#94a3b8" />
                 <ChartTooltip
                     content={
                         <ChartTooltipContent
