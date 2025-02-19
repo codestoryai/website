@@ -106,7 +106,7 @@ export default function Component({
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute top-20 md:top-28 left-1/2 -translate-x-1/2 animate-float z-10">
+            <div className="absolute top-12 md:top-20 left-1/2 -translate-x-1/2 animate-float z-10">
                 <div className="flex items-center space-x-2 rounded-full bg-gradient-to-r from-indigo-500/20 via-indigo-400/20 to-indigo-300/20 backdrop-blur-sm px-6 py-3 text-sm font-medium text-indigo-300 border border-indigo-500/20 shadow-lg shadow-indigo-500/10">
                     <Sparkles className="h-4 w-4 animate-pulse" />
                     <span>AI-Powered Development</span>
@@ -115,11 +115,11 @@ export default function Component({
 
             {/* Main content */}
             <div className="container relative mx-auto max-w-7xl px-6">
-                <div className="flex flex-col items-center justify-center space-y-24 py-24">
+                <div className="flex flex-col items-center justify-center space-y-16 py-12">
                     {/* Hero Section */}
-                    <div className="mx-auto max-w-4xl text-center">
-                        <div className="space-y-10">
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-4 bg-clip-text">
+                    <div className="mx-auto max-w-4xl text-center mt-24 md:mt-28">
+                        <div className="space-y-8">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white">
                                 Take Control
                                 <span className="block text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-indigo-400 to-indigo-300 bg-clip-text text-transparent mt-6">
                                     Ship Your Vision
