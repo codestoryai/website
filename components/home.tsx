@@ -171,68 +171,62 @@ export default function Component({
                     <div className="relative w-full pb-16">
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             <FeatureCard
-                                icon={<Brain className="h-8 w-8" />}
-                                title="Spawn Agents on Your Codebase"
-                                description="Automate tasks, fix bugs, and implement new features without expanding your dev team"
+                                icon={<GitPullRequest className="h-8 w-8" />}
+                                title="Zero Setup"
+                                description="GitHub native integration, no CLI or web UI"
                                 gradient="from-indigo-500 to-purple-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Install via CLI or web UI in minutes",
+                                        text: "One-Click Setup",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "No specialized infrastructure needed",
+                                        text: "10-second task creation",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Secure and controlled access",
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
+                                        text: "Automated PR workflow",
                                     },
                                 ]}
                             />
                             <FeatureCard
-                                icon={<GitPullRequest className="h-8 w-8" />}
-                                title="Iterate via GitHub PRs"
-                                description="The agent opens, updates, and merges Pull Requests—no more waiting on back-and-forth reviews"
+                                icon={<Brain className="h-8 w-8" />}
+                                title="Smart PR Suggestions"
+                                description="Automatic code reviews and continuous improvements"
                                 gradient="from-cyan-500 to-blue-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Automated PR creation and updates",
+                                        text: "Automatic code reviews",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "Quick sign-off process",
+                                        text: "Continuous improvements",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Native GitHub integration",
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
+                                        text: "Iterate on PR",
                                     },
                                 ]}
                             />
                             <FeatureCard
                                 icon={<Clock className="h-8 w-8" />}
-                                title="Set Time Budgets"
-                                description="Control how long the agent spends on each task, ensuring predictable and reliable output"
+                                title="Parallel Execution"
+                                description="Run multiple agents in parallel"
                                 gradient="from-purple-500 to-pink-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Define task complexity and timeframes",
+                                        text: "Multiple agents working simultaneously",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,
-                                        text: "Consistent iteration cycles",
+                                        text: "Efficient task distribution",
                                     },
                                     {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Predictable delivery schedules",
+                                        icon: <CheckCircle2 className="h-5 w-5" />,
+                                        text: "Real-time progress tracking",
                                     },
                                 ]}
                             />
