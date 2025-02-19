@@ -56,12 +56,12 @@ function FeatureCard({
 }: FeatureCardProps) {
     return (
         <div className="relative">
-            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
+            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20 hover:transform hover:scale-[1.02]">
                 <div
-                    className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-10`}
+                    className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-15`}
                 ></div>
                 <div className="relative space-y-6">
-                    <div className="text-indigo-400">{icon}</div>
+                    <div className="text-indigo-400 transform transition-transform group-hover:scale-110">{icon}</div>
                     <div className="space-y-4">
                         <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
                             {title}
@@ -95,19 +95,20 @@ export default function Component({
         <div className="relative overflow-hidden bg-black min-h-screen flex items-center justify-center">
             {/* Animated background elements */}
             <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e5,#0ea5e9)] opacity-20"></div>
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-indigo-500/15 to-cyan-500/20 opacity-30"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-indigo-950/20"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div className="animate-blob absolute -left-4 -top-4 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl filter"></div>
                     <div className="animate-blob animation-delay-2000 absolute -right-4 top-1/2 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl filter"></div>
+                    <div className="animate-blob animation-delay-4000 absolute left-1/2 bottom-0 h-96 w-96 rounded-full bg-indigo-400/10 blur-3xl filter"></div>
                 </div>
             </div>
 
-            {/* Main content */}
             {/* Floating Badge */}
-            <div className="absolute top-24 md:top-32 left-1/2 -translate-x-1/2 animate-float">
-                <div className="flex items-center space-x-2 rounded-full bg-indigo-500/10 px-4 py-2 text-sm text-indigo-400">
-                    <Sparkles className="h-4 w-4" />
+            <div className="absolute top-20 md:top-28 left-1/2 -translate-x-1/2 animate-float z-10">
+                <div className="flex items-center space-x-2 rounded-full bg-gradient-to-r from-indigo-500/20 via-indigo-400/20 to-indigo-300/20 backdrop-blur-sm px-6 py-3 text-sm font-medium text-indigo-300 border border-indigo-500/20 shadow-lg shadow-indigo-500/10">
+                    <Sparkles className="h-4 w-4 animate-pulse" />
                     <span>AI-Powered Development</span>
                 </div>
             </div>
@@ -117,14 +118,14 @@ export default function Component({
                 <div className="flex flex-col items-center justify-center space-y-24 py-24">
                     {/* Hero Section */}
                     <div className="mx-auto max-w-4xl text-center">
-                        <div className="space-y-8">
-                            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-4">
+                        <div className="space-y-10">
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-4 bg-clip-text">
                                 Take Control
-                                <span className="block text-4xl md:text-5xl font-semibold text-indigo-400 mt-4">
+                                <span className="block text-3xl md:text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-indigo-400 to-indigo-300 bg-clip-text text-transparent mt-6">
                                     Ship Your Vision
                                 </span>
                             </h1>
-                            <p className="max-w-2xl mx-auto text-lg text-slate-300 leading-relaxed">
+                            <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 leading-relaxed">
                                 Experience the future of development with AI-powered tools that enhance your workflow. 
                                 Build faster, smarter, and with more confidence than ever before.
                             </p>
