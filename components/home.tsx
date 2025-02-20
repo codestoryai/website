@@ -10,18 +10,18 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Downloads } from "@/lib/types";
 import { DeviceDetails } from "@/lib/ua";
+import { PinContainer } from "@/components/ui/3d-pin";
 import {
-    Bot,
-    GitPullRequest,
-    Clock,
     ArrowRight,
     Brain,
+    Clock,
     Code,
+    GitPullRequest,
+    Shield,
+    Sparkles,
     Zap,
     CheckCircle2,
     Sprout,
-    Sparkles,
-    Shield,
 } from "lucide-react";
 import { Video } from "./video";
 import Image from "next/image";
@@ -29,68 +29,15 @@ import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface ComponentProps {
+interface HomePageProps {
     deviceDetails: DeviceDetails | undefined;
     latestRelease: Downloads;
-}
-
-interface FeatureDetail {
-    icon: React.ReactNode;
-    text: string;
-}
-
-interface FeatureCardProps {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    gradient: string;
-    details: FeatureDetail[];
-}
-
-function FeatureCard({
-    icon,
-    title,
-    description,
-    gradient,
-    details,
-}: FeatureCardProps) {
-    return (
-        <div className="relative">
-            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20 hover:transform hover:scale-[1.02]">
-                <div
-                    className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-15`}
-                ></div>
-                <div className="relative space-y-6">
-                    <div className="text-indigo-400 transform transition-transform group-hover:scale-110">{icon}</div>
-                    <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
-                            {title}
-                        </h3>
-                        <p className="text-gray-400">{description}</p>
-                    </div>
-                    <div className="space-y-4 border-t border-gray-700/50 pt-4">
-                        {details.map((detail, index) => (
-                            <div
-                                key={index}
-                                className="flex items-start space-x-3 text-gray-300"
-                            >
-                                <div className="mt-1 flex-shrink-0 text-indigo-400">
-                                    {detail.icon}
-                                </div>
-                                <span>{detail.text}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
 }
 
 export default function Component({
     deviceDetails,
     latestRelease,
-}: ComponentProps) {
+}: HomePageProps) {
     return (
         <div className="relative overflow-hidden bg-black min-h-screen flex items-center justify-center">
             {/* Animated background elements */}
@@ -169,68 +116,84 @@ export default function Component({
 
                     {/* Feature Cards */}
                     <div className="relative w-full pb-16">
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            <FeatureCard
-                                icon={<GitPullRequest className="h-8 w-8" />}
-                                title="Zero Setup"
-                                description="GitHub native integration, no CLI or web UI"
-                                gradient="from-indigo-500 to-purple-500"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "One-Click Setup",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "10-second task creation",
-                                    },
-                                    {
-                                        icon: <CheckCircle2 className="h-5 w-5" />,
-                                        text: "Automated PR workflow",
-                                    },
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={<Brain className="h-8 w-8" />}
-                                title="Smart PR Suggestions"
-                                description="Automatic code reviews and continuous improvements"
-                                gradient="from-cyan-500 to-blue-500"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "Automatic code reviews",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "Continuous improvements",
-                                    },
-                                    {
-                                        icon: <CheckCircle2 className="h-5 w-5" />,
-                                        text: "Iterate on PR",
-                                    },
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={<Clock className="h-8 w-8" />}
-                                title="Parallel Execution"
-                                description="Run multiple agents in parallel"
-                                gradient="from-purple-500 to-pink-500"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "Multiple agents working simultaneously",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "Efficient task distribution",
-                                    },
-                                    {
-                                        icon: <CheckCircle2 className="h-5 w-5" />,
-                                        text: "Real-time progress tracking",
-                                    },
-                                ]}
-                            />
-                            <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
+                        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+                            <PinContainer title="Zero Setup" href="#features">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <GitPullRequest className="h-8 w-8 text-indigo-400" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">Zero Setup</h3>
+                                    </div>
+                                    <p className="text-slate-300">GitHub native integration, no CLI or web UI</p>
+                                    <ul className="space-y-2 mt-4">
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>One-Click Setup</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>10-second task creation</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Automated PR workflow</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </PinContainer>
+
+                            <PinContainer title="Smart PR Suggestions" href="#features">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <Brain className="h-8 w-8 text-indigo-400" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">Smart PR Suggestions</h3>
+                                    </div>
+                                    <p className="text-slate-300">Automatic code reviews and continuous improvements</p>
+                                    <ul className="space-y-2 mt-4">
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Automatic code reviews</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Continuous improvements</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Iterate on PR</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </PinContainer>
+
+                            <PinContainer title="Parallel Execution" href="#features">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <Clock className="h-8 w-8 text-indigo-400" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">Parallel Execution</h3>
+                                    </div>
+                                    <p className="text-slate-300">Run multiple agents in parallel</p>
+                                    <ul className="space-y-2 mt-4">
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Multiple agents working simultaneously</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Efficient task distribution</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <div className="h-px w-4 bg-indigo-400" />
+                                            <span>Real-time progress tracking</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </PinContainer>
                         </div>
                     </div>
                 </div>
