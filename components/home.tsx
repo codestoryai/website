@@ -266,42 +266,47 @@ export default function Component({
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
                             Agentic Multi-Model Workflow
                         </h2>
-                        <div className="grid gap-12 md:grid-cols-3">
-                            <PinContainer title="OpenAI" href="#models">
-                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
-                                            <OpenAILogo className="h-8 w-8 text-indigo-400" />
-                                        </div>
-                                        <h3 className="text-2xl font-semibold text-white">OpenAI</h3>
-                                    </div>
-                                    <p className="text-slate-300">Advanced language understanding and code generation</p>
-                                </div>
-                            </PinContainer>
+                        <div className="relative grid gap-8 md:gap-12 md:grid-cols-3 max-w-6xl mx-auto">
+                            {/* Connecting Lines */}
+                            <div className="absolute top-1/2 left-[5%] w-[90%] h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent transform -translate-y-1/2 hidden md:block animate-glow-line"></div>
+                            <div className="absolute top-1/2 left-1/3 w-px h-16 bg-gradient-to-b from-transparent via-indigo-500/80 to-transparent transform -translate-y-1/2 hidden md:block animate-pulse-slow" style={{ animationDelay: "0.5s" }}></div>
+                            <div className="absolute top-1/2 left-2/3 w-px h-16 bg-gradient-to-b from-transparent via-indigo-500/80 to-transparent transform -translate-y-1/2 hidden md:block animate-pulse-slow" style={{ animationDelay: "1s" }}></div>
 
-                            <PinContainer title="Claude" href="#models">
-                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
-                                            <ClaudeLogo className="h-8 w-8" />
-                                        </div>
-                                        <h3 className="text-2xl font-semibold text-white">Claude</h3>
-                                    </div>
-                                    <p className="text-slate-300">Specialized in complex reasoning and analysis</p>
-                                </div>
-                            </PinContainer>
+                            <AnimatedCard
+                                className="relative z-10 bg-black/50 backdrop-blur-sm hover:border-indigo-500/50"
+                                title="OpenAI"
+                                description="Advanced language understanding and code generation"
+                                icons={[
+                                    {
+                                        icon: <OpenAILogo className="text-indigo-400" />,
+                                        size: "lg",
+                                    },
+                                ]}
+                            />
 
-                            <PinContainer title="Gemini" href="#models">
-                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
-                                            <GeminiLogo className="h-8 w-8" />
-                                        </div>
-                                        <h3 className="text-2xl font-semibold text-white">Gemini</h3>
-                                    </div>
-                                    <p className="text-slate-300">Multimodal understanding and generation</p>
-                                </div>
-                            </PinContainer>
+                            <AnimatedCard
+                                className="relative z-10 bg-black/50 backdrop-blur-sm hover:border-indigo-500/50"
+                                title="Claude"
+                                description="Specialized in complex reasoning and analysis"
+                                icons={[
+                                    {
+                                        icon: <ClaudeLogo />,
+                                        size: "lg",
+                                    },
+                                ]}
+                            />
+
+                            <AnimatedCard
+                                className="relative z-10 bg-black/50 backdrop-blur-sm hover:border-indigo-500/50"
+                                title="Gemini"
+                                description="Multimodal understanding and generation"
+                                icons={[
+                                    {
+                                        icon: <GeminiLogo />,
+                                        size: "lg",
+                                    },
+                                ]}
+                            />
                         </div>
                     </div>
                 </div>

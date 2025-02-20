@@ -25,25 +25,25 @@ export function AnimatedCard({ className, title, description, icons = [] }: Anim
   return (
     <div
       className={cn(
-        "max-w-sm w-full mx-auto p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
+        "max-w-sm w-full mx-auto p-8 rounded-xl border border-[rgba(255,255,255,0.10)] bg-black/30 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group transition-all duration-300 hover:scale-105 hover:bg-black/40",
         className
       )}
     >
       <div
         className={cn(
           "h-[15rem] md:h-[20rem] rounded-xl z-40",
-          "bg-neutral-300 dark:bg-[rgba(40,40,40,0.70)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
+          "bg-black/20 [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
         )}
       >
         <AnimatedIcons icons={icons} />
       </div>
       {title && (
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white py-2">
+        <h3 className="text-xl font-semibold text-white py-2">
           {title}
         </h3>
       )}
       {description && (
-        <p className="text-sm font-normal text-neutral-600 dark:text-neutral-400 max-w-sm">
+        <p className="text-sm font-normal text-slate-300 max-w-sm">
           {description}
         </p>
       )}
