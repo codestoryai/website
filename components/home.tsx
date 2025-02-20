@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Downloads } from "@/lib/types";
 import { DeviceDetails } from "@/lib/ua";
+import { AnimatedCard } from "@/components/ui/feature-block-animated-card";
 import { PinContainer } from "@/components/ui/3d-pin";
 import {
     ArrowRight,

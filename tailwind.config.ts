@@ -26,6 +26,7 @@ const config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
                 shimmer: "shimmer 8s infinite",
                 pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                move: "move 5s linear infinite",
             },
             backgroundImage: {
                 noise: "url('/noise-min.png')",
