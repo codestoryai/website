@@ -29,6 +29,69 @@ import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/utils";
 
+const ClaudeLogo = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    shapeRendering="geometricPrecision"
+    textRendering="geometricPrecision"
+    imageRendering="optimizeQuality"
+    fillRule="evenodd"
+    clipRule="evenodd"
+    viewBox="0 0 512 512"
+    className={className}
+  >
+    <rect fill="#CC9B7A" width="512" height="512" rx="104.187" ry="105.042" />
+    <path
+      fill="#1F1F1E"
+      fillRule="nonzero"
+      d="M318.663 149.787h-43.368l78.952 212.423 43.368.004-78.952-212.427zm-125.326 0l-78.952 212.427h44.255l15.932-44.608 82.846-.004 16.107 44.612h44.255l-79.126-212.427h-45.317zm-4.251 128.341l26.91-74.701 27.083 74.701h-53.993z"
+    />
+  </svg>
+);
+
+const OpenAILogo = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    width="28"
+    viewBox="0 0 28 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M26.153 11.46a6.888 6.888 0 0 0-.608-5.73 7.117 7.117 0 0 0-3.29-2.93 7.238 7.238 0 0 0-4.41-.454 7.065 7.065 0 0 0-2.41-1.742A7.15 7.15 0 0 0 12.514 0a7.216 7.216 0 0 0-4.217 1.346 7.061 7.061 0 0 0-2.603 3.539 7.12 7.12 0 0 0-2.734 1.188A7.012 7.012 0 0 0 .966 8.268a6.979 6.979 0 0 0 .88 8.273 6.89 6.89 0 0 0 .607 5.729 7.117 7.117 0 0 0 3.29 2.93 7.238 7.238 0 0 0 4.41.454 7.061 7.061 0 0 0 2.409 1.742c.92.404 1.916.61 2.923.604a7.215 7.215 0 0 0 4.22-1.345 7.06 7.06 0 0 0 2.605-3.543 7.116 7.116 0 0 0 2.734-1.187 7.01 7.01 0 0 0 1.993-2.196 6.978 6.978 0 0 0-.884-8.27Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+const GeminiLogo = ({ className }: { className?: string }) => (
+  <svg
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    className={className}
+  >
+    <path
+      d="M16 8.016A8.522 8.522 0 008.016 16h-.032A8.521 8.521 0 000 8.016v-.032A8.521 8.521 0 007.984 0h.032A8.522 8.522 0 0016 7.984v.032z"
+      fill="url(#prefix__paint0_radial_980_20147)"
+    />
+    <defs>
+      <radialGradient
+        id="prefix__paint0_radial_980_20147"
+        cx="0"
+        cy="0"
+        r="1"
+        gradientUnits="userSpaceOnUse"
+        gradientTransform="matrix(16.1326 5.4553 -43.70045 129.2322 1.588 6.503)"
+      >
+        <stop offset=".067" stopColor="#9168C0" />
+        <stop offset=".343" stopColor="#5684D1" />
+        <stop offset=".672" stopColor="#1BA1E3" />
+      </radialGradient>
+    </defs>
+  </svg>
+);
+
 interface HomePageProps {
     deviceDetails: DeviceDetails | undefined;
     latestRelease: Downloads;
@@ -192,6 +255,50 @@ export default function Component({
                                             <span>Real-time progress tracking</span>
                                         </li>
                                     </ul>
+                                </div>
+                            </PinContainer>
+                        </div>
+                    </div>
+
+                    {/* Model Workflow Section */}
+                    <div className="relative w-full pb-16 mt-24">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+                            Agentic Multi-Model Workflow
+                        </h2>
+                        <div className="grid gap-12 md:grid-cols-3">
+                            <PinContainer title="OpenAI" href="#models">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <OpenAILogo className="h-8 w-8 text-indigo-400" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">OpenAI</h3>
+                                    </div>
+                                    <p className="text-slate-300">Advanced language understanding and code generation</p>
+                                </div>
+                            </PinContainer>
+
+                            <PinContainer title="Claude" href="#models">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <ClaudeLogo className="h-8 w-8" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">Claude</h3>
+                                    </div>
+                                    <p className="text-slate-300">Specialized in complex reasoning and analysis</p>
+                                </div>
+                            </PinContainer>
+
+                            <PinContainer title="Gemini" href="#models">
+                                <div className="flex flex-col space-y-4 p-4 tracking-tight text-slate-100/50 w-[20rem]">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            <GeminiLogo className="h-8 w-8" />
+                                        </div>
+                                        <h3 className="text-2xl font-semibold text-white">Gemini</h3>
+                                    </div>
+                                    <p className="text-slate-300">Multimodal understanding and generation</p>
                                 </div>
                             </PinContainer>
                         </div>

@@ -97,6 +97,10 @@ const config = {
                     "0%, 100%": { transform: "translateY(0) translateX(-50%)" },
                     "50%": { transform: "translateY(-20px) translateX(-50%)" },
                 },
+                move: {
+                    "0%": { transform: "translateX(-200px)" },
+                    "100%": { transform: "translateX(200px)" },
+                },
             },
         },
     },
