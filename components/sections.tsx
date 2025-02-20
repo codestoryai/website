@@ -63,6 +63,109 @@ interface SectionProps {
 export default function Sections({ user }: SectionProps) {
     return (
         <div>
+            {/* Features Section */}
+            <div id="features" className="bg-slate-950 py-24 px-8 md:px-12">
+                <div className="m-auto max-w-screen-xl">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+                        Powerful Features for Modern Development
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            {
+                                title: "AI-Powered Assistance",
+                                description: "Get intelligent code suggestions and real-time assistance as you code",
+                                icon: <Bot className="h-8 w-8 text-indigo-400" />,
+                                points: ["Smart code completion", "Context-aware suggestions", "Natural language queries"]
+                            },
+                            {
+                                title: "Advanced Code Analysis",
+                                description: "Deep understanding of your codebase for better insights",
+                                icon: <Code className="h-8 w-8 text-indigo-400" />,
+                                points: ["Semantic code search", "Dependency analysis", "Code quality checks"]
+                            },
+                            {
+                                title: "Seamless Integration",
+                                description: "Works with your existing tools and workflows",
+                                icon: <GitBranch className="h-8 w-8 text-indigo-400" />,
+                                points: ["Git integration", "CI/CD support", "Extension compatibility"]
+                            }
+                        ].map((feature, index) => (
+                            <PinContainer key={index}>
+                                <div className="flex flex-col h-full text-white">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10">
+                                            {feature.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-semibold">{feature.title}</h3>
+                                    </div>
+                                    <p className="text-slate-300 mb-6">{feature.description}</p>
+                                    <ul className="space-y-2 mt-auto">
+                                        {feature.points.map((point, i) => (
+                                            <li key={i} className="flex items-center gap-2">
+                                                <div className="h-px w-4 bg-indigo-400" />
+                                                <span>{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a href="#" className="mt-6 flex items-center text-indigo-400 hover:text-indigo-300 transition-colors">
+                                        Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                                    </a>
+                                </div>
+                            </PinContainer>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* AI Models Section */}
+            <div id="models" className="bg-slate-900 py-24 px-8 md:px-12">
+                <div className="m-auto max-w-screen-xl">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
+                        Cutting-Edge AI Models
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            {
+                                title: "Code Generation",
+                                description: "Advanced code synthesis with context awareness",
+                                icon: <Brain className="h-6 w-6" />,
+                                metrics: "99.8% Accuracy"
+                            },
+                            {
+                                title: "Code Analysis",
+                                description: "Deep semantic understanding of code",
+                                icon: <Sparkles className="h-6 w-6" />,
+                                metrics: "Real-time Processing"
+                            },
+                            {
+                                title: "Optimization",
+                                description: "Performance and quality improvements",
+                                icon: <Zap className="h-6 w-6" />,
+                                metrics: "50% Faster Execution"
+                            },
+                            {
+                                title: "Security",
+                                description: "Vulnerability detection and fixes",
+                                icon: <Shield className="h-6 w-6" />,
+                                metrics: "24/7 Protection"
+                            }
+                        ].map((model, index) => (
+                            <div key={index} 
+                                className="group relative overflow-hidden rounded-lg bg-slate-800 p-6 hover:bg-slate-700/80 transition-colors">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
+                                        {model.icon}
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-white">{model.title}</h3>
+                                </div>
+                                <p className="text-slate-300 mb-4">{model.description}</p>
+                                <div className="text-indigo-400 font-semibold">{model.metrics}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             <div className="overflow-hidden border-t border-t-muted bg-yellow-200 p-8 pt-24 md:p-12">
                 <div className="m-auto max-w-screen-xl">
                     <div>

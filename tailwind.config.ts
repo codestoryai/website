@@ -26,6 +26,10 @@ const config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
                 shimmer: "shimmer 8s infinite",
                 pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "glow-line": "glow 2s ease-in-out infinite",
+                float: "float 3s ease-in-out infinite",
+                move: "move 5s linear infinite",
             },
             backgroundImage: {
                 noise: "url('/noise-min.png')",
@@ -90,8 +94,20 @@ const config = {
                     },
                 },
                 pulse: {
+                    "0%, 100%": { opacity: "0.6" },
+                    "50%": { opacity: "0.3" },
+                },
+                glow: {
                     "0%, 100%": { opacity: "1" },
                     "50%": { opacity: "0.5" },
+                },
+                float: {
+                    "0%, 100%": { transform: "translateY(0) translateX(-50%)" },
+                    "50%": { transform: "translateY(-20px) translateX(-50%)" },
+                },
+                move: {
+                    "0%": { transform: "translateX(-200px)" },
+                    "100%": { transform: "translateX(200px)" },
                 },
             },
         },
