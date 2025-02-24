@@ -119,6 +119,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             "inline-flex h-12 w-max items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
                                             "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
+                                        href="/how-to-use"
+                                    >
+                                        How to Use
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink
+                                        className={cn(
+                                            "inline-flex h-12 w-max items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
+                                        )}
                                         href="/blog"
                                     >
                                         Blog
