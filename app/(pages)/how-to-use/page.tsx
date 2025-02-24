@@ -68,7 +68,7 @@ export default function HowToUsePage() {
                         <h3>FAQs</h3>
                         <div className="space-y-4">
                             <details className="group">
-                                <summary className="flex cursor-pointer items-center justify-between rounded-lg bg-gray-700/50 px-4 py-4 text-lg font-medium text-white hover:bg-gray-700/70">
+                                <summary className="flex cursor-pointer items-center rounded-lg bg-gray-700/50 px-4 py-4 text-lg text-white hover:bg-gray-700/70">
                                     Does your agent work on other services, other than Github?
                                 </summary>
                                 <div className="mt-4 px-4 text-gray-300">
@@ -77,7 +77,7 @@ export default function HowToUsePage() {
                             </details>
 
                             <details className="group">
-                                <summary className="flex cursor-pointer items-center justify-between rounded-lg bg-gray-700/50 px-4 py-4 text-lg font-medium text-white hover:bg-gray-700/70">
+                                <summary className="flex cursor-pointer items-center rounded-lg bg-gray-700/50 px-4 py-4 text-lg text-white hover:bg-gray-700/70">
                                     Do you have a money-back guarantee policy?
                                 </summary>
                                 <div className="mt-4 px-4 text-gray-300">
