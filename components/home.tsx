@@ -25,6 +25,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Dela_Gothic_One } from "next/font/google";
+
+const delaGothic = Dela_Gothic_One({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 interface ComponentProps {
     deviceDetails: DeviceDetails | undefined;
@@ -60,10 +66,14 @@ function FeatureCard({
                 <div className="relative space-y-6">
                     <div className="text-indigo-400">{icon}</div>
                     <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
+                        <h3
+                            className={`text-xl font-semibold text-white transition-colors group-hover:text-indigo-300 ${delaGothic.className}`}
+                        >
                             {title}
                         </h3>
-                        <p className="text-gray-400">{description}</p>
+                        <p className={`${delaGothic.className} text-gray-400`}>
+                            {description}
+                        </p>
                     </div>
                     <div className="space-y-4 border-t border-gray-700/50 pt-4">
                         {details.map((detail, index) => (
@@ -74,7 +84,9 @@ function FeatureCard({
                                 <div className="mt-1 flex-shrink-0 text-indigo-400">
                                     {detail.icon}
                                 </div>
-                                <span>{detail.text}</span>
+                                <span className={delaGothic.className}>
+                                    {detail.text}
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -106,16 +118,20 @@ export default function Component({
                     {/* Hero Section */}
                     <div className="mx-auto max-w-4xl text-center">
                         <div className="space-y-8">
-                            <h1 className="text-6xl font-bold leading-tight text-white">
-                                Stop Managing. <br />
+                            <h1
+                                className={`text-6xl font-bold leading-tight text-white ${delaGothic.className}`}
+                            >
+                                PARALLEL AGENTS <br />
                                 <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-                                    Start Commanding.
+                                    Better than D*vin.
                                 </span>
                             </h1>
-                            <p className="text-xl text-gray-300">
-                                Parallel Agents on Your Codebase.
+                            <p
+                                className={`text-2xl font-black text-[#ff6bfd] [text-shadow:_0_0_10px_#ff6bfd] ${delaGothic.className}`}
+                            >
+                                SWE-Bench #1 Agent on your Codebase.
                             </p>
-                            <div className="flex items-center justify-center space-x-6">
+                            <div className="background-green-400 flex items-center justify-center space-x-6">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
@@ -125,23 +141,35 @@ export default function Component({
                                             {}
                                         );
                                         window.open(
-                                            "https://calendar.app.google/CWtwXjZF1s8rrkui6",
+                                            "https://github.com/apps/agentfarmx/installations/select_target",
                                             "_blank"
                                         );
                                     }}
-                                    className="group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25"
+                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                                 >
-                                    <span>Schedule a Demo</span>
+                                    <div className="flex items-center">
+                                        <span>Install</span>
+                                    </div>
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </button>
                                 <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
                                     <div className="flex items-center space-x-2">
-                                        <div className="text-2xl font-bold text-white">
-                                            $99
+                                        <div
+                                            className={`text-2xl font-bold text-white ${delaGothic.className}`}
+                                        >
+                                            <span className="text-gray-500 line-through">
+                                                $99
+                                            </span>{" "}
+                                            <span className="text-green-400">
+                                                Free
+                                            </span>
                                         </div>
-                                        <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
                                     </div>
-                                    per month
+                                    <div
+                                        className={`text-green-400 ${delaGothic.className}`}
+                                    >
+                                        until we run out of money
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +181,7 @@ export default function Component({
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Zero Setup"
-                                description="GitHub native integration, no CLI or web UI"
+                                description="GitHub native integration"
                                 gradient="from-indigo-500 to-purple-500"
                                 details={[
                                     {
@@ -197,12 +225,12 @@ export default function Component({
                             <FeatureCard
                                 icon={<Clock className="h-8 w-8" />}
                                 title="Parallel Execution"
-                                description="Run multiple agents in parallel"
+                                description="Run agents in parallel"
                                 gradient="from-purple-500 to-pink-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
-                                        text: "Multiple agents working simultaneously",
+                                        text: "AGENTS AGENTS AGENTS",
                                     },
                                     {
                                         icon: <Zap className="h-5 w-5" />,

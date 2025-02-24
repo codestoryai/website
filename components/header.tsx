@@ -11,6 +11,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { Bot, Sprout, ArrowRight } from "lucide-react";
+import { Dela_Gothic_One } from "next/font/google";
+
+const delaGothic = Dela_Gothic_One({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 import {
     NavigationMenu,
@@ -70,12 +76,16 @@ export default function Header({ logoSuffix }: HeaderProps) {
                             <Bot className="h-12 w-12 text-indigo-500 transition-colors group-hover:text-indigo-400" />
                             <Sprout className="absolute -bottom-1.5 -right-1.5 h-6 w-6 text-green-400 transition-colors group-hover:text-green-300" />
                         </div>
-                        <span className="text-2xl font-bold text-white">
+                        <span
+                            className={`text-2xl font-bold text-white ${delaGothic.className}`}
+                        >
                             AgentFarm
                         </span>
                     </Link>
                     {logoSuffix && (
-                        <p className="pl-3 text-xl font-bold text-white">
+                        <p
+                            className={`pl-3 text-xl font-bold text-white ${delaGothic.className}`}
+                        >
                             {logoSuffix.path ? (
                                 <Link href={logoSuffix.path}>
                                     {logoSuffix.text}
@@ -117,7 +127,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                     <NavigationMenuLink
                                         className={cn(
                                             "inline-flex h-12 w-max items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center",
+                                            delaGothic.className
                                         )}
                                         href="/how-to-use"
                                     >
@@ -128,7 +139,8 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                     <NavigationMenuLink
                                         className={cn(
                                             "inline-flex h-12 w-max items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center",
+                                            delaGothic.className
                                         )}
                                         href="/blog"
                                     >
@@ -139,13 +151,12 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                     <NavigationMenuLink
                                         className={cn(
                                             "inline-flex h-12 w-max items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors hover:bg-gray-800/50 hover:text-indigo-300 focus:bg-gray-800/50 focus:text-indigo-300 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-800/50 data-[state=open]:bg-gray-800/50",
-                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center"
+                                            "w-full justify-start text-gray-300 md:w-auto md:justify-center",
+                                            delaGothic.className
                                         )}
                                         href="/account"
                                     >
-                                        <span>
-                                            Ex Aide user?
-                                        </span>
+                                        <span>Ex Aide user?</span>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                             </NavigationMenuList>
@@ -156,13 +167,13 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     <button
                         onClick={() => {
                             window.uetq = window.uetq || [];
-                            window.uetq.push('event', 'cta_clicked', {});
+                            window.uetq.push("event", "cta_clicked", {});
                             window.open(
                                 "https://calendar.app.google/CWtwXjZF1s8rrkui6",
                                 "_blank"
                             );
                         }}
-                        className="group hidden items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:flex"
+                        className={`group hidden items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:flex ${delaGothic.className}`}
                     >
                         <span>Schedule a Demo</span>
                         <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
