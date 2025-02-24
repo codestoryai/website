@@ -133,7 +133,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                         href="/account"
                                     >
                                         <span className="font-bold">
-                                            Account
+                                            Ex Aide user?
                                         </span>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
