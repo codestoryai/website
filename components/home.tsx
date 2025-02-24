@@ -59,19 +59,23 @@ function FeatureCard({
 }: FeatureCardProps) {
     return (
         <div className="relative">
-            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-8 backdrop-blur-sm transition-all duration-300 hover:ring-1 hover:ring-indigo-500/20">
+            <div className="group relative overflow-hidden rounded-xl bg-gray-800/50 p-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:ring-1 hover:ring-indigo-500/20">
                 <div
-                    className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity group-hover:opacity-10`}
+                    className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-20 transition-opacity duration-500 group-hover:opacity-30`}
                 ></div>
                 <div className="relative space-y-6">
-                    <div className="text-indigo-400">{icon}</div>
+                    <div className="text-[#ff6bfd] transition-all duration-300 [text-shadow:_0_0_10px_#ff6bfd] group-hover:scale-110">
+                        {icon}
+                    </div>
                     <div className="space-y-4">
                         <h3
-                            className={`text-xl font-semibold text-white transition-colors group-hover:text-indigo-300 ${delaGothic.className}`}
+                            className={`bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-xl font-semibold text-transparent transition-all duration-300 group-hover:from-indigo-300 group-hover:to-cyan-300 ${delaGothic.className}`}
                         >
                             {title}
                         </h3>
-                        <p className={`${delaGothic.className} text-gray-400`}>
+                        <p
+                            className={`${delaGothic.className} text-gray-300 transition-colors duration-300 group-hover:text-gray-200`}
+                        >
                             {description}
                         </p>
                     </div>
@@ -79,12 +83,14 @@ function FeatureCard({
                         {details.map((detail, index) => (
                             <div
                                 key={index}
-                                className="flex items-start space-x-3 text-gray-300"
+                                className="flex items-start space-x-3 text-gray-200"
                             >
-                                <div className="mt-1 flex-shrink-0 text-indigo-400">
+                                <div className="mt-1 flex-shrink-0 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
                                     {detail.icon}
                                 </div>
-                                <span className={delaGothic.className}>
+                                <span
+                                    className={`${delaGothic.className} transition-colors duration-300 group-hover:text-white`}
+                                >
                                     {detail.text}
                                 </span>
                             </div>
@@ -182,7 +188,7 @@ export default function Component({
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Zero Setup"
                                 description="GitHub native integration"
-                                gradient="from-indigo-500 to-purple-500"
+                                gradient="from-[#ff6bfd] to-indigo-500"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
@@ -204,7 +210,7 @@ export default function Component({
                                 icon={<GitPullRequest className="h-8 w-8" />}
                                 title="Iterate on PR"
                                 description="Automated PR workflow"
-                                gradient="from-cyan-500 to-blue-500"
+                                gradient="from-indigo-400 to-cyan-400"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
@@ -226,7 +232,7 @@ export default function Component({
                                 icon={<Clock className="h-8 w-8" />}
                                 title="Parallel Execution"
                                 description="Run agents in parallel"
-                                gradient="from-purple-500 to-pink-500"
+                                gradient="from-cyan-400 to-[#ff6bfd]"
                                 details={[
                                     {
                                         icon: <Code className="h-5 w-5" />,
