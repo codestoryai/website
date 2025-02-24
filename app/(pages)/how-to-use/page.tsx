@@ -17,21 +17,17 @@ export default function HowToUsePage() {
             <div className="relative p-8 pt-20 md:p-12 md:pt-24">
                 <div className="m-auto max-w-screen-xl">
                     <div className="my-12 flex flex-col items-center">
-                        <h2 className="pt-4 text-center text-3xl font-bold md:text-5xl text-white">
-                            How to use
+                        <h2 className="pt-4 text-center text-3xl font-bold md:text-5xl text-white flex items-center gap-3">
+                            👨🏻‍🌾 How to use AgentFarm
                         </h2>
+                        <p className="text-center text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                            Welcome to the future of coding!
+                        </p>
                     </div>
                 </div>
                 <div className="bg-gray-800/50 backdrop-blur-sm p-8 md:p-12 rounded-xl ring-1 ring-indigo-500/20">
                     <div className="m-auto max-w-screen-xl prose lg:prose-xl prose-invert prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300">
-                        <h3>How to use</h3>
-                        <ol className="text-gray-300">
-                            <li><strong>Open a Github issue</strong> and write your request – you don&apos;t need to be thorough.</li>
-                            <li>The agent will open a PR. <strong>Reply to the agent in the PR</strong>.</li>
-                            <li>When you&apos;re happy with the agent&apos;s work, <strong>merge</strong>.</li>
-                        </ol>
-
-                        <h3>What AgentFarm can do</h3>
+                        <h3>What it does</h3>
                         <p className="text-gray-300">
                             With AgentFarm, you can spawn multiple agents on your codebase. The agents can:
                         </p>
@@ -53,7 +49,48 @@ export default function HowToUsePage() {
                             on more mission-critical aspects of your product and company.
                         </p>
 
-                        <h2>Usage and pricing</h2>
+                        <h3>How to use it</h3>
+                        <p className="text-gray-300">
+                            AgentFarm works on top of your Github repo – no configuration required. Just add our Github app to your repo(s).
+                        </p>
+                        <div className="space-y-6">
+                            <div className="bg-gray-700/30 p-6 rounded-lg border border-indigo-500/20 flex items-start gap-4">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">
+                                    1
+                                </div>
+                                <div>
+                                    <h4 className="text-lg font-semibold mb-2 !mt-0">Open a Github Issue</h4>
+                                    <p className="text-gray-300 m-0 !pb-1">
+                                        To spawn a new agent, just open a Github issue and write your request. You don&apos;t need to be thorough.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="bg-gray-700/30 p-6 rounded-lg border border-indigo-500/20 flex items-start gap-4">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">
+                                    2
+                                </div>
+                                <div>
+                                    <h4 className="text-lg font-semibold mb-2 !mt-0">Review the PR</h4>
+                                    <p className="text-gray-300 m-0 !pb-1">
+                                        The agent will open a PR. Here, it will give you status updates. This is also where you will be able to iterate, 
+                                        and work towards your goal – if our agent didn&apos;t one-shot it, that is.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="bg-gray-700/30 p-6 rounded-lg border border-indigo-500/20 flex items-start gap-4">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">
+                                    3
+                                </div>
+                                <div>
+                                    <h4 className="text-lg font-semibold mb-2 !mt-0">Merge and Done!</h4>
+                                    <p className="text-gray-300 m-0 !pb-1">
+                                        When you&apos;re happy, merge the PR! The changes are now part of your codebase.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Usage and pricing</h3>
                         <p className="text-gray-300">
                             You can try AgentFarm for free, no credit card required, and open 3 PRs with it.
                         </p>
@@ -75,7 +112,6 @@ export default function HowToUsePage() {
                                     No, we currently support Github only.
                                 </div>
                             </details>
-
                             <details className="group">
                                 <summary className="flex cursor-pointer items-center rounded-lg bg-gray-700/50 px-4 py-4 text-lg text-white hover:bg-gray-700/70">
                                     Do you have a money-back guarantee policy?
