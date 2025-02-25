@@ -108,6 +108,19 @@ export default function Component({
     latestRelease,
 }: ComponentProps) {
     const [isPlaying, setIsPlaying] = React.useState(false);
+    const videoRef = React.useRef<HTMLVideoElement>(null);
+
+    const handlePlayClick = () => {
+        setIsPlaying(true);
+        if (videoRef.current) {
+            videoRef.current.muted = false;
+            videoRef.current.play().catch((error) => {
+                console.error("Error playing video:", error);
+                // Fallback if autoplay fails due to browser policies
+                setIsPlaying(false);
+            });
+        }
+    };
 
     return (
         <div className="relative flex min-h-screen flex-col overflow-hidden bg-black">
@@ -192,20 +205,23 @@ export default function Component({
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-indigo-500/20 to-cyan-500/20"></div>
                             )}
 
-                            {/* YouTube iframe - always present but with different z-index based on state */}
-                            <iframe
-                                className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${isPlaying ? "z-30 opacity-100" : "z-5 opacity-60"}`}
-                                src={`https://www.youtube.com/embed/dQw4w9WgXcQ${isPlaying ? "?autoplay=1&controls=1" : "?controls=0"}`}
-                                title="AgentFarm Demo Video"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
+                            {/* Video element - always present but with different z-index based on state */}
+                            <video
+                                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${isPlaying ? "z-30 opacity-100" : "z-5 opacity-60"}`}
+                                src="/tutorial.mp4"
+                                controls={isPlaying}
+                                autoPlay={isPlaying}
+                                playsInline
+                                muted={!isPlaying}
+                                loop={false}
+                                ref={videoRef}
+                            ></video>
 
                             {/* Play button overlay - only shown when not playing */}
                             {!isPlaying && (
                                 <div
                                     className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm"
-                                    onClick={() => setIsPlaying(true)}
+                                    onClick={handlePlayClick}
                                 >
                                     <button className="group flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25">
                                         <Play className="h-10 w-10 fill-white transition-transform group-hover:scale-110" />
