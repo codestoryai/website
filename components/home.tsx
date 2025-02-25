@@ -20,6 +20,7 @@ import {
     Zap,
     CheckCircle2,
     Sprout,
+    Play,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -106,6 +107,8 @@ export default function Component({
     deviceDetails,
     latestRelease,
 }: ComponentProps) {
+    const [isPlaying, setIsPlaying] = React.useState(false);
+
     return (
         <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
             {/* Animated background elements */}
@@ -181,9 +184,50 @@ export default function Component({
                         </div>
                     </div>
 
+                    {/* Video Player Section */}
+                    <div className="relative mx-auto w-full max-w-5xl">
+                        <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                            {/* Only show the gradient overlay when not playing */}
+                            {!isPlaying && (
+                                <div className="absolute inset-0 z-10 bg-gradient-to-r from-indigo-500/20 to-cyan-500/20"></div>
+                            )}
+
+                            {/* YouTube iframe - always present but with different z-index based on state */}
+                            <iframe
+                                className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${isPlaying ? "z-30 opacity-100" : "z-5 opacity-60"}`}
+                                src={`https://www.youtube.com/embed/dQw4w9WgXcQ${isPlaying ? "?autoplay=1&controls=1" : "?controls=0"}`}
+                                title="AgentFarm Demo Video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+
+                            {/* Play button overlay - only shown when not playing */}
+                            {!isPlaying && (
+                                <div
+                                    className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm"
+                                    onClick={() => setIsPlaying(true)}
+                                >
+                                    <button className="group flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25">
+                                        <Play className="h-10 w-10 fill-white transition-transform group-hover:scale-110" />
+                                    </button>
+                                    <h3
+                                        className={`mt-6 text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent`}
+                                    >
+                                        See AgentFarm in Action
+                                    </h3>
+                                </div>
+                            )}
+
+                            {/* Decorative border - always pointer-events-none */}
+                            <div className="pointer-events-none absolute inset-0 z-40 rounded-2xl ring-1 ring-white/10"></div>
+                        </div>
+                        <div className="absolute -left-10 -top-10 h-64 w-64 animate-pulse rounded-full bg-[#ff6bfd]/10 blur-3xl filter"></div>
+                        <div className="absolute -bottom-10 -right-10 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
+                    </div>
+
                     {/* Feature Cards */}
                     <div className="relative w-full pb-8 md:pb-16">
-                        <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-3">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Zero Setup"
