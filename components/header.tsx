@@ -94,15 +94,16 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         className="fixed right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
+                        aria-expanded={isMenuOpen}
                     >
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
+                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-2 rotate-45" : ""}`}
                         />
                         <div
                             className={`my-1.5 h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
                         />
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
+                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}`}
                         />
                     </button>
 
@@ -120,6 +121,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/how-to-use"
+                                        onClick={() => setIsMenuOpen(false)}
                                     >
                                         How to Use
                                     </NavigationMenuLink>
@@ -131,6 +133,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/blog"
+                                        onClick={() => setIsMenuOpen(false)}
                                     >
                                         Blog
                                     </NavigationMenuLink>
@@ -142,6 +145,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                             "w-full justify-start text-gray-300 md:w-auto md:justify-center"
                                         )}
                                         href="/account"
+                                        onClick={() => setIsMenuOpen(false)}
                                     >
                                         <span>
                                             Ex Aide user?
