@@ -110,7 +110,7 @@ export default function Component({
     const [isPlaying, setIsPlaying] = React.useState(false);
 
     return (
-        <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
+        <div className="relative flex min-h-screen flex-col overflow-hidden bg-black">
             {/* Animated background elements */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e5,#0ea5e9)] opacity-20"></div>
@@ -123,9 +123,9 @@ export default function Component({
 
             {/* Main content */}
             <div className="container relative mx-auto max-w-7xl px-6">
-                <div className="flex flex-col items-center justify-center space-y-24 py-24">
+                <div className="flex flex-col items-center space-y-32 pb-24 pt-24 md:pb-32 md:pt-32">
                     {/* Hero Section */}
-                    <div className="mx-auto max-w-4xl text-center">
+                    <div className="mx-auto mt-16 max-w-4xl text-center">
                         <div className="space-y-8">
                             <h1
                                 className={`text-6xl font-bold leading-tight text-white ${delaGothic.className}`}
@@ -226,7 +226,7 @@ export default function Component({
                     </div>
 
                     {/* Feature Cards */}
-                    <div className="relative w-full pb-8 md:pb-16">
+                    <div className="relative w-full pb-16 md:pb-24">
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
