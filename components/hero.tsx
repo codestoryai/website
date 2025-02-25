@@ -51,7 +51,7 @@ export default function Hero() {
         */}
 
                 <Video
-                    className="mt-8 rounded-lg border shadow-xl"
+                    className="mt-6 rounded-lg border shadow-xl md:mt-8"
                     src="/probe-walk-through.mp4"
                 />
             </div>

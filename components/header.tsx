@@ -162,10 +162,10 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 "_blank"
                             );
                         }}
-                        className="group hidden items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:flex"
+                        className="group fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base"
                     >
                         <span>Schedule a Demo</span>
-                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
                     </button>
                 </div>
             </div>

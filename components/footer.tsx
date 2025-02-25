@@ -93,7 +93,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="h-px w-full bg-gray-700/50" />
-                <span className="self-center font-normal text-gray-400">
+                <span className="self-center text-sm font-normal text-gray-400">
                     © Codestory {new Date().getFullYear()}
                 </span>
             </div>
