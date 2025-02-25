@@ -182,8 +182,8 @@ export default function Component({
                     </div>
 
                     {/* Feature Cards */}
-                    <div className="relative w-full pb-16">
-                        <div className="grid gap-8 md:grid-cols-3">
+                    <div className="relative w-full pb-8 md:pb-16">
+                        <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-3">
                             <FeatureCard
                                 icon={<Brain className="h-8 w-8" />}
                                 title="Zero Setup"

@@ -168,7 +168,7 @@ export function PricingWidget({ accessToken }: PricingWidgetProps) {
                     <CardFooter className="mt-2">
                         <Button
                             size="sm"
-                            className="w-full"
+                            className="w-full text-sm sm:text-base"
                             onClick={() =>
                                 onSubscribe(
                                     accessToken,
