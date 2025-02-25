@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import { Bot, Sprout, ArrowRight } from "lucide-react";
+import { Bot, Sprout, ArrowRight, Download } from "lucide-react";
 
 import {
     NavigationMenu,
@@ -91,25 +91,37 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <div className="relative flex items-center space-x-6">
                     {/* Hamburger Button */}
                     <button
-                        className="fixed right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="absolute right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMenuOpen(!isMenuOpen);
+                        }}
                         aria-label="Toggle menu"
                     >
-                        <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
-                        />
-                        <div
-                            className={`my-1.5 h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
-                        />
-                        <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
-                        />
+                        <div className={cn(
+                            "h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                        )} />
+                        <div className={cn(
+                            "my-1.5 h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "opacity-0" : ""
+                        )} />
+                        <div className={cn(
+                            "h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                        )} />
                     </button>
 
                     {/* Navigation Menu */}
                     <div
                         ref={menuRef}
-                        className={`fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24 transition-transform duration-300 ease-in-out md:static md:block ${isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"} md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none`}
+                        className={cn(
+                            "fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24",
+                            "transition-transform duration-300 ease-in-out",
+                            "md:static md:block md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none",
+                            isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"
+                        )}
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <NavigationMenu className="w-full cursor-pointer">
                             <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2 md:space-x-2">
@@ -151,6 +163,17 @@ export default function Header({ logoSuffix }: HeaderProps) {
                             </NavigationMenuList>
                         </NavigationMenu>
                     </div>
+
+                    {/* Install Button */}
+                    <button
+                        onClick={() => {
+                            window.open("https://marketplace.visualstudio.com/items?itemName=AgentFarm.agentfarm", "_blank");
+                        }}
+                        className="group fixed bottom-20 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-green-600 to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-green-500 hover:to-green-400 hover:shadow-green-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base md:mr-4"
+                    >
+                        <span>Install</span>
+                        <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5 md:h-5 md:w-5" />
+                    </button>
 
                     {/* CTA Button */}
                     <button
