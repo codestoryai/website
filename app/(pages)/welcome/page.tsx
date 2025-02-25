@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { VideoPlayer } from '@/components/VideoPlayer';
 
 export default function WelcomePage() {
     return (
@@ -18,22 +18,16 @@ export default function WelcomePage() {
             {/* Main content */}
             <div className="relative p-8 pt-20 md:p-12 md:pt-24">
                 <div className="m-auto max-w-screen-xl">
-                    <div className="my-12 flex flex-col items-center">
-                        <div className="relative w-96 aspect-[4/3] mb-8 overflow-hidden rounded-lg ring-1 ring-indigo-500/20">
-                            <Image
-                                src="/farmer.jpeg"
-                                alt="Friendly farmer in overalls and plaid shirt"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+                    <div className="flex flex-col items-center mt-8">
+                        <div className="w-full max-w-2xl">
+                            <VideoPlayer src="/tutorial.mp4" className="w-full aspect-video" />
                         </div>
-                        <h2 className="pt-4 text-center text-3xl font-bold md:text-5xl text-white flex items-center gap-3">
+                        <h2 className="mt-8 text-center text-3xl font-bold md:text-5xl text-white flex items-center gap-3">
                             👨🏻‍🌾 Welcome to AgentFarm!
                         </h2>
                     </div>
                 </div>
-                <div className="bg-gray-800/50 backdrop-blur-sm p-8 md:p-12 rounded-xl ring-1 ring-indigo-500/20">
+                <div className="mt-8 bg-gray-800/50 backdrop-blur-sm p-8 md:p-12 rounded-xl ring-1 ring-indigo-500/20">
                     <div className="m-auto max-w-screen-xl prose lg:prose-xl prose-invert prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300">
                         <p className="text-gray-300 text-xl">
                             We just created an example issue for you. <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">Check out your notifications</a> and see our newly created issue.
