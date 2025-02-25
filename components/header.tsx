@@ -175,16 +175,6 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         </NavigationMenu>
                     </div>
 
-                    {/* Install Button */}
-                    <button
-                        onClick={() => {
-                            window.open("https://marketplace.visualstudio.com/items?itemName=AgentFarm.agentfarm", "_blank");
-                        }}
-                        className="group fixed bottom-20 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-green-600 to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-green-500 hover:to-green-400 hover:shadow-green-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base md:mr-4"
-                    >
-                        <span>Install</span>
-                    </button>
-
                     {/* CTA Button */}
                     <button
                         onClick={() => {
@@ -197,7 +187,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         }}
                         className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                     >
-                        <span>Schedule a Demo</span>
+                        <span>Install</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
                     </button>
                 </div>
