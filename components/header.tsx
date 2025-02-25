@@ -101,25 +101,37 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <div className="relative flex items-center space-x-6">
                     {/* Hamburger Button */}
                     <button
-                        className="fixed right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="absolute right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMenuOpen(!isMenuOpen);
+                        }}
                         aria-label="Toggle menu"
                     >
-                        <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
-                        />
-                        <div
-                            className={`my-1.5 h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
-                        />
-                        <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
-                        />
+                        <div className={cn(
+                            "h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                        )} />
+                        <div className={cn(
+                            "my-1.5 h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "opacity-0" : ""
+                        )} />
+                        <div className={cn(
+                            "h-0.5 w-8 bg-white transition-all duration-300",
+                            isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                        )} />
                     </button>
 
                     {/* Navigation Menu */}
                     <div
                         ref={menuRef}
-                        className={`fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24 transition-transform duration-300 ease-in-out md:static md:block ${isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"} md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none`}
+                        className={cn(
+                            "fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24",
+                            "transition-transform duration-300 ease-in-out",
+                            "md:static md:block md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none",
+                            isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"
+                        )}
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <NavigationMenu className="w-full cursor-pointer">
                             <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2 md:space-x-2">
