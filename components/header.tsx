@@ -31,7 +31,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
     const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
             if (
                 menuRef.current &&
                 !menuRef.current.contains(event.target as Node)
@@ -42,10 +42,12 @@ export default function Header({ logoSuffix }: HeaderProps) {
 
         if (isMenuOpen) {
             document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("touchstart", handleClickOutside);
         }
 
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
         };
     }, [isMenuOpen]);
 
@@ -96,13 +98,19 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         aria-label="Toggle menu"
                     >
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
+                            className={`h-0.5 w-8 bg-white transition-all ${
+                                isMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                            }`}
                         />
                         <div
-                            className={`my-1.5 h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
+                            className={`my-1.5 h-0.5 w-8 bg-white transition-all ${
+                                isMenuOpen ? "opacity-0" : ""
+                            }`}
                         />
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
+                            className={`h-0.5 w-8 bg-white transition-all ${
+                                isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                            }`}
                         />
                     </button>
 
