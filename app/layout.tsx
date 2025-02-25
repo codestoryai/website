@@ -101,7 +101,7 @@ export default async function RootLayout({
                     <TooltipProvider delayDuration={0}>
                         <Impersonation />
                         <Header />
-                        <main className="flex-grow">
+                        <main className="min-h-screen flex-grow pt-[var(--header-height)] md:pt-[var(--header-height-md)]">
                             {children}
                         </main>
                         <Footer />

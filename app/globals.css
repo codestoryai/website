@@ -80,6 +80,16 @@ html {
     body {
         @apply bg-background text-foreground;
     }
+
+    main {
+        padding-top: var(--header-height);
+    }
+
+    @media (min-width: 768px) {
+        main {
+            padding-top: var(--header-height-md);
+        }
+    }
 }
 
 @keyframes blob {

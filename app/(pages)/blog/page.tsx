@@ -13,7 +13,7 @@ export default async function Posts() {
     const remainingPosts = posts.slice(1);
 
     return (
-        <div className="flex min-h-screen flex-col items-center bg-background bg-noise p-8 pt-24 md:p-12 md:pt-40">
+        <div className="flex min-h-screen flex-col items-center bg-background bg-noise p-8 pt-[var(--header-height)] md:p-12 md:pt-[var(--header-height-md)]">
             <div className="m-auto w-full max-w-screen-lg">
                 <Link href={`/blog/${latestPost.slug}`}>
                     <Card className="flex min-h-80 flex-col justify-between rounded-3xl p-4">

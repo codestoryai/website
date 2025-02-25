@@ -55,7 +55,7 @@ const PricingPage = () => {
 	];
 
 	return (
-		<div className="min-h-screen bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
+		<div className="min-h-screen bg-background bg-noise p-8 pt-[var(--header-height)] md:p-12 md:pt-[var(--header-height-md)]">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="text-center">
 					<h2 className="text-3xl font-bold tracking-tight sm:text-5xl mt-8">

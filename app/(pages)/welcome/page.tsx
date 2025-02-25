@@ -16,7 +16,7 @@ export default function WelcomePage() {
             </div>
 
             {/* Main content */}
-            <div className="relative p-8 pt-20 md:p-12 md:pt-24">
+            <div className="relative p-8 pt-[var(--header-height)] md:p-12 md:pt-[var(--header-height-md)]">
                 <div className="m-auto max-w-screen-xl">
                     <div className="my-12 flex flex-col items-center">
                         <div className="relative w-96 aspect-[4/3] mb-8 overflow-hidden rounded-lg ring-1 ring-indigo-500/20">

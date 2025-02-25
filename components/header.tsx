@@ -50,7 +50,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
     }, [isMenuOpen]);
 
     return (
-        <div className="absolute z-10 w-full">
+        <div className="fixed top-0 z-50 w-full bg-black/20 backdrop-blur-sm">
             {/* Overlay */}
             {isMenuOpen && (
                 <div
@@ -59,7 +59,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 />
             )}
 
-            <div className="m-auto flex max-w-screen-2xl items-center justify-between p-8 text-2xl md:p-12">
+            <div className="m-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 text-2xl md:p-12">
                 {/* Logo section */}
                 <div className="flex items-center">
                     <Link
@@ -88,28 +88,30 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 </div>
 
                 {/* Navigation Menu Container */}
-                <div className="relative flex items-center space-x-6">
+                <div className="relative flex items-center space-x-4 md:space-x-6">
                     {/* Hamburger Button */}
                     <button
-                        className="fixed right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
+                        className="relative z-50 rounded-lg p-2 transition-colors hover:bg-gray-800/50 md:hidden"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
+                            className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "translate-y-1.5 rotate-45" : ""}`}
                         />
                         <div
-                            className={`my-1.5 h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
+                            className={`my-1.5 h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "opacity-0" : ""}`}
                         />
                         <div
-                            className={`h-0.5 w-8 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
+                            className={`h-0.5 w-6 bg-white transition-all ${isMenuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
                         />
                     </button>
 
                     {/* Navigation Menu */}
                     <div
                         ref={menuRef}
-                        className={`fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24 transition-transform duration-300 ease-in-out md:static md:block ${isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"} md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none`}
+                        className={`fixed right-0 top-0 z-45 h-screen w-72 transform bg-black/95 p-6 pt-20 transition-transform duration-300 ease-in-out md:static md:block md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none ${
+                            isMenuOpen ? "translate-x-0" : "translate-x-full"
+                        } md:translate-x-0`}
                     >
                         <NavigationMenu className="w-full cursor-pointer">
                             <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2 md:space-x-2">
@@ -162,7 +164,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 "_blank"
                             );
                         }}
-                        className="group fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base"
+                        className="group relative z-50 flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:px-6 md:py-3 md:text-base"
                     >
                         <span>Schedule a Demo</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />

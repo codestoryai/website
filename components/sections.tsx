@@ -214,7 +214,7 @@ export default function Sections({ user }: SectionProps) {
                     </div>
                 </div>
             </div>
-            <div className="overflow-hidden border-t border-t-muted bg-zinc-900 p-8 pt-24 text-background md:p-12">
+            <div className="overflow-hidden border-t border-t-muted bg-zinc-900 p-8 text-background md:p-12">
                 <div className="m-auto max-w-screen-xl">
                     <div>
                         <h4 className="flex text-lg font-bold">

@@ -110,7 +110,7 @@ export default async function AccountPage({
     );
 
     return (
-        <div className="min-h-screen bg-background bg-noise p-8 pt-20 md:p-12 md:pt-24">
+        <div className="min-h-screen bg-background bg-noise p-8 pt-[var(--header-height)] md:p-12 md:pt-[var(--header-height-md)]">
             {showUpgradeDialog && (
                 <Dialog defaultOpen>
                     <DialogContent className="w-full max-w-screen-md md:w-fit">
