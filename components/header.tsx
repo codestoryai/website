@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-<<<<<<< HEAD
 import { Bot, Sprout, ArrowRight } from "lucide-react";
 import { Dela_Gothic_One } from "next/font/google";
 
@@ -18,9 +17,6 @@ const delaGothic = Dela_Gothic_One({
     weight: "400",
     subsets: ["latin"],
 });
-=======
-import { Bot, Sprout, ArrowRight, Download } from "lucide-react";
->>>>>>> d757d65 (feat: add VSCode extension install button to header)
 
 import {
     NavigationMenu,
@@ -178,18 +174,6 @@ export default function Header({ logoSuffix }: HeaderProps) {
                             </NavigationMenuList>
                         </NavigationMenu>
                     </div>
-
-                    {/* Install Button */}
-                    <button
-                        onClick={() => {
-                            window.open("https://marketplace.visualstudio.com/items?itemName=AgentFarm.agentfarm", "_blank");
-                        }}
-                        className="group fixed bottom-20 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-green-600 to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-green-500 hover:to-green-400 hover:shadow-green-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base md:mr-4"
-                    >
-                        <span>Install</span>
-                        <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5 md:h-5 md:w-5" />
-                    </button>
-
                     {/* CTA Button */}
                     <button
                         onClick={() => {
