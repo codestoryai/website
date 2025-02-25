@@ -54,8 +54,9 @@ export default function Header({ logoSuffix }: HeaderProps) {
             {/* Overlay */}
             {isMenuOpen && (
                 <div
-                    className="fixed inset-0 z-[80] bg-black/90 md:hidden"
+                    className="fixed inset-0 z-[40] bg-black/90 backdrop-blur-sm transition-opacity duration-300 md:hidden"
                     aria-hidden="true"
+                    onClick={() => setIsMenuOpen(false)}
                 />
             )}
 
@@ -109,10 +110,10 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     {/* Navigation Menu */}
                     <div
                         ref={menuRef}
-                        className={`fixed right-0 top-0 z-[90] h-screen w-72 transform bg-black/95 p-8 pt-24 transition-transform duration-300 ease-in-out md:static md:block ${isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"} md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none`}
+                        className={`fixed right-0 top-0 z-[50] h-screen w-72 transform bg-black/95 p-8 pt-24 shadow-xl transition-all duration-300 ease-in-out md:static md:block md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none ${isMenuOpen ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                     >
-                        <NavigationMenu className="w-full cursor-pointer">
-                            <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2 md:space-x-2">
+                        <NavigationMenu className="w-full">
+                            <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2">
                                 <NavigationMenuItem>
                                     <NavigationMenuLink
                                         className={cn(
@@ -162,7 +163,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                                 "_blank"
                             );
                         }}
-                        className="group fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:static md:bottom-auto md:left-auto md:translate-x-0 md:px-6 md:py-3 md:text-base"
+                        className="group fixed bottom-8 left-1/2 z-30 -translate-x-1/2 flex items-center space-x-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 md:static md:bottom-auto md:left-auto md:z-auto md:translate-x-0 md:px-6 md:py-3 md:text-base"
                     >
                         <span>Schedule a Demo</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
