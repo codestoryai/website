@@ -74,11 +74,11 @@ export function VideoPlayer({ src, className = "" }: VideoPlayerProps) {
                     onClick={handlePlayClick}
                     className="absolute inset-0 flex items-center justify-center w-full h-full bg-black/30 group-hover:bg-black/40 transition-colors"
                 >
-                    <div className="flex flex-col items-center gap-2">
-                        <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
-                            <Play className="w-6 h-6 md:w-8 md:h-8 text-black ml-1" />
+                    <div className="flex flex-col items-center gap-1 sm:gap-2">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
+                            <Play className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-black ml-0.5 sm:ml-1" />
                         </div>
-                        {isLoaded && <span className="text-white text-sm md:text-lg font-medium max-w-[90%] truncate">{duration}</span>}
+                        {isLoaded && <span className="text-white text-xs sm:text-sm md:text-lg font-medium max-w-[80%] sm:max-w-[90%] text-center truncate">{duration}</span>}
                     </div>
                 </button>
             )}
