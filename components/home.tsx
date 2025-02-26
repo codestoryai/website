@@ -219,11 +219,11 @@ export default function Component({
                                     className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm"
                                     onClick={handlePlayClick}
                                 >
-                                    <button className="group flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25">
-                                        <Play className="h-10 w-10 fill-white transition-transform group-hover:scale-110" />
+                                    <button className="group flex h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25">
+                                        <Play className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 flex-shrink-0 fill-white transition-transform group-hover:scale-110" />
                                     </button>
                                     <h3
-                                        className={`mt-6 text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent`}
+                                        className={`mt-2 sm:mt-4 md:mt-6 text-sm sm:text-xl md:text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent max-w-[80%] sm:max-w-[90%] text-center truncate`}
                                     >
                                         See AgentFarm in Action
                                     </h3>
