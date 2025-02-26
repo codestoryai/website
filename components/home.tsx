@@ -250,7 +250,7 @@ export default function Component({
                         <h2 className={`text-center text-3xl font-bold mb-12 text-white ${delaGothic.className}`}>
                             Our Features
                         </h2>
-                        <Carousel showArrows={true} showDots={true} className="h-[400px]">
+                        <Carousel showArrows={true} showDots={true} className="h-[400px]" cardsToShow={3}>
                             {[
                                 <FeatureCard
                                     key="card1"
