@@ -8,6 +8,7 @@ declare global {
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Carousel } from "@/components/ui/carousel";
 import { Downloads } from "@/lib/types";
 import { DeviceDetails } from "@/lib/ua";
 import {
@@ -21,6 +22,9 @@ import {
     CheckCircle2,
     Sprout,
     Play,
+    Rocket,
+    Shield,
+    Globe,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -243,75 +247,140 @@ export default function Component({
 
                     {/* Feature Cards */}
                     <div className="relative w-full pb-16 md:pb-24">
-                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-                            <FeatureCard
-                                icon={<Brain className="h-8 w-8" />}
-                                title="Zero Setup"
-                                description="GitHub native integration"
-                                gradient="from-[#ff6bfd] to-indigo-500"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "One-Click Setup",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "10-second task creation",
-                                    },
-                                    {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Parallel Execution",
-                                    },
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={<GitPullRequest className="h-8 w-8" />}
-                                title="Iterate on PR"
-                                description="Automated PR workflow"
-                                gradient="from-indigo-400 to-cyan-400"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "Smart PR suggestions",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "Automatic code reviews",
-                                    },
-                                    {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Continuous improvements",
-                                    },
-                                ]}
-                            />
-                            <FeatureCard
-                                icon={<Clock className="h-8 w-8" />}
-                                title="Parallel Execution"
-                                description="Run agents in parallel"
-                                gradient="from-cyan-400 to-[#ff6bfd]"
-                                details={[
-                                    {
-                                        icon: <Code className="h-5 w-5" />,
-                                        text: "AGENTS AGENTS AGENTS",
-                                    },
-                                    {
-                                        icon: <Zap className="h-5 w-5" />,
-                                        text: "Efficient task distribution",
-                                    },
-                                    {
-                                        icon: (
-                                            <CheckCircle2 className="h-5 w-5" />
-                                        ),
-                                        text: "Real-time progress tracking",
-                                    },
-                                ]}
-                            />
-                            <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
-                        </div>
+                        <h2 className={`text-center text-3xl font-bold mb-12 text-white ${delaGothic.className}`}>
+                            Our Features
+                        </h2>
+                        <Carousel showArrows={true} showDots={true} className="h-[400px]" cardsToShow={3}>
+                            {[
+                                <FeatureCard
+                                    key="card1"
+                                    icon={<Brain className="h-8 w-8" />}
+                                    title="Zero Setup"
+                                    description="GitHub native integration"
+                                    gradient="from-[#ff6bfd] to-indigo-500"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "One-Click Setup",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "10-second task creation",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Parallel Execution",
+                                        },
+                                    ]}
+                                />,
+                                <FeatureCard
+                                    key="card2"
+                                    icon={<GitPullRequest className="h-8 w-8" />}
+                                    title="Iterate on PR"
+                                    description="Automated PR workflow"
+                                    gradient="from-indigo-400 to-cyan-400"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "Smart PR suggestions",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "Automatic code reviews",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Continuous improvements",
+                                        },
+                                    ]}
+                                />,
+                                <FeatureCard
+                                    key="card3"
+                                    icon={<Clock className="h-8 w-8" />}
+                                    title="Parallel Execution"
+                                    description="Run agents in parallel"
+                                    gradient="from-cyan-400 to-[#ff6bfd]"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "AGENTS AGENTS AGENTS",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "Efficient task distribution",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Real-time progress tracking",
+                                        },
+                                    ]}
+                                />,
+                                <FeatureCard
+                                    key="card4"
+                                    icon={<Rocket className="h-8 w-8" />}
+                                    title="Accelerated Development"
+                                    description="Boost your productivity"
+                                    gradient="from-green-400 to-blue-500"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "Automated code generation",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "Intelligent refactoring",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Optimized workflows",
+                                        },
+                                    ]}
+                                />,
+                                <FeatureCard
+                                    key="card5"
+                                    icon={<Shield className="h-8 w-8" />}
+                                    title="Enhanced Security"
+                                    description="Protect your codebase"
+                                    gradient="from-red-400 to-yellow-400"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "Vulnerability scanning",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "Security best practices",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Compliance monitoring",
+                                        },
+                                    ]}
+                                />,
+                                <FeatureCard
+                                    key="card6"
+                                    icon={<Globe className="h-8 w-8" />}
+                                    title="Global Collaboration"
+                                    description="Work together seamlessly"
+                                    gradient="from-purple-400 to-pink-400"
+                                    details={[
+                                        {
+                                            icon: <Code className="h-5 w-5" />,
+                                            text: "Real-time collaboration",
+                                        },
+                                        {
+                                            icon: <Zap className="h-5 w-5" />,
+                                            text: "Cross-team integration",
+                                        },
+                                        {
+                                            icon: <CheckCircle2 className="h-5 w-5" />,
+                                            text: "Unified workflow",
+                                        },
+                                    ]}
+                                />,
+                            ]}
+                        </Carousel>
+                        <div className="absolute -right-8 -top-8 h-64 w-64 animate-pulse rounded-full bg-indigo-500/10 blur-3xl filter"></div>
                     </div>
                 </div>
             </div>
