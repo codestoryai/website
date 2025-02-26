@@ -188,6 +188,11 @@ export default function Component({
                                     >
                                         until we run out of money
                                     </div>
+                                    <div
+                                        className={`text-cyan-400 ${delaGothic.className} mt-1`}
+                                    >
+                                        Try with 3 free PRs
+                                    </div>
                                 </div>
                             </div>
                         </div>

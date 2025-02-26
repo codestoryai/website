@@ -61,7 +61,7 @@ export default function HowToUsePage() {
                             We will upgrade your AgentFarm app within 24 hours.
                         </p>
                         <p className="text-gray-300">
-                            We offer an early-bird 99$ plan, which gives you 1000 PRs per month.
+                            We offer an early-bird <span className="text-gray-500 line-through">$99</span> <span className="text-green-400">Free</span> plan, which gives you 1000 PRs per month.
                         </p>
 
                         <h3>FAQs</h3>
