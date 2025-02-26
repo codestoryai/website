@@ -141,7 +141,7 @@ export default function Component({
                     <div className="mx-auto mt-16 max-w-4xl text-center">
                         <div className="space-y-8">
                             <h1
-                                className={`text-6xl font-bold leading-tight text-white ${delaGothic.className}`}
+                                className={`text-4xl md:text-6xl font-bold leading-tight text-white ${delaGothic.className}`}
                             >
                                 PARALLEL AGENTS <br />
                                 <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
@@ -153,7 +153,7 @@ export default function Component({
                             >
                                 SWE-Bench #1 Agent on your Codebase.
                             </p>
-                            <div className="background-green-400 flex items-center justify-center space-x-6">
+                            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
@@ -167,24 +167,20 @@ export default function Component({
                                             "_blank"
                                         );
                                     }}
-                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
+                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                                 >
                                     <div className="flex items-center">
                                         <span>Install</span>
                                     </div>
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </button>
-                                <div className="border-l border-gray-700 pl-6 text-sm text-gray-400">
+                                <div className="border-t sm:border-t-0 sm:border-l border-gray-700 pt-4 sm:pt-0 sm:pl-6 text-sm text-gray-400">
                                     <div className="flex items-center space-x-2">
                                         <div
-                                            className={`text-2xl font-bold text-white ${delaGothic.className}`}
+                                            className={`text-xl sm:text-2xl font-bold text-white ${delaGothic.className}`}
                                         >
-                                            <span className="text-gray-500 line-through">
-                                                $99
-                                            </span>{" "}
-                                            <span className="text-green-400">
-                                                Free
-                                            </span>
+                                            <span className="text-gray-500 line-through">$99</span>{" "}
+                                            <span className="text-green-400">Free</span>
                                         </div>
                                     </div>
                                     <div
