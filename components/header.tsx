@@ -35,12 +35,15 @@ interface HeaderProps {
 export default function Header({ logoSuffix }: HeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
                 menuRef.current &&
-                !menuRef.current.contains(event.target as Node)
+                !menuRef.current.contains(event.target as Node) &&
+                hamburgerButtonRef.current &&
+                !hamburgerButtonRef.current.contains(event.target as Node)
             ) {
                 setIsMenuOpen(false);
             }
@@ -101,6 +104,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                 <div className="relative flex items-center space-x-6">
                     {/* Hamburger Button */}
                     <button
+                        ref={hamburgerButtonRef}
                         className="absolute right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
                         onClick={(e) => {
                             e.stopPropagation();
