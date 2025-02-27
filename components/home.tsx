@@ -175,23 +175,13 @@ export default function Component({
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                                 </button>
                                 <div className="border-t sm:border-t-0 sm:border-l border-gray-700 pt-4 sm:pt-0 sm:pl-6 text-sm text-gray-400">
-                                    <div className="flex items-center space-x-2">
-                                        <div
-                                            className={`text-xl sm:text-2xl font-bold text-white ${delaGothic.className}`}
-                                        >
-                                            <span className="text-gray-500 line-through">$99</span>{" "}
-                                            <span className="text-green-400">Free</span>
-                                        </div>
-                                    </div>
                                     <div
                                         className={`text-green-400 ${delaGothic.className}`}
                                     >
-                                        until we run out of money
+                                        3 free PRs closed 
                                     </div>
-                                    <div
-                                        className={`text-cyan-400 ${delaGothic.className} mt-1`}
-                                    >
-                                        Try with 3 free PRs
+                                    <div className={`flex items-baseline space-x-2 ${delaGothic.className} text-2xl font-bold`}>
+                                           <span className="text-gray-500 text-sm">then</span> <span className={`text-xl sm:text-2xl font-bold text-white`}>$99</span>
                                     </div>
                                 </div>
                             </div>
