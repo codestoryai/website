@@ -186,11 +186,12 @@ export default function Header({ logoSuffix }: HeaderProps) {
                             window.uetq.push("event", "cta_clicked", {});
                             if (typeof window.gtag_report_conversion === 'function') {
                                 window.gtag_report_conversion("https://github.com/apps/agentfarmx/installations/select_target");
+                            } else {
+                                window.open(
+                                    "https://github.com/apps/agentfarmx/installations/select_target",
+                                    "_blank"
+                                );
                             }
-                            window.open(
-                                "https://github.com/apps/agentfarmx/installations/select_target",
-                                "_blank"
-                            );
                         }}
                         className={`group hidden md:flex items-center space-x-2 md:space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 md:px-8 py-2 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                     >
