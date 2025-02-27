@@ -96,6 +96,25 @@ export default async function RootLayout({
                 >
                     {`(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"187179906", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");`}
                 </Script>
+                <Script
+                    id="google-conversion-tracking"
+                    strategy="afterInteractive"
+                >
+                    {`function gtag_report_conversion(url) {
+                      var callback = function () {
+                        if (typeof(url) != 'undefined') {
+                          window.location = url;
+                        }
+                      };
+                      gtag('event', 'conversion', {
+                          'send_to': 'AW-16881199338/lENeCOrt3KMaEOrRyvE-',
+                          'value': 10.0,
+                          'currency': 'GBP',
+                          'event_callback': callback
+                      });
+                      return false;
+                    }`}
+                </Script>
                 <PHProvider>
                     <PostHogPageView />
                     <TooltipProvider delayDuration={0}>

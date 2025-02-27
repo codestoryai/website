@@ -3,6 +3,7 @@
 declare global {
     interface Window {
         uetq: any[];
+        gtag_report_conversion?: (url?: string) => boolean;
     }
 }
 
@@ -162,6 +163,11 @@ export default function Component({
                                             "cta_clicked",
                                             {}
                                         );
+                                        
+                                        // Track with Google Ads conversion
+                                        if (typeof window.gtag_report_conversion === 'function') {
+                                            window.gtag_report_conversion("https://github.com/apps/agentfarmx/installations/select_target");
+                                        }
                                         window.open(
                                             "https://github.com/apps/agentfarmx/installations/select_target",
                                             "_blank"
@@ -218,7 +224,7 @@ export default function Component({
                                         <Play className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 flex-shrink-0 fill-white transition-transform group-hover:scale-110" />
                                     </button>
                                     <h3
-                                        className={`mt-2 sm:mt-4 md:mt-6 text-sm sm:text-xl md:text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent max-w-[80%] sm:max-w-[90%] text-center truncate`}
+                                        className={`mt-2 sm:mt-4 md:mt-6 sm:text-xl md:text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent max-w-[80%] sm:max-w-[90%] text-center truncate`}
                                     >
                                         See AgentFarm in Action
                                     </h3>

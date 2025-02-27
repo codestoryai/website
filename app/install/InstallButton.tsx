@@ -12,6 +12,9 @@ export default function InstallButton({ delaGothicClassName }: InstallButtonProp
             onClick={() => {
                 window.uetq = window.uetq || [];
                 window.uetq.push("event", "install_clicked", {});
+                if (typeof window.gtag_report_conversion === 'function') {
+                    window.gtag_report_conversion("https://github.com/apps/agentfarmx/installations/select_target");
+                }
                 window.open(
                     "https://github.com/apps/agentfarmx/installations/select_target",
                     "_blank"
