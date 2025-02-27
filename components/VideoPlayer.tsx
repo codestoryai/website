@@ -78,7 +78,7 @@ export function VideoPlayer({ src, className = "" }: VideoPlayerProps) {
                         <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center rounded-full bg-white/90 group-hover:bg-white transition-colors">
                             <Play className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex-shrink-0 text-black ml-0.5 xs:ml-0.5 sm:ml-1" />
                         </div>
-                        {isLoaded && <span className="text-white text-[10px] xs:text-xs sm:text-sm md:text-lg font-medium max-w-[70%] xs:max-w-[80%] sm:max-w-[90%] text-center truncate">{duration}</span>}
+                        {isLoaded && <span className="text-white text-[10px] xs:text-xs sm:text-sm md:text-lg font-medium text-center">{duration}</span>}
                     </div>
                 </button>
             )}

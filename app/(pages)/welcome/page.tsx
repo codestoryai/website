@@ -30,7 +30,7 @@ export default function WelcomePage() {
                 <div className="mt-8 bg-gray-800/50 backdrop-blur-sm p-8 md:p-12 rounded-xl ring-1 ring-indigo-500/20">
                     <div className="m-auto max-w-screen-xl prose lg:prose-xl prose-invert prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300">
                         <p className="text-gray-300 text-xl">
-                            We just created an example issue for you. <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">Check out your notifications</a> and see our newly created issue.
+                            Go ahead and create a Github issue to see what the agent can do.
                         </p>
                         <p className="text-gray-300">
                             In case that&apos;s not clear enough, you can take a look at our <Link href="/how-to-use">how to use</Link>.
