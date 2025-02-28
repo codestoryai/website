@@ -2,7 +2,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getUser, Impersonation } from "@workos-inc/authkit-nextjs";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Fira_Sans } from "next/font/google";
+import { Inter, Dela_Gothic_One } from "next/font/google";
 import Script from "next/script";
 import React from "react";
 
@@ -19,10 +19,18 @@ const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
     ssr: false,
 });
 
-const firaSans = Fira_Sans({
+const inter = Inter({
     display: "swap",
     subsets: ["latin"],
-    weight: ["400", "600", "700", "900"],
+    weight: ["400", "500", "600", "700"],
+    variable: '--font-inter',
+});
+
+const delaGothic = Dela_Gothic_One({
+    display: "swap",
+    subsets: ["latin"],
+    weight: ["400"],
+    variable: '--font-dela-gothic',
 });
 
 export const metadata: Metadata = {
@@ -70,11 +78,11 @@ export default async function RootLayout({
 
     return (
         <html
-            className={`${firaSans.className}`}
+            className={`${inter.variable} ${delaGothic.variable}`}
             lang="en"
             suppressHydrationWarning={true}
         >
-            <body className="min-h-screen flex flex-col">
+            <body className="min-h-screen flex flex-col font-sans">
                 <Script 
                     strategy="afterInteractive" 
                     src="https://www.googletagmanager.com/gtag/js?id=AW-16881199338"

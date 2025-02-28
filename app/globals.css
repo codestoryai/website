@@ -78,7 +78,36 @@ html {
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground font-sans;
+        font-family: var(--font-inter);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-dela-gothic);
+        font-weight: 400;
+    }
+    
+    /* Stylish <br /> elements - enhanced visibility */
+    br {
+        position: relative;
+        display: block;
+        margin: 1.2em 0;
+        height: 1px;
+    }
+    
+    br::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 120px;
+        background: linear-gradient(90deg, 
+            rgba(79, 70, 229, 0.5) 0%, 
+            rgba(14, 165, 233, 0.5) 50%, 
+            rgba(52, 211, 153, 0.5) 100%);
+        border-radius: 2px;
+        box-shadow: 0 0 4px rgba(79, 70, 229, 0.2);
     }
 }
 
@@ -107,6 +136,17 @@ html {
 
 .animation-delay-4000 {
     animation-delay: 4s;
+}
+
+/* Utility classes */
+.gradient-line {
+    background: linear-gradient(90deg, 
+        rgba(79, 70, 229, 0.5) 0%, 
+        rgba(14, 165, 233, 0.5) 50%, 
+        rgba(52, 211, 153, 0.5) 100%);
+    height: 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgba(79, 70, 229, 0.2);
 }
 
 /* Smooth height transitions */

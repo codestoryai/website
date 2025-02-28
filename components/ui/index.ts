@@ -1,0 +1,1 @@
+export { StyledBreak } from './StyledBreak';

@@ -21,6 +21,10 @@ const config = {
             },
         },
         extend: {
+            fontFamily: {
+                sans: ['var(--font-inter)'],
+                heading: ['var(--font-dela-gothic)'],
+            },
             screens: {
                 "xs": "480px",
             },
