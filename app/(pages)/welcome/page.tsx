@@ -2,6 +2,45 @@ import React from 'react';
 import Link from 'next/link';
 import { VideoPlayer } from '@/components/VideoPlayer';
 
+
+type Issue = {
+    title: string;
+    number: number;
+    url: string;
+    openedBy: string;
+    openedAt: string;
+    repo: Repo;
+}
+
+
+type Repo = {
+    name: string;
+    description: string;
+    owner: string;
+    id: string;
+}
+
+type OpenIssuesData = {
+    type: 'open-issues';
+    data: {
+        issues: Issue[];
+        totalCount: number;
+    }
+}
+
+type RepoData = {
+    type: 'repos';
+    data: {
+        repos: Repo[];
+        totalCount: number;
+    }
+}
+
+type EmptyData = {
+    type: 'empty';
+}
+
+
 export default function WelcomePage() {
     return (
         <div className="relative overflow-hidden bg-black min-h-screen">
@@ -35,6 +74,14 @@ export default function WelcomePage() {
                         <p className="text-gray-300">
                             In case that&apos;s not clear enough, you can take a look at our <Link href="/how-to-use">how to use</Link>.
                         </p>
+                        <div className="mt-8 flex justify-center">
+                            <Link 
+                                href="/tasks" 
+                                className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-md transition-colors"
+                            >
+                                View Initial Tasks
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
