@@ -7,7 +7,6 @@ declare global {
     }
 }
 
-
 import { Downloads } from "@/lib/types";
 import { DeviceDetails } from "@/lib/ua";
 import {
@@ -141,7 +140,7 @@ export default function Component({
                     <div className="mx-auto mt-16 max-w-4xl text-center">
                         <div className="space-y-8">
                             <h1
-                                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white ${delaGothic.className}`}
+                                className={`text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl ${delaGothic.className}`}
                             >
                                 PARALLEL AGENTS <br />
                                 <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
@@ -149,11 +148,11 @@ export default function Component({
                                 </span>
                             </h1>
                             <p
-                                className={`text-2xl sm:text-3xl md:text-4xl font-black text-[#ff6bfd] [text-shadow:_0_0_10px_#ff6bfd] ${delaGothic.className}`}
+                                className={`text-2xl font-black text-[#ff6bfd] [text-shadow:_0_0_10px_#ff6bfd] sm:text-3xl md:text-4xl ${delaGothic.className}`}
                             >
                                 SWE-Bench #1 Agent on your Codebase.
                             </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
                                 <button
                                     onClick={() => {
                                         window.uetq = window.uetq || [];
@@ -162,11 +161,16 @@ export default function Component({
                                             "cta_clicked",
                                             {}
                                         );
-                                        
+
                                         // Track with Google Ads conversion
-                                        if (typeof window.gtag_report_conversion === 'function') {
+                                        if (
+                                            typeof window.gtag_report_conversion ===
+                                            "function"
+                                        ) {
                                             // Let gtag handle the redirection
-                                            window.gtag_report_conversion("https://github.com/apps/agentfarmx/installations/select_target");
+                                            window.gtag_report_conversion(
+                                                "https://github.com/apps/agentfarmx/installations/select_target"
+                                            );
                                         } else {
                                             // Fallback if gtag is not available
                                             window.open(
@@ -175,21 +179,30 @@ export default function Component({
                                             );
                                         }
                                     }}
-                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
+                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 sm:px-8 sm:py-4 sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
                                 >
                                     <div className="flex items-center">
                                         <span>Install</span>
                                     </div>
-                                    <ArrowRight className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 md:h-6 md:w-6 lg:h-7 lg:w-7" />
                                 </button>
-                                <div className="border-t sm:border-t-0 sm:border-l border-gray-700 pt-4 sm:pt-0 sm:pl-6 text-sm text-gray-400">
+                                <div className="border-t border-gray-700 pt-4 text-sm text-gray-400 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
                                     <div
-                                        className={`text-green-400 text-base sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
+                                        className={`text-base text-green-400 sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
                                     >
-                                        3 free PRs closed 
+                                        3 free PRs closed
                                     </div>
-                                    <div className={`flex items-baseline space-x-2 ${delaGothic.className} text-2xl font-bold`}>
-                                           <span className="text-gray-500 text-sm sm:text-base md:text-lg">then</span> <span className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white`}>$99</span>
+                                    <div
+                                        className={`flex items-baseline space-x-2 ${delaGothic.className} text-2xl font-bold`}
+                                    >
+                                        <span className="text-sm text-gray-500 sm:text-base md:text-lg">
+                                            then
+                                        </span>{" "}
+                                        <span
+                                            className={`text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl`}
+                                        >
+                                            $49
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -222,11 +235,11 @@ export default function Component({
                                     className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm"
                                     onClick={handlePlayClick}
                                 >
-                                    <button className="group flex h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25">
-                                        <Play className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 flex-shrink-0 fill-white transition-transform group-hover:scale-110" />
+                                    <button className="group flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#ff6bfd] to-indigo-500 text-white shadow-lg transition-all hover:scale-110 hover:shadow-[#ff6bfd]/25 sm:h-16 sm:w-16 md:h-20 md:w-20">
+                                        <Play className="h-6 w-6 flex-shrink-0 fill-white transition-transform group-hover:scale-110 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                                     </button>
                                     <h3
-                                        className={`mt-2 sm:mt-4 md:mt-6 sm:text-xl md:text-2xl font-bold text-white ${delaGothic.className} bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent max-w-[80%] sm:max-w-[90%] text-center truncate`}
+                                        className={`mt-2 font-bold text-white sm:mt-4 sm:text-xl md:mt-6 md:text-2xl ${delaGothic.className} max-w-[80%] truncate bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-center text-transparent sm:max-w-[90%]`}
                                     >
                                         See AgentFarm in Action
                                     </h3>
