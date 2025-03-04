@@ -178,7 +178,7 @@ export default function Component({
                                     className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                                 >
                                     <div className="flex items-center">
-                                        <span>Install</span>
+                                        <span>Install on GitHub</span>
                                     </div>
                                     <ArrowRight className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 transition-transform group-hover:translate-x-1" />
                                 </button>
