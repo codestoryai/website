@@ -195,7 +195,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         }}
                         className={`group hidden md:flex items-center space-x-2 md:space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 md:px-8 py-2 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                     >
-                        <span>Install on GitHub</span>
+                        <span>Try it for free on Github</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
                     </button>
                 </div>
