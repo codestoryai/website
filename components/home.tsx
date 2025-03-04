@@ -182,27 +182,22 @@ export default function Component({
                                     className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 sm:px-8 sm:py-4 sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
                                 >
                                     <div className="flex items-center">
-                                        <span>Install</span>
+                                        <span>Try for free on GitHub</span>
                                     </div>
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 md:h-6 md:w-6 lg:h-7 lg:w-7" />
                                 </button>
                                 <div className="border-t border-gray-700 pt-4 text-sm text-gray-400 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
                                     <div
-                                        className={`text-base text-green-400 sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
+                                        className={`text-base text-white sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
                                     >
-                                        3 free PRs closed
+                                        $49 per month
                                     </div>
-                                    <div
-                                        className={`flex items-baseline space-x-2 ${delaGothic.className} text-2xl font-bold`}
-                                    >
-                                        <span className="text-sm text-gray-500 sm:text-base md:text-lg">
-                                            then
-                                        </span>{" "}
-                                        <span
-                                            className={`text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl`}
-                                        >
-                                            $49
+                                    <div className="text-sm text-gray-400">
+                                        <span className="text-white">
+                                            1000 PRs
                                         </span>
+                                        <span className="mx-1">•</span>
+                                        <span>$0.049 per PR</span>
                                     </div>
                                 </div>
                             </div>
