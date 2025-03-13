@@ -105,25 +105,26 @@ export default function Header({ logoSuffix }: HeaderProps) {
                     {/* Hamburger Button */}
                     <button
                         ref={hamburgerButtonRef}
-                        className="absolute right-8 top-8 z-[100] rounded-lg p-3 hover:bg-gray-800/50 md:hidden"
-                        onClick={(e) => {
-                            e.stopPropagation();
+                        className="fixed right-8 top-8 z-[100] flex h-12 w-12 items-center justify-center rounded-lg hover:bg-gray-800/50 md:hidden"
+                        onClick={() => {
                             setIsMenuOpen(!isMenuOpen);
                         }}
                         aria-label="Toggle menu"
                     >
-                        <div className={cn(
-                            "h-0.5 w-8 bg-white transition-all duration-300",
-                            isMenuOpen ? "translate-y-[7px] rotate-45" : ""
-                        )} />
-                        <div className={cn(
-                            "my-1.5 h-0.5 w-8 bg-white transition-all duration-300",
-                            isMenuOpen ? "opacity-0" : ""
-                        )} />
-                        <div className={cn(
-                            "h-0.5 w-8 bg-white transition-all duration-300",
-                            isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
-                        )} />
+                        <div className="relative h-6 w-6">
+                            <div className={cn(
+                                "absolute left-0 top-2.5 h-0.5 w-6 bg-white transition-all duration-300",
+                                isMenuOpen ? "rotate-45" : ""
+                            )} />
+                            <div className={cn(
+                                "absolute left-0 top-2.5 h-0.5 w-6 bg-white transition-all duration-300",
+                                isMenuOpen ? "opacity-0" : ""
+                            )} />
+                            <div className={cn(
+                                "absolute left-0 top-2.5 h-0.5 w-6 bg-white transition-all duration-300",
+                                isMenuOpen ? "-rotate-45" : ""
+                            )} />
+                        </div>
                     </button>
 
                     {/* Navigation Menu */}
@@ -135,7 +136,6 @@ export default function Header({ logoSuffix }: HeaderProps) {
                             "md:static md:block md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 md:pt-0 md:shadow-none",
                             isMenuOpen ? "translate-x-0 shadow-lg" : "translate-x-full"
                         )}
-                        onClick={(e) => e.stopPropagation()}
                     >
                         <NavigationMenu className="w-full cursor-pointer">
                             <NavigationMenuList className="flex-col items-start gap-6 md:flex-row md:items-center md:gap-2 md:space-x-2">
@@ -195,7 +195,7 @@ export default function Header({ logoSuffix }: HeaderProps) {
                         }}
                         className={`group hidden md:flex items-center space-x-2 md:space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 md:px-8 py-2 md:py-4 text-base md:text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                     >
-                        <span>Install</span>
+                        <span>Try it for free on Github</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
                     </button>
                 </div>

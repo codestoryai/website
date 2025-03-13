@@ -155,34 +155,36 @@ export default function Component({
                             <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
                                 <button
                                     onClick={() => {
-                                        window.uetq = window.uetq || [];
-                                        window.uetq.push(
-                                            "event",
-                                            "cta_clicked",
-                                            {}
-                                        );
-
-                                        // Track with Google Ads conversion
-                                        if (
-                                            typeof window.gtag_report_conversion ===
-                                            "function"
-                                        ) {
-                                            // Let gtag handle the redirection
-                                            window.gtag_report_conversion(
-                                                "https://github.com/apps/agentfarmx/installations/select_target"
-                                            );
-                                        } else {
-                                            // Fallback if gtag is not available
-                                            window.open(
-                                                "https://github.com/apps/agentfarmx/installations/select_target",
-                                                "_blank"
-                                            );
+                                        // Store the target URL
+                                        const targetUrl = "https://github.com/apps/agentfarmx/installations/select_target";
+                                        
+                                        // Primary action - open the GitHub page immediately
+                                        window.open(targetUrl, "_blank");
+                                        
+                                        // Try to capture telemetry after the primary action
+                                        try {
+                                            // Microsoft UET tracking
+                                            if (window.uetq) {
+                                                window.uetq.push("event", "cta_clicked", {});
+                                            }
+                                        } catch (e) {
+                                            console.log("Telemetry tracking error (UET):", e);
+                                        }
+                                        
+                                        try {
+                                            // Google Ads conversion tracking
+                                            if (typeof window.gtag_report_conversion === 'function') {
+                                                window.gtag_report_conversion();
+                                            }
+                                        } catch (e) {
+                                            console.log("Telemetry tracking error (Google):", e);
                                         }
                                     }}
-                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 sm:px-8 sm:py-4 sm:text-lg md:text-xl lg:text-2xl ${delaGothic.className}`}
+                                    data-action="install-github-app"
+                                    className={`group flex items-center space-x-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white shadow-lg transition-all hover:scale-105 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-indigo-500/25 ${delaGothic.className}`}
                                 >
                                     <div className="flex items-center">
-                                        <span>Try for free on GitHub</span>
+                                        <span>Try it for free on Github</span>
                                     </div>
                                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 md:h-6 md:w-6 lg:h-7 lg:w-7" />
                                 </button>
